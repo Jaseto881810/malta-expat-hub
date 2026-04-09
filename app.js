@@ -1,73 +1,114 @@
-const config = {
-    languages: {
-        en: "English", it: "Italiano", es: "Español", fr: "Français", 
-        de: "Deutsch", hi: "हिन्दी", pa: "ਪੰਜਾਬੀ", tl: "Filipino", "pt-br": "Português"
-    },
+/**
+ * Malta Expat Hub 2026 Logic
+ * Handles 9 languages and 10 dynamic pages
+ */
+
+const siteConfig = {
     sections: [
-        { id: 'getting-started', icon: '🚀', title: { en: 'Getting Started', it: 'Iniziare', pa: 'ਸ਼ੁਰੂ ਕਰਨਾ' } },
-        { id: 'expat-info', icon: '🛂', title: { en: 'Expat Info', it: 'Info Espatriati', pa: 'ਪ੍ਰਵਾਸੀ ਜਾਣਕਾਰੀ' } },
-        { id: 'basic-info', icon: '🇲🇹', title: { en: 'About Malta', it: 'Su Malta', pa: 'ਮਾਲਟਾ ਬਾਰੇ' } },
-        { id: 'accommodation', icon: '🏠', title: { en: 'Accommodation', it: 'Alloggio', pa: 'ਰਿਹਾਇਸ਼' } },
-        { id: 'education', icon: '🎓', title: { en: 'Education', it: 'Istruzione', pa: 'ਸਿੱਖਿਆ' } },
-        { id: 'services', icon: '🏥', title: { en: 'Services', it: 'Servizi', pa: 'ਸੇਵਾਵਾਂ' } },
-        { id: 'safety', icon: '🛡️', title: { en: 'Safety', it: 'Sicurezza', pa: 'ਸੁਰੱਖਿਆ' } },
-        { id: 'lifestyle', icon: '☀️', title: { en: 'Lifestyle', it: 'Stile di vita', pa: 'ਜੀਵਨ ਸ਼ੈਲੀ' } },
-        { id: 'locations', icon: '📍', title: { en: 'Locations', it: 'Località', pa: 'ਟਿਕਾਣੇ' } }
+        { id: 'getting-started', icon: '🚀', title: { en: 'Getting Started', pa: 'ਸ਼ੁਰੂ ਕਰਨਾ', 'pt-br': 'Iniciando', hi: 'शुरू करना' } },
+        { id: 'expat-info', icon: '🛂', title: { en: 'Expat Info', pa: 'ਪ੍ਰਵਾਸੀ ਜਾਣਕਾਰੀ', 'pt-br': 'Info Expats', it: 'Info Espatriati' } },
+        { id: 'basic-info', icon: '🇲🇹', title: { en: 'Basic Info', pa: 'ਮੁੱਢਲੀ ਜਾਣਕਾਰੀ', 'pt-br': 'Informação Básica' } },
+        { id: 'accommodation', icon: '🏠', title: { en: 'Accommodation', pa: 'ਰਿਹਾਇਸ਼', 'pt-br': 'Acomodação' } },
+        { id: 'education', icon: '🎓', title: { en: 'Education', pa: 'ਸਿੱਖਿਆ', 'pt-br': 'Educação' } },
+        { id: 'services', icon: '🏥', title: { en: 'Services', pa: 'ਸੇਵਾਵਾਂ', 'pt-br': 'Serviços' } },
+        { id: 'safety', icon: '🛡️', title: { en: 'Safety', pa: 'ਸੁਰੱਖਿਆ', 'pt-br': 'Segurança' } },
+        { id: 'lifestyle', icon: '☀️', title: { en: 'Lifestyle', pa: 'ਜੀਵਨ ਸ਼ੈਲੀ', 'pt-br': 'Estilo de Vida' } },
+        { id: 'locations', icon: '📍', title: { en: 'Locations', pa: 'ਟਿਕਾਣੇ', 'pt-br': 'Localizações' } }
     ]
 };
 
-let currentLang = 'en';
+let currentLanguage = 'en';
 
-function setLang(lang) {
-    currentLang = lang;
-    document.getElementById('langLabel').innerText = config.languages[lang];
-    toggleLangModal();
-    renderGrid();
-    showHome();
-}
-
-function renderGrid() {
+/**
+ * Renders the main 10-section navigation grid
+ */
+window.renderGrid = function() {
     const grid = document.getElementById('home-grid');
-    grid.innerHTML = config.sections.map(s => `
-        <div onclick="showPage('${s.id}')" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover transition-all cursor-pointer text-center">
-            <div class="text-4xl mb-4">${s.icon}</div>
-            <h3 class="text-xl font-bold text-slate-800">${s.title[currentLang] || s.title['en']}</h3>
-            <p class="text-slate-400 text-sm mt-2">View Guide →</p>
+    if (!grid) return;
+
+    grid.innerHTML = siteConfig.sections.map(s => `
+        <div onclick="showPage('${s.id}')" class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 card-hover transition-all cursor-pointer text-center group">
+            <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform">${s.icon}</div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">${s.title[currentLanguage] || s.title['en']}</h3>
+            <p class="text-[#CF142B] text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-wider">Explore</p>
         </div>
     `).join('');
-}
+};
 
-function showPage(id) {
-    document.getElementById('hero').classList.remove('active');
-    document.getElementById('home-grid').classList.remove('active');
-    document.getElementById('content-view').classList.add('active');
+/**
+ * Navigates to a specific content page
+ */
+window.showPage = function(id) {
+    document.getElementById('hero').style.display = 'none';
+    document.getElementById('home-grid').style.display = 'none';
+    const contentView = document.getElementById('content-view');
+    contentView.classList.add('active');
     
-    // In a real app, you'd pull full text from a translation file. 
-    // Here we'll generate a placeholder.
-    document.getElementById('page-body').innerHTML = `
-        <h1 class="text-4xl font-serif text-[#0055A4] mb-6">${id.replace('-', ' ').toUpperCase()}</h1>
-        <p class="text-lg text-slate-600">This section provides comprehensive details about ${id.replace('-', ' ')} in Malta for 2026.</p>
-        <div class="mt-8 p-6 bg-blue-50 rounded-2xl">
-            <h4 class="font-bold">2026 Note:</h4>
-            <p>Always verify visa and rental requirements with Identità Malta (formerly Identity Malta) before making payments.</p>
-        </div>
-    `;
-    window.scrollTo(0,0);
-}
+    // 2026 Specific Content Logic
+    let pageHtml = `<h1 class="text-4xl md:text-5xl font-serif text-[#0055A4] mb-8 leading-tight">${id.replace('-', ' ').toUpperCase()}</h1>`;
+    
+    if (id === 'getting-started') {
+        pageHtml += `
+            <div class="space-y-6">
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl">
+                    <h4 class="text-red-800 font-bold text-lg mb-2">Mandatory: 2026 Skills Pass</h4>
+                    <p class="text-red-700">Since March 1, 2026, all new Third Country Nationals must complete the <b>€250 Pre-Departure Course</b> before applying for a work permit.</p>
+                </div>
+                <p>To move to Malta, you generally follow these steps:</p>
+                <ol class="list-decimal pl-6 space-y-3">
+                    <li>Secure a job offer or apply as a Digital Nomad.</li>
+                    <li>Complete the mandatory online integration course (20 hours).</li>
+                    <li>Pass the English proficiency interview.</li>
+                    <li>Apply for the Single Permit (€600 fee).</li>
+                </ol>
+            </div>
+        `;
+    } else {
+        pageHtml += `<p class='text-lg text-slate-600'>Our 2026 guide for <b>${id}</b> is being finalized with the latest local regulations. Check back for full details on taxes, banking, and neighborhood vibes.</p>`;
+    }
+    
+    document.getElementById('page-body').innerHTML = pageHtml;
+    window.scrollTo(0, 0);
+};
 
-function showHome() {
-    document.getElementById('hero').classList.add('active');
-    document.getElementById('home-grid').classList.add('active');
+/**
+ * Returns to the Home/Grid view
+ */
+window.showHome = function() {
+    document.getElementById('hero').style.display = 'flex';
+    document.getElementById('home-grid').style.display = 'grid';
     document.getElementById('content-view').classList.remove('active');
-}
+};
 
-function toggleLangModal() {
-    const m = document.getElementById('langModal');
-    m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
-}
+/**
+ * Changes the site language
+ */
+window.setLang = function(lang, name) {
+    currentLanguage = lang;
+    document.getElementById('langLabel').innerText = name;
+    document.getElementById('langModal').classList.remove('modal-active');
+    
+    // Update the UI
+    document.getElementById('hero-title').innerText = (lang === 'pa') ? "ਮਾਲਟਾ ਵਿੱਚ ਤੁਹਾਡੀ ਜ਼ਿੰਦਗੀ ਇੱਥੇ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ" : "Your Life in Malta Starts Here";
+    
+    renderGrid();
+};
 
-function scrollToContent() {
+/**
+ * Toggles the language selection overlay
+ */
+window.toggleLangModal = function() {
+    document.getElementById('langModal').classList.toggle('modal-active');
+};
+
+/**
+ * Smooth scrolls to the navigation cards
+ */
+window.scrollToGrid = function() {
     document.getElementById('home-grid').scrollIntoView({ behavior: 'smooth' });
-}
+};
 
-window.onload = () => { renderGrid(); };
+// INITIALIZATION: Run when the page is ready
+document.addEventListener('DOMContentLoaded', () => {
+    window.renderGrid();
+});
