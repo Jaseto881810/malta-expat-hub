@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malta Expat Hub | 2026 Relocation Portal</title>
+    <title>Malta Expat Hub | 2026 Official Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Noto+Sans+Devanagari&family=Noto+Sans+Gurmukhi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&family=Noto+Sans+Devanagari&family=Noto+Sans+Gurmukhi&display=swap" rel="stylesheet">
     <style>
-        :root { --luzzu-blue: #0055A4; --limestone: #E3D4B6; --hibiscus: #CF142B; }
-        body { font-family: 'Inter', 'Noto Sans Devanagari', 'Noto Sans Gurmukhi', sans-serif; background-color: #fdfbf7; }
+        :root { --luzzu-blue: #0055A4; --hibiscus: #CF142B; }
+        body { font-family: 'Inter', 'Noto Sans Devanagari', 'Noto Sans Gurmukhi', sans-serif; background-color: #fdfbf7; scroll-behavior: smooth; }
         h1, h2 { font-family: 'Playfair Display', serif; }
         .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
         .hero-bg { 
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?auto=format&fit=crop&q=80&w=2000');
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?auto=format&fit=crop&q=80&w=2000');
             background-size: cover; background-position: center; 
         }
-        .card-hover:hover { transform: translateY(-5px); border-color: var(--hibiscus); }
+        .card-hover:hover { transform: translateY(-5px); border-color: var(--hibiscus); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
         .page-content { display: none; }
-        .active { display: block; }
+        .active { display: block !important; }
+        #langModal { display: none; }
+        #langModal.modal-active { display: flex; }
     </style>
 </head>
-<body>
+<body class="text-slate-900">
 
-    <nav class="glass sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
-        <div class="text-2xl font-bold text-[#0055A4] cursor-pointer" onclick="showHome()">M<span class="text-[#CF142B]">*</span>LTA</div>
-        <button onclick="toggleLangModal()" class="bg-white/50 border px-4 py-2 rounded-full text-sm font-semibold shadow-sm hover:bg-white transition">
+    <nav class="glass sticky top-0 z-50 px-6 py-4 flex justify-between items-center shadow-sm">
+        <div class="text-2xl font-bold text-[#0055A4] cursor-pointer tracking-tight" onclick="showHome()">M<span class="text-[#CF142B]">*</span>LTA <span class="text-xs font-normal text-slate-400 uppercase ml-1">Expat Hub</span></div>
+        <button onclick="toggleLangModal()" class="bg-white/90 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold shadow-sm hover:shadow-md transition-all active:scale-95">
             🌐 <span id="langLabel">English</span>
         </button>
     </nav>
 
-    <header id="hero" class="hero-bg h-[60vh] flex items-center justify-center text-center px-4 active page">
-        <div class="glass p-8 md:p-12 rounded-2xl max-w-2xl shadow-2xl">
-            <h1 class="text-4xl md:text-6xl mb-6 text-white drop-shadow-md" data-i18n="hero-title">Your Life in Malta Starts Here</h1>
-            <button onclick="scrollToContent()" class="bg-[#CF142B] text-white px-8 py-3 rounded-full font-bold hover:bg-red-700 transition shadow-lg" data-i18n="hero-btn">Explore The Guide</button>
+    <header id="hero" class="hero-bg h-[50vh] flex items-center justify-center text-center px-4 active page">
+        <div class="glass p-10 md:p-16 rounded-3xl max-w-3xl shadow-2xl mx-auto">
+            <h1 id="hero-title" class="text-4xl md:text-6xl mb-6 text-white font-bold leading-tight">Moving to Malta?</h1>
+            <p class="text-white/90 text-lg mb-8 max-w-lg mx-auto">The centralized 2026 guide for visas, housing, and life on the islands.</p>
+            <button onclick="scrollToGrid()" class="bg-[#CF142B] text-white px-10 py-4 rounded-full font-bold hover:bg-red-700 transition-all shadow-lg text-lg">Start Exploring</button>
         </div>
     </header>
 
@@ -41,25 +44,33 @@
         <div id="home-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 active page">
             </div>
 
-        <div id="content-view" class="page-content bg-white p-8 md:p-16 rounded-3xl shadow-xl border border-slate-100">
-            <button onclick="showHome()" class="mb-8 text-[#CF142B] font-bold flex items-center gap-2">← <span data-i18n="back">Back to Overview</span></button>
-            <div id="page-body" class="prose prose-lg max-w-none">
+        <div id="content-view" class="page-content bg-white p-8 md:p-16 rounded-[2rem] shadow-xl border border-slate-100">
+            <button onclick="showHome()" class="mb-10 text-[#CF142B] font-bold flex items-center gap-2 hover:translate-x-[-4px] transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span data-i18n="back">Back to Overview</span>
+            </button>
+            <div id="page-body" class="prose prose-lg max-w-none prose-slate prose-headings:font-serif">
                 </div>
         </div>
     </main>
 
-    <div id="langModal" class="fixed inset-0 bg-black/60 z-[60] hidden items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-8 max-w-2xl w-full grid grid-cols-2 md:grid-cols-3 gap-3">
-            <button onclick="setLang('en')" class="p-3 border rounded-xl hover:bg-blue-50">🇬🇧 English</button>
-            <button onclick="setLang('it')" class="p-3 border rounded-xl hover:bg-blue-50">🇮🇹 Italiano</button>
-            <button onclick="setLang('es')" class="p-3 border rounded-xl hover:bg-blue-50">🇪🇸 Español</button>
-            <button onclick="setLang('fr')" class="p-3 border rounded-xl hover:bg-blue-50">🇫🇷 Français</button>
-            <button onclick="setLang('de')" class="p-3 border rounded-xl hover:bg-blue-50">🇩🇪 Deutsch</button>
-            <button onclick="setLang('hi')" class="p-3 border rounded-xl hover:bg-blue-50">🇮🇳 हिन्दी</button>
-            <button onclick="setLang('pa')" class="p-3 border rounded-xl hover:bg-blue-50">🇮🇳 ਪੰਜਾਬੀ</button>
-            <button onclick="setLang('tl')" class="p-3 border rounded-xl hover:bg-blue-50">🇵🇭 Filipino</button>
-            <button onclick="setLang('pt-br')" class="p-3 border rounded-xl hover:bg-blue-50">🇧🇷 Português</button>
-            <button onclick="toggleLangModal()" class="col-span-full mt-4 text-center text-slate-400">Cancel</button>
+    <div id="langModal" class="fixed inset-0 bg-slate-900/80 z-[60] items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 max-w-2xl w-full shadow-2xl">
+            <h2 class="text-2xl font-bold mb-6 text-center">Select Your Language</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <button onclick="setLang('en', 'English')" class="p-4 border rounded-2xl hover:bg-slate-50 hover:border-blue-500 transition-all font-medium">🇬🇧 English</button>
+                <button onclick="setLang('it', 'Italiano')" class="p-4 border rounded-2xl hover:bg-slate-50 hover:border-blue-500 transition-all font-medium">🇮🇹 Italiano</button>
+                <button onclick="setLang('es', 'Español')" class="p-4 border rounded-2xl hover:bg-slate-50 hover:border-blue-500 transition-all font-medium">🇪🇸 Español</button>
+                <button onclick="setLang('fr', 'Français')" class="p-4 border rounded-2xl hover:bg-slate-50 hover:border-blue-500 transition-all font-medium">🇫🇷 Français</button>
+                <button onclick="setLang('de', 'Deutsch')" class="p-4 border rounded-2xl hover:bg-slate-50 hover:border-blue-500 transition-all font-medium">🇩🇪 Deutsch</button>
+                <button onclick="setLang('hi', 'हिन्दी')" class="p-4 border rounded-2xl hover:bg-slate-50 hover:border-blue-500 transition-all font-medium">🇮🇳 हिन्दी</button>
+                <button onclick="setLang('pa', 'ਪੰਜਾਬੀ')" class="p-4 border rounded-2xl hover:bg-slate-50 hover:border-blue-500 transition-all font-medium">🇮🇳 ਪੰਜਾਬੀ</button>
+                <button onclick="setLang('tl', 'Filipino')" class="p-4 border rounded-2xl hover:bg-slate-50 hover:border-blue-500 transition-all font-medium">🇵🇭 Filipino</button>
+                <button onclick="setLang('pt-br', 'Português')" class="p-4 border rounded-2xl hover:bg-slate-50 hover:border-blue-500 transition-all font-medium">🇧🇷 Português</button>
+            </div>
+            <button onclick="toggleLangModal()" class="w-full mt-6 py-3 text-slate-400 font-medium hover:text-slate-600 transition-colors">Close</button>
         </div>
     </div>
 
