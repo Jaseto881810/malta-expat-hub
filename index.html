@@ -3,82 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malta Expat Hub | Your Move Simplified</title>
+    <title>Malta Expat Hub 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&family=Noto+Sans+Devanagari&family=Noto+Sans+Gurmukhi&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --luzzu-blue: #0055A4;
-            --limestone: #E3D4B6;
-            --hibiscus: #CF142B;
-        }
-        body { font-family: 'Inter', sans-serif; background-color: #fdfbf7; }
-        h1, h2 { font-family: 'Playfair Display', serif; }
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
-        }
+        body { font-family: 'Inter', 'Noto Sans Devanagari', 'Noto Sans Gurmukhi', sans-serif; }
+        .page { display: none; }
+        .page.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 100; }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="bg-[#FDFBF7] text-slate-900">
 
-    <nav class="glass sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
-        <div class="text-2xl font-bold text-[#0055A4]">M<span class="text-[#CF142B]">*</span>LTA</div>
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b px-6 py-4 flex justify-between items-center">
+        <div class="text-xl font-bold text-blue-800 cursor-pointer" onclick="showPage('home')">MALTA EXPAT HUB</div>
         
-        <div class="hidden md:flex space-x-8 font-medium">
-            <a href="#residency" data-i18n="nav-residency">Residency</a>
-            <a href="#housing" data-i18n="nav-housing">Housing</a>
-            <a href="#jobs" data-i18n="nav-jobs">Jobs</a>
-            <a href="#community" data-i18n="nav-community">Community</a>
+        <div class="flex items-center space-x-4">
+            <button onclick="toggleModal()" class="border px-4 py-1 rounded-full text-sm font-medium hover:bg-slate-50">
+                🌐 <span id="currentLangDisplay">English</span>
+            </button>
+            <button id="menuBtn" class="lg:hidden">☰</button>
         </div>
-
-        <select id="langSwitcher" class="bg-white border border-slate-200 rounded-md px-2 py-1 outline-none cursor-pointer">
-            <option value="en">🇬🇧 EN</option>
-            <option value="it">🇮🇹 IT</option>
-            <option value="de">🇩🇪 DE</option>
-            <option value="fr">🇫🇷 FR</option>
-        </select>
     </nav>
 
-    <header class="hero-bg h-[70vh] flex items-center justify-center text-center px-4">
-        <div class="glass p-8 md:p-12 rounded-2xl max-w-2xl shadow-2xl">
-            <h1 class="text-4xl md:text-6xl mb-6 text-slate-900" data-i18n="hero-title">Your Life in Malta Starts Here</h1>
-            <button class="bg-[#CF142B] text-white px-8 py-3 rounded-full font-bold hover:bg-red-700 transition shadow-lg" data-i18n="hero-btn">
-                Start My Move Checklist
-            </button>
+    <div id="content-area">
         </div>
-    </header>
 
-    <section class="max-w-6xl mx-auto py-20 px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center" data-i18n="essentials-title">The Essentials</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition text-center">
-                <div class="text-4xl mb-4">🛂</div>
-                <h3 class="text-xl font-bold mb-2" data-i18n="card-res-title">Residency</h3>
-                <p class="text-slate-500 text-sm" data-i18n="card-res-desc">Visas, ID cards, and Nomad Residence Permits.</p>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition text-center">
-                <div class="text-4xl mb-4">🏠</div>
-                <h3 class="text-xl font-bold mb-2" data-i18n="card-house-title">Housing</h3>
-                <p class="text-slate-500 text-sm" data-i18n="card-house-desc">Finding the right rental in Sliema, St. Paul's, or Gozo.</p>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition text-center">
-                <div class="text-4xl mb-4">💼</div>
-                <h3 class="text-xl font-bold mb-2" data-i18n="card-jobs-title">Jobs</h3>
-                <p class="text-slate-500 text-sm" data-i18n="card-jobs-desc">Tax registrations and the local job market.</p>
-            </div>
+    <div id="langModal" class="modal">
+        <div class="bg-white p-8 rounded-3xl max-w-2xl w-full mx-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+            <button onclick="changeLang('en', 'English')" class="p-4 border rounded-xl hover:bg-blue-50">🇬🇧 English</button>
+            <button onclick="changeLang('it', 'Italiano')" class="p-4 border rounded-xl hover:bg-blue-50">🇮🇹 Italiano</button>
+            <button onclick="changeLang('es', 'Español')" class="p-4 border rounded-xl hover:bg-blue-50">🇪🇸 Español</button>
+            <button onclick="changeLang('fr', 'Français')" class="p-4 border rounded-xl hover:bg-blue-50">🇫🇷 Français</button>
+            <button onclick="changeLang('de', 'Deutsch')" class="p-4 border rounded-xl hover:bg-blue-50">🇩🇪 Deutsch</button>
+            <button onclick="changeLang('hi', 'हिन्दी')" class="p-4 border rounded-xl hover:bg-blue-50">🇮🇳 हिन्दी</button>
+            <button onclick="changeLang('pa', 'ਪੰਜਾਬੀ')" class="p-4 border rounded-xl hover:bg-blue-50">🇮🇳 ਪੰਜਾਬੀ</button>
+            <button onclick="changeLang('tl', 'Filipino')" class="p-4 border rounded-xl hover:bg-blue-50">🇵🇭 Filipino</button>
+            <button onclick="changeLang('pt-br', 'Português')" class="p-4 border rounded-xl hover:bg-blue-50">🇧🇷 Português</button>
+            <button onclick="toggleModal()" class="col-span-full mt-4 text-slate-400 text-sm">Close</button>
         </div>
-    </section>
-
-    <footer class="bg-slate-900 text-slate-400 py-12 px-6 text-center">
-        <p>© 2026 Malta Expat Hub. Build your Mediterranean dream.</p>
-    </footer>
+    </div>
 
     <script src="app.js"></script>
 </body>
