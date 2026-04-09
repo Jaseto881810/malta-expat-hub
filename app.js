@@ -1,114 +1,97 @@
-/**
- * Malta Expat Hub 2026 Logic
- * Handles 9 languages and 10 dynamic pages
- */
-
-const siteConfig = {
+const hubData = {
+    languages: [
+        { id: 'en', name: 'English', flag: '🇬🇧' },
+        { id: 'it', name: 'Italiano', flag: '🇮🇹' },
+        { id: 'es', name: 'Español', flag: '🇪🇸' },
+        { id: 'fr', name: 'Français', flag: '🇫🇷' },
+        { id: 'de', name: 'Deutsch', flag: '🇩🇪' },
+        { id: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
+        { id: 'pa', name: 'ਪੰਜਾਬੀ', flag: '🇮🇳' },
+        { id: 'tl', name: 'Filipino', flag: '🇵🇭' },
+        { id: 'pt-br', name: 'Português', flag: '🇧🇷' }
+    ],
     sections: [
-        { id: 'getting-started', icon: '🚀', title: { en: 'Getting Started', pa: 'ਸ਼ੁਰੂ ਕਰਨਾ', 'pt-br': 'Iniciando', hi: 'शुरू करना' } },
-        { id: 'expat-info', icon: '🛂', title: { en: 'Expat Info', pa: 'ਪ੍ਰਵਾਸੀ ਜਾਣਕਾਰੀ', 'pt-br': 'Info Expats', it: 'Info Espatriati' } },
-        { id: 'basic-info', icon: '🇲🇹', title: { en: 'Basic Info', pa: 'ਮੁੱਢਲੀ ਜਾਣਕਾਰੀ', 'pt-br': 'Informação Básica' } },
-        { id: 'accommodation', icon: '🏠', title: { en: 'Accommodation', pa: 'ਰਿਹਾਇਸ਼', 'pt-br': 'Acomodação' } },
-        { id: 'education', icon: '🎓', title: { en: 'Education', pa: 'ਸਿੱਖਿਆ', 'pt-br': 'Educação' } },
-        { id: 'services', icon: '🏥', title: { en: 'Services', pa: 'ਸੇਵਾਵਾਂ', 'pt-br': 'Serviços' } },
-        { id: 'safety', icon: '🛡️', title: { en: 'Safety', pa: 'ਸੁਰੱਖਿਆ', 'pt-br': 'Segurança' } },
-        { id: 'lifestyle', icon: '☀️', title: { en: 'Lifestyle', pa: 'ਜੀਵਨ ਸ਼ੈਲੀ', 'pt-br': 'Estilo de Vida' } },
-        { id: 'locations', icon: '📍', title: { en: 'Locations', pa: 'ਟਿਕਾਣੇ', 'pt-br': 'Localizações' } }
+        { id: 'getting-started', icon: '🚀', title: { en: 'Getting Started', pa: 'ਸ਼ੁਰੂ ਕਰਨਾ', hi: 'शुरू करना', 'pt-br': 'Primeiros Passos' } },
+        { id: 'expat-info', icon: '🛂', title: { en: 'Expat Info', it: 'Info Espatriati', tl: 'Impormasyon sa Expat' } },
+        { id: 'basic-info', icon: '🇲🇹', title: { en: 'Basic Info', fr: 'Infos de Base', de: 'Basisinfos' } },
+        { id: 'accommodation', icon: '🏠', title: { en: 'Accommodation', es: 'Alojamiento', pa: 'ਰਿਹਾਇਸ਼' } },
+        { id: 'education', icon: '🎓', title: { en: 'Education', hi: 'शिक्षा', tl: 'Edukasyon' } },
+        { id: 'services', icon: '🏥', title: { en: 'Services', it: 'Servizi', 'pt-br': 'Serviços' } },
+        { id: 'safety', icon: '🛡️', title: { en: 'Safety', es: 'Seguridad', de: 'Sicherheit' } },
+        { id: 'lifestyle', icon: '☀️', title: { en: 'Lifestyle', fr: 'Mode de vie', hi: 'जीवन शैली' } },
+        { id: 'locations', icon: '📍', title: { en: 'Locations', pa: 'ਟਿਕਾਣੇ', tl: 'Mga Lokasyon' } },
+        { id: 'community', icon: '🤝', title: { en: 'Community', it: 'Comunità', 'pt-br': 'Comunidade' } }
     ]
 };
 
-let currentLanguage = 'en';
+let activeLang = 'en';
 
-/**
- * Renders the main 10-section navigation grid
- */
-window.renderGrid = function() {
-    const grid = document.getElementById('home-grid');
-    if (!grid) return;
-
-    grid.innerHTML = siteConfig.sections.map(s => `
-        <div onclick="showPage('${s.id}')" class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 card-hover transition-all cursor-pointer text-center group">
-            <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform">${s.icon}</div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">${s.title[currentLanguage] || s.title['en']}</h3>
-            <p class="text-[#CF142B] text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-wider">Explore</p>
+/** Initialize Grid */
+function renderContent() {
+    const grid = document.getElementById('main-grid');
+    grid.innerHTML = hubData.sections.map(section => `
+        <div onclick="openSection('${section.id}')" class="bg-white p-10 rounded-[2rem] sun-shadow border border-orange-50 hover:border-[#CF142B] transition-all cursor-pointer group">
+            <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">${section.icon}</div>
+            <h3 class="text-2xl font-bold text-[#003366] mb-3">${section.title[activeLang] || section.title['en']}</h3>
+            <div class="flex items-center gap-2 text-[#CF142B] font-bold text-sm uppercase tracking-widest">
+                Learn More <span>→</span>
+            </div>
         </div>
     `).join('');
+
+    // Render Language Options in Modal
+    const langOptions = document.getElementById('langOptions');
+    langOptions.innerHTML = hubData.languages.map(l => `
+        <button onclick="setLanguage('${l.id}', '${l.name}')" class="lang-card p-4 border rounded-2xl flex flex-col items-center gap-2 transition-all">
+            <span class="text-2xl">${l.flag}</span>
+            <span class="font-bold text-sm text-[#003366]">${l.name}</span>
+        </button>
+    `).join('');
+}
+
+/** Navigation Functions */
+window.openSection = function(id) {
+    document.getElementById('hero').classList.remove('active-view');
+    document.getElementById('main-grid').classList.remove('active-view');
+    document.getElementById('article-view').classList.add('active-view');
+
+    const title = id.replace('-', ' ').toUpperCase();
+    document.getElementById('article-body').innerHTML = `
+        <h1 class="text-5xl font-extrabold mb-8">${title}</h1>
+        <div class="p-8 bg-orange-50 rounded-3xl border border-orange-200 mb-8">
+            <h4 class="text-[#CF142B] font-bold text-xl mb-2">2026 Updates</h4>
+            <p>We are currently updating our <b>${title}</b> guides to reflect the latest April 2026 regulations regarding the Skills Pass and Digital ID Wallet. Check back daily for local updates.</p>
+        </div>
+        <p class="text-xl leading-relaxed">Detailed information about the Maltese ${id} landscape goes here...</p>
+    `;
+    window.scrollTo(0,0);
 };
 
-/**
- * Navigates to a specific content page
- */
-window.showPage = function(id) {
-    document.getElementById('hero').style.display = 'none';
-    document.getElementById('home-grid').style.display = 'none';
-    const contentView = document.getElementById('content-view');
-    contentView.classList.add('active');
-    
-    // 2026 Specific Content Logic
-    let pageHtml = `<h1 class="text-4xl md:text-5xl font-serif text-[#0055A4] mb-8 leading-tight">${id.replace('-', ' ').toUpperCase()}</h1>`;
-    
-    if (id === 'getting-started') {
-        pageHtml += `
-            <div class="space-y-6">
-                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl">
-                    <h4 class="text-red-800 font-bold text-lg mb-2">Mandatory: 2026 Skills Pass</h4>
-                    <p class="text-red-700">Since March 1, 2026, all new Third Country Nationals must complete the <b>€250 Pre-Departure Course</b> before applying for a work permit.</p>
-                </div>
-                <p>To move to Malta, you generally follow these steps:</p>
-                <ol class="list-decimal pl-6 space-y-3">
-                    <li>Secure a job offer or apply as a Digital Nomad.</li>
-                    <li>Complete the mandatory online integration course (20 hours).</li>
-                    <li>Pass the English proficiency interview.</li>
-                    <li>Apply for the Single Permit (€600 fee).</li>
-                </ol>
-            </div>
-        `;
-    } else {
-        pageHtml += `<p class='text-lg text-slate-600'>Our 2026 guide for <b>${id}</b> is being finalized with the latest local regulations. Check back for full details on taxes, banking, and neighborhood vibes.</p>`;
-    }
-    
-    document.getElementById('page-body').innerHTML = pageHtml;
-    window.scrollTo(0, 0);
-};
-
-/**
- * Returns to the Home/Grid view
- */
 window.showHome = function() {
-    document.getElementById('hero').style.display = 'flex';
-    document.getElementById('home-grid').style.display = 'grid';
-    document.getElementById('content-view').classList.remove('active');
+    document.getElementById('hero').classList.add('active-view');
+    document.getElementById('main-grid').classList.add('active-view');
+    document.getElementById('article-view').classList.remove('active-view');
 };
 
-/**
- * Changes the site language
- */
-window.setLang = function(lang, name) {
-    currentLanguage = lang;
-    document.getElementById('langLabel').innerText = name;
-    document.getElementById('langModal').classList.remove('modal-active');
+/** Language Logic */
+window.setLanguage = function(id, name) {
+    activeLang = id;
+    document.getElementById('currentLang').innerText = name;
+    toggleLangModal();
+    renderContent();
     
-    // Update the UI
-    document.getElementById('hero-title').innerText = (lang === 'pa') ? "ਮਾਲਟਾ ਵਿੱਚ ਤੁਹਾਡੀ ਜ਼ਿੰਦਗੀ ਇੱਥੇ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ" : "Your Life in Malta Starts Here";
-    
-    renderGrid();
+    // Example Hero change for visual feedback
+    const heroText = document.getElementById('hero-text');
+    if (id === 'pa') heroText.innerText = "ਮਾਲਟਾ ਦੀ ਧੁੱਪ ਤੁਹਾਡਾ ਇੰਤਜ਼ਾਰ ਕਰ ਰਹੀ ਹੈ! ਭਾਈਚਾਰੇ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ।";
+    else if (id === 'hi') heroText.innerText = "माल्टा की धूप आपका इंतज़ार कर रही है! समुदाय में शामिल हों।";
+    else heroText.innerText = "Your Maltese Sunshine awaits! Join the Community.";
 };
 
-/**
- * Toggles the language selection overlay
- */
 window.toggleLangModal = function() {
-    document.getElementById('langModal').classList.toggle('modal-active');
+    const modal = document.getElementById('langModal');
+    modal.classList.toggle('hidden');
+    modal.classList.toggle('flex');
 };
 
-/**
- * Smooth scrolls to the navigation cards
- */
-window.scrollToGrid = function() {
-    document.getElementById('home-grid').scrollIntoView({ behavior: 'smooth' });
-};
-
-// INITIALIZATION: Run when the page is ready
-document.addEventListener('DOMContentLoaded', () => {
-    window.renderGrid();
-});
+/** Load */
+document.addEventListener('DOMContentLoaded', renderContent);
