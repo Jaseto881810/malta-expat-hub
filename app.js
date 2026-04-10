@@ -46,7 +46,7 @@ const contentDatabase = {
             id: 'weather-climate',
             title: 'Weather and Climate in Malta',
             img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600',
-            text: 'Malta boasts a Mediterranean climate with over 300 days of sunshine. However, the summer heat can be a shock if you aren\'t prepared.',
+            text: 'Malta boasts a Mediterranean climate with over 300 days of sunshine. However, the summer heat can be a shock if you aren not prepared.',
             fullContent: `
                 <h2>Seasonal Breakdown</h2>
                 <p><b>Summer (June – Sept):</b> Hot and dry (32°C–37°C). Humidity is high and AC is essential.</p>
