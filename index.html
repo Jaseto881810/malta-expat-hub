@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇲🇹 Malta Expat Guide | The Complete 2026 Knowledge Base</title>
+    <title>🇲🇹 Malta Expat Guide | A Comprehensive Guide to Living in Malta</title>
     <meta name="description" content="Comprehensive wiki for moving to Malta. 60+ pages of info on visas, housing, lifestyle, and more.">
     
     <!-- Tailwind CSS -->
@@ -28,15 +28,15 @@
         /* Mobile Sidebar Transition */
         #sidebar { transition: transform 0.3s ease-in-out; }
         
-        /* Custom Scrollbar for Sidebar */
-        aside::-webkit-scrollbar { width: 4px; }
-        aside::-webkit-scrollbar-track { background: #f1f1f1; }
-        aside::-webkit-scrollbar-thumb { background: #CF142B; border-radius: 10px; }
+        /* Custom Scrollbar for Sidebar Nav */
+        #nav-scroll::-webkit-scrollbar { width: 4px; }
+        #nav-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
+        #nav-scroll::-webkit-scrollbar-thumb { background: #CF142B; border-radius: 10px; }
     </style>
 </head>
 <body class="flex flex-col lg:flex-row min-h-screen">
 
-    <!-- MOBILE HEADER (Fixed at Z-60) -->
+    <!-- MOBILE HEADER -->
     <div class="lg:hidden bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-[60] shadow-sm">
         <div class="text-xl font-bold text-[#003366]"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
         <button onclick="toggleMobileMenu()" class="text-slate-600 p-2 border rounded-lg">
@@ -44,29 +44,23 @@
         </button>
     </div>
 
-    <!-- SIDEBAR NAVIGATION (Set to Z-100 to cover header on mobile) -->
-    <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:sticky lg:flex w-full lg:w-80 bg-white border-r border-slate-200 overflow-y-auto flex-col z-[100] transition-transform duration-300">
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:sticky lg:flex w-full lg:w-80 bg-white border-r border-slate-200 flex flex-col z-[100] transition-transform duration-300 h-screen">
         
-        <!-- Sidebar Header (Mobile Close + Logo) -->
-        <div class="p-6 border-b flex justify-between items-center">
+        <!-- Sidebar Top Header -->
+        <div class="p-6 border-b flex justify-between items-center bg-white shrink-0">
             <div class="text-2xl font-bold text-[#003366]"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
             <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-400 p-2">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
 
-        <div class="px-6 py-4 border-b hidden lg:block">
-            <input type="text" placeholder="Search the site..." class="w-full bg-slate-100 border-none rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-[#CF142B] outline-none">
-        </div>
-        
-        <nav class="p-4 space-y-1 flex-grow">
-            <!-- 1. HOME -->
-            <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl sidebar-active">🏠 Home</a>
-
-            <!-- 2. GETTING STARTED -->
+        <!-- Scrollable Navigation Middle -->
+        <nav id="nav-scroll" class="p-4 space-y-1 flex-grow overflow-y-auto">
+            <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl sidebar-active transition">🏠 Home</a>
             <a href="/getting-started.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🚀 Getting Started</a>
 
-            <!-- 3. EXPAT INFO -->
+            <!-- Expat Info -->
             <div>
                 <button onclick="toggleMenu('expat-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">🛂 Expat Info</span>
@@ -88,7 +82,7 @@
                 </div>
             </div>
 
-            <!-- 4. BASIC INFO -->
+            <!-- Basic Info -->
             <div>
                 <button onclick="toggleMenu('basic-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">ℹ️ Basic Info</span>
@@ -108,7 +102,7 @@
                 </div>
             </div>
 
-            <!-- 5. ACCOMMODATION -->
+            <!-- Accommodation -->
             <div>
                 <button onclick="toggleMenu('housing-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">🏠 Accommodation</span>
@@ -122,7 +116,7 @@
                 </div>
             </div>
 
-            <!-- 6. EDUCATION -->
+            <!-- Education -->
             <div>
                 <button onclick="toggleMenu('education-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">🎓 Education</span>
@@ -138,7 +132,7 @@
                 </div>
             </div>
 
-            <!-- 7. SERVICES -->
+            <!-- Services -->
             <div>
                 <button onclick="toggleMenu('services-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">🏥 Services</span>
@@ -155,10 +149,9 @@
                 </div>
             </div>
 
-            <!-- 8. SAFETY -->
             <a href="/safety.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🛡️ Safety in Malta</a>
 
-            <!-- 9. LIFESTYLE -->
+            <!-- Lifestyle -->
             <div>
                 <button onclick="toggleMenu('lifestyle-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">☀️ Lifestyle</span>
@@ -178,7 +171,7 @@
                 </div>
             </div>
 
-            <!-- 10. LOCATIONS -->
+            <!-- Locations -->
             <div>
                 <button onclick="toggleMenu('locations-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">📍 Locations</span>
@@ -196,19 +189,19 @@
             </div>
         </nav>
 
-        <!-- Sidebar Footer -->
-        <div class="mt-auto p-6 border-t bg-slate-50 lg:bg-white">
+        <!-- Fixed Sidebar Footer -->
+        <div class="p-6 border-t bg-white shrink-0">
             <button onclick="toggleLangModal()" class="w-full bg-[#003366] text-white p-3 rounded-xl font-bold text-sm shadow-md hover:bg-[#002244] transition">
                 🌐 Switch Language
             </button>
         </div>
     </aside>
 
-    <!-- Overlay for Mobile Sidebar (Z-90) -->
+    <!-- Overlay for Mobile Sidebar -->
     <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-[90] hidden" onclick="toggleMobileMenu()"></div>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-grow p-6 lg:p-12 w-full">
+    <main class="flex-grow p-6 lg:p-12 w-full overflow-x-hidden">
         <div class="hero-banner flex items-end p-6 md:p-10 mb-10">
             <div>
                 <h1 class="text-3xl md:text-5xl text-white font-bold wiki-header">Welcome to Malta Expat Guide</h1>
@@ -216,48 +209,65 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+        <div class="grid grid-cols-1 gap-8 max-w-5xl">
+            <!-- Content Block 1 -->
             <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
                 <h2 class="text-2xl font-bold mb-4 text-[#003366]">Quick things to know about living in Malta</h2>
-                <p class="text-slate-500 mb-6 leading-relaxed">Living in Malta comes with a unique mix of Mediterranean charm and somewhat modern convenience. English is one of the official languages (alongside Maltese), which makes settling in easier for most expats. The island is verry small — you can drive from one end to the other in under an hour — but it’s packed with history, beaches, and lively towns. The country has seen an inflow foreign nationals moving to Malta to work in the iGaming and Fintech sectors. This has also lead to an inflow of foreigners to Malta who work as taxi drivers, delivery drivers, bus drivers, work in supermarkets and corners, and also work in the hospitality sector. This has caused the Maltese nationals to become, in general,  very upset, as they believe their culture and country's identity is being lost, and the cost of housing has become too high for them.</p>
-                <p class="text-slate-500 mb-6 leading-relaxed">The cost of living can vary depending on where you settle. But regardless of where you settle, the cost of living has been drastically increasing each year.. Areas like Sliema, Swieqi and St. Julian’s are popular with expats but also more expensive, while places like Mosta, Żebbuġ, or parts of Gozo offer more budget-friendly options (by budget friendly, we mean between €1000 to €1200 a month for an apartment to rent). However, Gozo is not a practical option, as it is a separate island, only accessible by ferry. The public transport bus service is free for residences with a personalized bus card (or €2 for a single trip if you don't have a personalized card), though not always punctual, and many locals rely on scooters or cars. Malta is part of the EU and the Schengen Area, making travel around Europe easy. With over 300 days of sunshine a year, a vibrant expat community, and easy access to sea, sun, and travel, Malta is a great place to build a new chapter — if you're up for a few quirks along the way.</p>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>Living in Malta comes with a unique mix of Mediterranean charm and somewhat modern convenience. English is one of the official languages (alongside Maltese), which makes settling in easier for most expats. The island is very small — you can drive from one end to the other in under an hour — but it’s packed with history, beaches, and lively towns. The country has seen an inflow foreign nationals moving to Malta to work in the iGaming and Fintech sectors. This has also lead to an inflow of foreigners to Malta who work as taxi drivers, delivery drivers, bus drivers, work in supermarkets and corners, and also work in the hospitality sector. This has caused the Maltese nationals to become, in general, very upset, as they believe their culture and country's identity is being lost, and the cost of housing has become too high for them.</p>
+                    <p>The cost of living can vary depending on where you settle. But regardless of where you settle, the cost of living has been drastically increasing each year.. Areas like Sliema, Swieqi and St. Julian’s are popular with expats but also more expensive, while places like Mosta, Żebbuġ, or parts of Gozo offer more budget-friendly options (by budget friendly, we mean between €1000 to €1200 a month for an apartment to rent). However, Gozo is not a practical option, as it is a separate island, only accessible by ferry. The public transport bus service is free for residences with a personalized bus card (or €2 for a single trip if you don't have a personalized card), though not always punctual, and many locals rely on scooters or cars. Malta is part of the EU and the Schengen Area, making travel around Europe easy. With over 300 days of sunshine a year, a vibrant expat community, and easy access to sea, sun, and travel, Malta is a great place to build a new chapter — if you're up for a few quirks along the way.</p>
+                </div>
             </div>
             
+            <!-- Content Block 2 -->
             <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
                 <h2 class="text-2xl font-bold mb-4 text-[#003366]">Useful Apps for living in Malta</h2>
                 <p class="text-slate-500 mb-6 leading-relaxed">While there are many apps that you can have and use, there are a few that will become a habit to use while living in Malta.</p>
-                <br>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-bold text-slate-800">Bolt and Uber - Transportation:</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Probably the most popular apps in Malta. Given the unreliability of the public transport bus service, Bolt has become a mainstay in transportation in Malta. The abundance of Bolt drivers means you don't have to wait long for a driver confirmation. The cost of Bolt is also extremely affordable, compared to mainland Europe, with a trip from the airport to Sliema costing between €12 to €15. However, during the summer holiday period, the price of the fares drastically increase due to the influx of tourists which cause a supply and demand issue.</p>
+                        <p class="text-slate-600 leading-relaxed">Much like Bolt, Uber has also become a mainstay in transportation in Malta. The Uber service is extremely competitive, and at a similar price. The rise of Uber and Bolt come at the expense of the traditional taxi service (white cabs), which has priced itself out of the market, and use pricing techniques based on cost per passenger or fixed prices to specific towns, which are grossly higher than Uber or Bolt.</p>
+                    </div>
 
-                <b>Bolt and Uber - Transportation:</b>
-                <p class="text-slate-500 mb-6 leading-relaxed">Probably the most popular apps in Malta. Given the unreliability of the public transport bus service, Bolt has become a mainstay in transportation in Malta. The abundance of Bolt drivers means you don't have to wait long for a driver confirmation. The cost of Bolt is also extremely affordable, compared to mainland Europe, with a trip from the airport to Sliema costing between €12 to €15. However, during the summer holiday period, the price of the fares drastically increase due to the influx of tourists which cause a supply and demand issue.</p>
-                <p class="text-slate-500 mb-6 leading-relaxed">Much like Bolt, Uber has also become a mainstay in transportation in Malta. The Uber service is extremely competitive, and at a similar price. The rise of Uber and Bolt come at the expense of the traditional taxi service (white cabs), which has priced itself out of the market, and use pricing techniques based on cost per passange or fixed prices to specific towns, which are grossly higher than Uber or Bolt.</p>
-                <br><br>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Wolt Delivery, Bolt Food and Uber Eats - Take-aways, Groceries and small shopping items:</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Wolt and Bolt Food are the go to places for take-away food and grocery delivery. The country is covered in Wolt delivery drivers (much to the irk of the Maltese drivers). Both Wolt and Bolt Food also serves as a merchant to place food orders for pick-up, and both have now expanded its delivery service to now cover categories such as: gifts, pet supplies, hardware items, alcohol, electronics, flowers, cosmetics and sports nutrition.</p>
+                        <p class="text-slate-600 leading-relaxed mb-4">Much like Wolt Delivery and Bolt Food, Uber Eats covers various take-away and pick-up options and grocery stores. However, Bolt Food doesn't cover much non-food related items. As convenient as these apps are, please do consider the following negative aspects of them:</p>
+                        <ul class="list-disc pl-5 text-slate-600 space-y-2">
+                            <li>These platforms take a big commission on sales from the restaurants and shops, which has a huge impact on local and small operators.</li>
+                            <li>In order to compensate for the commissions taken on sales, many shops and restaurants charge more per item on these apps, than if you went directly to them.</li>
+                            <li>Delivery drivers don't work directly for these platforms, but for a local agency that collects the full revenue of the work and then pay a minimum wage to the workers, who most of the time work incredibly long hours.</li>
+                        </ul>
+                    </div>
 
-                <b>Wolt Delivery, Bolt Food and Uber Eats - Take-aways, Groceries and small shopping items:</b>
-                <p class="text-slate-500 mb-6 leading-relaxed">Wolt and Bolt Food are the go to places for take-away food and grocery delivery. The country is covered in Wolt delivery drivers (much to the irk of the Maltese drivers). Both Wolt and Bolt Food also serves as a merchant to place food orders for pick-up, and both have now expanded its delivery service to now cover categories such as: gifts, pet supplies, hardware items, alcohol, electronics, flowers, cosmetics and sports nutrition.</p>
-                <p class="text-slate-500 mb-6 leading-relaxed">Much like Wolt Delivery and Bolt Food, Uber Eats covers various take-away and pick-up options and grocery stores. However, Bolt Food doesn't cover much non-food related items.</p>
-                <br><br>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Revolut - Mobile Banking:</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Revolut is the most popular banking service in Malta, with roughly 7 out of 10 adults using Revolut, despite not having a physical bank branch. The banking service is fully digital. Why is it so popular? It is cheap, has 5 different membership offers (ranging from free to €45 per month), quick and easy to open account (within 48 hours), has a powerful app, and offer services such as savings accounts, stock trading, crypto investing, virtual debit cards, exchanging and holding over 30 different currencies, seamlessly sending money abroad and creating accounts for your children.</p>
+                        <p class="text-slate-600 leading-relaxed">You can register for a Revolut account through this affiliate link: <a href="https://revolut.com/referral/?referral-code=jasoneat!APR1-25-AR-H1" target="_blank" class="text-[#CF142B] font-bold hover:underline">Register for Revolut</a>.</p>
+                    </div>
 
-                <b>Revolut - Mobile Banking:</b>
-                <p class="text-slate-500 mb-6 leading-relaxed">Revolut is the most popular banking service in Malta, with roughly 7 out of 10 adults using Revolut, despite not having a physical bank branch. The banking service is fully digital. Why is it so popular? It is cheap, has 5 different membership offers (ranging from free to €45 per month), quick and easy to open account (within 48 hours), has a powerful app, and offer services such as savings accounts, stock trading, crypto investing, virtual debit cards, exchanging and holding over 30 different currencies, seamlessly sending money abroad and creating accounts for your children.</p>
-                <p class="text-slate-500 mb-6 leading-relaxed">You can register for a Revolut account through this affiliate link: <a href = "https://revolut.com/referral/?referral-code=jasoneat!APR1-25-AR-H1" target="_blank" style="color: #CF142B">Register for Revolut</a>.</p>
-                <br><br>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Amazon Shopping - Online Shopping:</h3>
+                        <p class="text-slate-600 leading-relaxed">Amazon shopping is hugely popular in Malta because the island has limited retail variety, especially for niche products, electronics, and specific brands. Heavily populated areas like Sliema and St Julian's have surprisingly limited electronic stores, result in residents either buying online or having to travel to towns such as Marsa, Qormi or Birkirkara to visit an electronics store. Many residents turn to Amazon (especially Amazon UK, Germany, or Italy) for better prices, wider selections, and fast international shipping. Despite Malta’s small size, delivery is usually smooth (usually taking a week to be fulfilled), and many people rely on it to access items that are either unavailable locally or significantly more expensive in local stores.</p>
+                    </div>
 
-                <b>Amazon Shopping - Online Shopping:</b>
-                <p class="text-slate-500 mb-6 leading-relaxed">Amazon shopping is hugely popular in Malta because the island has limited retail variety, especially for niche products, electronics, and specific brands. Heavily populated areas like Sliema and St Julian's have surprisingly limited electronic stores, result in residents either buying online or having to travel to towns such as Marsa, Qormi or Birkirkara to visit an electronics store. Many residents turn to Amazon (especially Amazon UK, Germany, or Italy) for better prices, wider selections, and fast international shipping. Despite Malta’s small size, delivery is usually smooth (usually taking a week to be fulfilled), and many people rely on it to access items that are either unavailable locally or significantly more expensive in local stores.</p>
-                <br><br>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Tinder - Dating:</h3>
+                        <p class="text-slate-600 leading-relaxed">Tinder is quite popular in Malta, especially among younger locals, expats, and digital nomads looking to meet new people. Given the island’s small size and close-knit social circles, many use Tinder not just for dating but also to connect socially or casually while traveling or living abroad. The app’s popularity is particularly noticeable in urban areas like Sliema, St. Julian’s, and Valletta, where there's a vibrant mix of locals and internationals.</p>
+                    </div>
 
-                <b>Tinder - Dating:</b>
-                <p class="text-slate-500 mb-6 leading-relaxed">Tinder is quite popular in Malta, especially among younger locals, expats, and digital nomads looking to meet new people. Given the island’s small size and close-knit social circles, many use Tinder not just for dating but also to connect socially or casually while traveling or living abroad. The app’s popularity is particularly noticeable in urban areas like Sliema, St. Julian’s, and Valletta, where there's a vibrant mix of locals and internationals.</p>
-                <br><br>
-
-                <b>Facebook - Social Network and Marketplace:</b>
-                <p class="text-slate-500 mb-6 leading-relaxed">Facebook is very popular in Malta, as many business lack their own website (or don't maintain it) and Facebook groups for property rentals, and buying and selling of used cars are extremely popular. Property agents make use of these Facebook groups (due to their websites not being maintained properly, and the speed of apartments going off the market) to push available places. The groups are very weak in moderation, and it often results in property agents, and the companies they work for, spamming groups multiple times a day. There are groups for properties available to rent directly from owners, but unfortunately, the property agents have also made their way into these groups (due to poor group moderation) and often lie about being an owner. Facebook groups fill the space where a lack of a marketplace solution or apps have yet to take hold off. As with any marketplace, a degree of caution is required to protect oneself from scams and fraudsters.</p>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Facebook - Social Network and Marketplace:</h3>
+                        <p class="text-slate-600 leading-relaxed">Facebook is very popular in Malta, as many business lack their own website (or don't maintain it) and Facebook groups for property rentals, and buying and selling of used cars are extremely popular. Property agents make use of these Facebook groups (due to their websites not being maintained properly, and the speed of apartments going off the market) to push available places. The groups are very weak in moderation, and it often results in property agents, and the companies they work for, spamming groups multiple times a day. There are groups for properties available to rent directly from owners, but unfortunately, the property agents have also made their way into these groups (due to poor group moderation) and often lie about being an owner. Facebook groups fill the space where a lack of a marketplace solution or apps have yet to take hold off. As with any marketplace, a degree of caution is required to protect oneself from scams and fraudsters.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
-    <!-- LANGUAGE MODAL (Z-110) -->
+    <!-- LANGUAGE MODAL -->
     <div id="langModal" class="fixed inset-0 bg-slate-900/60 z-[110] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleLangModal()">
         <div class="bg-white rounded-[2rem] p-8 md:p-10 max-w-2xl w-full shadow-2xl relative" onclick="event.stopPropagation()">
             <button onclick="toggleLangModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
@@ -280,13 +290,11 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Collapsible Menu Logic
         function toggleMenu(id) {
             const menu = document.getElementById(id);
             menu.classList.toggle('open');
         }
 
-        // Mobile Hamburger Logic
         function toggleMobileMenu() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('sidebarOverlay');
@@ -294,7 +302,6 @@
             sidebar.classList.toggle('-translate-x-full');
             overlay.classList.toggle('hidden');
             
-            // Stop background scrolling when menu is open
             if (!sidebar.classList.contains('-translate-x-full')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -302,7 +309,6 @@
             }
         }
 
-        // Language Modal Logic
         function toggleLangModal() {
             const modal = document.getElementById('langModal');
             modal.classList.toggle('hidden');
@@ -314,6 +320,12 @@
             localStorage.setItem('user_lang', lang);
             toggleLangModal();
         }
+
+        document.querySelectorAll('#nav-scroll a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) toggleMobileMenu();
+            });
+        });
     </script>
 </body>
 </html>
