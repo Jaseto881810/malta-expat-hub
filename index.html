@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇲🇹 Malta Expat Guide | 2026 Comprehensive Knowledge Base</title>
-    <meta name="description" content="The ultimate guide for moving to Malta. 60+ pages on visas, housing, healthcare, and lifestyle.">
+    <title>🇲🇹 Malta Expat Guide | The Complete 2026 Knowledge Base</title>
+    <meta name="description" content="Comprehensive wiki for moving to Malta. 60+ pages of info on visas, housing, lifestyle, and more.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -14,9 +14,9 @@
         .sidebar-active { color: #CF142B !important; font-weight: 700; background: #fff1f2; }
         .submenu { display: none; }
         .submenu.open { display: block; }
+        aside { height: 100vh; position: sticky; top: 0; scrollbar-width: thin; }
         .wiki-header { font-family: 'Playfair Display', serif; }
         
-        /* Layout Fixes */
         .hero-banner { 
             height: 300px; 
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=2000');
@@ -26,6 +26,11 @@
 
         /* Mobile Sidebar Transition */
         #sidebar { transition: transform 0.3s ease-in-out; }
+        
+        /* Custom Scrollbar for Sidebar */
+        aside::-webkit-scrollbar { width: 4px; }
+        aside::-webkit-scrollbar-track { background: #f1f1f1; }
+        aside::-webkit-scrollbar-thumb { background: #CF142B; border-radius: 10px; }
     </style>
 </head>
 <body class="flex flex-col lg:flex-row min-h-screen">
@@ -38,13 +43,14 @@
     </div>
 
     <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:sticky lg:flex w-full lg:w-80 bg-white border-r border-slate-200 overflow-y-auto flex-col z-50 transition-transform duration-300">
-        <div class="p-6 border-b hidden lg:block">
+        <div class="p-6 border-b hidden lg:block text-center lg:text-left">
             <div class="text-2xl font-bold text-[#003366] mb-4"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
             <input type="text" placeholder="Search the site..." class="w-full bg-slate-100 border-none rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-[#CF142B] outline-none">
         </div>
         
         <nav class="p-4 space-y-1 flex-grow">
             <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl sidebar-active">🏠 Home</a>
+
             <a href="/getting-started.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🚀 Getting Started</a>
 
             <div>
@@ -53,10 +59,37 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
                 </button>
                 <div id="expat-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
-                    <a href="/expat-info/benefits.html" class="block py-2 hover:text-[#CF142B]">Benefits & Allowances</a>
-                    <a href="/expat-info/employment.html" class="block py-2 hover:text-[#CF142B]">Employment</a>
+                    <a href="/expat-info/benefits-allowances.html" class="block py-2 hover:text-[#CF142B]">Benefits and Allowances</a>
+                    <a href="/expat-info/consumer-rights.html" class="block py-2 hover:text-[#CF142B]">Consumer Rights</a>
+                    <a href="/expat-info/driving-license.html" class="block py-2 hover:text-[#CF142B]">Driving License</a>
+                    <a href="/expat-info/embassies.html" class="block py-2 hover:text-[#CF142B]">Embassies in Malta</a>
+                    <a href="/expat-info/employment.html" class="block py-2 hover:text-[#CF142B]">Employment in Malta</a>
+                    <a href="/expat-info/healthcare.html" class="block py-2 hover:text-[#CF142B]">Healthcare</a>
+                    <a href="/expat-info/money-transfers.html" class="block py-2 hover:text-[#CF142B]">Money Transfers</a>
+                    <a href="/expat-info/permits-ids.html" class="block py-2 hover:text-[#CF142B]">Permits and IDs</a>
+                    <a href="/expat-info/policing.html" class="block py-2 hover:text-[#CF142B]">Policing</a>
+                    <a href="/expat-info/raising-children.html" class="block py-2 hover:text-[#CF142B]">Raising Children in Malta</a>
                     <a href="/expat-info/taxation.html" class="block py-2 hover:text-[#CF142B]">Taxation</a>
-                    <a href="/expat-info/permits-ids.html" class="block py-2 hover:text-[#CF142B]">Permits & IDs</a>
+                    <a href="/expat-info/voting-elections.html" class="block py-2 hover:text-[#CF142B]">Voting and Elections</a>
+                </div>
+            </div>
+
+            <div>
+                <button onclick="toggleMenu('basic-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">
+                    <span class="flex items-center gap-3">🇲🇹 Basic Info</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="basic-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/basic-info/etiquette.html" class="block py-2 hover:text-[#CF142B]">Local Etiquette</a>
+                    <a href="/basic-info/drinks.html" class="block py-2 hover:text-[#CF142B]">Local Drinks</a>
+                    <a href="/basic-info/languages.html" class="block py-2 hover:text-[#CF142B]">Languages</a>
+                    <a href="/basic-info/food-snacks.html" class="block py-2 hover:text-[#CF142B]">Local Food and Snacks</a>
+                    <a href="/basic-info/news.html" class="block py-2 hover:text-[#CF142B]">Local News Sources</a>
+                    <a href="/basic-info/customs.html" class="block py-2 hover:text-[#CF142B]">Maltese Customs</a>
+                    <a href="/basic-info/politics.html" class="block py-2 hover:text-[#CF142B]">Political Landscapes</a>
+                    <a href="/basic-info/sports.html" class="block py-2 hover:text-[#CF142B]">Professional Sports</a>
+                    <a href="/basic-info/holidays.html" class="block py-2 hover:text-[#CF142B]">Public Holidays</a>
+                    <a href="/basic-info/religion.html" class="block py-2 hover:text-[#CF142B]">Religion</a>
                 </div>
             </div>
 
@@ -65,13 +98,82 @@
                     <span class="flex items-center gap-3">🏠 Accommodation</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div id="housing-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 border-slate-100">
-                    <a href="/accommodation/renting.html" class="block py-2 hover:text-[#CF142B]">Renting Properties</a>
+                <div id="housing-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
                     <a href="/accommodation/buying.html" class="block py-2 hover:text-[#CF142B]">Buying Properties</a>
+                    <a href="/accommodation/authority.html" class="block py-2 hover:text-[#CF142B]">Housing Authority</a>
+                    <a href="/accommodation/mortgages.html" class="block py-2 hover:text-[#CF142B]">Mortgages</a>
+                    <a href="/accommodation/renting.html" class="block py-2 hover:text-[#CF142B]">Renting Properties</a>
+                </div>
+            </div>
+
+            <div>
+                <button onclick="toggleMenu('education-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">
+                    <span class="flex items-center gap-3">🎓 Education</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="education-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/education/higher-education.html" class="block py-2 hover:text-[#CF142B]">Higher Education</a>
+                    <a href="/education/high-schools.html" class="block py-2 hover:text-[#CF142B]">High Schools</a>
+                    <a href="/education/international-schools.html" class="block py-2 hover:text-[#CF142B]">International Schools</a>
+                    <a href="/education/language-schools.html" class="block py-2 hover:text-[#CF142B]">Language Schools</a>
+                    <a href="/education/nursery-schools.html" class="block py-2 hover:text-[#CF142B]">Nursery Schools</a>
+                    <a href="/education/primary-schools.html" class="block py-2 hover:text-[#CF142B]">Primary Schools</a>
+                </div>
+            </div>
+
+            <div>
+                <button onclick="toggleMenu('services-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">
+                    <span class="flex items-center gap-3">🏥 Services</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="services-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/services/car-insurance.html" class="block py-2 hover:text-[#CF142B]">Car Insurance</a>
+                    <a href="/services/health-insurance.html" class="block py-2 hover:text-[#CF142B]">Health Insurance</a>
+                    <a href="/services/household-insurance.html" class="block py-2 hover:text-[#CF142B]">Household Insurance</a>
+                    <a href="/services/internet-mobile.html" class="block py-2 hover:text-[#CF142B]">Internet and Mobile</a>
+                    <a href="/services/investment-pensions.html" class="block py-2 hover:text-[#CF142B]">Investment and Pensions</a>
+                    <a href="/services/moving-companies.html" class="block py-2 hover:text-[#CF142B]">Moving Companies</a>
+                    <a href="/services/water-delivery.html" class="block py-2 hover:text-[#CF142B]">Water Delivery</a>
                 </div>
             </div>
 
             <a href="/safety.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🛡️ Safety in Malta</a>
+
+            <div>
+                <button onclick="toggleMenu('lifestyle-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">
+                    <span class="flex items-center gap-3">☀️ Lifestyle</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="lifestyle-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/lifestyle/gyms.html" class="block py-2 hover:text-[#CF142B]">Gyms and Fitness Clubs</a>
+                    <a href="/lifestyle/festivals.html" class="block py-2 hover:text-[#CF142B]">Annual Festivals</a>
+                    <a href="/lifestyle/beach-clubs.html" class="block py-2 hover:text-[#CF142B]">Beach Clubs</a>
+                    <a href="/lifestyle/boat-rentals.html" class="block py-2 hover:text-[#CF142B]">Boat Rentals</a>
+                    <a href="/lifestyle/movie-theatres.html" class="block py-2 hover:text-[#CF142B]">Movie Theatres</a>
+                    <a href="/lifestyle/nightlife.html" class="block py-2 hover:text-[#CF142B]">Nightlife</a>
+                    <a href="/lifestyle/paceville.html" class="block py-2 hover:text-[#CF142B]">Paceville</a>
+                    <a href="/lifestyle/restaurants.html" class="block py-2 hover:text-[#CF142B]">Popular Restaurants</a>
+                    <a href="/lifestyle/shopping-malls.html" class="block py-2 hover:text-[#CF142B]">Shopping Malls</a>
+                    <a href="/lifestyle/sports-clubs.html" class="block py-2 hover:text-[#CF142B]">Sports Clubs</a>
+                </div>
+            </div>
+
+            <div>
+                <button onclick="toggleMenu('locations-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">
+                    <span class="flex items-center gap-3">📍 Locations</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="locations-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/locations/gozo.html" class="block py-2 hover:text-[#CF142B]">Gozo</a>
+                    <a href="/locations/hiking.html" class="block py-2 hover:text-[#CF142B]">Hiking</a>
+                    <a href="/locations/historical.html" class="block py-2 hover:text-[#CF142B]">Historical Locations</a>
+                    <a href="/locations/swimming.html" class="block py-2 hover:text-[#CF142B]">Swimming</a>
+                    <a href="/locations/towns.html" class="block py-2 hover:text-[#CF142B]">Towns</a>
+                    <a href="/locations/tourist.html" class="block py-2 hover:text-[#CF142B]">Tourist Locations</a>
+                    <a href="/locations/sicily.html" class="block py-2 hover:text-[#CF142B]">Trips to Sicily</a>
+                </div>
+            </div>
+
         </nav>
 
         <div class="mt-auto p-6 border-t bg-slate-50 lg:bg-white">
@@ -87,7 +189,7 @@
         <div class="hero-banner flex items-end p-6 md:p-10 mb-10">
             <div>
                 <h1 class="text-3xl md:text-5xl text-white font-bold wiki-header">Welcome to Malta Expat Guide</h1>
-                <p class="text-white/80 mt-2 text-lg">Your 2026 encyclopedia for living on the islands.</p>
+                <p class="text-white/80 mt-2 text-lg leading-snug">A comprehensive guide to living in Malta and what to expect.</p>
             </div>
         </div>
 
@@ -95,16 +197,16 @@
             <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition">
                 <h2 class="text-2xl font-bold mb-4 text-[#003366]">Quick Start</h2>
                 <p class="text-slate-500 mb-6 leading-relaxed">Are you a Third Country National moving for work? Start with the 2026 Skills Pass requirements.</p>
-                <a href="/expat-info/employment.html" class="text-[#CF142B] font-bold uppercase text-xs tracking-widest flex items-center gap-2">
+                <a href="/expat-info/employment.html" class="text-[#CF142B] font-bold uppercase text-xs tracking-widest flex items-center gap-2 hover:underline">
                     Read More <span>→</span>
                 </a>
             </div>
-
+            
             <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition">
                 <h2 class="text-2xl font-bold mb-4 text-[#003366]">Recent Updates</h2>
-                <p class="text-slate-500 mb-6 leading-relaxed">Malta now recognizes digital E-ID wallets for all ID verifications at government banks.</p>
-                <a href="/getting-started.html" class="text-[#CF142B] font-bold uppercase text-xs tracking-widest flex items-center gap-2">
-                    Latest News <span>→</span>
+                <p class="text-slate-500 mb-6 leading-relaxed">Identity Malta has updated residency fee structures for 2026. Review the Permits and IDs section.</p>
+                <a href="/expat-info/permits-ids.html" class="text-[#CF142B] font-bold uppercase text-xs tracking-widest flex items-center gap-2 hover:underline">
+                    View Updates <span>→</span>
                 </a>
             </div>
         </div>
@@ -113,13 +215,16 @@
     <div id="langModal" class="fixed inset-0 bg-slate-900/60 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleLangModal()">
         <div class="bg-white rounded-[2rem] p-8 md:p-10 max-w-2xl w-full shadow-2xl relative" onclick="event.stopPropagation()">
             <button onclick="toggleLangModal()" class="absolute top-6 right-6 text-slate-400">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <h2 class="text-2xl font-bold mb-6 text-[#003366]">Select Language</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
                 <button onclick="changeLang('en')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇬🇧 English</button>
                 <button onclick="changeLang('it')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇹 Italiano</button>
-                <button onclick="changeLang('hi')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all font-hindi">🇮🇳 हिन्दी</button>
+                <button onclick="changeLang('es')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇪🇸 Español</button>
+                <button onclick="changeLang('fr')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇫🇷 Français</button>
+                <button onclick="changeLang('de')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇩🇪 Deutsch</button>
+                <button onclick="changeLang('hi')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇳 हिन्दी</button>
                 <button onclick="changeLang('pa')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇳 ਪੰਜਾਬੀ</button>
                 <button onclick="changeLang('tl')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇵🇭 Filipino</button>
                 <button onclick="changeLang('pt-br')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇧🇷 Português</button>
@@ -140,9 +245,9 @@
             const overlay = document.getElementById('sidebarOverlay');
             
             sidebar.classList.toggle('-translate-x-full');
-            sidebar.classList.toggle('hidden');
             overlay.classList.toggle('hidden');
             
+            // Stop background scrolling when menu is open
             if (!sidebar.classList.contains('-translate-x-full')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -158,7 +263,7 @@
         }
 
         function changeLang(lang) {
-            console.log('Language changed to:', lang);
+            console.log('Language selected:', lang);
             localStorage.setItem('user_lang', lang);
             toggleLangModal();
         }
