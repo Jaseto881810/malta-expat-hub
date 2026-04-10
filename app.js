@@ -1,97 +1,80 @@
-const hubData = {
-    languages: [
-        { id: 'en', name: 'English', flag: '🇬🇧' },
-        { id: 'it', name: 'Italiano', flag: '🇮🇹' },
-        { id: 'es', name: 'Español', flag: '🇪🇸' },
-        { id: 'fr', name: 'Français', flag: '🇫🇷' },
-        { id: 'de', name: 'Deutsch', flag: '🇩🇪' },
-        { id: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
-        { id: 'pa', name: 'ਪੰਜਾਬੀ', flag: '🇮🇳' },
-        { id: 'tl', name: 'Filipino', flag: '🇵🇭' },
-        { id: 'pt-br', name: 'Português', flag: '🇧🇷' }
+const wikiSections = [
+    { id: 'home', icon: '🏠', label: 'Home' },
+    { id: 'getting-started', icon: '🚀', label: 'Getting Started' },
+    { id: 'expat-info', icon: '🛂', label: 'Expat Info' },
+    { id: 'basic-info', icon: '🇲🇹', label: 'Basic Info' },
+    { id: 'accommodation', icon: '🏠', label: 'Accommodation' },
+    { id: 'education', icon: '🎓', label: 'Education' },
+    { id: 'services', icon: '🏥', label: 'Services' },
+    { id: 'safety', icon: '🛡️', label: 'Safety' },
+    { id: 'lifestyle', icon: '☀️', label: 'Lifestyle' },
+    { id: 'locations', icon: '📍', label: 'Locations' }
+];
+
+const contentDatabase = {
+    'home': [
+        { title: 'The 2026 Skills Pass', img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600', text: 'All workers arriving after March 2026 must complete the mandatory Skills Pass course (€250) covering local hospitality and English basics.' },
+        { title: 'Digital ID Wallet', img: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=600', text: 'Malta now uses the E-ID Wallet app for all identity verifications. Paper work permits are being phased out in favor of biometric smartphone passes.' },
+        { title: 'Housing Authority Rules', img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600', text: 'Every rental contract must be registered online by the landlord within 10 days of signing. Unregistered contracts are illegal and block ID applications.' },
+        { title: 'Healthcare Access', img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600', text: 'Public healthcare is free for EU citizens and TCNs paying social security. Private health insurance remains mandatory for initial residency permits.' }
     ],
-    sections: [
-        { id: 'getting-started', icon: '🚀', title: { en: 'Getting Started', pa: 'ਸ਼ੁਰੂ ਕਰਨਾ', hi: 'शुरू करना', 'pt-br': 'Primeiros Passos' } },
-        { id: 'expat-info', icon: '🛂', title: { en: 'Expat Info', it: 'Info Espatriati', tl: 'Impormasyon sa Expat' } },
-        { id: 'basic-info', icon: '🇲🇹', title: { en: 'Basic Info', fr: 'Infos de Base', de: 'Basisinfos' } },
-        { id: 'accommodation', icon: '🏠', title: { en: 'Accommodation', es: 'Alojamiento', pa: 'ਰਿਹਾਇਸ਼' } },
-        { id: 'education', icon: '🎓', title: { en: 'Education', hi: 'शिक्षा', tl: 'Edukasyon' } },
-        { id: 'services', icon: '🏥', title: { en: 'Services', it: 'Servizi', 'pt-br': 'Serviços' } },
-        { id: 'safety', icon: '🛡️', title: { en: 'Safety', es: 'Seguridad', de: 'Sicherheit' } },
-        { id: 'lifestyle', icon: '☀️', title: { en: 'Lifestyle', fr: 'Mode de vie', hi: 'जीवन शैली' } },
-        { id: 'locations', icon: '📍', title: { en: 'Locations', pa: 'ਟਿਕਾਣੇ', tl: 'Mga Lokasyon' } },
-        { id: 'community', icon: '🤝', title: { en: 'Community', it: 'Comunità', 'pt-br': 'Comunidade' } }
+    'getting-started': [
+        { title: 'Pre-Departure Check', img: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=600', text: 'Verify your visa type. TCNs should apply via the new VFS Global portal specific to Malta.' },
+        { title: 'Banking Setup', img: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?q=80&w=600', text: 'Setting up a local bank (BOV or HSBC) can take weeks. Consider digital alternatives like Revolut or MeDirect for immediate use.' }
     ]
+    // Add other sections here similarly...
 };
 
-let activeLang = 'en';
-
-/** Initialize Grid */
-function renderContent() {
-    const grid = document.getElementById('main-grid');
-    grid.innerHTML = hubData.sections.map(section => `
-        <div onclick="openSection('${section.id}')" class="bg-white p-10 rounded-[2rem] sun-shadow border border-orange-50 hover:border-[#CF142B] transition-all cursor-pointer group">
-            <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">${section.icon}</div>
-            <h3 class="text-2xl font-bold text-[#003366] mb-3">${section.title[activeLang] || section.title['en']}</h3>
-            <div class="flex items-center gap-2 text-[#CF142B] font-bold text-sm uppercase tracking-widest">
-                Learn More <span>→</span>
-            </div>
-        </div>
-    `).join('');
-
-    // Render Language Options in Modal
-    const langOptions = document.getElementById('langOptions');
-    langOptions.innerHTML = hubData.languages.map(l => `
-        <button onclick="setLanguage('${l.id}', '${l.name}')" class="lang-card p-4 border rounded-2xl flex flex-col items-center gap-2 transition-all">
-            <span class="text-2xl">${l.flag}</span>
-            <span class="font-bold text-sm text-[#003366]">${l.name}</span>
+function renderSidebar() {
+    const nav = document.getElementById('sidebar-nav');
+    nav.innerHTML = wikiSections.map(s => `
+        <button onclick="loadSection('${s.id}')" id="btn-${s.id}" class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 rounded-xl hover:bg-slate-50 transition">
+            <span>${s.icon}</span> ${s.label}
         </button>
     `).join('');
 }
 
-/** Navigation Functions */
-window.openSection = function(id) {
-    document.getElementById('hero').classList.remove('active-view');
-    document.getElementById('main-grid').classList.remove('active-view');
-    document.getElementById('article-view').classList.add('active-view');
+function loadSection(id) {
+    // Update Sidebar Styling
+    document.querySelectorAll('#sidebar-nav button').forEach(b => b.classList.remove('sidebar-active'));
+    document.getElementById(`btn-${id}`).classList.add('sidebar-active');
 
-    const title = id.replace('-', ' ').toUpperCase();
-    document.getElementById('article-body').innerHTML = `
-        <h1 class="text-5xl font-extrabold mb-8">${title}</h1>
-        <div class="p-8 bg-orange-50 rounded-3xl border border-orange-200 mb-8">
-            <h4 class="text-[#CF142B] font-bold text-xl mb-2">2026 Updates</h4>
-            <p>We are currently updating our <b>${title}</b> guides to reflect the latest April 2026 regulations regarding the Skills Pass and Digital ID Wallet. Check back daily for local updates.</p>
-        </div>
-        <p class="text-xl leading-relaxed">Detailed information about the Maltese ${id} landscape goes here...</p>
-    `;
-    window.scrollTo(0,0);
-};
-
-window.showHome = function() {
-    document.getElementById('hero').classList.add('active-view');
-    document.getElementById('main-grid').classList.add('active-view');
-    document.getElementById('article-view').classList.remove('active-view');
-};
-
-/** Language Logic */
-window.setLanguage = function(id, name) {
-    activeLang = id;
-    document.getElementById('currentLang').innerText = name;
-    toggleLangModal();
-    renderContent();
+    // Update Titles
+    const sectionData = wikiSections.find(s => s.id === id);
+    document.getElementById('main-title').innerText = sectionData.label;
     
-    // Example Hero change for visual feedback
-    const heroText = document.getElementById('hero-text');
-    if (id === 'pa') heroText.innerText = "ਮਾਲਟਾ ਦੀ ਧੁੱਪ ਤੁਹਾਡਾ ਇੰਤਜ਼ਾਰ ਕਰ ਰਹੀ ਹੈ! ਭਾਈਚਾਰੇ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ।";
-    else if (id === 'hi') heroText.innerText = "माल्टा की धूप आपका इंतज़ार कर रही है! समुदाय में शामिल हों।";
-    else heroText.innerText = "Your Maltese Sunshine awaits! Join the Community.";
-};
+    // Update Wiki Grid
+    const grid = document.getElementById('wiki-content');
+    const items = contentDatabase[id] || [{ title: 'Under Construction', img: '', text: 'Detailed wiki articles for this section are arriving soon.' }];
+    
+    grid.innerHTML = items.map(item => `
+        <div class="wiki-card flex flex-col gap-4">
+            ${item.img ? `<img src="${item.img}" class="w-full h-40 object-cover rounded-lg">` : ''}
+            <div>
+                <h3 class="text-xl font-bold mb-2 text-[#003366]">${item.title}</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">${item.text}</p>
+                <button class="mt-4 text-[#CF142B] text-xs font-bold uppercase tracking-wider hover:underline">Full Details & Links</button>
+            </div>
+        </div>
+    `).join('');
 
-window.toggleLangModal = function() {
-    const modal = document.getElementById('langModal');
-    modal.classList.toggle('hidden');
-    modal.classList.toggle('flex');
-};
+    window.scrollTo(0, 0);
+}
 
-/** Load */
-document.addEventListener('DOMContentLoaded', renderContent);
+/** Language Modal Logic **/
+function toggleLangModal() {
+    document.getElementById('langModal').classList.toggle('hidden');
+    document.getElementById('langModal').classList.toggle('flex');
+}
+
+function updateLang(code, name) {
+    document.getElementById('langDisplay').innerText = name;
+    toggleLangModal();
+    // In a full app, you would swap text content based on the 'code' here.
+}
+
+// Initial Run
+window.onload = () => {
+    renderSidebar();
+    loadSection('home');
+};
