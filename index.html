@@ -158,8 +158,53 @@
 
         </nav>
 
-        <div class="mt-auto p-6 border-t">
-            <button onclick="toggleLangModal()" class="w-full bg-[#003366] text-white p-3 rounded-xl font-bold text-sm">🌐 Switch Language</button>
+        <div id="langModal" class="fixed inset-0 bg-slate-900/60 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm">
+            <div class="bg-white rounded-[2rem] p-8 md:p-10 max-w-2xl w-full shadow-2xl relative">
+                <button onclick="toggleLangModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                <h2 class="text-2xl font-bold mb-6 text-[#003366]">🌐 Select Language</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <button onclick="changeLang('en')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                        <span class="text-2xl mb-1">🇬🇧</span>
+                        <span class="font-semibold text-sm">English</span>
+                    </button>
+                    <button onclick="changeLang('it')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                        <span class="text-2xl mb-1">🇮🇹</span>
+                        <span class="font-semibold text-sm">Italiano</span>
+                    </button>
+                    <button onclick="changeLang('es')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                        <span class="text-2xl mb-1">🇪🇸</span>
+                        <span class="font-semibold text-sm">Español</span>
+                    </button>
+                    <button onclick="changeLang('fr')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                        <span class="text-2xl mb-1">🇫🇷</span>
+                        <span class="font-semibold text-sm">Français</span>
+                    </button>
+                    <button onclick="changeLang('de')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                        <span class="text-2xl mb-1">🇩🇪</span>
+                        <span class="font-semibold text-sm">Deutsch</span>
+                    </button>
+                    <button onclick="changeLang('hi')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                        <span class="text-2xl mb-1">🇮🇳</span>
+                        <span class="font-semibold text-sm">हिन्दी</span>
+                    </button>
+                    <button onclick="changeLang('pa')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                        <span class="text-2xl mb-1">🇮🇳</span>
+                        <span class="font-semibold text-sm">ਪੰਜਾਬੀ</span>
+                    </button>
+                    <button onclick="changeLang('tl')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                        <span class="text-2xl mb-1">🇵🇭</span>
+                        <span class="font-semibold text-sm">Filipino</span>
+                    </button>
+                    <button onclick="changeLang('pt-br')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                        <span class="text-2xl mb-1">🇧🇷</span>
+                        <span class="font-semibold text-sm text-center">Português (Brasil)</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </aside>
 
