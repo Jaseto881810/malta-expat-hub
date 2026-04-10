@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇲🇹 Malta Expate Guide | A Comprehensive Guide to Living in Malta</title>
+    <title>🇲🇹 Malta Expat Guide | A Comprehensive Guide to Living in Malta</title>
     <meta name="description" content="Comprehensive wiki for moving to Malta. 60+ pages of info on visas, housing, lifestyle, and more.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
 </head>
 <body class="flex flex-col lg:flex-row">
 
-    <aside class="w-full lg:w-80 bg-white border-r border-slate-200 overflow-y-auto flex flex-col z-50">
+    <aside class="w-full lg:w-80 bg-white border-r border-slate-200 overflow-y-auto flex flex-col z-40">
         <div class="p-6 border-b">
             <div class="text-2xl font-bold text-[#003366] mb-4"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
             <input type="text" placeholder="Search the site..." class="w-full bg-slate-100 border-none rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-[#CF142B] outline-none">
@@ -32,7 +32,6 @@
         
         <nav class="p-4 space-y-1">
             <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition sidebar-active">🏠 Home</a>
-
             <a href="/getting-started.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🚀 Getting Started</a>
 
             <div>
@@ -98,7 +97,7 @@
                     <a href="/education/high-schools.html" class="block py-2 hover:text-[#CF142B]">High Schools</a>
                     <a href="/education/international-schools.html" class="block py-2 hover:text-[#CF142B]">International Schools</a>
                     <a href="/education/language-schools.html" class="block py-2 hover:text-[#CF142B]">Language Schools</a>
-                    <a href="/education/nursery-schools.html" class="block py-2 hover:text-[#CF142B]">Nursey Schools</a>
+                    <a href="/education/nursery-schools.html" class="block py-2 hover:text-[#CF142B]">Nursery Schools</a>
                     <a href="/education/primary-schools.html" class="block py-2 hover:text-[#CF142B]">Primary Schools</a>
                 </div>
             </div>
@@ -155,56 +154,10 @@
                     <a href="/locations/trips-sicily.html" class="block py-2 hover:text-[#CF142B]">Trips to Sicily</a>
                 </div>
             </div>
-
         </nav>
 
-        <div id="langModal" class="fixed inset-0 bg-slate-900/60 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm">
-            <div class="bg-white rounded-[2rem] p-8 md:p-10 max-w-2xl w-full shadow-2xl relative">
-                <button onclick="toggleLangModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-
-                <h2 class="text-2xl font-bold mb-6 text-[#003366]">🌐 Select Language</h2>
-                
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    <button onclick="changeLang('en')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
-                        <span class="text-2xl mb-1">🇬🇧</span>
-                        <span class="font-semibold text-sm">English</span>
-                    </button>
-                    <button onclick="changeLang('it')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
-                        <span class="text-2xl mb-1">🇮🇹</span>
-                        <span class="font-semibold text-sm">Italiano</span>
-                    </button>
-                    <button onclick="changeLang('es')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
-                        <span class="text-2xl mb-1">🇪🇸</span>
-                        <span class="font-semibold text-sm">Español</span>
-                    </button>
-                    <button onclick="changeLang('fr')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
-                        <span class="text-2xl mb-1">🇫🇷</span>
-                        <span class="font-semibold text-sm">Français</span>
-                    </button>
-                    <button onclick="changeLang('de')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
-                        <span class="text-2xl mb-1">🇩🇪</span>
-                        <span class="font-semibold text-sm">Deutsch</span>
-                    </button>
-                    <button onclick="changeLang('hi')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
-                        <span class="text-2xl mb-1">🇮🇳</span>
-                        <span class="font-semibold text-sm">हिन्दी</span>
-                    </button>
-                    <button onclick="changeLang('pa')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
-                        <span class="text-2xl mb-1">🇮🇳</span>
-                        <span class="font-semibold text-sm">ਪੰਜਾਬੀ</span>
-                    </button>
-                    <button onclick="changeLang('tl')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
-                        <span class="text-2xl mb-1">🇵🇭</span>
-                        <span class="font-semibold text-sm">Filipino</span>
-                    </button>
-                    <button onclick="changeLang('pt-br')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
-                        <span class="text-2xl mb-1">🇧🇷</span>
-                        <span class="font-semibold text-sm text-center">Português (Brasil)</span>
-                    </button>
-                </div>
-            </div>
+        <div class="mt-auto p-6 border-t">
+            <button onclick="toggleLangModal()" class="w-full bg-[#003366] text-white p-3 rounded-xl font-bold text-sm shadow-md hover:bg-[#002244] transition-colors">🌐 Switch Language</button>
         </div>
     </aside>
 
@@ -212,7 +165,7 @@
         <div class="hero-banner flex items-end p-10 mb-12">
             <div>
                 <h1 class="text-4xl lg:text-5xl text-white font-bold wiki-header">Welcome to Malta Expat Guide</h1>
-                <p class="text-white/80 mt-2">A compreshensive guide to living in Malta and what to expect</p>
+                <p class="text-white/80 mt-2 text-lg">A comprehensive guide to living in Malta and what to expect.</p>
             </div>
         </div>
 
@@ -220,14 +173,84 @@
             <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
                 <h2 class="text-2xl font-bold mb-4">Quick Start</h2>
                 <p class="text-slate-500 mb-6">Are you a Third Country National moving for work? Start with the 2026 Skills Pass requirements.</p>
-                <a href="/expat-info/employment.html" class="text-[#CF142B] font-bold uppercase text-xs tracking-widest">Read More →</a>
+                <a href="/expat-info/employment.html" class="text-[#CF142B] font-bold uppercase text-xs tracking-widest hover:underline">Read More →</a>
             </div>
-            </div>
+        </div>
     </main>
+
+    <div id="langModal" class="fixed inset-0 bg-slate-900/60 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closeLangModal(event)">
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 max-w-2xl w-full shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="toggleLangModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <h2 class="text-2xl font-bold mb-6 text-[#003366]">🌐 Select Language</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <button onclick="changeLang('en')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                    <span class="text-2xl mb-1">🇬🇧</span>
+                    <span class="font-semibold text-sm">English</span>
+                </button>
+                <button onclick="changeLang('it')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                    <span class="text-2xl mb-1">🇮🇹</span>
+                    <span class="font-semibold text-sm">Italiano</span>
+                </button>
+                <button onclick="changeLang('es')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                    <span class="text-2xl mb-1">🇪🇸</span>
+                    <span class="font-semibold text-sm">Español</span>
+                </button>
+                <button onclick="changeLang('fr')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                    <span class="text-2xl mb-1">🇫🇷</span>
+                    <span class="font-semibold text-sm">Français</span>
+                </button>
+                <button onclick="changeLang('de')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                    <span class="text-2xl mb-1">🇩🇪</span>
+                    <span class="font-semibold text-sm">Deutsch</span>
+                </button>
+                <button onclick="changeLang('hi')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                    <span class="text-2xl mb-1">🇮🇳</span>
+                    <span class="font-semibold text-sm">हिन्दी</span>
+                </button>
+                <button onclick="changeLang('pa')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                    <span class="text-2xl mb-1">🇮🇳</span>
+                    <span class="font-semibold text-sm">ਪੰਜਾਬੀ</span>
+                </button>
+                <button onclick="changeLang('tl')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                    <span class="text-2xl mb-1">🇵🇭</span>
+                    <span class="font-semibold text-sm">Filipino</span>
+                </button>
+                <button onclick="changeLang('pt-br')" class="flex flex-col items-center p-4 border rounded-2xl hover:bg-slate-50 hover:border-[#CF142B] transition-all group">
+                    <span class="text-2xl mb-1">🇧🇷</span>
+                    <span class="font-semibold text-sm text-center">Português</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
         function toggleMenu(id) {
-            document.getElementById(id).classList.toggle('open');
+            const menu = document.getElementById(id);
+            menu.classList.toggle('open');
+        }
+
+        function toggleLangModal() {
+            const modal = document.getElementById('langModal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        // Close modal if clicking the background
+        function closeLangModal(event) {
+            toggleLangModal();
+        }
+
+        function changeLang(lang) {
+            console.log('Language selected:', lang);
+            // Save preference to localStorage
+            localStorage.setItem('userLanguage', lang);
+            // For now, we'll just close the modal
+            toggleLangModal();
+            // In a live environment, you might redirect to /it/index.html etc.
         }
     </script>
 </body>
