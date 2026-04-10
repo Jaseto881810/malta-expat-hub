@@ -3,71 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malta Wiki | Expat Dashboard 2026</title>
+    <title>Malta Expate Guide | A Comprehensive Guide to Living in Malta</title>
+    <meta name="description" content="Comprehensive wiki for moving to Malta. 60+ pages of info on visas, housing, lifestyle, and more.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfbf7; }
+        .sidebar-active { color: #CF142B !important; font-weight: 700; background: #fff1f2; }
+        .submenu { display: none; }
+        .submenu.open { display: block; }
+        aside { height: 100vh; position: sticky; top: 0; scrollbar-width: thin; }
         .wiki-header { font-family: 'Playfair Display', serif; }
-        .sidebar-active { background-color: #f1f5f9; border-left: 4px solid #CF142B; color: #003366; }
-        .hero-splash { 
-            height: 350px; 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1516483642775-82b85ec8803b?q=80&w=2000&auto=format&fit=crop');
+        .hero-banner { 
+            height: 300px; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=2000');
             background-size: cover; background-position: center;
             border-radius: 1.5rem;
         }
-        aside { height: 100vh; position: sticky; top: 0; }
-        .wiki-card { background: white; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 1.5rem; }
     </style>
 </head>
 <body class="flex flex-col lg:flex-row">
 
-    <aside class="w-full lg:w-72 bg-white border-r border-slate-200 flex flex-col p-6 z-50">
-        <div class="text-2xl font-bold text-[#003366] mb-10 flex items-center gap-2">
-            <span class="text-[#CF142B]">M*</span> Wiki
+    <aside class="w-full lg:w-80 bg-white border-r border-slate-200 overflow-y-auto flex flex-col z-50">
+        <div class="p-6 border-b">
+            <div class="text-2xl font-bold text-[#003366] mb-4"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
+            <input type="text" placeholder="Search the Wiki..." class="w-full bg-slate-100 border-none rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-[#CF142B] outline-none">
         </div>
         
-        <nav class="flex-grow space-y-1" id="sidebar-nav">
-            </nav>
+        <nav class="p-4 space-y-1">
+            <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition sidebar-active">🏠 Home</a>
 
-        <div class="mt-auto pt-6 border-t border-slate-100">
-            <button onclick="toggleLangModal()" class="w-full bg-slate-100 p-3 rounded-xl flex items-center justify-between hover:bg-slate-200 transition">
-                <span class="text-sm font-semibold">🌐 <span id="langDisplay">English</span></span>
-                <span class="text-xs text-slate-400">Change</span>
-            </button>
+            <a href="/getting-started.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🚀 Getting Started</a>
+
+            <div>
+                <button onclick="toggleMenu('expat-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">
+                    <span class="flex items-center gap-3">🛂 Expat Info</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="expat-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/expat-info/benefits.html" class="block py-2 hover:text-[#CF142B]">Benefits & Allowances</a>
+                    <a href="/expat-info/consumer-rights.html" class="block py-2 hover:text-[#CF142B]">Consumer Rights</a>
+                    <a href="/expat-info/driving.html" class="block py-2 hover:text-[#CF142B]">Driving License</a>
+                    <a href="/expat-info/embassies.html" class="block py-2 hover:text-[#CF142B]">Embassies</a>
+                    <a href="/expat-info/employment.html" class="block py-2 hover:text-[#CF142B]">Employment</a>
+                    <a href="/expat-info/healthcare.html" class="block py-2 hover:text-[#CF142B]">Healthcare</a>
+                    <a href="/expat-info/money-transfers.html" class="block py-2 hover:text-[#CF142B]">Money Transfers</a>
+                    <a href="/expat-info/permits-ids.html" class="block py-2 hover:text-[#CF142B]">Permits & IDs</a>
+                    <a href="/expat-info/policing.html" class="block py-2 hover:text-[#CF142B]">Policing</a>
+                    <a href="/expat-info/children.html" class="block py-2 hover:text-[#CF142B]">Raising Children</a>
+                    <a href="/expat-info/taxation.html" class="block py-2 hover:text-[#CF142B]">Taxation</a>
+                    <a href="/expat-info/voting.html" class="block py-2 hover:text-[#CF142B]">Voting & Elections</a>
+                </div>
+            </div>
+
+            <div>
+                <button onclick="toggleMenu('basic-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">
+                    <span class="flex items-center gap-3">🇲🇹 Basic Info</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="basic-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 border-slate-100">
+                    <a href="/basic-info/etiquette.html" class="block py-2">Local Etiquette</a>
+                    <a href="/basic-info/drinks.html" class="block py-2">Local Drinks</a>
+                    <a href="/basic-info/languages.html" class="block py-2">Languages</a>
+                    <a href="/basic-info/food.html" class="block py-2">Food & Snacks</a>
+                    <a href="/basic-info/news.html" class="block py-2">News Sources</a>
+                    <a href="/basic-info/customs.html" class="block py-2">Customs</a>
+                    <a href="/basic-info/politics.html" class="block py-2">Political Landscape</a>
+                    <a href="/basic-info/sports.html" class="block py-2">Sports</a>
+                    <a href="/basic-info/holidays.html" class="block py-2">Public Holidays</a>
+                    <a href="/basic-info/religion.html" class="block py-2">Religion</a>
+                </div>
+            </div>
+
+            <div>
+                <button onclick="toggleMenu('housing-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">
+                    <span class="flex items-center gap-3">🏠 Accommodation</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="housing-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 border-slate-100">
+                    <a href="/accommodation/buying.html" class="block py-2">Buying Property</a>
+                    <a href="/accommodation/authority.html" class="block py-2">Housing Authority</a>
+                    <a href="/accommodation/mortgages.html" class="block py-2">Mortgages</a>
+                    <a href="/accommodation/renting.html" class="block py-2">Renting</a>
+                </div>
+            </div>
+
+            <a href="/safety.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🛡️ Safety</a>
+        </nav>
+
+        <div class="mt-auto p-6 border-t">
+            <button onclick="toggleLangModal()" class="w-full bg-[#003366] text-white p-3 rounded-xl font-bold text-sm">🌐 Switch Language</button>
         </div>
     </aside>
 
-    <main class="flex-grow p-4 lg:p-10 max-w-6xl mx-auto">
-        
-        <div class="hero-splash flex items-end p-8 mb-10">
-            <div class="text-white">
-                <h1 class="text-4xl lg:text-5xl font-bold wiki-header mb-2" id="main-title">Malta Expat Knowledge Base</h1>
-                <p class="text-lg opacity-90" id="main-subtitle">April 2026 Certified Information</p>
+    <main class="flex-grow p-6 lg:p-12">
+        <div class="hero-banner flex items-end p-10 mb-12">
+            <div>
+                <h1 class="text-4xl lg:text-5xl text-white font-bold wiki-header">Malta Wiki Dashboard</h1>
+                <p class="text-white/80 mt-2">60+ Topics • April 2026 Edition</p>
             </div>
         </div>
 
-        <div id="wiki-content" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                <h2 class="text-2xl font-bold mb-4">Quick Start</h2>
+                <p class="text-slate-500 mb-6">Are you a Third Country National moving for work? Start with the 2026 Skills Pass requirements.</p>
+                <a href="/expat-info/employment.html" class="text-[#CF142B] font-bold uppercase text-xs tracking-widest">Read More →</a>
             </div>
-
+            </div>
     </main>
 
-    <div id="langModal" class="fixed inset-0 bg-slate-900/60 z-[100] hidden items-center justify-center p-4">
-        <div class="bg-white rounded-2xl p-8 max-w-xl w-full grid grid-cols-2 gap-3 shadow-2xl">
-            <h3 class="col-span-2 text-xl font-bold mb-4">Select Language</h3>
-            <button onclick="updateLang('en', 'English')" class="p-3 border rounded-lg hover:bg-slate-50 text-left">🇬🇧 English</button>
-            <button onclick="updateLang('it', 'Italiano')" class="p-3 border rounded-lg hover:bg-slate-50 text-left">🇮🇹 Italiano</button>
-            <button onclick="updateLang('es', 'Español')" class="p-3 border rounded-lg hover:bg-slate-50 text-left">🇪🇸 Español</button>
-            <button onclick="updateLang('fr', 'Français')" class="p-3 border rounded-lg hover:bg-slate-50 text-left">🇫🇷 Français</button>
-            <button onclick="updateLang('de', 'Deutsch')" class="p-3 border rounded-lg hover:bg-slate-50 text-left">🇩🇪 Deutsch</button>
-            <button onclick="updateLang('hi', 'हिन्दी')" class="p-3 border rounded-lg hover:bg-slate-50 text-left">🇮🇳 हिन्दी</button>
-            <button onclick="updateLang('pa', 'ਪੰਜਾਬੀ')" class="p-3 border rounded-lg hover:bg-slate-50 text-left">🇮🇳 ਪੰਜਾਬੀ</button>
-            <button onclick="updateLang('tl', 'Filipino')" class="p-3 border rounded-lg hover:bg-slate-50 text-left">🇵🇭 Filipino</button>
-            <button onclick="updateLang('pt-br', 'Português')" class="p-3 border rounded-lg hover:bg-slate-50 text-left">🇧🇷 Português</button>
-            <button onclick="toggleLangModal()" class="col-span-2 mt-4 py-2 text-slate-400">Cancel</button>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
+    <script>
+        function toggleMenu(id) {
+            document.getElementById(id).classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
