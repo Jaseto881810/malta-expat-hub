@@ -32,11 +32,24 @@
         #nav-scroll::-webkit-scrollbar { width: 4px; }
         #nav-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
         #nav-scroll::-webkit-scrollbar-thumb { background: #CF142B; border-radius: 10px; }
+
+        @keyframes pulse-soft {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        /* Fixed blurriness by adding backface-visibility and will-change */
+        .ai-pulse { 
+            animation: pulse-soft 2s infinite ease-in-out; 
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
+            will-change: transform;
+        }
     </style>
 </head>
 <body class="flex flex-col lg:flex-row min-h-screen">
 
-    <!-- MOBILE HEADER -->
+    <!-- MOBILE HEADER (Fixed at Z-60) -->
     <div class="lg:hidden bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-[60] shadow-sm">
         <div class="text-xl font-bold text-[#003366]"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
         <button onclick="toggleMobileMenu()" class="text-slate-600 p-2 border rounded-lg">
@@ -44,10 +57,10 @@
         </button>
     </div>
 
-    <!-- SIDEBAR NAVIGATION -->
+    <!-- SIDEBAR NAVIGATION (Set to Z-100 to cover header on mobile) -->
     <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:sticky lg:flex w-full lg:w-80 bg-white border-r border-slate-200 flex flex-col z-[100] transition-transform duration-300 h-screen">
         
-        <!-- Sidebar Top Header -->
+        <!-- Sidebar Top Header (Branding) -->
         <div class="p-6 border-b flex justify-between items-center bg-white shrink-0">
             <div class="text-2xl font-bold text-[#003366]"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
             <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-400 p-2">
@@ -57,10 +70,19 @@
 
         <!-- Scrollable Navigation Middle -->
         <nav id="nav-scroll" class="p-4 space-y-1 flex-grow overflow-y-auto">
-            <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl sidebar-active transition">🏠 Home</a>
-            <a href="/getting-started.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🚀 Getting Started</a>
+            
+            <!-- AI Assistant Shortcut -->
+            <button onclick="toggleAiModal()" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 text-blue-700 font-bold mb-4 ai-pulse hover:shadow-md transition">
+                <span>✨</span> AI Expat Assistant
+            </button>
 
-            <!-- Expat Info -->
+            <!-- 1. HOME -->
+            <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🏠 Home</a>
+
+            <!-- 2. GETTING STARTED -->
+            <a href="/getting-started.html" class="flex items-center gap-3 px-4 py-3 rounded-xl sidebar-active transition">🚀 Getting Started</a>
+
+            <!-- 3. EXPAT INFO -->
             <div>
                 <button onclick="toggleMenu('expat-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">🛂 Expat Info</span>
@@ -82,7 +104,7 @@
                 </div>
             </div>
 
-            <!-- Basic Info -->
+            <!-- 4. BASIC INFO -->
             <div>
                 <button onclick="toggleMenu('basic-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">ℹ️ Basic Info</span>
@@ -102,7 +124,7 @@
                 </div>
             </div>
 
-            <!-- Accommodation -->
+            <!-- 5. ACCOMMODATION -->
             <div>
                 <button onclick="toggleMenu('housing-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">🏠 Accommodation</span>
@@ -116,7 +138,7 @@
                 </div>
             </div>
 
-            <!-- Education -->
+            <!-- 6. EDUCATION -->
             <div>
                 <button onclick="toggleMenu('education-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">🎓 Education</span>
@@ -132,7 +154,7 @@
                 </div>
             </div>
 
-            <!-- Services -->
+            <!-- 7. SERVICES -->
             <div>
                 <button onclick="toggleMenu('services-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">🏥 Services</span>
@@ -149,9 +171,10 @@
                 </div>
             </div>
 
+            <!-- 8. SAFETY -->
             <a href="/safety.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🛡️ Safety in Malta</a>
 
-            <!-- Lifestyle -->
+            <!-- 9. LIFESTYLE -->
             <div>
                 <button onclick="toggleMenu('lifestyle-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">☀️ Lifestyle</span>
@@ -171,7 +194,7 @@
                 </div>
             </div>
 
-            <!-- Locations -->
+            <!-- 10. LOCATIONS -->
             <div>
                 <button onclick="toggleMenu('locations-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
                     <span class="flex items-center gap-3">📍 Locations</span>
@@ -197,7 +220,7 @@
         </div>
     </aside>
 
-    <!-- Overlay for Mobile Sidebar -->
+    <!-- Overlay for Mobile Sidebar (Z-90) -->
     <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-[90] hidden" onclick="toggleMobileMenu()"></div>
 
     <!-- MAIN CONTENT -->
@@ -209,9 +232,9 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 gap-8 max-w-5xl">
+        <div class="grid grid-cols-1 gap-8 max-w-5xl" id="content-container">
             <!-- Content Block 1 -->
-            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
                 <h2 class="text-2xl font-bold mb-4 text-[#003366]">Quick things to know about living in Malta</h2>
                 <div class="text-slate-600 space-y-4 leading-relaxed">
                     <p>Living in Malta comes with a unique mix of Mediterranean charm and somewhat modern convenience. English is one of the official languages (alongside Maltese), which makes settling in easier for most expats. The island is very small — you can drive from one end to the other in under an hour — but it’s packed with history, beaches, and lively towns. The country has seen an inflow foreign nationals moving to Malta to work in the iGaming and Fintech sectors. This has also lead to an inflow of foreigners to Malta who work as taxi drivers, delivery drivers, bus drivers, work in supermarkets and corners, and also work in the hospitality sector. This has caused the Maltese nationals to become, in general, very upset, as they believe their culture and country's identity is being lost, and the cost of housing has become too high for them.</p>
@@ -220,13 +243,12 @@
             </div>
             
             <!-- Content Block 2 -->
-            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
                 <h2 class="text-2xl font-bold mb-4 text-[#003366]">Weather and Climate in Malta</h2>
                 <div class="text-slate-600 space-y-4 leading-relaxed">
                     <p>Malta boasts a Mediterranean climate, meaning long, hot summers and mild, short winters. With over 300 days of sunshine a year, it’s one of the sunniest places in Europe. However, if you are coming to Malta during the summer, and you aren't conditioned to hot weather, you are going to be in for quite a shock.</p>
-                    <br>
-
-                    <div>
+                    
+                    <div class="pt-2">
                         <h3 class="font-bold text-slate-800">Summer (June – September)</h3>
                         <p class="text-slate-600 leading-relaxed">Summers in Malta are hot and dry, with average daytime temperatures ranging from 30°C to 35°C. Be prepared for some humidity, especially in July and August — and air conditioning quickly becomes your best friend! The night times can be extremely uncomfortable for sleeping, with average overnight temperature being in the mid twenties.</p>
                     </div>
@@ -242,16 +264,17 @@
                         <h3 class="font-bold text-slate-800">Spring (March – May)</h3>
                         <p class="text-slate-600 leading-relaxed">Spring is one of the best times to be in Malta. The island turns green and vibrant, and the temperatures start to rise again, averaging 17°C to 24°C. There’s less rain, longer days, and the sea begins to warm up again. The overnight temperature is a bit chilly at between 11°C to 16°C.</p>
                     </div>
-                </div>
-                <br>
 
-                    <h3>Weather characteristics:</h3>
-                        <ul class="list-decimal pl-5 space-y-3">
+                    <div class="pt-4">
+                        <h3 class="font-bold text-slate-800">Weather characteristics:</h3>
+                        <ul class="list-disc pl-5 space-y-3 text-slate-600">
                             <li>Rainfall is most common from late autumn through winter, often in quick, heavy bursts. When it does rain, it always leads to chaos on the roads. Pedestrians should be very careful, as drainage of rain water on the roads is not a thing in Malta, leading to flooded roads. The roads and pavements are also relatively smoothing, making them extremely slippery.</li>
                             <li>Winds can be strong, especially the north-westerly “majjistral” wind in winter, or the hot and dry “sirocco” blowing in from the Sahara.</li>
                             <li>Due to Malta's latitude location, humidity is a real issue, it can be quite high year-round.</li>
                             <li>While Malta generally enjoys calm Mediterranean weather, it can occasionally be affected by Medicanes — short for Mediterranean hurricanes. These are rare, tropical-like storms that form over the Mediterranean Sea, usually in autumn when the sea is still warm. Medicanes can bring heavy rain, strong winds, rough seas, and localized flooding. Malta has experienced a few in recent years, but they remain infrequent and short-lived, often lasting only a day or two.</li>
                         </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -277,13 +300,45 @@
         </div>
     </div>
 
+    <!-- AI EXPAT ASSISTANT MODAL -->
+    <div id="aiModal" class="fixed inset-0 bg-slate-900/60 z-[110] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleAiModal()">
+        <div class="bg-white rounded-[2rem] p-6 md:p-8 max-w-2xl w-full h-[80vh] shadow-2xl relative flex flex-col" onclick="event.stopPropagation()">
+            <button onclick="toggleAiModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-blue-600 text-white p-3 rounded-2xl">✨</div>
+                <div>
+                    <h2 class="text-xl font-bold text-[#003366]">Expat Assistant</h2>
+                    <p class="text-xs text-slate-400">Powered by Gemini AI</p>
+                </div>
+            </div>
+
+            <div id="ai-chat-history" class="flex-grow overflow-y-auto space-y-4 mb-6 p-2 scroll-smooth">
+                <div class="bg-slate-50 p-4 rounded-2xl text-slate-700 text-sm max-w-[85%] border border-slate-100">
+                    Hello! I'm your AI guide for Malta. You can ask me anything about visas, the Skills Pass, finding a flat, or even the best spots for local food. How can I help you today?
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <input type="text" id="ai-user-input" placeholder="Type your question here..." class="flex-grow bg-slate-100 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none" onkeypress="if(event.key === 'Enter') sendAiMessage()">
+                <button onclick="sendAiMessage()" id="ai-send-btn" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-blue-700 transition flex items-center gap-2">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- JAVASCRIPT -->
     <script>
+        // Collapsible Menu Logic
         function toggleMenu(id) {
             const menu = document.getElementById(id);
             menu.classList.toggle('open');
         }
 
+        // Mobile Hamburger Logic
         function toggleMobileMenu() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('sidebarOverlay');
@@ -298,6 +353,7 @@
             }
         }
 
+        // Language Modal Logic
         function toggleLangModal() {
             const modal = document.getElementById('langModal');
             modal.classList.toggle('hidden');
@@ -315,6 +371,61 @@
                 if (window.innerWidth < 1024) toggleMobileMenu();
             });
         });
+
+        // AI Feature integration placeholders
+        const apiKey = "";
+        async function callGemini(prompt, systemInstruction = "You are a helpful assistant specialized in moving to Malta.") {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+            let delay = 1000;
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (response.ok) {
+                        const result = await response.json();
+                        return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    }
+                } catch (e) {}
+                await new Promise(r => setTimeout(r, delay));
+                delay *= 2;
+            }
+            throw new Error("Connection failed.");
+        }
+
+        function toggleAiModal() {
+            const modal = document.getElementById('aiModal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        async function sendAiMessage() {
+            const input = document.getElementById('ai-user-input');
+            const history = document.getElementById('ai-chat-history');
+            const userText = input.value.trim();
+            if (!userText) return;
+            const userDiv = document.createElement('div');
+            userDiv.className = "bg-blue-600 text-white p-4 rounded-2xl text-sm max-w-[85%] self-end ml-auto";
+            userDiv.innerText = userText;
+            history.appendChild(userDiv);
+            input.value = "";
+            const botDiv = document.createElement('div');
+            botDiv.className = "bg-slate-50 p-4 rounded-2xl text-slate-700 text-sm max-w-[85%] border border-slate-100 italic";
+            botDiv.innerText = "Typing...";
+            history.appendChild(botDiv);
+            try {
+                const response = await callGemini(userText, "You are a professional Malta expat consultant. Answer using 2026 data.");
+                botDiv.innerText = response;
+                botDiv.classList.remove('italic');
+            } catch (error) { botDiv.innerText = "Connection failed."; }
+            history.scrollTop = history.scrollHeight;
+        }
     </script>
 </body>
 </html>
