@@ -36,7 +36,13 @@
             50% { transform: scale(1.02); }
             100% { transform: scale(1); }
         }
-        .ai-pulse { animation: pulse-soft 2s infinite ease-in-out; }
+        /* Fixed blurriness by adding backface-visibility and will-change */
+        .ai-pulse { 
+            animation: pulse-soft 2s infinite ease-in-out; 
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
+            will-change: transform;
+        }
     </style>
 </head>
 <body class="flex flex-col lg:flex-row min-h-screen">
@@ -257,7 +263,7 @@
                             <li>Delivery drivers don't work directly for these platforms, but for a local agency that collects the full revenue of the work and then pay a minimum wage to the workers, who most of the time work incredibly long hours.</li>
                         </ul>
                     </div>
-                    <br><br>
+                    <br>
 
                     <b>Revolut - Mobile Banking:</b>
                     <p>Revolut is the most popular banking service in Malta, with roughly 7 out of 10 adults using Revolut, despite not having a physical bank branch. The banking service is fully digital. Why is it so popular? It is cheap, has 5 different membership offers (ranging from free to €45 per month), quick and easy to open account (within 48 hours), has a powerful app, and offer services such as savings accounts, stock trading, crypto investing, virtual debit cards, exchanging and holding over 30 different currencies, seamlessly sending money abroad and creating accounts for your children.</p>
@@ -440,7 +446,8 @@
         }
 
         function toggleMenu(id) {
-            document.getElementById(id).classList.toggle('open');
+            const menu = document.getElementById(id);
+            menu.classList.toggle('open');
         }
 
         function toggleMobileMenu() {
