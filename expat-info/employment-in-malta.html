@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malta Expat Guide | Employment in Malta</title>
+    <meta name="description" content="Your complete guide to the Maltese job market. Explore popular industries, average salaries, tax rates, employee rights, JobsPlus, and work visa conditions.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fdfbf7; }
+        .sidebar-active { color: #CF142B !important; font-weight: 700; background: #fff1f2; }
+        .submenu { display: none; }
+        .submenu.open { display: block; }
+        .wiki-header { font-family: 'Playfair Display', serif; }
+        
+        .hero-banner { 
+            height: 300px; 
+            /* Using a high-quality Unsplash image representing business/employment in a Mediterranean setting */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1740&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            border-radius: 1.5rem;
+        }
+
+        #sidebar { transition: transform 0.3s ease-in-out; }
+        
+        #nav-scroll::-webkit-scrollbar { width: 4px; }
+        #nav-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
+        #nav-scroll::-webkit-scrollbar-thumb { background: #CF142B; border-radius: 10px; }
+
+        @keyframes pulse-soft {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .ai-pulse { animation: pulse-soft 2s infinite ease-in-out; }
+    </style>
+</head>
+<body class="flex flex-col lg:flex-row min-h-screen">
+
+    <!-- MOBILE HEADER -->
+    <div class="lg:hidden bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-[60] shadow-sm">
+        <div class="text-xl font-bold text-[#003366]"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
+        <button onclick="toggleMobileMenu()" class="text-slate-600 p-2 border rounded-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </div>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:sticky lg:flex w-full lg:w-80 bg-white border-r border-slate-200 flex flex-col z-[100] transition-transform duration-300 h-screen">
+        
+        <!-- Sidebar Top Header -->
+        <div class="p-6 border-b flex justify-between items-center bg-white shrink-0">
+            <div class="text-2xl font-bold text-[#003366]"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-400 p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- Scrollable Navigation Middle -->
+        <nav id="nav-scroll" class="p-4 space-y-1 flex-grow overflow-y-auto">
+            
+            <!-- ✨ AI Expat Assistant Button -->
+            <button onclick="toggleAiModal()" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 text-blue-700 font-bold mb-4 ai-pulse hover:shadow-md transition">
+                <span>✨</span> AI Expat Assistant
+            </button>
+
+            <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🏠 Home</a>
+            <a href="/getting-started.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🚀 Getting Started</a>
+
+            <!-- Expat Info (Set to open by default for this page) -->
+            <div>
+                <button onclick="toggleMenu('expat-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🛂 Expat Info</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="expat-menu" class="submenu open pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/expat-info/benefits-allowances.html" class="block py-2 hover:text-[#CF142B]">Benefits and Allowances</a>
+                    <a href="/expat-info/consumer-rights.html" class="block py-2 hover:text-[#CF142B]">Consumer Rights</a>
+                    <a href="/expat-info/driving-license.html" class="block py-2 hover:text-[#CF142B]">Driving License</a>
+                    <a href="/expat-info/employment.html" class="block py-2 sidebar-active rounded-lg px-2 -mx-2 transition">Employment in Malta</a>
+                    <a href="/expat-info/healthcare.html" class="block py-2 hover:text-[#CF142B]">Healthcare</a>
+                    <a href="/expat-info/money-transfers.html" class="block py-2 hover:text-[#CF142B]">International Money Transfers</a>
+                    <a href="/expat-info/permits-ids.html" class="block py-2 hover:text-[#CF142B]">Permits and IDs</a>
+                    <a href="/expat-info/policing.html" class="block py-2 hover:text-[#CF142B]">Policing</a>
+                    <a href="/expat-info/raising-children.html" class="block py-2 hover:text-[#CF142B]">Raising Children in Malta</a>
+                    <a href="/expat-info/taxation.html" class="block py-2 hover:text-[#CF142B]">Taxation</a>
+                    <a href="/expat-info/voting-elections.html" class="block py-2 hover:text-[#CF142B]">Voting and Elections</a>
+                </div>
+            </div>
+
+            <!-- Basic Info -->
+            <div>
+                <button onclick="toggleMenu('basic-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">ℹ️ Basic Info</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="basic-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/basic-info/etiquette.html" class="block py-2 hover:text-[#CF142B]">Local Etiquette</a>
+                    <a href="/basic-info/drinks.html" class="block py-2 hover:text-[#CF142B]">Local Drinks</a>
+                    <a href="/basic-info/languages.html" class="block py-2 hover:text-[#CF142B]">Languages</a>
+                    <a href="/basic-info/food-snacks.html" class="block py-2 hover:text-[#CF142B]">Local Food and Snacks</a>
+                    <a href="/basic-info/news.html" class="block py-2 hover:text-[#CF142B]">Local News Sources</a>
+                    <a href="/basic-info/customs.html" class="block py-2 hover:text-[#CF142B]">Maltese Customs</a>
+                    <a href="/basic-info/politics.html" class="block py-2 hover:text-[#CF142B]">Political Landscapes</a>
+                    <a href="/basic-info/sports.html" class="block py-2 hover:text-[#CF142B]">Professional Sports in Malta</a>
+                    <a href="/basic-info/holidays.html" class="block py-2 hover:text-[#CF142B]">Public Holidays</a>
+                    <a href="/basic-info/religion.html" class="block py-2 hover:text-[#CF142B]">Religion</a>
+                </div>
+            </div>
+
+            <!-- Accommodation -->
+            <div>
+                <button onclick="toggleMenu('housing-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🏠 Accommodation</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="housing-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/accommodation/buying.html" class="block py-2 hover:text-[#CF142B]">Buying Properties</a>
+                    <a href="/accommodation/authority.html" class="block py-2 hover:text-[#CF142B]">Housing Authority</a>
+                    <a href="/accommodation/mortgages.html" class="block py-2 hover:text-[#CF142B]">Mortgages</a>
+                    <a href="/accommodation/renting.html" class="block py-2 hover:text-[#CF142B]">Renting Properties</a>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div>
+                <button onclick="toggleMenu('education-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🎓 Education</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="education-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/education/higher-education.html" class="block py-2 hover:text-[#CF142B]">Higher Education</a>
+                    <a href="/education/high-schools.html" class="block py-2 hover:text-[#CF142B]">High Schools</a>
+                    <a href="/education/international-schools.html" class="block py-2 hover:text-[#CF142B]">International Schools</a>
+                    <a href="/education/language-schools.html" class="block py-2 hover:text-[#CF142B]">Language Schools</a>
+                    <a href="/education/nursery-schools.html" class="block py-2 hover:text-[#CF142B]">Nursery Schools</a>
+                    <a href="/education/primary-schools.html" class="block py-2 hover:text-[#CF142B]">Primary Schools</a>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <button onclick="toggleMenu('services-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🏥 Services</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="services-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/services/car-insurance.html" class="block py-2 hover:text-[#CF142B]">Car Insurance</a>
+                    <a href="/services/health-insurance.html" class="block py-2 hover:text-[#CF142B]">Health Insurance</a>
+                    <a href="/services/household-insurance.html" class="block py-2 hover:text-[#CF142B]">Household Insurance</a>
+                    <a href="/services/internet-mobile.html" class="block py-2 hover:text-[#CF142B]">Internet and Mobile Services</a>
+                    <a href="/services/investment-pensions.html" class="block py-2 hover:text-[#CF142B]">Investment and Pensions</a>
+                    <a href="/services/moving-companies.html" class="block py-2 hover:text-[#CF142B]">Moving Companies</a>
+                    <a href="/services/water-delivery.html" class="block py-2 hover:text-[#CF142B]">Water Delivery</a>
+                </div>
+            </div>
+
+            <a href="/safety.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🛡️ Safety in Malta</a>
+
+            <!-- Lifestyle -->
+            <div>
+                <button onclick="toggleMenu('lifestyle-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">☀️ Lifestyle</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="lifestyle-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/lifestyle/gyms.html" class="block py-2 hover:text-[#CF142B]">Gyms and Fitness Clubs</a>
+                    <a href="/lifestyle/festivals.html" class="block py-2 hover:text-[#CF142B]">Annual Festivals</a>
+                    <a href="/lifestyle/beach-clubs.html" class="block py-2 hover:text-[#CF142B]">Beach Clubs</a>
+                    <a href="/lifestyle/boat-rentals.html" class="block py-2 hover:text-[#CF142B]">Boat Rentals</a>
+                    <a href="/lifestyle/movie-theatres.html" class="block py-2 hover:text-[#CF142B]">Movie Theatres</a>
+                    <a href="/lifestyle/nightlife.html" class="block py-2 hover:text-[#CF142B]">Nightlife</a>
+                    <a href="/lifestyle/paceville.html" class="block py-2 hover:text-[#CF142B]">Paceville</a>
+                    <a href="/lifestyle/restaurants.html" class="block py-2 hover:text-[#CF142B]">Popular Restaurants</a>
+                    <a href="/lifestyle/shopping-malls.html" class="block py-2 hover:text-[#CF142B]">Shopping Malls</a>
+                    <a href="/lifestyle/sports-clubs.html" class="block py-2 hover:text-[#CF142B]">Sports Clubs</a>
+                </div>
+            </div>
+
+            <!-- Locations -->
+            <div>
+                <button onclick="toggleMenu('locations-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">📍 Locations</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="locations-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/locations/gozo.html" class="block py-2 hover:text-[#CF142B]">Gozo</a>
+                    <a href="/locations/hiking.html" class="block py-2 hover:text-[#CF142B]">Hiking</a>
+                    <a href="/locations/historical.html" class="block py-2 hover:text-[#CF142B]">Historical Locations</a>
+                    <a href="/locations/swimming.html" class="block py-2 hover:text-[#CF142B]">Swimming</a>
+                    <a href="/locations/towns.html" class="block py-2 hover:text-[#CF142B]">Towns</a>
+                    <a href="/locations/tourist.html" class="block py-2 hover:text-[#CF142B]">Tourist Locations</a>
+                    <a href="/locations/sicily.html" class="block py-2 hover:text-[#CF142B]">Trips to Sicily</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Fixed Sidebar Footer -->
+        <div class="p-6 border-t bg-white shrink-0">
+            <button onclick="toggleLangModal()" class="w-full bg-[#003366] text-white p-3 rounded-xl font-bold text-sm shadow-md hover:bg-[#002244] transition">
+                🌐 Switch Language
+            </button>
+        </div>
+    </aside>
+
+    <!-- Overlay for Mobile Sidebar -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-[90] hidden" onclick="toggleMobileMenu()"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow p-6 lg:p-12 w-full overflow-x-hidden">
+        <div class="hero-banner flex items-end p-6 md:p-10 mb-10">
+            <div>
+                <h1 class="text-3xl md:text-5xl text-white font-bold wiki-header">Employment in Malta</h1>
+                <p class="text-white/90 mt-2 text-lg leading-tight">Your complete guide to the Maltese job market, work visas, taxes, and employee rights.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 max-w-5xl" id="content-container">
+            <!-- ✨ AI SUMMARY BUTTON -->
+            <div class="flex justify-end -mb-4">
+                <button onclick="generateSummary()" class="flex items-center gap-2 text-xs font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-full border border-blue-100 hover:bg-blue-100 transition">
+                    ✨ AI Page Summary
+                </button>
+            </div>
+            
+            <div id="ai-summary-box" class="hidden bg-indigo-50 p-6 rounded-3xl border border-indigo-100 shadow-sm relative">
+                <button onclick="document.getElementById('ai-summary-box').classList.add('hidden')" class="absolute top-4 right-4 text-indigo-300 hover:text-indigo-500">&times;</button>
+                <h3 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">✨ Quick Summary</h3>
+                <div id="ai-summary-content" class="text-indigo-800 text-sm leading-relaxed">Generating...</div>
+            </div>
+
+            <!-- Overview of the Maltese Employment Market -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h2 class="text-2xl font-bold mb-4 text-[#003366]">Overview of the Maltese Employment Market</h2>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>Malta enjoys one of the lowest unemployment rates in Europe, hovering steadily around 3%. Over the past decade, rapid economic growth has transformed the island into an employee's market. With foreign workers now making up a significant percentage of the workforce, local businesses frequently face challenges in filling vacant positions, leading to an increasing reliance on expatriate talent from both within and outside the European Union.</p>
+                    <p>The job market is highly polarized. On one hand, there are booming, high-paying sectors such as iGaming, Finance, and IT that aggressively recruit international professionals. On the other, essential sectors like Hospitality, Healthcare, and Construction rely heavily on Third-Country Nationals (TCNs) to sustain operations.</p>
+                    <br>
+                    <b>Popular Industries</b>
+                    <table class="w-full text-left border-collapse mt-4 mb-4">
+                        <thead>
+                            <tr class="border-b border-slate-200">
+                                <th class="py-2 font-bold text-slate-800">Industry</th>
+                                <th class="py-2 font-bold text-slate-800">Demand Level</th>
+                                <th class="py-2 font-bold text-slate-800">Typical Roles for Expats</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-100"><td class="py-2">iGaming</td><td class="py-2">Very High</td><td class="py-2">Customer Support (Native Languages), Marketing, Compliance, Tech</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">Financial Services</td><td class="py-2">High</td><td class="py-2">Accountants, Auditors, Fund Managers, AML/KYC Analysts</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">Information Technology</td><td class="py-2">High</td><td class="py-2">Software Developers, System Administrators, Data Analysts</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">Tourism & Hospitality</td><td class="py-2">Very High</td><td class="py-2">Chefs, Waitstaff, Hotel Management (Requires 2026 Skills Pass)</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">Healthcare</td><td class="py-2">Moderate-High</td><td class="py-2">Nurses, Carers, Specialized Medical Professionals</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Average Salaries -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">Average Salaries in Malta</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>When discussing salaries in Malta, it is vital to distinguish between the highly lucrative international sectors and the more traditional local economy. For a stable standard of living in 2026, considering the rising cost of rent and utilities, a single person typically needs around €1,800–€2,000 net per month, while a family of four requires roughly €3,200–€3,800 net per month.</p>
+                    <p>The national gross average salary hovers around €22,000 to €25,000 annually. However, salaries in the iGaming and Tech sectors often start much higher. In contrast, many entry-level or service industry roles pay closer to the minimum wage, which makes navigating the cost of living challenging for some workers.</p>
+                    <table class="w-full text-left border-collapse mt-6 mb-4">
+                        <thead>
+                            <tr class="border-b border-slate-200">
+                                <th class="py-2 font-bold text-slate-800">Job Category / Role</th>
+                                <th class="py-2 font-bold text-slate-800">Approx. Gross Annual Salary (2026)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-100"><td class="py-2">Entry-Level Retail / Hospitality</td><td class="py-2">€12,000 - €16,000</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">Administrative / Office Support</td><td class="py-2">€18,000 - €24,000</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">iGaming Customer Support (Nordic/German)</td><td class="py-2">€26,000 - €32,000</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">Junior Accountant / Auditor</td><td class="py-2">€25,000 - €35,000</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">Mid-Level Software Developer</td><td class="py-2">€35,000 - €50,000</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">Senior Management / IT Lead</td><td class="py-2">€55,000 - €80,000+</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Income Tax and National Insurance -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">Income Tax and National Insurance</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>Malta utilizes a progressive income tax system, alongside mandatory National Insurance (Social Security) contributions. Taxes are automatically deducted from your salary by your employer under the Final Settlement System (FSS). At the end of the year, your employer will provide an <b>FS3 form</b>, which details your gross earnings, tax paid, and NI contributions.</p>
+                    <br>
+                    <b>National Insurance (NI)</b>
+                    <p>Both the employer and the employee pay National Insurance. For most employees, the contribution is roughly 10% of the basic weekly wage, up to a maximum weekly cap (usually around €50-€55 per week depending on the exact year and wage bracket). This contribution entitles you to public healthcare, unemployment benefits, and eventual pension rights.</p>
+                    <br>
+                    <b>Income Tax Rates</b>
+                    <p>Income tax is calculated based on three main statuses: Single, Married (filing jointly), and Parent. The exact thresholds are adjusted periodically in the National Budget, but the progressive brackets generally follow this structure:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><b>0% Band:</b> The first portion of your income is tax-free (e.g., up to €9,100 for Single rates).</li>
+                        <li><b>15% Band:</b> Applied to the next tier of income.</li>
+                        <li><b>25% Band:</b> The standard rate for middle-income earners.</li>
+                        <li><b>35% Band:</b> The highest bracket, applied to earnings exceeding approximately €60,000.</li>
+                    </ul>
+                    <p><em>Note: Highly Qualified Persons (HQPs) in specific sectors (like finance, aviation, and gaming) earning over €75,000 may be eligible for a flat 15% tax rate under specific residency schemes.</em></p>
+                </div>
+            </div>
+
+            <!-- Probation Periods and Contracts -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">Probation Periods and Contracts</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>All employment in Malta must be governed by a written contract that outlines the job title, working hours, salary, and leave entitlements. The law sets clear boundaries for how the employment relationship begins and ends.</p>
+                    <br>
+                    <b>Probationary Periods</b>
+                    <p>The standard probation period in Malta is <b>six (6) months</b> unless a shorter period is agreed upon in the contract. For executive, technical, or highly specialized management positions (where the salary exceeds a certain statutory threshold), the probation period can be extended up to <b>one (1) year</b>.</p>
+                    <p>During the probation period, either the employer or the employee can terminate the employment without providing a reason. However, notice periods still apply:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><b>First month of employment:</b> 1 week's notice.</li>
+                        <li><b>One to six months of employment:</b> 1 week's notice.</li>
+                        <li><b>If probation is extended beyond six months:</b> 2 weeks' notice.</li>
+                    </ul>
+                    <p>Once the probation period is successfully completed, the employee becomes a permanent staff member (if on an indefinite contract), and standard termination and redundancy rules apply.</p>
+                </div>
+            </div>
+
+            <!-- Employee Rights -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">Employee Rights</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>Maltese labour law is strongly aligned with European Union directives, ensuring robust protections for workers regarding time off, sickness, and working hours.</p>
+                    <ul class="list-disc pl-5 space-y-3">
+                        <li><b>Working Hours:</b> The standard full-time work week is 40 hours. By law, maximum working hours (including overtime) cannot exceed 48 hours per week on average, unless the employee voluntarily signs an opt-out waiver.</li>
+                        <li><b>Vacation Leave:</b> Full-time employees are legally entitled to 192 hours (24 working days) of paid vacation leave per year. Additionally, when public holidays fall on a weekend, employees are granted extra leave days to compensate.</li>
+                        <li><b>Sick Leave:</b> Sick leave entitlement varies slightly depending on the specific Wage Regulation Order of the industry. However, the standard is usually two working weeks (around 15 days) of fully paid sick leave per year, requiring a medical certificate from a registered doctor starting from the first or second day of absence.</li>
+                        <li><b>Maternity & Paternity Leave:</b> Pregnant employees are entitled to 18 weeks of maternity leave (14 weeks fully paid by the employer, 4 weeks paid by the government). Paternity leave and broader parental leave directives are also in place, aligning with EU work-life balance standards.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- JobsPlus Services and Registration -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">JobsPlus Malta</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p><b>JobsPlus</b> is Malta's national public employment agency. It acts as the central hub for regulating the labour market, assisting job seekers, and monitoring employer compliance. Whether you are an EU citizen or a Third-Country National, your employment must be officially registered with JobsPlus.</p>
+                    <p>When you are hired, your employer is legally obligated to submit an "Engagement Form" to JobsPlus. Similarly, when your employment ends, a "Termination Form" must be filed within four working days. JobsPlus maintains a record of your employment history in Malta, which is crucial for proving residency, calculating tax, and applying for social security benefits.</p>
+                    <p>For job seekers, JobsPlus offers free registration, career counselling, training courses, and a portal matching candidates with local employers. It also plays a critical role in the work visa process by conducting the "Labour Market Test," ensuring that a job cannot be filled by a Maltese or EU/EEA citizen before approving a license for a Third-Country National.</p>
+                </div>
+            </div>
+
+            <!-- Severance Pay and Redundancy -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">Severance Pay and Redundancy</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>In Malta, employment can be terminated for valid reasons (such as redundancy or disciplinary dismissal) after the probation period. "At-will" employment does not exist; an employer must have just cause.</p>
+                    <p>If an employee is made redundant (laid off due to the role no longer existing or company downsizing), the employer must follow the <b>"Last In, First Out"</b> rule within that specific job category. This means the most recently hired employee in that role must be the first to be made redundant.</p>
+                    <p><b>Severance Pay:</b> Unlike some European countries, Malta does not have a statutory requirement for large, automatic severance payouts based on years of service upon redundancy, unless explicitly stated in a collective agreement or the individual's employment contract. However, the employer <i>must</i> pay out:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>All pending wages.</li>
+                        <li>Payment for any unutilized vacation leave.</li>
+                        <li>Wages for the duration of the notice period, if the employer asks the employee not to work during that time.</li>
+                    </ul>
+                    <p><b>Notice Periods:</b> Based on continuous service, notice periods range from 1 week (for 1-6 months of service) up to 12 weeks (for more than 10 years of service).</p>
+                </div>
+            </div>
+
+            <!-- Conditions of a Work Visa (Single Permit) -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">Work Visas and The Single Permit (TCNs)</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>While EU/EEA and Swiss citizens have the right to work in Malta without a visa (requiring only basic registration for stays over 90 days), Third-Country Nationals (TCNs) must obtain a <b>Single Work and Residence Permit</b>. The system has undergone significant regulatory tightening between 2024 and 2026.</p>
+                    
+                    <p>The Single Permit procedure is employer-driven. You must have a confirmed job offer before the application can be submitted to Identità (the government agency handling expatriates). The permit binds you to that specific employer; if you resign or are terminated, you have a 60-day grace period to find a new employer and submit a new application, or you must leave the country.</p>
+
+                    <b>Key Pathways and 2026 Regulations</b>
+                    <table class="w-full text-left border-collapse mt-4 mb-4">
+                        <thead>
+                            <tr class="border-b border-slate-200">
+                                <th class="py-2 font-bold text-slate-800">Permit Type</th>
+                                <th class="py-2 font-bold text-slate-800">Eligibility & Salary Requirement</th>
+                                <th class="py-2 font-bold text-slate-800">Processing & Fees</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-100"><td class="py-2">Standard Single Permit</td><td class="py-2">Standard job offer. Subject to strict labour market testing.</td><td class="py-2">2-4 months. €600 First Time Fee.</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">Specialist Employee Initiative (SEI)</td><td class="py-2">Gross salary of €25,000+. Requires MQF Level 6 Degree OR 3 years experience.</td><td class="py-2">15 working days. €300 Fee.</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">Key Employee Initiative (KEI)</td><td class="py-2">Gross salary of €35,000+. Managerial or highly technical roles.</td><td class="py-2">Fast-track (5 working days).</td></tr>
+                            <tr class="border-b border-slate-100"><td class="py-2">EU Blue Card</td><td class="py-2">Highly qualified professionals earning 1.5x the average gross salary.</td><td class="py-2">Treated favourably, allows mobility in EU.</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p><b>Important 2025/2026 Rule Changes:</b></p>
+                    <ul class="list-disc pl-5 space-y-3">
+                        <li><b>Pre-Departure Certificate:</b> TCNs applying from abroad must complete a mandatory online course and interview to obtain a Pre-Departure Certificate before the Single Permit application can proceed.</li>
+                        <li><b>Tourism Skills Pass:</b> TCNs seeking employment in the hospitality and tourism sectors must successfully pass the Malta Skills Pass requirements before approval.</li>
+                        <li><b>Accommodation Attestation:</b> All applicants must provide a lease agreement registered with the Housing Authority, alongside a Professional Attestation Form verified by a notary or lawyer.</li>
+                        <li><b>Tourist Visa Ban:</b> TCNs already in Malta on a standard tourist visa are no longer permitted to apply for a work permit from within the country; they must apply from their home country or await decisions from abroad.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- LANGUAGE MODAL -->
+    <div id="langModal" class="fixed inset-0 bg-slate-900/60 z-[110] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleLangModal()">
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 max-w-2xl w-full shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="toggleLangModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-2xl font-bold mb-6 text-[#003366]">Select Language</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <button onclick="changeLang('en')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇬🇧 English</button>
+                <button onclick="changeLang('it')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇹 Italiano</button>
+                <button onclick="changeLang('es')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇪🇸 Español</button>
+                <button onclick="changeLang('fr')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇫🇷 Français</button>
+                <button onclick="changeLang('de')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇩🇪 Deutsch</button>
+                <button onclick="changeLang('hi')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇳 हिन्दी</button>
+                <button onclick="changeLang('pa')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇳 ਪੰਜਾਬੀ</button>
+                <button onclick="changeLang('tl')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇵🇭 Filipino</button>
+                <button onclick="changeLang('pt-br')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇧🇷 Português</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI EXPAT ASSISTANT MODAL -->
+    <div id="aiModal" class="fixed inset-0 bg-slate-900/60 z-[110] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleAiModal()">
+        <div class="bg-white rounded-[2rem] p-6 md:p-8 max-w-2xl w-full h-[80vh] shadow-2xl relative flex flex-col" onclick="event.stopPropagation()">
+            <button onclick="toggleAiModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-blue-600 text-white p-3 rounded-2xl">✨</div>
+                <div>
+                    <h2 class="text-xl font-bold text-[#003366]">Expat Assistant</h2>
+                    <p class="text-xs text-slate-400">Powered by Gemini AI</p>
+                </div>
+            </div>
+
+            <div id="ai-chat-history" class="flex-grow overflow-y-auto space-y-4 mb-6 p-2 scroll-smooth">
+                <div class="bg-slate-50 p-4 rounded-2xl text-slate-700 text-sm max-w-[85%] border border-slate-100">
+                    Hello! I'm your AI guide for Malta. You can ask me anything about finding a job, understanding your employment contract, tax brackets, or the Single Permit process. How can I help you today?
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <input type="text" id="ai-user-input" placeholder="Type your question here..." class="flex-grow bg-slate-100 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none" onkeypress="if(event.key === 'Enter') sendAiMessage()">
+                <button onclick="sendAiMessage()" id="ai-send-btn" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-blue-700 transition flex items-center gap-2">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const apiKey = "";
+
+        async function callGemini(prompt, systemInstruction = "You are a helpful assistant specialized in moving to Malta.") {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            let delay = 1000;
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (response.ok) {
+                        const result = await response.json();
+                        return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    }
+                } catch (e) {}
+                await new Promise(r => setTimeout(r, delay));
+                delay *= 2;
+            }
+            throw new Error("Connection failed.");
+        }
+
+        async function generateSummary() {
+            const summaryBox = document.getElementById('ai-summary-box');
+            const summaryContent = document.getElementById('ai-summary-content');
+            summaryBox.classList.remove('hidden');
+            summaryContent.innerText = "Generating summary...";
+            const contentText = Array.from(document.querySelectorAll('.content-block')).map(b => b.innerText).join("\n\n");
+            try {
+                const summary = await callGemini(`Summarize this Malta Employment guide into a concise, bulleted list of essential facts and actionable advice: \n\n ${contentText}`, "You are a concise editor.");
+                summaryContent.innerText = summary;
+            } catch (error) {
+                summaryContent.innerText = "Error generating summary.";
+            }
+        }
+
+        function toggleAiModal() {
+            const modal = document.getElementById('aiModal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        async function sendAiMessage() {
+            const input = document.getElementById('ai-user-input');
+            const history = document.getElementById('ai-chat-history');
+            const userText = input.value.trim();
+            if (!userText) return;
+            const userDiv = document.createElement('div');
+            userDiv.className = "bg-blue-600 text-white p-4 rounded-2xl text-sm max-w-[85%] self-end ml-auto";
+            userDiv.innerText = userText;
+            history.appendChild(userDiv);
+            input.value = "";
+            const botDiv = document.createElement('div');
+            botDiv.className = "bg-slate-50 p-4 rounded-2xl text-slate-700 text-sm max-w-[85%] border border-slate-100 italic";
+            botDiv.innerText = "Typing...";
+            history.appendChild(botDiv);
+            try {
+                const response = await callGemini(userText, "You are a professional Malta expat consultant. Answer using 2026 data regarding employment, visas, and taxes.");
+                botDiv.innerText = response;
+                botDiv.classList.remove('italic');
+            } catch (error) { botDiv.innerText = "Connection failed."; }
+            history.scrollTop = history.scrollHeight;
+        }
+
+        function toggleMenu(id) {
+            document.getElementById(id).classList.toggle('open');
+        }
+
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+            document.body.style.overflow = sidebar.classList.contains('-translate-x-full') ? 'auto' : 'hidden';
+        }
+
+        function toggleLangModal() {
+            const modal = document.getElementById('langModal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        function changeLang(lang) {
+            localStorage.setItem('user_lang', lang);
+            toggleLangModal();
+        }
+    </script>
+</body>
+</html>
