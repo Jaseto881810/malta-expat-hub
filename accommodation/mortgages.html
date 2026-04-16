@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malta Expat Guide | Mortgages</title>
+    <meta name="description" content="Your complete guide to getting a mortgage in Malta. Calculate monthly repayments, understand deposit rules for TCNs, and explore local bank options.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fdfbf7; }
+        .sidebar-active { color: #CF142B !important; font-weight: 700; background: #fff1f2; }
+        .submenu { display: none; }
+        .submenu.open { display: block; }
+        .wiki-header { font-family: 'Playfair Display', serif; }
+        
+        .hero-banner { 
+            height: 300px; 
+            /* High-quality Unsplash image representing finance, keys, or real estate */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1560518883-b4147d32a9a2?q=80&w=1740&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            border-radius: 1.5rem;
+        }
+
+        #sidebar { transition: transform 0.3s ease-in-out; }
+        
+        #nav-scroll::-webkit-scrollbar { width: 4px; }
+        #nav-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
+        #nav-scroll::-webkit-scrollbar-thumb { background: #CF142B; border-radius: 10px; }
+
+        @keyframes pulse-soft {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .ai-pulse { animation: pulse-soft 2s infinite ease-in-out; }
+    </style>
+</head>
+<body class="flex flex-col lg:flex-row min-h-screen">
+
+    <!-- MOBILE HEADER -->
+    <div class="lg:hidden bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-[60] shadow-sm">
+        <div class="text-xl font-bold text-[#003366]"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
+        <button onclick="toggleMobileMenu()" class="text-slate-600 p-2 border rounded-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </div>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:sticky lg:flex w-full lg:w-80 bg-white border-r border-slate-200 flex flex-col z-[100] transition-transform duration-300 h-screen">
+        
+        <!-- Sidebar Top Header -->
+        <div class="p-6 border-b flex justify-between items-center bg-white shrink-0">
+            <div class="text-2xl font-bold text-[#003366]"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-400 p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- Scrollable Navigation Middle -->
+        <nav id="nav-scroll" class="p-4 space-y-1 flex-grow overflow-y-auto">
+            
+            <!-- ✨ AI Expat Assistant Button -->
+            <button onclick="toggleAiModal()" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 text-blue-700 font-bold mb-4 ai-pulse hover:shadow-md transition">
+                <span>✨</span> AI Expat Assistant
+            </button>
+
+            <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🏠 Home</a>
+            <a href="/getting-started.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🚀 Getting Started</a>
+
+            <!-- Expat Info -->
+            <div>
+                <button onclick="toggleMenu('expat-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🛂 Expat Info</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="expat-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/expat-info/benefits-allowances.html" class="block py-2 hover:text-[#CF142B]">Benefits and Allowances</a>
+                    <a href="/expat-info/consumer-rights.html" class="block py-2 hover:text-[#CF142B]">Consumer Rights</a>
+                    <a href="/expat-info/driving-license.html" class="block py-2 hover:text-[#CF142B]">Driving License</a>
+                    <a href="/expat-info/employment.html" class="block py-2 hover:text-[#CF142B]">Employment in Malta</a>
+                    <a href="/expat-info/healthcare.html" class="block py-2 hover:text-[#CF142B]">Healthcare</a>
+                    <a href="/expat-info/money-transfers.html" class="block py-2 hover:text-[#CF142B]">International Money Transfers</a>
+                    <a href="/expat-info/permits-ids.html" class="block py-2 hover:text-[#CF142B]">Permits and IDs</a>
+                    <a href="/expat-info/policing.html" class="block py-2 hover:text-[#CF142B]">Policing</a>
+                    <a href="/expat-info/raising-children.html" class="block py-2 hover:text-[#CF142B]">Raising Children in Malta</a>
+                    <a href="/expat-info/taxation.html" class="block py-2 hover:text-[#CF142B]">Taxation</a>
+                    <a href="/expat-info/voting-elections.html" class="block py-2 hover:text-[#CF142B]">Voting and Elections</a>
+                </div>
+            </div>
+
+            <!-- Basic Info -->
+            <div>
+                <button onclick="toggleMenu('basic-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">ℹ️ Basic Info</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="basic-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/basic-info/etiquette.html" class="block py-2 hover:text-[#CF142B]">Local Etiquette</a>
+                    <a href="/basic-info/drinks.html" class="block py-2 hover:text-[#CF142B]">Local Drinks</a>
+                    <a href="/basic-info/languages.html" class="block py-2 hover:text-[#CF142B]">Languages</a>
+                    <a href="/basic-info/food-snacks.html" class="block py-2 hover:text-[#CF142B]">Local Food and Snacks</a>
+                    <a href="/basic-info/news.html" class="block py-2 hover:text-[#CF142B]">Local News Sources</a>
+                    <a href="/basic-info/customs.html" class="block py-2 hover:text-[#CF142B]">Maltese Customs</a>
+                    <a href="/basic-info/politics.html" class="block py-2 hover:text-[#CF142B]">Political Landscapes</a>
+                    <a href="/basic-info/sports.html" class="block py-2 hover:text-[#CF142B]">Professional Sports in Malta</a>
+                    <a href="/basic-info/holidays.html" class="block py-2 hover:text-[#CF142B]">Public Holidays</a>
+                    <a href="/basic-info/religion.html" class="block py-2 hover:text-[#CF142B]">Religion</a>
+                </div>
+            </div>
+
+            <!-- Accommodation (Set to open by default for this page) -->
+            <div>
+                <button onclick="toggleMenu('housing-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🏠 Accommodation</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="housing-menu" class="submenu open pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/accommodation/buying.html" class="block py-2 hover:text-[#CF142B]">Buying Properties</a>
+                    <a href="/accommodation/authority.html" class="block py-2 hover:text-[#CF142B]">Housing Authority</a>
+                    <a href="/accommodation/mortgages.html" class="block py-2 sidebar-active rounded-lg px-2 -mx-2 transition">Mortgages</a>
+                    <a href="/accommodation/renting.html" class="block py-2 hover:text-[#CF142B]">Renting Properties</a>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div>
+                <button onclick="toggleMenu('education-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🎓 Education</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="education-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/education/higher-education.html" class="block py-2 hover:text-[#CF142B]">Higher Education</a>
+                    <a href="/education/high-schools.html" class="block py-2 hover:text-[#CF142B]">High Schools</a>
+                    <a href="/education/international-schools.html" class="block py-2 hover:text-[#CF142B]">International Schools</a>
+                    <a href="/education/language-schools.html" class="block py-2 hover:text-[#CF142B]">Language Schools</a>
+                    <a href="/education/nursery-schools.html" class="block py-2 hover:text-[#CF142B]">Nursery Schools</a>
+                    <a href="/education/primary-schools.html" class="block py-2 hover:text-[#CF142B]">Primary Schools</a>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <button onclick="toggleMenu('services-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🏥 Services</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="services-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/services/car-insurance.html" class="block py-2 hover:text-[#CF142B]">Car Insurance</a>
+                    <a href="/services/health-insurance.html" class="block py-2 hover:text-[#CF142B]">Health Insurance</a>
+                    <a href="/services/household-insurance.html" class="block py-2 hover:text-[#CF142B]">Household Insurance</a>
+                    <a href="/services/internet-mobile.html" class="block py-2 hover:text-[#CF142B]">Internet and Mobile Services</a>
+                    <a href="/services/investment-pensions.html" class="block py-2 hover:text-[#CF142B]">Investment and Pensions</a>
+                    <a href="/services/moving-companies.html" class="block py-2 hover:text-[#CF142B]">Moving Companies</a>
+                    <a href="/services/water-delivery.html" class="block py-2 hover:text-[#CF142B]">Water Delivery</a>
+                </div>
+            </div>
+
+            <a href="/safety.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🛡️ Safety in Malta</a>
+
+            <!-- Lifestyle -->
+            <div>
+                <button onclick="toggleMenu('lifestyle-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">☀️ Lifestyle</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="lifestyle-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/lifestyle/gyms.html" class="block py-2 hover:text-[#CF142B]">Gyms and Fitness Clubs</a>
+                    <a href="/lifestyle/festivals.html" class="block py-2 hover:text-[#CF142B]">Annual Festivals</a>
+                    <a href="/lifestyle/beach-clubs.html" class="block py-2 hover:text-[#CF142B]">Beach Clubs</a>
+                    <a href="/lifestyle/boat-rentals.html" class="block py-2 hover:text-[#CF142B]">Boat Rentals</a>
+                    <a href="/lifestyle/movie-theatres.html" class="block py-2 hover:text-[#CF142B]">Movie Theatres</a>
+                    <a href="/lifestyle/nightlife.html" class="block py-2 hover:text-[#CF142B]">Nightlife</a>
+                    <a href="/lifestyle/paceville.html" class="block py-2 hover:text-[#CF142B]">Paceville</a>
+                    <a href="/lifestyle/restaurants.html" class="block py-2 hover:text-[#CF142B]">Popular Restaurants</a>
+                    <a href="/lifestyle/shopping-malls.html" class="block py-2 hover:text-[#CF142B]">Shopping Malls</a>
+                    <a href="/lifestyle/sports-clubs.html" class="block py-2 hover:text-[#CF142B]">Sports Clubs</a>
+                </div>
+            </div>
+
+            <!-- Locations -->
+            <div>
+                <button onclick="toggleMenu('locations-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">📍 Locations</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="locations-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/locations/gozo.html" class="block py-2 hover:text-[#CF142B]">Gozo</a>
+                    <a href="/locations/hiking.html" class="block py-2 hover:text-[#CF142B]">Hiking</a>
+                    <a href="/locations/historical.html" class="block py-2 hover:text-[#CF142B]">Historical Locations</a>
+                    <a href="/locations/swimming.html" class="block py-2 hover:text-[#CF142B]">Swimming</a>
+                    <a href="/locations/towns.html" class="block py-2 hover:text-[#CF142B]">Towns</a>
+                    <a href="/locations/tourist.html" class="block py-2 hover:text-[#CF142B]">Tourist Locations</a>
+                    <a href="/locations/sicily.html" class="block py-2 hover:text-[#CF142B]">Trips to Sicily</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Fixed Sidebar Footer -->
+        <div class="p-6 border-t bg-white shrink-0">
+            <button onclick="toggleLangModal()" class="w-full bg-[#003366] text-white p-3 rounded-xl font-bold text-sm shadow-md hover:bg-[#002244] transition">
+                🌐 Switch Language
+            </button>
+        </div>
+    </aside>
+
+    <!-- Overlay for Mobile Sidebar -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-[90] hidden" onclick="toggleMobileMenu()"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow p-6 lg:p-12 w-full overflow-x-hidden">
+        <div class="hero-banner flex items-end p-6 md:p-10 mb-10">
+            <div>
+                <h1 class="text-3xl md:text-5xl text-white font-bold wiki-header">Mortgages in Malta</h1>
+                <p class="text-white/90 mt-2 text-lg leading-tight">Navigate the Maltese housing market with confidence. Understand deposit rules for expats, bank procedures, and estimate your monthly repayments.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 max-w-5xl" id="content-container">
+            <!-- ✨ AI SUMMARY BUTTON -->
+            <div class="flex justify-end -mb-4">
+                <button onclick="generateSummary()" class="flex items-center gap-2 text-xs font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-full border border-blue-100 hover:bg-blue-100 transition">
+                    ✨ AI Page Summary
+                </button>
+            </div>
+            
+            <div id="ai-summary-box" class="hidden bg-indigo-50 p-6 rounded-3xl border border-indigo-100 shadow-sm relative">
+                <button onclick="document.getElementById('ai-summary-box').classList.add('hidden')" class="absolute top-4 right-4 text-indigo-300 hover:text-indigo-500">&times;</button>
+                <h3 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">✨ Quick Summary</h3>
+                <div id="ai-summary-content" class="text-indigo-800 text-sm leading-relaxed">Generating...</div>
+            </div>
+
+            <!-- INTERACTIVE MORTGAGE CALCULATOR (APS Bank Approach) -->
+            <div class="bg-gradient-to-br from-[#003366] to-[#002244] p-8 rounded-3xl shadow-xl text-white relative overflow-hidden">
+                <!-- Background decoration -->
+                <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-white opacity-5 blur-3xl"></div>
+                
+                <h2 class="text-2xl font-bold mb-2">Home Loan Affordability Calculator</h2>
+                <p class="text-blue-200 text-sm mb-6">Estimate your borrowing limits and monthly repayments based on standard Maltese banking criteria (APS Bank approach).</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
+                    <!-- Inputs -->
+                    <div class="space-y-4 bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/10">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex flex-col justify-end">
+                                <label class="block text-sm font-semibold mb-2 text-blue-100">Age of Eldest Applicant</label>
+                                <input type="number" id="calc-age" min="18" max="65" class="w-full bg-white text-slate-800 font-bold rounded-xl py-3 px-4 focus:ring-4 focus:ring-blue-400 outline-none" value="30" oninput="calculateMortgage()">
+                            </div>
+                            <div class="flex flex-col justify-end">
+                                <label class="block text-sm font-semibold mb-2 text-blue-100">Interest Rate (%)</label>
+                                <input type="number" id="calc-rate" step="0.1" class="w-full bg-white text-slate-800 font-bold rounded-xl py-3 px-4 focus:ring-4 focus:ring-blue-400 outline-none" value="3.0" oninput="calculateMortgage()">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-blue-100">Total Gross Annual Income (€)</label>
+                            <input type="number" id="calc-income" class="w-full bg-white text-slate-800 font-bold rounded-xl py-3 px-4 focus:ring-4 focus:ring-blue-400 outline-none" value="40000" oninput="calculateMortgage()">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-blue-100">Existing Monthly Commitments (€) <span class="text-xs font-normal">(e.g. car/personal loans)</span></label>
+                            <input type="number" id="calc-commitments" class="w-full bg-white text-slate-800 font-bold rounded-xl py-3 px-4 focus:ring-4 focus:ring-blue-400 outline-none" value="0" oninput="calculateMortgage()">
+                        </div>
+
+                        <div class="pt-4 border-t border-white/20 grid grid-cols-2 gap-4">
+                            <div class="flex flex-col justify-end">
+                                <label class="block text-sm font-semibold mb-2 text-blue-100">Property Value (€)</label>
+                                <input type="number" id="calc-prop-value" class="w-full bg-white text-slate-800 font-semibold rounded-xl py-3 px-4 focus:ring-4 focus:ring-blue-400 outline-none" value="300000" oninput="calculateMortgage()">
+                            </div>
+                            <div class="flex flex-col justify-end">
+                                <label class="block text-sm font-semibold mb-2 text-blue-100">Requested Loan (€)</label>
+                                <input type="number" id="calc-loan" class="w-full bg-white text-slate-800 font-semibold rounded-xl py-3 px-4 focus:ring-4 focus:ring-blue-400 outline-none" value="270000" oninput="calculateMortgage()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div class="flex flex-col justify-center space-y-4">
+                        <div class="flex justify-between items-center border-b border-white/20 pb-3">
+                            <span class="text-blue-200">Max Loan Term (Up to age 65)</span>
+                            <span id="res-max-term" class="font-semibold text-lg text-white">35 Years</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/20 pb-3">
+                            <span class="text-blue-200">Required Deposit</span>
+                            <span id="res-deposit" class="font-semibold text-lg text-white">€30,000.00</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/20 pb-3">
+                            <span class="text-blue-200">Max Borrowing Capacity</span>
+                            <span id="res-max-borrow" class="font-semibold text-lg text-emerald-300">€240,000.00</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/20 pb-3">
+                            <span class="text-blue-200">Affordability Status</span>
+                            <span id="res-affordability" class="font-semibold text-lg text-emerald-400">Affordable</span>
+                        </div>
+                        
+                        <div class="bg-blue-600/50 p-4 rounded-xl border border-blue-400/30 mt-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-blue-100 uppercase tracking-wider font-semibold">Estimated Monthly</span>
+                                <span id="res-monthly" class="font-bold text-3xl text-white">€1,011.99</span>
+                            </div>
+                            <p class="text-xs text-blue-200 mt-2 italic">*Based on bank's typical 30% gross income threshold. Insurance not included.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Getting a Mortgage in Malta -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h2 class="text-2xl font-bold mb-4 text-[#003366]">Getting a Mortgage in Malta</h2>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>Securing a mortgage (home loan) in Malta is a relatively straightforward process for locals and expats alike, though the criteria differ depending on your nationality, residency status, and financial history on the island.</p>
+                    <p>Maltese banks are traditionally conservative. They survived the 2008 global financial crisis largely unscathed because of their strict lending criteria, and they maintain these rigorous standards today. To get a loan, you must prove stable employment, a clean financial history, and the ability to cover the monthly repayments (which generally should not exceed 30% to 35% of your gross monthly income).</p>
+                </div>
+            </div>
+
+            <!-- The Deposit: EU vs TCNs -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#CF142B]">How Much Deposit is Needed?</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>The down payment required by banks varies significantly based on your passport and the purpose of the property.</p>
+                    
+                    <ul class="list-disc pl-5 space-y-4 mt-4">
+                        <li><b>Maltese and EU Citizens (First-Time Buyers):</b> Generally require a minimum deposit of <b>10%</b> of the property purchase price. Some banks offer special first-time buyer packages that might push this slightly lower under specific guarantee schemes.</li>
+                        <li><b>Third-Country Nationals (TCNs):</b> Banks classify non-EU citizens as a higher risk because their right to reside in Malta is often tied to employment (Single Permit). Consequently, TCNs are usually required to put down a much larger deposit—typically between <b>20% and 30%</b>.</li>
+                        <li><b>Second Properties / Buy-to-Let:</b> Regardless of your nationality, if you are buying a second home or an investment property to rent out, banks will legally require a minimum deposit of <b>25% to 30%</b>.</li>
+                    </ul>
+                    
+                    <p class="mt-2 text-sm italic">Note: Your deposit must come from your own savings. Banks will ask for 6 to 12 months of bank statements to prove the "source of wealth" for this deposit to comply with strict anti-money laundering (AML) laws.</p>
+                </div>
+            </div>
+
+            <!-- The Process: Step-by-Step -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">The Mortgage Process: Step-by-Step</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <ol class="list-decimal pl-5 space-y-4">
+                        <li><b>Approval in Principle:</b> Before viewing properties, visit a bank to get an "Approval in Principle" (AIP) quote. They will assess your salary and tell you your maximum borrowing limit.</li>
+                        <li><b>Sign the Konvenju:</b> Once you find a property, you sign the Promise of Sale (Konvenju) with a Notary. This contract usually has a specific clause stating the sale is "subject to bank loan approval" within a set timeframe (usually 4-6 weeks).</li>
+                        <li><b>Formal Application:</b> Submit your Konvenju, ID/Passport, minimum 3 recent payslips, your FS3 (annual tax form), and an Architect’s Valuation Report (certifying the property is worth the asking price) to the bank.</li>
+                        <li><b>The Sanction Letter:</b> Once the bank approves the loan, they issue a formal "Sanction Letter." This is a legally binding contract detailing the loan amount, interest rate, and terms.</li>
+                        <li><b>Life and Home Insurance:</b> *Crucial Step.* You cannot draw down the loan until you have Home Insurance (covering rebuilding costs) and <b>Life Insurance</b> (covering the total loan amount). The Life Insurance policy must be legally pledged to the bank. <span class="text-red-600 font-semibold">Expat Warning: Life insurance requires medical questionnaires and sometimes physical checkups. Start this process immediately, as it is the #1 cause of delays in property purchases.</span></li>
+                        <li><b>Final Deed:</b> The bank sends a representative to the Notary's office on the day of the final deed signing to hand over the funds (usually via a bank draft) to the seller.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Where to get a Mortgage -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">Where to Get a Mortgage</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>Unlike some countries where independent mortgage brokers rule the market, in Malta, you typically apply directly to the retail banks. It is highly recommended to "shop around" and get quotes from at least three banks, as interest rates and administrative fees can vary.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-[#003366]">Bank of Valletta (BOV)</h4>
+                            <p class="text-sm mt-1">Malta's largest bank. They have the most extensive branch network and offer highly competitive first-time buyer packages, but their compliance and paperwork processes can be slow.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-[#003366]">HSBC Malta</h4>
+                            <p class="text-sm mt-1">A major international player. Very popular with expats who already hold HSBC accounts abroad, making cross-border financial checks easier.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-[#003366]">APS Bank</h4>
+                            <p class="text-sm mt-1">Originally the "Church's bank," APS is now a leading commercial bank known for excellent customer service, competitive rates, and specific "green" home loans for energy-efficient properties.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-[#003366]">BNF Bank & Lombard Bank</h4>
+                            <p class="text-sm mt-1">Smaller, highly competitive banks. They often offer faster processing times and personalized service to attract customers away from the "Big Two" (BOV and HSBC).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- LANGUAGE MODAL -->
+    <div id="langModal" class="fixed inset-0 bg-slate-900/60 z-[110] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleLangModal()">
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 max-w-2xl w-full shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="toggleLangModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-2xl font-bold mb-6 text-[#003366]">Select Language</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <button onclick="changeLang('en')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇬🇧 English</button>
+                <button onclick="changeLang('it')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇹 Italiano</button>
+                <button onclick="changeLang('es')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇪🇸 Español</button>
+                <button onclick="changeLang('fr')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇫🇷 Français</button>
+                <button onclick="changeLang('de')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇩🇪 Deutsch</button>
+                <button onclick="changeLang('hi')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇳 हिन्दी</button>
+                <button onclick="changeLang('pa')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇳 ਪੰਜਾਬੀ</button>
+                <button onclick="changeLang('tl')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇵🇭 Filipino</button>
+                <button onclick="changeLang('pt-br')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇧🇷 Português</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI EXPAT ASSISTANT MODAL -->
+    <div id="aiModal" class="fixed inset-0 bg-slate-900/60 z-[110] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleAiModal()">
+        <div class="bg-white rounded-[2rem] p-6 md:p-8 max-w-2xl w-full h-[80vh] shadow-2xl relative flex flex-col" onclick="event.stopPropagation()">
+            <button onclick="toggleAiModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-blue-600 text-white p-3 rounded-2xl">✨</div>
+                <div>
+                    <h2 class="text-xl font-bold text-[#003366]">Expat Assistant</h2>
+                    <p class="text-xs text-slate-400">Powered by Gemini AI</p>
+                </div>
+            </div>
+
+            <div id="ai-chat-history" class="flex-grow overflow-y-auto space-y-4 mb-6 p-2 scroll-smooth">
+                <div class="bg-slate-50 p-4 rounded-2xl text-slate-700 text-sm max-w-[85%] border border-slate-100">
+                    Hello! I'm your AI guide for Malta. You can ask me about deposit requirements for TCNs, why life insurance is mandatory, or which bank might be best for your situation. How can I help you today?
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <input type="text" id="ai-user-input" placeholder="Type your question here..." class="flex-grow bg-slate-100 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none" onkeypress="if(event.key === 'Enter') sendAiMessage()">
+                <button onclick="sendAiMessage()" id="ai-send-btn" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-blue-700 transition flex items-center gap-2">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const apiKey = "";
+
+        // --- MORTGAGE CALCULATOR LOGIC (APS BANK APPROACH) ---
+        function calculateMortgage() {
+            const age = parseInt(document.getElementById('calc-age').value) || 30;
+            const income = parseFloat(document.getElementById('calc-income').value) || 0;
+            const commitments = parseFloat(document.getElementById('calc-commitments').value) || 0;
+            const propertyValue = parseFloat(document.getElementById('calc-prop-value').value) || 0;
+            const loanAmount = parseFloat(document.getElementById('calc-loan').value) || 0;
+            const annualRate = parseFloat(document.getElementById('calc-rate').value) || 0;
+
+            // Malta banks usually calculate term up to age 65. Max term 40 years.
+            let maxYears = 65 - age;
+            if (maxYears > 40) maxYears = 40;
+            if (maxYears < 5) maxYears = 5; // Minimum term
+
+            const deposit = propertyValue - loanAmount;
+
+            const monthlyRate = (annualRate / 100) / 12;
+            const totalPayments = maxYears * 12;
+
+            // Bank affordability rule: total monthly commitments (loan + others) should not exceed ~30% of Gross Monthly Income.
+            const grossMonthly = income / 12;
+            const maxAllowedRepayment = (grossMonthly * 0.30) - commitments;
+
+            // Max Borrowing Capacity
+            let maxBorrowing = 0;
+            if (maxAllowedRepayment > 0 && annualRate > 0) {
+                const mathPower = Math.pow(1 + monthlyRate, totalPayments);
+                maxBorrowing = maxAllowedRepayment / ((monthlyRate * mathPower) / (mathPower - 1));
+            }
+
+            // Current Requested Repayment
+            let monthlyPayment = 0;
+            if (loanAmount > 0 && annualRate > 0) {
+                const mathPower = Math.pow(1 + monthlyRate, totalPayments);
+                monthlyPayment = loanAmount * ((monthlyRate * mathPower) / (mathPower - 1));
+            }
+
+            const formatCurr = (num) => new Intl.NumberFormat('en-MT', { style: 'currency', currency: 'EUR' }).format(num);
+
+            document.getElementById('res-max-term').innerText = maxYears + ' Years';
+            document.getElementById('res-deposit').innerText = formatCurr(Math.max(0, deposit));
+            document.getElementById('res-max-borrow').innerText = formatCurr(Math.max(0, maxBorrowing));
+            document.getElementById('res-monthly').innerText = formatCurr(monthlyPayment);
+
+            const affordabilityEl = document.getElementById('res-affordability');
+            if (monthlyPayment > maxAllowedRepayment || loanAmount > maxBorrowing) {
+                affordabilityEl.innerText = 'Exceeds Affordability Limit';
+                affordabilityEl.className = 'font-semibold text-lg text-red-400';
+            } else if (deposit < (propertyValue * 0.10) || deposit < 0) {
+                affordabilityEl.innerText = 'Deposit too low (<10%)';
+                affordabilityEl.className = 'font-semibold text-lg text-orange-400';
+            } else {
+                affordabilityEl.innerText = 'Likely Affordable';
+                affordabilityEl.className = 'font-semibold text-lg text-emerald-400';
+            }
+        }
+
+        // Run calculation on page load
+        window.onload = function() {
+            calculateMortgage();
+        };
+
+        async function callGemini(prompt, systemInstruction = "You are a helpful assistant specialized in moving to Malta.") {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            let delay = 1000;
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (response.ok) {
+                        const result = await response.json();
+                        return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    }
+                } catch (e) {}
+                await new Promise(r => setTimeout(r, delay));
+                delay *= 2;
+            }
+            throw new Error("Connection failed.");
+        }
+
+        async function generateSummary() {
+            const summaryBox = document.getElementById('ai-summary-box');
+            const summaryContent = document.getElementById('ai-summary-content');
+            summaryBox.classList.remove('hidden');
+            summaryContent.innerText = "Generating summary...";
+            const contentText = Array.from(document.querySelectorAll('.content-block')).map(b => b.innerText).join("\n\n");
+            try {
+                const summary = await callGemini(`Summarize this guide about Mortgages in Malta into a concise, bulleted list covering deposits, bank options, and the application process: \n\n ${contentText}`, "You are an objective, concise editor.");
+                summaryContent.innerText = summary;
+            } catch (error) {
+                summaryContent.innerText = "Error generating summary.";
+            }
+        }
+
+        function toggleAiModal() {
+            const modal = document.getElementById('aiModal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        async function sendAiMessage() {
+            const input = document.getElementById('ai-user-input');
+            const history = document.getElementById('ai-chat-history');
+            const userText = input.value.trim();
+            if (!userText) return;
+            const userDiv = document.createElement('div');
+            userDiv.className = "bg-blue-600 text-white p-4 rounded-2xl text-sm max-w-[85%] self-end ml-auto";
+            userDiv.innerText = userText;
+            history.appendChild(userDiv);
+            input.value = "";
+            const botDiv = document.createElement('div');
+            botDiv.className = "bg-slate-50 p-4 rounded-2xl text-slate-700 text-sm max-w-[85%] border border-slate-100 italic";
+            botDiv.innerText = "Typing...";
+            history.appendChild(botDiv);
+            try {
+                const response = await callGemini(userText, "You are a professional Malta real estate and expat finance consultant. Answer using 2026 data regarding obtaining a mortgage, bank requirements, and deposits in Malta. Maintain an objective, informative tone.");
+                botDiv.innerText = response;
+                botDiv.classList.remove('italic');
+            } catch (error) { botDiv.innerText = "Connection failed."; }
+            history.scrollTop = history.scrollHeight;
+        }
+
+        function toggleMenu(id) {
+            document.getElementById(id).classList.toggle('open');
+        }
+
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+            document.body.style.overflow = sidebar.classList.contains('-translate-x-full') ? 'auto' : 'hidden';
+        }
+
+        function toggleLangModal() {
+            const modal = document.getElementById('langModal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        function changeLang(lang) {
+            localStorage.setItem('user_lang', lang);
+            toggleLangModal();
+        }
+    </script>
+</body>
+</html>
