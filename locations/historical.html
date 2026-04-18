@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malta Expat Guide | Historical Locations</title>
+    <meta name="description" content="Discover the rich history of Malta. A guide to the ancient capital of Mdina, the Knights' city of Valletta, The Three Cities, and prehistoric temples.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fdfbf7; }
+        .sidebar-active { color: #CF142B !important; font-weight: 700; background: #fff1f2; }
+        .submenu { display: none; }
+        .submenu.open { display: block; }
+        .wiki-header { font-family: 'Playfair Display', serif; }
+        
+        .hero-banner { 
+            height: 300px; 
+            /* High-quality image representing Mdina or Valletta */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Valletta_Skyline_from_Sliema.jpg/1280px-Valletta_Skyline_from_Sliema.jpg');
+            background-size: cover; background-position: center;
+            border-radius: 1.5rem;
+        }
+
+        #sidebar { transition: transform 0.3s ease-in-out; }
+        
+        #nav-scroll::-webkit-scrollbar { width: 4px; }
+        #nav-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
+        #nav-scroll::-webkit-scrollbar-thumb { background: #CF142B; border-radius: 10px; }
+
+        @keyframes pulse-soft {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .ai-pulse { animation: pulse-soft 2s infinite ease-in-out; }
+    </style>
+</head>
+<body class="flex flex-col lg:flex-row min-h-screen">
+
+    <!-- MOBILE HEADER -->
+    <div class="lg:hidden bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-[60] shadow-sm">
+        <div class="text-xl font-bold text-[#003366]"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
+        <button onclick="toggleMobileMenu()" class="text-slate-600 p-2 border rounded-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </div>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:sticky lg:flex w-full lg:w-80 bg-white border-r border-slate-200 flex flex-col z-[100] transition-transform duration-300 h-screen">
+        
+        <!-- Sidebar Top Header -->
+        <div class="p-6 border-b flex justify-between items-center bg-white shrink-0">
+            <div class="text-2xl font-bold text-[#003366]"><span class="text-[#CF142B]">Malta</span> Expat Guide</div>
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-400 p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- Scrollable Navigation Middle -->
+        <nav id="nav-scroll" class="p-4 space-y-1 flex-grow overflow-y-auto">
+            
+            <!-- ✨ AI Expat Assistant Button -->
+            <button onclick="toggleAiModal()" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 text-blue-700 font-bold mb-4 ai-pulse hover:shadow-md transition">
+                <span>✨</span> AI Expat Assistant
+            </button>
+
+            <a href="/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🏠 Home</a>
+            <a href="/getting-started.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🚀 Getting Started</a>
+
+            <!-- Expat Info -->
+            <div>
+                <button onclick="toggleMenu('expat-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🛂 Expat Info</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="expat-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/expat-info/benefits-allowances.html" class="block py-2 hover:text-[#CF142B]">Benefits and Allowances</a>
+                    <a href="/expat-info/consumer-rights.html" class="block py-2 hover:text-[#CF142B]">Consumer Rights</a>
+                    <a href="/expat-info/driving-license.html" class="block py-2 hover:text-[#CF142B]">Driving License</a>
+                    <a href="/expat-info/employment.html" class="block py-2 hover:text-[#CF142B]">Employment in Malta</a>
+                    <a href="/expat-info/healthcare.html" class="block py-2 hover:text-[#CF142B]">Healthcare</a>
+                    <a href="/expat-info/money-transfers.html" class="block py-2 hover:text-[#CF142B]">International Money Transfers</a>
+                    <a href="/expat-info/permits-ids.html" class="block py-2 hover:text-[#CF142B]">Permits and IDs</a>
+                    <a href="/expat-info/policing.html" class="block py-2 hover:text-[#CF142B]">Policing</a>
+                    <a href="/expat-info/raising-children.html" class="block py-2 hover:text-[#CF142B]">Raising Children in Malta</a>
+                    <a href="/expat-info/taxation.html" class="block py-2 hover:text-[#CF142B]">Taxation</a>
+                    <a href="/expat-info/voting-elections.html" class="block py-2 hover:text-[#CF142B]">Voting and Elections</a>
+                </div>
+            </div>
+
+            <!-- Basic Info -->
+            <div>
+                <button onclick="toggleMenu('basic-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">ℹ️ Basic Info</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="basic-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/basic-info/etiquette.html" class="block py-2 hover:text-[#CF142B]">Local Etiquette</a>
+                    <a href="/basic-info/drinks.html" class="block py-2 hover:text-[#CF142B]">Local Drinks</a>
+                    <a href="/basic-info/languages.html" class="block py-2 hover:text-[#CF142B]">Languages</a>
+                    <a href="/basic-info/food-snacks.html" class="block py-2 hover:text-[#CF142B]">Local Food and Snacks</a>
+                    <a href="/basic-info/news.html" class="block py-2 hover:text-[#CF142B]">Local News Sources</a>
+                    <a href="/basic-info/customs.html" class="block py-2 hover:text-[#CF142B]">Maltese Customs</a>
+                    <a href="/basic-info/politics.html" class="block py-2 hover:text-[#CF142B]">Political Landscapes</a>
+                    <a href="/basic-info/sports.html" class="block py-2 hover:text-[#CF142B]">Professional Sports in Malta</a>
+                    <a href="/basic-info/holidays.html" class="block py-2 hover:text-[#CF142B]">Public Holidays</a>
+                    <a href="/basic-info/religion.html" class="block py-2 hover:text-[#CF142B]">Religion</a>
+                </div>
+            </div>
+
+            <!-- Accommodation -->
+            <div>
+                <button onclick="toggleMenu('housing-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🏠 Accommodation</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="housing-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/accommodation/buying.html" class="block py-2 hover:text-[#CF142B]">Buying Properties</a>
+                    <a href="/accommodation/authority.html" class="block py-2 hover:text-[#CF142B]">Housing Authority</a>
+                    <a href="/accommodation/mortgages.html" class="block py-2 hover:text-[#CF142B]">Mortgages</a>
+                    <a href="/accommodation/renting.html" class="block py-2 hover:text-[#CF142B]">Renting Properties</a>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div>
+                <button onclick="toggleMenu('education-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🎓 Education</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="education-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/education/higher-education.html" class="block py-2 hover:text-[#CF142B]">Higher Education</a>
+                    <a href="/education/high-schools.html" class="block py-2 hover:text-[#CF142B]">High Schools</a>
+                    <a href="/education/international-schools.html" class="block py-2 hover:text-[#CF142B]">International Schools</a>
+                    <a href="/education/language-schools.html" class="block py-2 hover:text-[#CF142B]">Language Schools</a>
+                    <a href="/education/nursery-schools.html" class="block py-2 hover:text-[#CF142B]">Nursery Schools</a>
+                    <a href="/education/primary-schools.html" class="block py-2 hover:text-[#CF142B]">Primary Schools</a>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <button onclick="toggleMenu('services-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">🏥 Services</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="services-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/services/car-insurance.html" class="block py-2 hover:text-[#CF142B]">Car Insurance</a>
+                    <a href="/services/health-insurance.html" class="block py-2 hover:text-[#CF142B]">Health Insurance</a>
+                    <a href="/services/household-insurance.html" class="block py-2 hover:text-[#CF142B]">Household Insurance</a>
+                    <a href="/services/internet-mobile.html" class="block py-2 hover:text-[#CF142B]">Internet and Mobile Services</a>
+                    <a href="/services/investment-pensions.html" class="block py-2 hover:text-[#CF142B]">Investment and Pensions</a>
+                    <a href="/services/moving-companies.html" class="block py-2 hover:text-[#CF142B]">Moving Companies</a>
+                    <a href="/services/water-delivery.html" class="block py-2 hover:text-[#CF142B]">Water Delivery</a>
+                </div>
+            </div>
+
+            <a href="/safety.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition">🛡️ Safety in Malta</a>
+
+            <!-- Lifestyle -->
+            <div>
+                <button onclick="toggleMenu('lifestyle-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">☀️ Lifestyle</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="lifestyle-menu" class="submenu pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/lifestyle/gyms.html" class="block py-2 hover:text-[#CF142B]">Gyms and Fitness Clubs</a>
+                    <a href="/lifestyle/festivals.html" class="block py-2 hover:text-[#CF142B]">Annual Festivals</a>
+                    <a href="/lifestyle/beach-clubs.html" class="block py-2 hover:text-[#CF142B]">Beach Clubs</a>
+                    <a href="/lifestyle/boat-rentals.html" class="block py-2 hover:text-[#CF142B]">Boat Rentals</a>
+                    <a href="/lifestyle/movie-theatres.html" class="block py-2 hover:text-[#CF142B]">Movie Theatres</a>
+                    <a href="/lifestyle/nightlife.html" class="block py-2 hover:text-[#CF142B]">Nightlife</a>
+                    <a href="/lifestyle/paceville.html" class="block py-2 hover:text-[#CF142B]">Paceville</a>
+                    <a href="/lifestyle/restaurants.html" class="block py-2 hover:text-[#CF142B]">Popular Restaurants</a>
+                    <a href="/lifestyle/shopping-malls.html" class="block py-2 hover:text-[#CF142B]">Shopping Malls</a>
+                    <a href="/lifestyle/sports-clubs.html" class="block py-2 hover:text-[#CF142B]">Sports Clubs</a>
+                </div>
+            </div>
+
+            <!-- Locations (Set to open by default for this page) -->
+            <div>
+                <button onclick="toggleMenu('locations-menu')" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition text-left">
+                    <span class="flex items-center gap-3">📍 Locations</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="locations-menu" class="submenu open pl-10 space-y-1 text-sm border-l ml-6 mt-1 border-slate-100">
+                    <a href="/locations/gozo.html" class="block py-2 hover:text-[#CF142B]">Gozo</a>
+                    <a href="/locations/hiking.html" class="block py-2 hover:text-[#CF142B]">Hiking</a>
+                    <a href="/locations/historical.html" class="block py-2 sidebar-active rounded-lg px-2 -mx-2 transition">Historical Locations</a>
+                    <a href="/locations/swimming.html" class="block py-2 hover:text-[#CF142B]">Swimming</a>
+                    <a href="/locations/towns.html" class="block py-2 hover:text-[#CF142B]">Towns</a>
+                    <a href="/locations/tourist.html" class="block py-2 hover:text-[#CF142B]">Tourist Locations</a>
+                    <a href="/locations/sicily.html" class="block py-2 hover:text-[#CF142B]">Trips to Sicily</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Fixed Sidebar Footer -->
+        <div class="p-6 border-t bg-white shrink-0">
+            <button onclick="toggleLangModal()" class="w-full bg-[#003366] text-white p-3 rounded-xl font-bold text-sm shadow-md hover:bg-[#002244] transition">
+                🌐 Switch Language
+            </button>
+        </div>
+    </aside>
+
+    <!-- Overlay for Mobile Sidebar -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-[90] hidden" onclick="toggleMobileMenu()"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow p-6 lg:p-12 w-full overflow-x-hidden">
+        <div class="hero-banner flex items-end p-6 md:p-10 mb-10">
+            <div>
+                <h1 class="text-3xl md:text-5xl text-white font-bold wiki-header">Historical Locations</h1>
+                <p class="text-white/90 mt-2 text-lg leading-tight">Explore Malta's 7,000-year history. From the megalithic temples older than Stonehenge to the fortified cities built by the Knights of St. John.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 max-w-5xl" id="content-container">
+            <!-- ✨ AI SUMMARY BUTTON -->
+            <div class="flex justify-end -mb-4">
+                <button onclick="generateSummary()" class="flex items-center gap-2 text-xs font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-full border border-blue-100 hover:bg-blue-100 transition">
+                    ✨ AI Page Summary
+                </button>
+            </div>
+            
+            <div id="ai-summary-box" class="hidden bg-indigo-50 p-6 rounded-3xl border border-indigo-100 shadow-sm relative">
+                <button onclick="document.getElementById('ai-summary-box').classList.add('hidden')" class="absolute top-4 right-4 text-indigo-300 hover:text-indigo-500">&times;</button>
+                <h3 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">✨ Quick Summary</h3>
+                <div id="ai-summary-content" class="text-indigo-800 text-sm leading-relaxed">Generating...</div>
+            </div>
+
+            <!-- Introduction to Malta's History -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h2 class="text-2xl font-bold mb-4 text-[#003366]">A Tapestry of Civilizations</h2>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>Malta boasts a deeply layered history spanning over 7,000 years. Due to its strategic position in the center of the Mediterranean, it has been conquered, colonized, and influenced by almost every major maritime power, including the Phoenicians, Romans, Arabs, Normans, the Knights of St. John, the French, and finally, the British.</p>
+                    <p>This immense historical footprint is visible on almost every street corner, making the islands an open-air museum.</p>
+                </div>
+            </div>
+
+            <!-- Valletta -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#CF142B]">Valletta: The Fortress City</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p><b>Brief History:</b> Valletta is the modern capital of Malta, built from scratch on the arid Mount Sceberras peninsula immediately following the Great Siege of 1565. Recognizing the strategic vulnerability of the harbor, Grand Master Jean Parisot de Valette ordered the construction of a new, heavily fortified city. It was one of the first planned cities in Europe, designed on a grid system to allow sea breezes to cool the streets.</p>
+                    <p><b>Why it's Important:</b> A UNESCO World Heritage site, Valletta is a masterpiece of Baroque architecture. Its immense fortifications protected the island for centuries. Today, it houses the national parliament, the Office of the Prime Minister, and some of the country's most spectacular art and architecture.</p>
+                    <ul class="list-disc pl-5 space-y-2 mt-2">
+                        <li><b>St. John's Co-Cathedral:</b> From the outside, it looks like a severe military fort. Inside, it is one of the most dazzling, gold-covered Baroque interiors in the world, famously housing Caravaggio's masterpiece, "The Beheading of Saint John the Baptist."</li>
+                        <li><b>Upper Barrakka Gardens:</b> Offers the most famous panoramic view over the Grand Harbour and the Three Cities.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Mdina -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">Mdina: The Silent City</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p><b>Brief History:</b> Before Valletta was built, Mdina was Malta's capital from antiquity until the medieval period. Situated on a high plateau inland, it was fortified by the Phoenicians around 700 BC, and later by the Romans, Arabs, and Normans. When the Knights arrived and focused on maritime defense, Mdina lost its political power but remained the home of the Maltese nobility.</p>
+                    <p><b>Why it's Important:</b> Mdina is a remarkably preserved, walled medieval and Baroque city. It is known as the "Silent City" because very few cars are allowed inside its narrow, winding, shaded streets. The architecture reflects centuries of unbroken noble residence.</p>
+                    <ul class="list-disc pl-5 space-y-2 mt-2">
+                        <li><b>St. Paul's Cathedral:</b> Built on the site where the Roman governor Publius is said to have met the Apostle Paul following his shipwreck in 60 AD.</li>
+                        <li><b>The Bastions:</b> Offer sweeping views of almost the entire island of Malta.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- The Three Cities -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">The Three Cities (Cottonera)</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p><b>Brief History:</b> Directly across the Grand Harbour from Valletta lie the Three Cities: <b>Vittoriosa (Birgu)</b>, <b>Senglea (L-Isla)</b>, and <b>Cospicua (Bormla)</b>. These are older than Valletta. When the Knights of St. John arrived in Malta in 1530, they initially settled in Birgu. These cities bore the absolute brunt of the fighting during the Great Siege of 1565 against the Ottoman Empire.</p>
+                    <p><b>Why they are Important:</b> They represent Malta's deepest maritime roots. The narrow, stepped streets are largely untouched by modern development. Historically working-class dockyard areas, they have seen massive gentrification recently but still retain a highly authentic, traditional Maltese atmosphere compared to the tourist-heavy Valletta.</p>
+                    <ul class="list-disc pl-5 space-y-2 mt-2">
+                        <li><b>Fort St. Angelo (Birgu):</b> The primary fortress that repelled the Ottoman attacks during the Great Siege.</li>
+                        <li><b>The Inquisitor's Palace:</b> Served as the seat of the Maltese Inquisition from 1574 to 1798.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Megalithic Temples and Prehistory -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#CF142B]">Prehistoric Malta: The Megalithic Temples</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p><b>Brief History:</b> Malta is home to some of the oldest free-standing stone structures in the world, built by a mysterious, highly advanced civilization between 3600 BC and 2500 BC—predating the Egyptian pyramids and Stonehenge by roughly a millennium.</p>
+                    <p><b>Why they are Important:</b> These structures are recognized collectively as UNESCO World Heritage sites. They demonstrate incredible architectural and astronomical sophistication. The civilization that built them disappeared suddenly around 2500 BC, leaving behind these massive monuments and intricate "fat lady" statues believed to represent fertility goddesses.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-[#003366] mb-2">Ħaġar Qim & Mnajdra</h4>
+                            <p class="text-sm">Located on the rugged southern cliffs of Malta. Mnajdra is famous for its precise astronomical alignment; during the equinoxes, the rising sun perfectly illuminates its central altar.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-[#003366] mb-2">Ġgantija (Gozo)</h4>
+                            <p class="text-sm">The oldest of the major temple complexes. Local folklore claimed they were built by a giantess who carried the massive megaliths on her head while eating broad beans.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 md:col-span-2">
+                            <h4 class="font-bold text-[#CF142B] mb-2">The Ħal Saflieni Hypogeum</h4>
+                            <p class="text-sm">A unique, three-level subterranean necropolis carved directly into the living rock over centuries. Used as a sanctuary and burial site. To preserve its delicate microclimate, only 80 visitors are allowed inside per day, making tickets incredibly sought after (booking months in advance is required).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forts, Caves, and Other Cultural Sites -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+                <h3 class="text-2xl font-bold mb-4 text-[#003366]">Forts, Caves & Cultural Sites</h3>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>Beyond the major cities and temples, Malta is dotted with incredible military forts, ancient catacombs, and historically significant caves that offer a deeper look into its diverse past.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-[#CF142B] mb-2">Għar Dalam Cave</h4>
+                            <p class="text-sm">Located in Birżebbuġa, the "Cave of Darkness" contains the earliest evidence of human settlement in Malta (around 5200 BC). More impressively, it houses the fossilized bones of Ice Age animals, including dwarf elephants and hippopotamuses, that once roamed the Mediterranean.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-[#CF142B] mb-2">Fort Rinella & The 100-Ton Gun</h4>
+                            <p class="text-sm">Built by the British in the late 19th century to protect the Grand Harbour, this Victorian coastal battery in Kalkara is famous for housing the Armstrong 100-ton gun—the world's largest muzzle-loading cannon.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-[#CF142B] mb-2">St. Paul's Catacombs</h4>
+                            <p class="text-sm">A vast, interconnected underground Roman cemetery in Rabat. Dating back to the 4th century AD, these catacombs represent the earliest and largest archaeological evidence of Christianity in Malta.</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                            <h4 class="font-bold text-[#CF142B] mb-2">Fort St. Elmo</h4>
+                            <p class="text-sm">Situated at the very tip of the Valletta peninsula, this star-shaped fort bore the brutal brunt of the Ottoman attacks during the Great Siege of 1565. Today, it houses the exceptional National War Museum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- LANGUAGE MODAL -->
+    <div id="langModal" class="fixed inset-0 bg-slate-900/60 z-[110] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleLangModal()">
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 max-w-2xl w-full shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="toggleLangModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-2xl font-bold mb-6 text-[#003366]">Select Language</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <button onclick="changeLang('en')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇬🇧 English</button>
+                <button onclick="changeLang('it')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇹 Italiano</button>
+                <button onclick="changeLang('es')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇪🇸 Español</button>
+                <button onclick="changeLang('fr')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇫🇷 Français</button>
+                <button onclick="changeLang('de')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇩🇪 Deutsch</button>
+                <button onclick="changeLang('hi')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇳 हिन्दी</button>
+                <button onclick="changeLang('pa')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇳 ਪੰਜਾਬੀ</button>
+                <button onclick="changeLang('tl')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇵🇭 Filipino</button>
+                <button onclick="changeLang('pt-br')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇧🇷 Português</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI EXPAT ASSISTANT MODAL -->
+    <div id="aiModal" class="fixed inset-0 bg-slate-900/60 z-[110] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleAiModal()">
+        <div class="bg-white rounded-[2rem] p-6 md:p-8 max-w-2xl w-full h-[80vh] shadow-2xl relative flex flex-col" onclick="event.stopPropagation()">
+            <button onclick="toggleAiModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-blue-600 text-white p-3 rounded-2xl">✨</div>
+                <div>
+                    <h2 class="text-xl font-bold text-[#003366]">Expat Assistant</h2>
+                    <p class="text-xs text-slate-400">Powered by Gemini AI</p>
+                </div>
+            </div>
+
+            <div id="ai-chat-history" class="flex-grow overflow-y-auto space-y-4 mb-6 p-2 scroll-smooth">
+                <div class="bg-slate-50 p-4 rounded-2xl text-slate-700 text-sm max-w-[85%] border border-slate-100">
+                    Hello! I'm your AI guide for Malta. You can ask me how to book tickets for the Hypogeum, the best time to visit Mdina, or more about the Great Siege of 1565. How can I help you today?
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <input type="text" id="ai-user-input" placeholder="Type your question here..." class="flex-grow bg-slate-100 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none" onkeypress="if(event.key === 'Enter') sendAiMessage()">
+                <button onclick="sendAiMessage()" id="ai-send-btn" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-blue-700 transition flex items-center gap-2">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const apiKey = "";
+
+        async function callGemini(prompt, systemInstruction = "You are a helpful assistant specialized in moving to Malta.") {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            let delay = 1000;
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (response.ok) {
+                        const result = await response.json();
+                        return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    }
+                } catch (e) {}
+                await new Promise(r => setTimeout(r, delay));
+                delay *= 2;
+            }
+            throw new Error("Connection failed.");
+        }
+
+        async function generateSummary() {
+            const summaryBox = document.getElementById('ai-summary-box');
+            const summaryContent = document.getElementById('ai-summary-content');
+            summaryBox.classList.remove('hidden');
+            summaryContent.innerText = "Generating summary...";
+            const contentText = Array.from(document.querySelectorAll('.content-block')).map(b => b.innerText).join("\n\n");
+            try {
+                const summary = await callGemini(`Summarize this Malta Historical Locations guide into a concise, bulleted list covering Valletta, Mdina, the Three Cities, and the Megalithic Temples: \n\n ${contentText}`, "You are an objective, concise editor.");
+                summaryContent.innerText = summary;
+            } catch (error) {
+                summaryContent.innerText = "Error generating summary.";
+            }
+        }
+
+        function toggleAiModal() {
+            const modal = document.getElementById('aiModal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        async function sendAiMessage() {
+            const input = document.getElementById('ai-user-input');
+            const history = document.getElementById('ai-chat-history');
+            const userText = input.value.trim();
+            if (!userText) return;
+            const userDiv = document.createElement('div');
+            userDiv.className = "bg-blue-600 text-white p-4 rounded-2xl text-sm max-w-[85%] self-end ml-auto";
+            userDiv.innerText = userText;
+            history.appendChild(userDiv);
+            input.value = "";
+            const botDiv = document.createElement('div');
+            botDiv.className = "bg-slate-50 p-4 rounded-2xl text-slate-700 text-sm max-w-[85%] border border-slate-100 italic";
+            botDiv.innerText = "Typing...";
+            history.appendChild(botDiv);
+            try {
+                const response = await callGemini(userText, "You are a professional Malta expat and tourism consultant. Answer using 2026 data regarding Maltese historical sites, tourism, and culture. Maintain an objective, informative tone.");
+                botDiv.innerText = response;
+                botDiv.classList.remove('italic');
+            } catch (error) { botDiv.innerText = "Connection failed."; }
+            history.scrollTop = history.scrollHeight;
+        }
+
+        function toggleMenu(id) {
+            document.getElementById(id).classList.toggle('open');
+        }
+
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+            document.body.style.overflow = sidebar.classList.contains('-translate-x-full') ? 'auto' : 'hidden';
+        }
+
+        function toggleLangModal() {
+            const modal = document.getElementById('langModal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        function changeLang(lang) {
+            localStorage.setItem('user_lang', lang);
+            toggleLangModal();
+        }
+    </script>
+</body>
+</html>
