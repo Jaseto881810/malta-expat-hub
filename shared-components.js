@@ -3,7 +3,7 @@
  * This file manages the Sidebar, Mobile Menu, and AI Translation globally.
  */
 
-const apiKey = ""; // Gemini API Key
+const apiKey = "AIzaSyDk_Z9k1V5Drr3wvtolGBzxxB3eSHANPDs"; // Gemini API Key
 
 // 1. THE MASTER MENU NAVIGATION
 // Add new pages here once, and they appear everywhere!
