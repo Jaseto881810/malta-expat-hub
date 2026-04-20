@@ -199,13 +199,6 @@
                 </div>
             </div>
         </nav>
-
-        <!-- Fixed Sidebar Footer -->
-        <div class="p-6 border-t bg-white shrink-0">
-            <button onclick="toggleLangModal()" class="w-full bg-[#003366] text-white p-3 rounded-xl font-bold text-sm shadow-md hover:bg-[#002244] transition">
-                🌐 Switch Language
-            </button>
-        </div>
     </aside>
 
     <!-- Overlay for Mobile Sidebar -->
@@ -333,27 +326,6 @@
 
         </div>
     </main>
-
-    <!-- LANGUAGE MODAL -->
-    <div id="langModal" class="fixed inset-0 bg-slate-900/60 z-[110] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleLangModal()">
-        <div class="bg-white rounded-[2rem] p-8 md:p-10 max-w-2xl w-full shadow-2xl relative" onclick="event.stopPropagation()">
-            <button onclick="toggleLangModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <h2 class="text-2xl font-bold mb-6 text-[#003366]">Select Language</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                <button onclick="changeLang('en')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇬🇧 English</button>
-                <button onclick="changeLang('it')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇹 Italiano</button>
-                <button onclick="changeLang('es')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇪🇸 Español</button>
-                <button onclick="changeLang('fr')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇫🇷 Français</button>
-                <button onclick="changeLang('de')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇩🇪 Deutsch</button>
-                <button onclick="changeLang('hi')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇳 हिन्दी</button>
-                <button onclick="changeLang('pa')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇮🇳 ਪੰਜਾਬੀ</button>
-                <button onclick="changeLang('tl')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇵🇭 Filipino</button>
-                <button onclick="changeLang('pt-br')" class="p-4 border rounded-2xl hover:border-[#CF142B] transition-all">🇧🇷 Português</button>
-            </div>
-        </div>
-    </div>
 
     <!-- AI EXPAT ASSISTANT MODAL -->
     <div id="aiModal" class="fixed inset-0 bg-slate-900/60 z-[110] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="toggleAiModal()">
