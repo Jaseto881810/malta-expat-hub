@@ -3,50 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malta Expat Guide | A Comprehensive Guide to Living in Malta</title>
-    <meta name="description" content="Comprehensive wiki for moving to Malta. 60+ pages of info on visas, housing, lifestyle, and more.">
+    <title>🇲🇹 Malta Expat Guide | Home</title>
+    <meta name="description" content="A comprehensive guide to living in Malta and what to expect.">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
+    <!-- Link to the shared component brain -->
+    <script src="/shared-components.js"></script>
+
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #fdfbf7; }
-        .sidebar-active { color: #CF142B !important; font-weight: 700; background: #fff1f2; }
-        .submenu { display: none; }
-        .submenu.open { display: block; }
         .wiki-header { font-family: 'Playfair Display', serif; }
-        
         .hero-banner { 
             height: 300px; 
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=2000');
             background-size: cover; background-position: center;
             border-radius: 1.5rem;
         }
-
-        /* Mobile Sidebar Transition */
-        #sidebar { transition: transform 0.3s ease-in-out; }
-        
-        /* Custom Scrollbar for Sidebar Nav */
-        #nav-scroll::-webkit-scrollbar { width: 4px; }
-        #nav-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
-        #nav-scroll::-webkit-scrollbar-thumb { background: #CF142B; border-radius: 10px; }
-
-        @keyframes pulse-soft {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-        /* Fixed blurriness by adding backface-visibility and will-change */
-        .ai-pulse { 
-            animation: pulse-soft 2s infinite ease-in-out; 
-            backface-visibility: hidden;
-            -webkit-font-smoothing: antialiased;
-            will-change: transform;
-        }
     </style>
 </head>
+
 <body class="flex flex-col lg:flex-row min-h-screen">
 
     <!-- MOBILE HEADER (Fixed at Z-60) -->
