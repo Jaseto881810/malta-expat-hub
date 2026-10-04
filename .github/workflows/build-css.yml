@@ -1,0 +1,30 @@
+# Rebuilds assets/content.css whenever pages change, so any Tailwind class
+# used in a guide (e.g. a new colour or spacing) gets its style generated.
+name: Build content CSS
+
+on:
+  push:
+    branches: [main]
+    paths: ['**.html', 'tailwind.config.js', 'assets/content.src.css']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npx --yes tailwindcss@3.4 -c tailwind.config.js -i assets/content.src.css -o assets/content.css --minify
+      - name: Commit if changed
+        run: |
+          if ! git diff --quiet assets/content.css; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
+            git commit -am "Rebuild content CSS"
+            git push
+          fi
