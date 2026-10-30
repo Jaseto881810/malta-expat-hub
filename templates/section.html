@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block main %}
+    <section class="sec-hero" style="--tint:{{ section.colour }}">
+      <div>
+        <div class="crumbs"><a href="/index.html">Home</a> / <b>{{ section.name }}</b></div>
+        <h1><span class="sec-num">{{ section.number }}</span>{{ section.name }}</h1>
+      </div>
+      <div>
+        <p>{{ section.intro }}</p>
+        <span class="tag tag-light">{{ guides | length }} guide{{ '' if guides | length == 1 else 's' }}</span>
+      </div>
+    </section>
+
+    <div class="guides">
+{%- for g in guides %}
+      <a class="guide-card" href="{{ g.url }}">
+        <div class="photo" style="--img:url('{{ g.cardImage or g.image }}')"></div>
+        <div class="guide-card-body">
+          <h6>{{ section.number }}.{{ '%02d' % loop.index }}</h6>
+          <h4>{{ g.menuName }}</h4>
+          <p>{{ g.cardText or g.heroText }}</p>
+        </div>
+      </a>
+{%- endfor %}
+    </div>
+{% endblock %}

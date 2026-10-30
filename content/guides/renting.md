@@ -1,0 +1,115 @@
+---
+title: Renting Properties
+menuName: Renting Properties
+section: accommodation
+order: 5
+heroText: Find your perfect home in Malta. Explore 2026 rental costs, tenant rights, and how to navigate the local market as an expat or Third-Country National.
+image: https://images.unsplash.com/photo-1513622470522-26c311545465?q=80&w=1740&auto=format&fit=crop
+description: Your complete guide to renting an apartment or room in Malta. Explore 2026 rental costs, popular areas, tenant rights, and specific challenges for TCNs.
+blocks:
+- heading: The Maltese Rental Market
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>Renting is the most common housing solution for newly arrived expats in Malta. The market is fast-paced, highly competitive, and driven by the influx of international workers in sectors like iGaming, finance, and tourism.</p>
+    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 mt-4 text-emerald-900">
+    <b class="flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> Almost Always Fully Furnished</b>
+    <p class="text-sm mt-1">Unlike many Northern European countries where apartments are rented as an "empty shell" (without even a kitchen or light fixtures), <b>practically 99% of long-term rentals in Malta come fully furnished.</b> This usually includes all kitchen appliances, a washing machine, beds, wardrobes, a sofa, and sometimes even a TV and basic cutlery. You can essentially move in with just a suitcase.</p>
+    </div>
+    </div>
+- heading: Estimated Costs & Popular Areas (2026)
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>Rental prices are heavily dictated by proximity to the sea and the main business districts. Here is a breakdown of what you can expect to pay for a standard, modern apartment or a single room in a shared flat.</p>
+    <table class="w-full text-left border-collapse mt-4">
+    <thead>
+    <tr class="border-b-2 border-slate-300 bg-slate-50">
+    <th class="py-3 px-4 font-bold text-slate-800">Region &amp; Vibe</th>
+    <th class="py-3 px-4 font-bold text-slate-800">1-2 Bed Apartment</th>
+    <th class="py-3 px-4 font-bold text-slate-800">Room in a Shared Flat</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="border-b border-slate-100">
+    <td class="py-3 px-4">
+    <b class="text-[#CF142B] block">The Expat Hub</b>
+    <span class="text-xs">Sliema, St. Julian's, Swieqi, Gżira. Busy, coastal, high-demand.</span>
+    </td>
+    <td class="py-3 px-4 font-semibold">€1,100 - €1,800+</td>
+    <td class="py-3 px-4">€500 - €800</td>
+    </tr>
+    <tr class="border-b border-slate-100">
+    <td class="py-3 px-4">
+    <b class="text-[#CF142B] block">Central / Inland</b>
+    <span class="text-xs">Mosta, Naxxar, Birkirkara. Residential, quieter, great for families.</span>
+    </td>
+    <td class="py-3 px-4 font-semibold">€850 - €1,200</td>
+    <td class="py-3 px-4">€400 - €550</td>
+    </tr>
+    <tr class="border-b border-slate-100">
+    <td class="py-3 px-4">
+    <b class="text-[#CF142B] block">The South</b>
+    <span class="text-xs">Marsaskala, Żabbar, Fgura. Traditional, coastal, cheaper living.</span>
+    </td>
+    <td class="py-3 px-4 font-semibold">€700 - €1,000</td>
+    <td class="py-3 px-4">€350 - €500</td>
+    </tr>
+    <tr class="border-b border-slate-100">
+    <td class="py-3 px-4">
+    <b class="text-[#CF142B] block">Gozo</b>
+    <span class="text-xs">Victoria, Xagħra. Relaxed, rural, requires a ferry to the mainland.</span>
+    </td>
+    <td class="py-3 px-4 font-semibold">€550 - €850</td>
+    <td class="py-3 px-4">€300 - €450</td>
+    </tr>
+    </tbody>
+    </table>
+    <p class="text-xs text-slate-500 mt-2">*Note: Prices do not usually include utility bills (water/electricity) or internet, which add roughly €50-€100 per person, per month.</p>
+    </div>
+- heading: Where to Find Properties & Rooms
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>There are two main routes to securing a rental in Malta: going through a real estate agency or renting directly from an owner.</p>
+    <ul class="list-none space-y-4 mt-4">
+    <li class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
+    <b class="text-slate-800 text-lg">1. Using a Real Estate Agency</b>
+    <p class="text-sm mt-1 mb-2">Agencies have the largest portfolios and can arrange multiple viewings in a single day. Major players include QuickLets, Frank Salt, Remax, and Perry. They handle the contract drafting and ensure legal compliance.</p>
+    <p class="text-sm font-semibold text-red-600">The Catch (Agency Fees): If you use an agent, you must pay an agency fee. By standard industry practice, this is equivalent to half a month's rent plus 18% VAT. The landlord pays the other half.</p>
+    </li>
+    <li class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
+    <b class="text-slate-800 text-lg">2. Direct from Owner (Social Media)</b>
+    <p class="text-sm mt-1">To bypass agency fees, many expats hunt for properties directly. The primary platform for this is <b>Facebook</b>. Groups like "Rent Direct From Owner Malta" or "Share Flat in Malta" (for rooms) are incredibly active. Facebook Marketplace is also heavily utilized. However, you must be vigilant against scams and ensure the contract offered is legally compliant.</p>
+    </li>
+    </ul>
+    </div>
+- heading: The Rental Process & Tenant Rights
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>Once you find a place you like, the process moves very quickly. You will typically be asked to pay a <b>Security Deposit</b> (usually equal to one month's rent) and the <b>first month's rent upfront</b> before receiving the keys.</p>
+    <p><b>Your Crucial Rights as a Tenant:</b></p>
+    <ul class="list-disc pl-5 space-y-2">
+    <li><b>Mandatory Registration:</b> By law, the landlord MUST register your lease with the Malta Housing Authority. (See our <a class="text-blue-600 hover:underline font-semibold" href="/accommodation/authority.html">Housing Authority Guide</a> for details). If they refuse, the lease is illegal.</li>
+    <li><b>Inventory List:</b> Always insist on a written inventory list detailing the condition of the furniture and appliances. Take photos on the day you move in to prevent deposit disputes when you leave.</li>
+    <li><b>Utilities (ARMS):</b> Ensure you are being billed on the correct "Residential Tariff" for water and electricity. Sometimes landlords leave the bill on the "Domestic Tariff" (which is meant for empty or secondary homes and is much more expensive). You can check this online via the ARMS utility portal using your ID card.</li>
+    <li><b>Notice Periods:</b> If you sign a standard 1-year contract, you are legally bound to stay for at least 6 months. After the 6th month, you can leave without losing your deposit, provided you give the landlord exactly <b>1 month's written notice</b>.</li>
+    </ul>
+    </div>
+- heading: Specific Challenges for TCNs
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>Third-Country Nationals (non-EU citizens) face a much steeper uphill battle when renting in Malta compared to EU citizens, primarily because their housing is directly tied to their immigration status.</p>
+    <ul class="list-disc pl-5 space-y-4 mt-4">
+    <li>
+    <b>The Identità Requirement:</b> To obtain or renew a Single Work Permit or Study Visa, Identità (the government immigration agency) requires proof of address. You must provide a rental contract that has been <b>officially registered with the Housing Authority</b>, accompanied by a Housing Authority Approval Letter.
+                      </li>
+    <li>
+    <b>Landlord Refusals:</b> Some landlords attempt to evade paying income tax on their rental earnings by refusing to register the contract. <span class="font-semibold text-red-600">If a landlord says "I won't register the contract," a TCN must walk away immediately.</span> That property is useless for your visa application and could lead to your deportation.
+                      </li>
+    <li>
+    <b>Higher Financial Demands:</b> Because TCNs are perceived as a higher "flight risk" (as they might have to leave the country if they lose their job), some landlords demand 2 or 3 months' deposit, or ask for 6 months of rent paid upfront. While frustrating, negotiating these terms or finding a more sympathetic direct owner is the only solution.
+                      </li>
+    <li>
+    <b>Sub-letting Scams:</b> TCNs often rent a single room rather than a whole apartment. Be careful: if you rent a room from a "master tenant" (who is renting the whole flat from the actual landlord), that master tenant must have the written, legal permission of the actual landlord to sub-let to you. If they don't, the Housing Authority will not register your presence there, and Identità will reject your visa application.
+                      </li>
+    </ul>
+    </div>
+---

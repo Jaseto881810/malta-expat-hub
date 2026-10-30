@@ -1,0 +1,74 @@
+---
+title: Raising Children in Malta
+menuName: Raising Children in Malta
+section: expat-info
+order: 9
+heroText: Navigate the schooling system, mandatory subjects, childcare, and vibrant after-school communities for your family.
+image: https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1740&auto=format&fit=crop
+description: A comprehensive guide to raising children in Malta as an expat. Explore the schooling system, required subjects, childcare, and after-school activity groups.
+blocks:
+- heading: How the Schooling System Works
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>Malta places a very high value on education, and its schooling system is modeled closely on the British curriculum. Education is compulsory for all children residing in Malta from the ages of 5 to 16. The school year runs from late September to late June.</p>
+    <p>As an expat parent, you have three primary categories of schools to choose from:</p>
+    <ul class="list-none space-y-4 mt-4">
+    <li class="flex gap-4">
+    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-xl">🏛️</div>
+    <div>
+    <b class="text-slate-800 text-lg">Public (State) Schools</b>
+    <p class="text-sm mt-1">State schools are free to all registered residents (including Third-Country Nationals paying taxes). Transport and books are also heavily subsidized or free. They are co-educational and found in almost every village. Teaching is traditionally bilingual (Maltese and English), though social interaction among children is often heavily in Maltese.</p>
+    </div>
+    </li>
+    <li class="flex gap-4">
+    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center text-xl">⛪</div>
+    <div>
+    <b class="text-slate-800 text-lg">Church Schools</b>
+    <p class="text-sm mt-1">Owned by the Catholic Church, these schools do not charge tuition fees but operate on a system of "voluntary" annual donations. They are highly sought after by Maltese families and are usually single-sex. Admission is done via a highly competitive national lottery system, making it difficult for expats arriving mid-year to secure a spot.</p>
+    </div>
+    </li>
+    <li class="flex gap-4">
+    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-xl">🎓</div>
+    <div>
+    <b class="text-slate-800 text-lg">Independent / International Schools</b>
+    <p class="text-sm mt-1">Private schools (such as San Andrea, San Anton, and Chiswick House) charge tuition fees, usually ranging from €4,000 to €9,000+ per year. They teach almost exclusively in English, have a diverse international student body, and offer a smoother transition for expat children. Waiting lists can be long, so early registration is essential.</p>
+    </div>
+    </li>
+    </ul>
+    </div>
+- heading: Quality of Schooling and The Curriculum
+  text: |
+    The standard of education in Malta is generally considered very good. The curriculum is rigorous, leading to formal examinations at age 16 (SEC exams, equivalent to British O-Levels/GCSEs) and age 18 (MATSEC exams, equivalent to A-Levels), which determine entry into the University of Malta or foreign institutions.
+
+    International schools may offer alternatives like the International Baccalaureate (IB) or specific UK-board IGCSEs.
+- heading: Mandatory Subjects & The Maltese Language
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>Across the state and church systems, the core mandatory subjects are Mathematics, English, Science, and <b>Maltese</b>. Religion (Catholicism) is also traditionally a core subject, but parents can legally opt their children out and have them take Ethics instead.</p>
+    <div class="p-4 bg-orange-50 border-l-4 border-orange-400 text-orange-900 rounded-r-lg mt-4 text-sm">
+    <b class="block mb-2">⚠️ The Maltese Language Challenge</b>
+    <p>For many expat families, the biggest hurdle is the Maltese language requirement. In state schools, passing Maltese at the SEC level is generally mandatory for progressing to local higher education (Sixth Form/University).</p>
+    <p class="mt-2"><b>Exemptions:</b> If a child is born outside of Malta and enters the Maltese schooling system <i>after their 7th birthday</i> (or has lived abroad for at least 4 consecutive years), they are legally eligible to be exempted from taking Maltese as a core examination subject. Instead, they can take a secondary foreign language or a specialized "Maltese as a Foreign Language" (MFL) program.</p>
+    </div>
+    </div>
+- heading: Childcare and After-School Programs
+  text: |
+    Balancing work and family in Malta requires understanding the childcare landscape, as school usually finishes early (between 1:30 PM and 2:30 PM).
+
+    **Free Childcare Scheme (Ages 0-3)**
+
+    To encourage parents to remain in the workforce, the Maltese government offers the Free Childcare Scheme. If *both* parents are working or studying full-time, the government covers the cost of registered private and public childcare centers. You only pay for extras like meals or late pickups.
+
+    **Klabb 3-16 (Ages 3-16)**
+
+    Because schools end early, the government runs a highly subsidized after-school program called **Klabb 3-16**. Operating within the premises of most state primary schools, it runs from school finishing time until 6:00 PM. Children are supervised, helped with their homework, and engaged in arts and crafts. It costs less than €2 per hour, making it a lifeline for working expat parents.
+- heading: After-School Activities and Youth Groups
+  text: |
+    Malta has a rich community life for children outside of regular school hours. Extracurricular activities are the best way for expat children to integrate and make local friends.
+
+    - **Football Nurseries:** Football is the most popular sport in Malta. Every major town (Sliema Wanderers, Melita FC, Luxol) has an active "nursery" (youth academy) for boys and girls starting from age 4.
+    - **Waterpolo and Swimming:** Given the island setting, aquatic sports are huge. Clubs like Sirens (St. Paul's Bay), Neptunes (St. Julian's), and San Giljan offer excellent year-round swimming academies and competitive waterpolo leagues.
+    - **Performing Arts:** Stagecoach Malta, Helen O'Grady Drama Academy, and local dance schools (like School of Dance or Dancel) are extremely popular, offering weekend and evening classes in drama, singing, and ballet.
+    - **Scouts and Girl Guides:** The Scout Association of Malta and the Malta Girl Guides are very active. Troops exist in almost every locality, organizing weekly meetings, camping trips, and community service. They are highly welcoming to international children.
+    - **Sailing:** The Malta Young Sailors Club and Royal Malta Yacht Club offer Optimist sailing courses for children, taking advantage of the Mediterranean climate.
+---

@@ -1,0 +1,264 @@
+---
+title: Consumer Rights
+menuName: Consumer Rights
+section: expat-info
+order: 2
+heroText: Understand the rights consumers have in Malta
+image: https://images.unsplash.com/photo-1481437156560-3205f6a55735?q=80&w=1740&auto=format&fit=crop
+description: 'Your consumer rights in Malta: the Consumer Affairs Act, 14-day online returns, shop refunds, utility and telecoms billing, passenger compensation and how to complain.'
+blocks:
+- heading: Regulatory frameworks and the evolution of consumer protection in Malta
+  text: |
+    The landscape of consumer protection in Malta represents a critical nexus of domestic legislative intent and the rigorous harmonization requirements of the European Union. Central to this ecosystem is the Malta Competition and Consumer Affairs Authority (MCCAA), an entity whose multidimensional mandate extends from the enforcement of the Consumer Affairs Act to the oversight of technical standards and metrology. As the nation prepares for the 2026 regulatory cycle, the convergence of digital-first commerce, green transition directives, and enhanced transparency in utility billing has necessitated a sophisticated re-evaluation of the rights of the consumer and the obligations of the trader. The Maltese model is characterized by a tiered redress system that prioritizes mediation and conciliation while maintaining the Consumer Claims Tribunal as a powerful arbiter of equity and justice.
+
+    The Maltese consumer protection framework has matured into a sophisticated, multi-layered system that balances statutory rigidity with procedural flexibility. While the MCCAA remains the primary guardian of the marketplace, the emergence of sector-specific arbiters and the integration of advanced EU directives have created a highly protective environment for the individual. The 2026 regulatory cycle, with its focus on durability, digital ranking transparency, and utility billing reform, signals a move toward a more sustainable and honest marketplace. For the consumer, success in this environment requires a transition from passive consumption to active vigilance—understanding the mechanics of the two-year guarantee, the specific requirements of the utility tariff system, and the mandatory steps of the formal redress process. By utilizing tools like the 'Konsumatur' mobile app and engaging with the tiered mediation system, residents in Malta can ensure that their rights are not merely theoretical but remain a practical reality in every transaction.
+- heading: Institutional architecture and oversight bodies
+  text: |
+    The governance of the Maltese marketplace is distributed among several specialized regulators, though the MCCAA serves as the primary coordinator for consumer welfare. Established under the Malta Competition and Consumer Affairs Authority Act (Chapter 510), the Authority was designed to integrate previously disparate functions of competition, consumer affairs, and technical regulations into a single, cohesive body. This structural integration is intended to promote a dynamic economy where fair competition directly serves the consumer interest by driving quality improvements and price transparency.
+
+    **Structural divisions of the MCCAA**
+
+    The Authority functions through four autonomous but interconnected entities, each overseen by a Director General. This internal decentralization allows for high-level technical specialization in areas ranging from pharmaceutical safety to the adjudication of horizontal price-fixing cartels.
+
+    | Entity | Primary Mandate and Leadership | Key Regulatory Focus |
+    | --- | --- | --- |
+    | Office for Consumer Affairs | Led by the Director General for Consumer Affairs, this office is the frontline of consumer policy. | Promotion of rights, dispute conciliation, and enforcement against unfair commercial practices. |
+    | Office for Competition | Tasked with maintaining market equilibrium and preventing the abuse of dominant positions. | Cartel investigations, merger control, and the suppression of anti-competitive behavior. |
+    | Technical Regulations Division | Responsible for the safety and compliance of products placed on the Maltese market. | Enforcement of the Product Safety Act and implementation of EU technical regulations. |
+    | Standards and Metrology Institute | Coordinates national and international standardization activities. | Metrology, calibration, and the publication of standards for products and services. |
+
+    The Office for Consumer Affairs (OCA) operates as the primary liaison for the public. Its guiding principle is the fostering of a "balanced relationship" between consumers and traders, moving beyond mere enforcement to a model of continuous education and empowerment. Within the OCA, the Information, Education and Research Directorate serves as the pedagogical arm, planning outreach campaigns that simplify complex legal concepts into actionable knowledge for the average citizen.
+
+    **Sectoral regulators and independent arbiters**
+
+    While the MCCAA provides a horizontal framework for all commercial transactions, specific sectors with inherent complexities or natural monopolies are governed by specialized regulators. This dual-layer oversight ensures that high-stakes areas like telecommunications and essential utilities are monitored for both technical efficiency and consumer fairness.
+
+    The Malta Communications Authority (MCA) holds specific jurisdiction over electronic communications, which include mobile and fixed telephony, broadband internet, TV distribution, and postal services. The MCA’s consumer protection team is unique in its proactive use of mystery shopping exercises to monitor provider compliance with transparency norms, specifically focusing on pre-contractual information and simple termination processes.
+
+    Similarly, the Regulator for Energy and Water Services (REWS) oversees the vital utilities sector. REWS is responsible for ensuring that Enemalta plc and the Water Services Corporation (WSC) adhere to quality standards while managing the billing complexities associated with their subsidiary, ARMS Ltd. For financial grievances, the Office of the Arbiter for Financial Services acts as an autonomous body with the power to investigate and adjudicate complaints against financial service providers, providing a specialized alternative to the general Consumer Claims Tribunal.
+- heading: 'The statutory foundation: The Consumer Affairs Act'
+  text: |
+    The Consumer Affairs Act (Chapter 378) represents the pinnacle of Maltese consumer law, defining the scope of interactions between "traders" (persons acting for purposes relating to their trade or profession) and "consumers" (individuals acting for personal purposes). The Act prohibits terms and practices that create a significant imbalance to the detriment of the consumer, thereby nullifying clauses that seek to limit liability for gross negligence or exclude statutory legal rights.
+
+    **Understanding the "Lack of Conformity"**
+
+    The core of the legal guarantee in Malta is the concept of conformity with the contract of sale. A product is deemed to have a "lack of conformity" if it fails to meet any of several subjective and objective criteria established by the Act and aligned with EU Directive 2019/771.
+
+    | Criteria Type | Requirement | Implication for the Trader |
+    | --- | --- | --- |
+    | Subjective | Conformity with descriptions and specifications provided in the sales contract. | The trader must provide the exact model, features, and functionality promised at the point of sale. |
+    | Objective | Fitness for the purpose for which goods of the same type are normally used. | Goods must possess the quality and performance normal for similar products. |
+    | Purpose-Specific | Fitness for a particular purpose made known to the trader by the consumer. | If a consumer asks for a device to perform a specific task and the trader agrees, the product must perform that task. |
+    | Completeness | Supply with all accessories, instructions, and digital updates as stipulated. | Incorrect installation due to faulty instructions constitutes a lack of conformity. |
+
+    The analysis of these criteria suggests that Maltese law places a high burden of transparency on the trader. Even public statements made in advertisements or on labels are considered legally binding elements of the contract of sale.
+
+    **The 2026 presumption of conformity shift**
+
+    A significant evolution in Maltese law concerns the "presumption of lack of conformity." Historically, any defect that appeared within the first six months of delivery was presumed to have existed at the time of purchase, effectively placing the burden on the seller to prove the consumer’s misuse. However, under the 2026 regulatory framework, this presumption period has been extended to one full year. This expansion represents a proactive shift toward consumer protection, acknowledging that manufacturing defects in complex electronics or durable goods may take longer than six months to manifest.
+
+    | Presumption Window | Burden of Proof | Legal Status |
+    | --- | --- | --- |
+    | First 12 Months | Presumed manufacturing defect unless the seller proves consumer misuse. | Statutory Presumption. |
+    | Months 13 to 24 | The consumer must provide evidence that the defect was present at delivery and not caused by wear and tear. | Subjective Proof Required. |
+- heading: The 14-day distance selling regime
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>The rapid growth of the digital economy in Malta, accelerated by post-pandemic shifts in behavior, has increased the relevance of the Consumer Rights Regulations for distance and off-premises contracts. These regulations provide a crucial "right of withdrawal," allowing consumers to step back from a purchase made without seeing the item in person.</p>
+    <br/>
+    <b>The cooling-off period mechanics</b>
+    <p>Consumers have 14 calendar days to withdraw from a distance contract (online, phone, or mail order) or an off-premises contract (door-to-door or in a public place). This window begins from the moment the consumer takes physical possession of the goods. For services, the countdown starts from the day the contract was agreed upon.</p>
+    <p>The implication of this right is that the consumer can test the product in a manner similar to what would be allowed in a physical shop. However, if the consumer uses the product excessively beyond this basic inspection, the seller is entitled to deduct the reduction in value from the final refund. If a consumer chooses to withdraw, the trader must reimburse all sums paid, including the cost of standard delivery, within 14 days of being notified of the decision.</p>
+    <br/>
+    <b>Information gaps and extension of rights</b>
+    <p>A critical safeguard within the Distance Selling Directive concerns the trader's duty to inform. If a trader fails to clearly communicate the existence of the 14-day cooling-off period and the associated procedures, the consumer’s right to withdraw is automatically extended by an additional 12 months. Furthermore, while the consumer generally bears the cost of returning the item, they are only required to do so if they were explicitly informed of this cost before the purchase was finalized. If the seller failed to provide this information, the return costs must be borne by the trader.</p>
+    <br/>
+    <b>Exemptions and digital content nuances</b>
+    <p>The analysis of distance selling reveals several categories where the right of withdrawal is curtailed to protect the economic viability of certain services. Notable exemptions include:</p>
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>Once you land at Malta International Airport (MLA), here are your immediate priorities:</p>
+    <ul class="list-decimal pl-5 space-y-3">
+    <li><b>Public Auctions:</b> Items purchased via traditional online auctions are often not protected by distance selling legislation, though reputable platforms may offer voluntary protection policies.</li>
+    <li><b>Perishable and Personalized Goods:</b> Tailor-made suits or food items with a short "use by" date cannot be returned.</li>
+    <li><b>Unsealed Software and Media:</b> Once the seal on a DVD or a software package is broken, the right to withdraw is lost.</li>
+    <li><b>Time-Specific Leisure Services:</b> This category includes plane tickets, hotel bookings, and car rentals for specific dates, which are governed by the trader's individual terms and conditions rather than a statutory 14-day cooling-off period.</li>
+    </ul>
+    </div>
+    <p>For digital services like streaming or e-books, the right to cancel is typically voided the moment the download or stream begins, provided the consumer has given express approval and acknowledged the loss of their withdrawal rights. If the trader fails to obtain this explicit acknowledgment (often through a mandatory checkbox), the consumer retains their right to cancel even after using the digital product.</p>
+    </div>
+- heading: 'The physical retail environment: Price transparency and return myths'
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>In contrast to the extensive rights in the digital space, the physical retail environment in Malta is governed by a different set of regulatory priorities, primarily centered on price indication and accurate information. A pervasive myth in the Maltese marketplace is that consumers have an automatic 14-day right to return goods bought in a shop; the evidence indicates that this is legally incorrect.</p>
+    <br/>
+    <b>The Price Indication Regulations</b>
+    <p>The Price Indication Regulations, issued under the Consumer Affairs Act, are designed to facilitate informed choice through clear comparison. The fundamental idea is that every product offered for sale must display a price that is unambiguous, easily identifiable, and clearly legible.</p>
+    <p>Key requirements for traders include:</p>
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <ol class="list-decimal pl-5 space-y-3">
+    <li><b>Euro Currency:</b> Prices must be displayed in Euro.</li>
+    <li><b>Inclusive Pricing:</b> The displayed figure must be the final selling price, inclusive of VAT and all other applicable taxes or mandatory charges.</li>
+    <li><b>Unit Weight Indicators:</b> For goods sold by weight or volume, retailers with an area larger than 200 square meters must show the "unit price" (e.g., price per kilo or liter) alongside the actual price.</li>
+    <li><b>Window Displays:</b> Products in shop windows must also bear their final selling price.</li>
+    </ol>
+    </div>
+    <p>In instances where a retailer makes a genuine clerical error and marks an item lower than intended, the consumer does not have an automatic right to insist on the lower price if the error is caught before the sale is finalized. Once the sale is concluded at the higher price, however, the trader cannot retroactively demand more money.</p>
+    <br/>
+    <b>Voluntary return policies and credit notes</b>
+    <p>For in-store purchases, "change of mind" returns are entirely a matter of store policy. Retailers are under no statutory obligation to offer a refund, exchange, or credit note for unwanted items that are not defective. When a store chooses to offer these remedies, the consumer is bound by the store's specific conditions, such as keeping tags attached or presenting the original receipt within a certain timeframe.</p>
+    <p>Credit notes are a frequent compromise in the Maltese retail sector. Consumers should be aware that if they lose a credit note, they have no legal right to demand a replacement from the seller. Furthermore, during seasonal sales, shops are legally prohibited from reducing consumer rights; the two-year legal guarantee remains fully active regardless of the discount level.</p>
+    </div>
+- heading: 'Redress and the utility billing landscape: ARMS Ltd'
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>For many residents, particularly the expatriate community, the interaction with ARMS Ltd regarding water and electricity bills represents the most challenging aspect of consumer life in Malta. The utility billing system is governed by a complex set of regulations that can lead to significant overcharging if the consumer's administrative profile is not perfectly aligned with their actual residence status.</p>
+    <br/>
+    <b>The three-tier tariff system</b>
+    <p>The Maltese utility system uses three distinct tariff tiers, with the "Residential" rate being the most favorable for individuals living in their primary home.</p>
+    <table class="w-full text-left border-collapse mt-6 mb-4">
+    <thead>
+    <tr class="border-b border-slate-200">
+    <th class="py-2 font-bold text-slate-800">Tariff Tier</th>
+    <th class="py-2 font-bold text-slate-800">Primary Application</th>
+    <th class="py-2 font-bold text-slate-800">Cost Dynamics</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="border-b border-slate-100"><td class="py-2">Residential</td><td class="py-2">For primary homes of residents.</td><td class="py-2">Lowest rates; eligible for eco-reduction (up to 25% discount).</td></tr>
+    <tr class="border-b border-slate-100"><td class="py-2">Domestic</td><td class="py-2">For secondary homes or vacant properties.</td><td class="py-2">Higher rates (approx. 30-81.9% more expensive); no eco-reduction.</td></tr>
+    <tr class="border-b border-slate-100"><td class="py-2">Non-Residential</td><td class="py-2">For commercial and industrial premises.</td><td class="py-2">Most expensive tier.</td></tr>
+    </tbody>
+    </table>
+    <p>The "eco-reduction" is a reward for low consumption, calculated based on the number of registered residents. A single-person household staying under 2,000 units per year receives a 25% discount on the entire electricity bill. In multi-person households, the allowance is 1,750 units per person.</p>
+    <br/>
+    <b>The tenant-landlord administrative divide</b>
+    <br/>
+    <p>A persistent issue for tenants involves landlords failing to register the correct number of occupants, often leaving the property on the more expensive "Domestic" tariff. This can result in a family of four paying over 80% more than they should.</p>
+    <p>To combat this, the "Form H" (Change in Number of Persons Residing in a Premises) serves as the primary tool for redress. Historically, tenants were often blocked if the landlord refused to sign the form. Current regulations now empower tenants to go directly to ARMS with their rental contract and ID card to apply for the Residential rate independently. For a more permanent solution, "Form F" allows a "Registration of Change in Consumer," placing the bill directly in the tenant's name, though this requires a substantial deposit of €466.</p>
+    <br/>
+    <b>Systemic failures and the 2025/2026 audit</b>
+    <p>The reliability of the ARMS billing system was called into question in early 2026 following revelations of a technical glitch that affected the application of eco-reductions. While government officials initially categorized the impact as limited to "hundreds" of consumers, reports from smart meter users and opposition claims suggested that as many as 50,000 household accounts may have been overcharged for more than a year.</p>
+    <p>The ensuing controversy led to several critical developments:</p>
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <ul class="list-decimal pl-5 space-y-3">
+    <li><b>Independent Audit:</b> The Energy Ministry commissioned a full audit of the ARMS accounting system to identify the root cause of the glitch and ensure its resolution.</li>
+    <li><b>Refund Commitment:</b> The government announced that refunds would be issued "to the last cent" for all validated claims.</li>
+    <li><b>Tenant Rights:</b> The situation highlighted the vulnerability of tenants whose bills are not in their own name, as they often lacked the transparency required to detect the error.</li>
+    </ul>
+    </div>
+    <p>Consumers are strongly advised to scrutinize their bills for the "Consumer Scheme" line (which should say "Residential") and the "No. of Residents" line to ensure they are being billed correctly.</p>
+    </div>
+- heading: 'Telecommunications: Price stability and contract transparency'
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>In the telecommunications sector, the Malta Communications Authority (MCA) has taken an increasingly assertive stance against practices that hinder consumer flexibility. A major focus of 2024 and 2025 was the restriction of "price indexation clauses" in subscriber contracts for mobile, broadband, and TV services.</p>
+    <br/>
+    <b>Regulatory intervention on price hikes</b>
+    <p>Several providers attempted to introduce terms allowing them to increase monthly fees in line with the consumer price index without granting consumers the right to terminate the contract without penalty. The MCA’s 2023 Decision Notice effectively ended this practice by:</p>
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <ul class="list-decimal pl-5 space-y-3">
+    <li><b>Limiting Duration:</b> Contracts with price indexation clauses are now capped at a maximum of six months.</li>
+    <li><b>Prohibiting Lock-ins:</b> Providers cannot offer 24-month commitment periods if they include indexation clauses.</li>
+    <li><b>Transparency Requirements:</b> Providers must obtain explicit, proactive consent from consumers before including such a clause and must display information about its potential impact prominently on their websites.</li>
+    </ul>
+    </div>
+    <p>For consumers with older contracts, the MCA established a "trigger" whereby any price increase based on an indexation clause after the first six months of the contract grants the consumer an immediate right to terminate the agreement without any early termination fees.</p>
+    <br/>
+    <b>Mystery shopping and service standards</b>
+    <br/>
+    <p>To ensure these rules are not merely "paper protections," the MCA conducts Mystery Shopping exercises. The 2023 and 2024 studies evaluated Epic, GO, and Melita on eight critical consumer journey metrics, including the provision of a "contract summary" before the final agreement is signed. This summary must include all terms, conditions, and fees in an easily understandable format.</p>
+    <br/>
+    </div>
+- heading: 'Travel and passenger rights: Compensation and assistance'
+  text: |
+    Malta’s role as an international transit point makes the enforcement of Regulation (EC) 261/2004 (Air Passenger Rights) a high priority for the MCCAA, which acts as the National Enforcement Body (NEB). These rights apply to all flights departing from Malta and all flights arriving in Malta from outside the EU if the carrier is based within the EU.
+
+    **Financial compensation thresholds**
+
+    Passengers are entitled to fixed-sum compensation if their flight is delayed by more than three hours or cancelled within 14 days of departure, unless the airline can prove "extraordinary circumstances".
+
+    | Flight Distance | Compensation Amount |
+    | --- | --- |
+    | Up to 1,500 km | €250 |
+    | 1,500 km to 3,500 km | €400 |
+    | Over 3,500 km | €600 |
+
+    **The "Right to Care" and extraordinary circumstances**
+
+    The "Right to Care" is an immediate obligation for the airline that triggers after a delay of two to four hours, depending on the distance. This includes meals, refreshments, and access to communication. If the delay extends overnight, the airline must provide hotel accommodation and transport to and from the airport.
+
+    Airlines frequently attempt to reject claims by citing generic "extraordinary circumstances" like bird strikes or technical faults. The MCCAA recently highlighted a case where an airline was forced to provide specific evidence of a lightning strike after a passenger challenged a generic rejection.
+
+    **Multi-modal and package travel**
+
+    Land passenger rights primarily affect bus services in Malta. While the 250km threshold for certain EU rights is never reached locally, rights for passengers with reduced mobility (PRM) and the obligation to provide travel information are strictly enforced. Sea passenger rights for ferry travelers include re-routing or refunds for delays over 90 minutes and compensation for damaged mobility equipment.
+
+    The Package Travel and Linked Travel Arrangements Regulations offer even higher protection. If a holiday package is significantly altered (e.g., a hotel change or a cancelled sporting event at the destination), the consumer has a right to a full refund within 14 days, regardless of any "non-refundable" clauses in the original contract.
+- heading: The procedural pathway for formal complaints
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>The effectiveness of Maltese consumer law is contingent upon a structured, three-phase redress process. Consumers who bypass these steps often find their claims rejected by the Authorities on procedural grounds.</p>
+    <br/>
+    <b>Phase 1: The mandatory informal stage</b>
+    <p>Before any formal intervention is possible, the consumer must attempt to resolve the issue directly with the trader. This can be done via phone or social media initially, but if the trader refuses a solution, a formal written notification must be sent. This notification must occur within two months of the problem being detected. Consumers are encouraged to use registered mail to create a legal paper trail.</p>
+    <br/>
+    <b>Phase 2: Conciliation through the MCCAA</b>
+    <p>If the trader fails to respond within approximately one week, the consumer can file a complaint with the Complaints and Conciliation Directorate. The complaint must be accompanied by:</p>
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <ul class="list-decimal pl-5 space-y-3">
+    <li>Proof of purchase (fiscal receipt).</li>
+    <li>Copies of any commercial guarantee or sales contract.</li>
+    <li>A concise summary of the facts and the desired remedy.</li>
+    <li>Signed consent for the MCCAA to share details with the trader.</li>
+    </ul>
+    </div>
+    <p>The complaint handler acts as a neutral mediator, informing the trader of their legal obligations and attempting to broker a settlement. This role is limited to mediation; the handler cannot force a trader to pay, but the resultant "goodwill" often resolves the majority of cases.</p>
+    <br/>
+    <b>Phase 3: The Consumer Claims Tribunal (CCT)</b>
+    <p>If mediation is unsuccessful, the consumer may choose to escalate the case to the CCT. The Tribunal is an independent entity that operates on the basis of equity and justice rather than strict legal technicality, making it accessible to those without a legal background.</p>
+    <table class="w-full text-left border-collapse mt-6 mb-4">
+    <thead>
+    <tr class="border-b border-slate-200">
+    <th class="py-2 font-bold text-slate-800">CCT Operational Parameters</th>
+    <th class="py-2 font-bold text-slate-800">2026 Regulatory Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="border-b border-slate-100"><td class="py-2">Claim Limit</td><td class="py-2">Up to €10,000 (excluding interest/costs).</td></tr>
+    <tr class="border-b border-slate-100"><td class="py-2">Legal Representation</td><td class="py-2">Not required; consumers represent themselves.</td></tr>
+    <tr class="border-b border-slate-100"><td class="py-2">Arbitral Decisions</td><td class="py-2">Legally binding and enforceable.</td></tr>
+    <tr class="border-b border-slate-100"><td class="py-2">Moral Damages</td><td class="py-2">Up to €500 for stress or inconvenience.</td></tr>
+    <tr class="border-b border-slate-100"><td class="py-2">Appeal Period</td><td class="py-2">20 days (only on limited grounds).</td></tr>
+    </tbody>
+    </table>
+    <p>For cross-border disputes involving traders in other EU states, consumers can utilize the European Small Claims Procedure for claims up to €2,000. This process is primarily written and conducted through the Small Claims Tribunal at the Valletta Law Courts.</p>
+    </div>
+- heading: 'Emerging themes: Digital safety and the green transition'
+  html: |
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <p>As Malta transitions into 2026, new regulatory themes are emerging that reflect the changing nature of the global economy. The "New Deal for Consumers" and the green transition agenda are currently reshaping the MCCAA’s enforcement priorities.</p>
+    <br/>
+    <b>Digital ranking and dark patterns</b>
+    <p>The transposition of the Omnibus Directive has introduced new transparency requirements for online marketplaces. Platforms must now:</p>
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <ul class="list-decimal pl-5 space-y-3">
+    <li><b>Label Paid Search Results:</b> They must clearly indicate when a product’s high ranking in search results is the result of a payment from a trader.</li>
+    <li><b>Reveal Ranking Criteria:</b> Consumers have a right to know the main parameters used to rank offers, whether by price, distance, or ratings.</li>
+    <li><b>Verify Reviews:</b> Traders are prohibited from creating or commissioning fake consumer reviews and must take reasonable steps to ensure that published reviews originate from real purchasers.</li>
+    </ul>
+    </div>
+    <br/>
+    <b>The Green Transition and Durability Labels</b>
+    <p>The "Empowering Consumers for the Green Transition" (ECGT) Directive will become fully operational by late 2026. This directive tackles the growing concern of "greenwashing" by:</p>
+    <div class="text-slate-600 space-y-4 leading-relaxed">
+    <ul class="list-decimal pl-5 space-y-3">
+    <li><b>Mandatory Durability Labels:</b> Producers who offer voluntary commercial guarantees of durability exceeding the two-year statutory period must use a harmonized label.</li>
+    <li><b>In-Shop Awareness:</b> A mandatory harmonized notice on the legal guarantee of conformity must be displayed at all points of sale (including physical retail and online) to ensure consumers know their 2-year rights before purchase.</li>
+    <li><b>Repairability Disclosure:</b> Traders will be required to provide information on the availability of spare parts and the repairability of products.</li>
+    </ul>
+    </div>
+    <br/>
+    <b>Consumer Credit and Financial Protection</b>
+    <p>The 2026 Consumer Credit Regulations represent a significant update to the 2008 framework. These regulations aim to protect individuals from predatory lending by requiring clearer disclosures on borrowing rates and the total cost of credit. This is particularly relevant for "linked credit agreements," where a loan is used specifically to finance a consumer purchase, creating a legal link between the performance of the product and the repayment of the debt.</p>
+    </div>
+---
