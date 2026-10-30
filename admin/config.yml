@@ -29,9 +29,9 @@ collections:
     delete: true
     identifier_field: menuName
     slug: "{{fields.menuName}}"
-    summary: "{{fields.menuName}}"
+    summary: "{{fields.menuName}}  ·  {{fields.section}}  ·  Updated {{commit_date | date('D MMM YYYY, HH:mm')}}"
     sortable_fields:
-      fields: [menuName, section, order]
+      fields: [menuName, section, order, commit_date]
       default: { field: section }
     view_groups:
       - { label: Section, field: section }
