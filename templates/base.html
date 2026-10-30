@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title }}</title>
+{%- if description %}
+  <meta name="description" content="{{ description }}">
+{%- endif %}
+{%- if noindex %}
+  <meta name="robots" content="noindex">
+{%- endif %}
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+{%- if not noindex %}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Malta Expat Guide">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ site_url }}{{ url }}">
+  <meta property="og:image" content="{{ share_image }}">
+  <meta name="twitter:card" content="summary_large_image">
+{%- endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+{%- if content_css %}
+  <link rel="stylesheet" href="/assets/content.css">
+{%- endif %}
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body class="site" data-section="{{ body_section }}">
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+{% block main %}{% endblock %}
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>

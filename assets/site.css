@@ -442,6 +442,23 @@ body.site.menu-open { overflow: hidden; }
 .site .article table th { font-family: var(--font-heading); color: var(--color-navy); }
 .site .article .rounded-3xl, .site .article .rounded-2xl { border-radius: 24px; }
 
+/* Text written in the admin panel (Markdown). Matches the look of the older guide markup. */
+.site .article .md > * + * { margin-top: 1rem; }
+.site .article .md ul { list-style: disc; padding-left: 1.25rem; }
+.site .article .md ol { list-style: decimal; padding-left: 1.25rem; }
+.site .article .md li + li { margin-top: .625rem; }
+.site .article .md li > ul, .site .article .md li > ol { margin-top: .75rem; }
+.site .article .md h3, .site .article .md h4 { color: var(--color-text); font-size: 1.125rem; font-weight: 700; }
+.site .article .md strong { font-weight: 700; }
+.site .article .md table { width: 100%; text-align: left; border-collapse: collapse; }
+.site .article .md thead tr { border-bottom: 1px solid #e2e8f0; }
+.site .article .md tbody tr { border-bottom: 1px solid #f1f5f9; }
+.site .article .md th { padding: .5rem 1rem .5rem 0; font-weight: 700; }
+.site .article .md td { padding: .5rem 1rem .5rem 0; vertical-align: top; }
+.site .article .md th, .site .article .md td { overflow-wrap: anywhere; hyphens: auto; }
+.site .article .md blockquote { padding: 1rem; background: #eff6ff; border: 1px solid #dbeafe; border-radius: .75rem; color: #1e3a8a; }
+.site .article .md img { max-width: 100%; height: auto; border-radius: 16px; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
   .site .nav-links { display: none; }

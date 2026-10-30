@@ -1,35 +1,45 @@
 # Malta Expat Guide
 
-Source for [maltaexpatguide.com](https://maltaexpatguide.com), a guide for foreign nationals moving to or living in Malta. It is a plain static site served by GitHub Pages from the `main` branch.
+Source for [maltaexpatguide.com](https://maltaexpatguide.com), a guide for foreign nationals moving to or living in Malta.
 
-## Layout
+## Editing the website (no code needed)
+
+1. Go to **https://maltaexpatguide.com/admin/**
+2. Click **Sign In with Token** and paste your GitHub token (see below).
+3. Choose **Guides** or **Sections**, then create, edit or delete a page.
+4. Click **Save**. The live website updates by itself after about 1–2 minutes.
+
+**Content blocks:** each block is one white card on the page. In the *Text* box you can use bold, lists, links and tables. A quote (`>`) shows as a blue note box.
+
+Some older blocks use the *Advanced: HTML* box (for special boxes and grids). You can change the words there, but keep the `<tags>` as they are.
+
+### Getting a GitHub token (one time)
+
+1. On GitHub, open **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**.
+2. Repository access: **Only select repositories → malta-expat-hub**.
+3. Permissions: **Contents → Read and write**.
+4. Copy the token and paste it in the admin panel. Keep it private, like a password.
+
+## How it works
 
 | Path | What it is |
 | --- | --- |
-| `index.html` | Home page |
-| `getting-started.html`, `safety.html` | Single-page sections |
-| `<section>/index.html` | Section overview (e.g. `expat-info/index.html`) |
-| `<section>/<guide>.html` | Individual guides |
-| `assets/site.css` | Site theme: colours, fonts, layout |
-| `assets/site.js` | Header, "All sections" menu, footer and guide sidebar/pager |
-| `assets/content.css` | Tailwind utility styles used inside guide articles (generated) |
-| `404.html`, `sitemap.xml`, `robots.txt` | Not-found page and search-engine files |
+| `content/guides/` | One file per guide page (edited in the admin panel) |
+| `content/sections/` | One file per section, including Getting Started and Safety |
+| `templates/` | Page layouts, the home page, 404 page, and the menu script |
+| `assets/` | Styles, favicon and uploaded photos (`assets/images/`) |
+| `admin/` | The admin panel ([Sveltia CMS](https://github.com/sveltia/sveltia-cms), free and open source) |
+| `build.py` | Turns the content into web pages in `_site/` |
+| `.github/workflows/publish.yml` | Builds and publishes the site on every change to `main` |
 
-## Adding or renaming a guide
+The menu, section pages, home page tiles and sitemap are created automatically from the content files.
 
-1. Copy an existing guide in the same folder and edit its `<title>`, description, `og:` tags, hero and article.
-2. Add it to the `SECTIONS` list at the top of `assets/site.js` so it appears in the menu, sidebar and pager.
-3. Add a card for it in that section's `index.html`.
-4. Add its URL to `sitemap.xml`.
+GitHub Pages must be set to **Settings → Pages → Source: GitHub Actions**.
 
-When uploading through the GitHub website, check that each file's path keeps its folder (e.g. `expat-info/new-guide.html`, `assets/site.css`).
-
-## Styles inside articles
-
-Articles use [Tailwind](https://tailwindcss.com/docs) classes such as `text-slate-600` or `bg-blue-50`. `assets/content.css` contains only the classes the pages use. It is rebuilt automatically by the "Build content CSS" GitHub Action on every push, so a newly used class starts working a minute or so after you commit. To build it locally:
+### Preview on your own computer (optional)
 
 ```sh
-npx tailwindcss@3.4 -c tailwind.config.js -i assets/content.src.css -o assets/content.css --minify
+pip install -r requirements.txt
+python3 build.py
+cd _site && python3 -m http.server 8000   # open http://localhost:8000
 ```
-
-Don't edit `assets/content.css` by hand; edit `assets/site.css` for theme changes.

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block main %}
+    <section class="g-hero">
+      <div class="photo" role="img" aria-label="{{ page.imageAlt or page.title }}" style="--img:url('{{ page.image }}')"></div>
+      <div class="g-hero-card">
+        <div class="crumbs"><a href="/index.html">Home</a> / {% if section and not section.singlePage %}<a href="{{ section.href }}">{{ section.name }}</a> / {% endif %}<b>{{ page.title }}</b></div>
+        <h1>{{ page.title }}</h1>
+        {%- if page.heroText %}
+        <p>{{ page.heroText }}</p>
+        {%- endif %}
+      </div>
+    </section>
+
+    <div class="g-layout" style="--tint:{{ section.colour }}">
+      <article class="article">
+{%- for b in page.blocks or [] %}
+{%- if b.custom %}
+      {{ b.custom | safe }}
+{%- else %}
+      <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm content-block">
+        {%- if b.heading %}
+          <h2 class="text-2xl font-bold mb-4 text-[#003366]">{{ b.heading | safe }}</h2>
+        {%- endif %}
+        {%- if b.text %}
+          <div class="text-slate-600 space-y-4 leading-relaxed md">
+{{ b.text | markdown | safe }}
+          </div>
+        {%- endif %}
+        {%- if b.html %}
+          {{ b.html | safe }}
+        {%- endif %}
+      </div>
+{%- endif %}
+{%- endfor %}
+      </article>
+      <aside class="g-aside" id="guide-aside"></aside>
+    </div>
+    <nav class="pager" id="guide-pager" aria-label="More guides"></nav>
+{% endblock %}
