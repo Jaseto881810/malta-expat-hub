@@ -56,7 +56,7 @@ blocks:
       <tr class="border-b border-slate-100">
       <td class="py-3 font-semibold text-blue-600">Revolut</td>
       <td class="py-3">Frequent, small transfers if you pay for a Premium plan.</td>
-      <td class="py-3">Many expats use Revolut as their primary bank in Malta. International transfers are easy, but weekend markups apply to exchange rates.</td>
+      <td class="py-3">Many expats use Revolut as their primary bank in Malta. International transfers are easy, but weekend markups apply to exchange rates. <a href="https://revolut.com/referral/?referral-code=jasoneat!NOV1-26-VR-NL-TRDDM-CTRL&geo-redirect">Sign up for a free Revolut account.</a></td>
       </tr>
       <tr class="border-b border-slate-100">
       <td class="py-3 font-semibold text-blue-600">Western Union (App)</td>
