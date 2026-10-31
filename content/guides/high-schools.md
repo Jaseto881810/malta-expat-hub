@@ -3,7 +3,7 @@ section: education
 menuName: High Schools
 title: High Schools in Malta
 heroText: Explore the secondary education system in Malta. Discover school types, mandatory subjects, tuition fees, and the enrollment process for expats.
-image: /assets/images/University Malta.jpg
+image: /assets/images/High School.jpg
 order: 2
 description: A complete guide to high school education in Malta. Explore school types, mandatory subjects, tuition fees, school transport, and the enrollment process.
 cardText: ''
@@ -90,7 +90,7 @@ blocks:
       </div>
     custom: ''
 imageAlt: ''
-cardImage: /assets/images/University Malta.jpg
+cardImage: /assets/images/High School.jpg
 seoTitle: ''
-shareImage: /assets/images/University Malta.jpg
+shareImage: /assets/images/High School.jpg
 ---
