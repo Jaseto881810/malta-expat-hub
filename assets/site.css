@@ -457,7 +457,7 @@ body.site.menu-open { overflow: hidden; }
 .site .article .md tbody tr { border-bottom: 1px solid #f1f5f9; }
 .site .article .md th { padding: .5rem 1rem .5rem 0; font-weight: 700; }
 .site .article .md td { padding: .5rem 1rem .5rem 0; vertical-align: top; }
-.site .article .md th, .site .article .md td { overflow-wrap: anywhere; hyphens: auto; }
+.site .article .md .table-wrap { overflow-x: auto; max-width: 100%; }
 .site .article .md blockquote { padding: 1rem; background: #eff6ff; border: 1px solid #dbeafe; border-radius: .75rem; color: #1e3a8a; }
 .site .article .md img { max-width: 100%; height: auto; border-radius: 16px; }
 

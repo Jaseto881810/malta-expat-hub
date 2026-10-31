@@ -39,7 +39,7 @@ blocks:
     html: ''
     custom: ''
   - heading: Privacy
-    text: How we handle personal data and cookies is explained in our Privacy Policy.
+    text: How we handle personal data and cookies is explained in our [Privacy Policy](/privacy-policy.html).
     html: ''
     custom: ''
   - heading: Law and jurisdiction

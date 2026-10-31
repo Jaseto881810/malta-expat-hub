@@ -27,7 +27,13 @@ md = MarkdownIt('commonmark', {'html': True, 'breaks': True}).enable('table').en
 env = Environment(loader=FileSystemLoader(os.path.join(ROOT, 'templates')),
                   autoescape=True, undefined=ChainableUndefined,
                   trim_blocks=False, lstrip_blocks=False)
-env.filters['markdown'] = lambda text: md.render(text or '')
+def render_markdown(text):
+    # Wide tables scroll sideways on phones instead of stretching the page.
+    html = md.render(text or '')
+    return html.replace('<table>', '<div class="table-wrap"><table>').replace('</table>', '</table></div>')
+
+
+env.filters['markdown'] = render_markdown
 
 
 def read(path):
