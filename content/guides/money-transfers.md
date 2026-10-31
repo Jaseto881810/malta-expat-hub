@@ -100,6 +100,57 @@ blocks:
                     </p>
       </div>
     custom: ''
+  - heading: Sign Up for Revolut
+    text: '[![Revolut Bank](/assets/images/Revolut%20New.jpg "Join the most popular bank in Malta for free!")](https://revolut.com/referral/?referral-code=jasoneat!NOV1-26-VR-NL-TRDDM-CTRL&geo-redirect)'
+    html: |-
+      <div class="text-slate-600 space-y-4 leading-relaxed">
+      <p>Join the most popular bank in Malta for free!</p>
+      <p>Opening an account with a traditional Maltese bank can take weeks and needs a lot of paperwork. Revolut is a popular alternative. You can open an account on your phone in a few minutes, often before you even arrive in Malta.</p>
+      <p><b>The main benefits</b></p>
+      <ul class="list-disc pl-5 space-y-2">
+      <li>Quick and easy sign-up: apply in the app with your passport or ID card and a selfie. No visit to a branch.</li>
+      <li>Free Standard plan: the basic account has no monthly fee.</li>
+      <li>Spend in many currencies: hold and exchange money in more than 30 currencies, at good exchange rates. This is useful if you are paid in, or send money to, another currency.</li>
+      <li>Cheap money transfers: send money abroad to family at low cost, often much cheaper than a traditional bank.</li>
+      <li>Instant payments between friends: split bills and pay other Revolut users in seconds.</li>
+      <li>Card controls in the app: freeze your card, set spending limits and get an alert for every payment.</li>
+      <li>Virtual and disposable cards: shop online more safely.</li>
+      <li>Your money is protected: Revolut is a licensed bank in the EU. Deposits are protected up to €100,000 by the Lithuanian deposit guarantee scheme.</li>
+      </ul>
+
+      <head>
+      <style>
+      .btn {
+        background-color: #04AA6D;
+        color: white;
+        font-size: 15px;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+       position: center;
+      }
+
+      .btn:hover {
+        background-color: #059862;
+      }
+      </style>
+      </head>
+      <body>
+
+      <button class="testbtn">Green Button</button>
+
+      </body>
+
+      <p><b>Important to know:</b></p>
+      <ul class="list-disc pl-5 space-y-2">
+      <li>Your account number (IBAN) starts with LT (Lithuania), not MT. Most employers and landlords accept it, but a few Maltese companies and government services may still ask for a local bank account.</li>
+      <li>The free plan has monthly limits on free cash withdrawals and currency exchange. After that, small fees apply. Check the current fees in the app.</li>
+      <li>Many expats use Revolut together with a Maltese bank account, such as one at Bank of Valletta or HSBC Malta.</li>
+      </ul>
+
+      </div>
+    custom: ''
 imageAlt: ''
 cardImage: /assets/images/Revolut.jpg
 seoTitle: ''
