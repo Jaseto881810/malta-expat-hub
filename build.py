@@ -66,6 +66,7 @@ def main():
     # ---- content ----
     sections = sorted(load_folder('sections'), key=lambda s: (s.get('order', 99), s['name']))
     guides = [g for g in load_folder('guides') if not g.get('draft')]
+    pages_extra = [pg for pg in load_folder('pages') if not pg.get('draft')]
     by_id = {s['slug']: s for s in sections}
 
     for s in sections:
@@ -102,6 +103,15 @@ def main():
               **common(g.get('seoTitle') or g['menuName'], g.get('description'), g['url'], s['slug'], g.get('shareImage') or g.get('image'))))
         pages.append(g['url'])
 
+    # ---- standalone pages (About, Contact, Privacy Policy, ...) ----
+    plain = {'colour': '#cfe3ea', 'singlePage': True}
+    for pg in pages_extra:
+        pg['url'] = f"/{pg['slug']}.html"
+        pg['menuName'] = pg.get('menuName') or pg['title']
+        write(pg['url'], guide_tpl.render(page=pg, section=plain, standalone=True, content_css=True,
+              **common(pg.get('seoTitle') or pg['menuName'], pg.get('description'), pg['url'], 'page', pg.get('shareImage') or pg.get('image'))))
+        pages.append(pg['url'])
+
     # ---- section overview pages ----
     sec_tpl = env.get_template('section.html')
     for s in sections:
@@ -128,8 +138,11 @@ def main():
         nav.append(item)
     top = [s['slug'] for s in sections if s.get('inTopMenu')]
     script = open(os.path.join(ROOT, 'templates', 'site-script.js'), encoding='utf-8').read()
+    footer = [{'name': pg['menuName'], 'href': pg['url']}
+              for pg in sorted(pages_extra, key=lambda x: (x.get('footerOrder', 99), x['menuName'])) if pg.get('inFooter')]
     script = script.replace('(function () {',
-                            f'const SECTIONS = {json.dumps(nav, ensure_ascii=False)};\nconst TOP_NAV = {json.dumps(top)};\n\n(function () {{', 1)
+                            f'const SECTIONS = {json.dumps(nav, ensure_ascii=False)};\nconst TOP_NAV = {json.dumps(top)};\n'
+                            f'const FOOTER_LINKS = {json.dumps(footer, ensure_ascii=False)};\n\n(function () {{', 1)
     write('/assets/site.js', script)
 
     # ---- sitemap ----

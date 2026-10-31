@@ -201,6 +201,8 @@ body.site.menu-open { overflow: hidden; }
 .site .footer-meta a { color: #fff; text-decoration: none; }
 .site .footer-meta a:hover { text-decoration: underline; }
 .site .footer-meta nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.site .footer-site { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+.site .footer-site .sep { opacity: .6; }
 
 /* ---------- Home: postcard hero ---------- */
 .site .hero { position: relative; margin: 0 24px; }
@@ -384,6 +386,7 @@ body.site.menu-open { overflow: hidden; }
   margin: 0 auto;
   box-sizing: border-box;
 }
+.site .g-layout--single { grid-template-columns: minmax(0, 860px); justify-content: center; }
 .site .g-aside { position: sticky; top: 24px; }
 .site .g-aside-card { background: var(--tint, var(--color-card)); border-radius: 24px; padding: 20px 22px; color: var(--color-navy); }
 .site .g-aside-card h6 { margin: 0 0 10px; }

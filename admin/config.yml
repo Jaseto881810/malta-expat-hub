@@ -177,3 +177,29 @@ collections:
       - { label: "Single page: intro text", name: heroText, widget: text, required: false }
       - { label: "Single page: header photo", name: image, widget: image, required: false }
       - *blocks
+
+  - name: pages
+    label: Pages
+    label_singular: Page
+    description: Standalone pages such as About, Contact and Privacy Policy. Tick "Show in footer" to link a page in the footer.
+    folder: content/pages
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    identifier_field: menuName
+    slug: "{{fields.menuName}}"
+    summary: "{{fields.menuName}}  ·  Updated {{commit_date | date('D MMM YYYY, HH:mm')}}"
+    fields:
+      - { label: Short name, name: menuName, widget: string, hint: "Used in the footer link and the web address, for example: About" }
+      - { label: Page heading, name: title, widget: string }
+      - { label: Intro text, name: heroText, widget: text, required: false }
+      - { label: Header photo, name: image, widget: image, required: false }
+      - { label: Photo description, name: imageAlt, widget: string, required: false }
+      - { label: Show in footer, name: inFooter, widget: boolean, required: false, default: true }
+      - { label: Position in footer, name: footerOrder, widget: number, value_type: int, required: false, default: 99, hint: "1 = first" }
+      - { label: Google description, name: description, widget: text, required: false }
+      - { label: Hide this page (draft), name: draft, widget: boolean, required: false, default: false }
+      - *blocks
+      - { label: Browser tab title (optional), name: seoTitle, widget: string, required: false }
+      - { label: Social share photo (optional), name: shareImage, widget: image, required: false }

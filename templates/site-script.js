@@ -74,7 +74,8 @@
         <a class="btn btn-light" href="${cta.href}">${cta.label}</a>
       </div>
       <div class="footer-meta">
-        <span>© ${new Date().getFullYear()} Malta Expat Guide</span>
+        <span class="footer-site">© ${new Date().getFullYear()} Malta Expat Guide${(typeof FOOTER_LINKS !== 'undefined' ? FOOTER_LINKS : [])
+          .map((l) => `<span class="sep">·</span><a href="${l.href}">${esc(l.name)}</a>`).join('')}</span>
         <nav aria-label="Sections">${links}</nav>
       </div>`;
   }

@@ -11,7 +11,7 @@
       </div>
     </section>
 
-    <div class="g-layout" style="--tint:{{ section.colour }}">
+    <div class="g-layout{% if standalone %} g-layout--single{% endif %}" style="--tint:{{ section.colour }}">
       <article class="article">
 {%- for b in page.blocks or [] %}
 {%- if b.custom %}
@@ -33,7 +33,13 @@
 {%- endif %}
 {%- endfor %}
       </article>
+      {%- if not standalone %}
       <aside class="g-aside" id="guide-aside"></aside>
+      {%- endif %}
     </div>
+    {%- if not standalone %}
     <nav class="pager" id="guide-pager" aria-label="More guides"></nav>
+    {%- else %}
+    <div class="page-end"></div>
+    {%- endif %}
 {% endblock %}
