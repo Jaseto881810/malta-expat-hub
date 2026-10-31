@@ -1,88 +1,102 @@
 ---
-title: Voting and Elections
-menuName: Voting and Elections
 section: expat-info
-order: 11
+menuName: Voting and Elections
+title: Voting and Elections
 heroText: A complete guide to the Maltese democratic system, local councils, political parties, and voter eligibility for expats.
-image: https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=1740&auto=format&fit=crop
+image: /assets/images/Voting.jpg
+order: 11
 description: A guide to the Maltese electoral system, political parties, and voting eligibility for expats, EU citizens, and Third-Country Nationals.
+cardText: ''
+draft: false
 blocks:
-- heading: Levels of Government and Elections
-  html: |
-    <div class="text-slate-600 space-y-4 leading-relaxed">
-    <p>Malta is a parliamentary republic. The democratic system is deeply ingrained in the local culture, known for experiencing some of the highest voter turnout rates in the democratic world (often exceeding 85% for national elections). There are three main types of elections held in Malta:</p>
-    <ul class="list-none space-y-4 mt-4">
-    <li class="flex gap-4">
-    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-xl">🇲🇹</div>
-    <div>
-    <b class="text-slate-800 text-lg">General Elections (National Level)</b>
-    <p class="text-sm mt-1">These elections determine the composition of the House of Representatives (the national parliament). The political party that secures the majority of seats forms the government, and its leader becomes the Prime Minister. General elections are held <b>every five years</b>, though snap elections can be called earlier.</p>
-    </div>
-    </li>
-    <li class="flex gap-4">
-    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center text-xl">🏛️</div>
-    <div>
-    <b class="text-slate-800 text-lg">Local Council Elections (Municipal Level)</b>
-    <p class="text-sm mt-1">Malta is divided into 68 local councils (54 in Malta, 14 in Gozo). Local councils are responsible for community upkeep, local traffic management, waste collection, and neighborhood initiatives. Since recent electoral reforms, all local council elections are held simultaneously <b>every five years</b>.</p>
-    </div>
-    </li>
-    <li class="flex gap-4">
-    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-xl">🇪🇺</div>
-    <div>
-    <b class="text-slate-800 text-lg">European Parliament Elections (EU Level)</b>
-    <p class="text-sm mt-1">As a member of the European Union, Malta elects representatives (MEPs) to the European Parliament. Malta is allocated 6 seats in the EP. These elections take place across the entire EU <b>every five years</b> and are now usually synchronized with Malta's Local Council elections.</p>
-    </div>
-    </li>
-    </ul>
-    </div>
-- heading: Eligibility to Vote
-  html: |
-    <div class="text-slate-600 space-y-4 leading-relaxed">
-    <p>Voting rights in Malta are strictly determined by your citizenship and residency status. The voting age for all elections in Malta was lowered to <b>16 years old</b>.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
-    <h4 class="font-bold text-[#003366] mb-2">Maltese Citizens</h4>
-    <p class="text-sm">Eligible to vote in <b>all</b> elections: General, Local Council, and European Parliament. Registration is largely automatic if holding a valid Maltese ID.</p>
-    </div>
-    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
-    <h4 class="font-bold text-[#003366] mb-2">EU Citizens (Residents)</h4>
-    <p class="text-sm">Eligible to vote in <b>Local Council</b> and <b>European Parliament</b> elections, provided they are officially registered as residents in Malta and apply to be included in the electoral register.</p>
-    </div>
-    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
-    <h4 class="font-bold text-[#003366] mb-2">Third-Country Nationals</h4>
-    <p class="text-sm text-red-600 font-semibold mb-1">Not Eligible.</p>
-    <p class="text-sm">Third-Country Nationals (non-EU citizens), including UK citizens post-Brexit, are <b>not permitted to vote</b> in any Maltese elections, regardless of how long they have lived in Malta or how much tax they pay.</p>
-    </div>
-    </div>
-    </div>
-- heading: The Political Landscape
-  html: |
-    <div class="text-slate-600 space-y-4 leading-relaxed">
-    <p>Malta's political landscape is famously characterized by a strong two-party system. While smaller parties exist, the national parliament has historically been dominated by two main political forces. The voting system used is the <b>Single Transferable Vote (STV)</b>, a form of proportional representation where voters rank candidates in order of preference.</p>
-    <ul class="list-disc pl-5 space-y-4 mt-4">
-    <li>
-    <b>Partit Laburista (PL) - Labour Party:</b>
-                          The PL is historically a center-left, social democratic party. Its traditional platform focuses on social welfare, workers' rights, and civil liberties, though in recent decades it has also adopted highly pro-business and economically liberal policies to drive economic growth.
-                      </li>
-    <li>
-    <b>Partit Nazzjonalista (PN) - Nationalist Party:</b>
-                          The PN is a center-right, Christian democratic party. Historically tied to European integration (having led Malta into the EU) and traditional institutional values, its platform generally emphasizes economic liberalization, institutional reform, and social conservatism.
-                      </li>
-    <li>
-    <b>ADPD - The Green Party:</b>
-                          Formed from the merger of Alternattiva Demokratika and Partit Demokratiku, ADPD is Malta's primary third party. It operates on a platform of environmentalism, sustainable development, and progressive social policies. While it frequently contests elections, the strict nature of the STV quota system makes it challenging for smaller parties to secure parliamentary seats.
-                      </li>
-    </ul>
-    </div>
-- heading: The Voting Process
-  html: |
-    <div class="text-slate-600 space-y-4 leading-relaxed">
-    <p>If you are an eligible voter (such as an EU expat voting in Local Council elections), the process is formal and strictly regulated by the Electoral Commission.</p>
-    <ol class="list-decimal pl-5 space-y-2">
-    <li><b>The Electoral Register:</b> The register is updated twice a year (April and October). EU citizens must actively apply using a specific form (available from Identità or the Electoral Commission) to be placed on the register for Local and EP elections.</li>
-    <li><b>Voting Document:</b> A few weeks before an election, a physical Voting Document is delivered to your registered address by the police. <b>You cannot vote without this physical document.</b></li>
-    <li><b>Election Day:</b> Voting takes place on a Saturday. You must take your Voting Document to your assigned polling station (usually a local school).</li>
-    <li><b>Marking the Ballot:</b> Because of the Single Transferable Vote system, you do not just put an 'X'. You write '1' next to your most preferred candidate, '2' next to your second choice, '3' for your third, and so on. You can rank as many or as few candidates as you wish.</li>
-    </ol>
-    </div>
+  - heading: Levels of Government and Elections
+    text: ''
+    html: |-
+      <div class="text-slate-600 space-y-4 leading-relaxed">
+      <p>Malta is a parliamentary republic. The democratic system is deeply ingrained in the local culture, known for experiencing some of the highest voter turnout rates in the democratic world (often exceeding 85% for national elections). There are three main types of elections held in Malta:</p>
+      <ul class="list-none space-y-4 mt-4">
+      <li class="flex gap-4">
+      <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-xl">🇲🇹</div>
+      <div>
+      <b class="text-slate-800 text-lg">General Elections (National Level)</b>
+      <p class="text-sm mt-1">These elections determine the composition of the House of Representatives (the national parliament). The political party that secures the majority of seats forms the government, and its leader becomes the Prime Minister. General elections are held <b>every five years</b>, though snap elections can be called earlier.</p>
+      </div>
+      </li>
+      <li class="flex gap-4">
+      <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center text-xl">🏛️</div>
+      <div>
+      <b class="text-slate-800 text-lg">Local Council Elections (Municipal Level)</b>
+      <p class="text-sm mt-1">Malta is divided into 68 local councils (54 in Malta, 14 in Gozo). Local councils are responsible for community upkeep, local traffic management, waste collection, and neighborhood initiatives. Since recent electoral reforms, all local council elections are held simultaneously <b>every five years</b>.</p>
+      </div>
+      </li>
+      <li class="flex gap-4">
+      <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-xl">🇪🇺</div>
+      <div>
+      <b class="text-slate-800 text-lg">European Parliament Elections (EU Level)</b>
+      <p class="text-sm mt-1">As a member of the European Union, Malta elects representatives (MEPs) to the European Parliament. Malta is allocated 6 seats in the EP. These elections take place across the entire EU <b>every five years</b> and are now usually synchronized with Malta's Local Council elections.</p>
+      </div>
+      </li>
+      </ul>
+      </div>
+    custom: ''
+  - heading: Eligibility to Vote
+    text: ''
+    html: |-
+      <div class="text-slate-600 space-y-4 leading-relaxed">
+      <p>Voting rights in Malta are strictly determined by your citizenship and residency status. The voting age for all elections in Malta was lowered to <b>16 years old</b>.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+      <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+      <h4 class="font-bold text-[#003366] mb-2">Maltese Citizens</h4>
+      <p class="text-sm">Eligible to vote in <b>all</b> elections: General, Local Council, and European Parliament. Registration is largely automatic if holding a valid Maltese ID.</p>
+      </div>
+      <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+      <h4 class="font-bold text-[#003366] mb-2">EU Citizens (Residents)</h4>
+      <p class="text-sm">Eligible to vote in <b>Local Council</b> and <b>European Parliament</b> elections, provided they are officially registered as residents in Malta and apply to be included in the electoral register.</p>
+      </div>
+      <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+      <h4 class="font-bold text-[#003366] mb-2">Third-Country Nationals</h4>
+      <p class="text-sm text-red-600 font-semibold mb-1">Not Eligible.</p>
+      <p class="text-sm">Third-Country Nationals (non-EU citizens), including UK citizens post-Brexit, are <b>not permitted to vote</b> in any Maltese elections, regardless of how long they have lived in Malta or how much tax they pay.</p>
+      </div>
+      </div>
+      </div>
+    custom: ''
+  - heading: The Political Landscape
+    text: ''
+    html: |-
+      <div class="text-slate-600 space-y-4 leading-relaxed">
+      <p>Malta's political landscape is famously characterized by a strong two-party system. While smaller parties exist, the national parliament has historically been dominated by two main political forces. The voting system used is the <b>Single Transferable Vote (STV)</b>, a form of proportional representation where voters rank candidates in order of preference.</p>
+      <ul class="list-disc pl-5 space-y-4 mt-4">
+      <li>
+      <b>Partit Laburista (PL) - Labour Party:</b>
+                            The PL is historically a center-left, social democratic party. Its traditional platform focuses on social welfare, workers' rights, and civil liberties, though in recent decades it has also adopted highly pro-business and economically liberal policies to drive economic growth.
+                        </li>
+      <li>
+      <b>Partit Nazzjonalista (PN) - Nationalist Party:</b>
+                            The PN is a center-right, Christian democratic party. Historically tied to European integration (having led Malta into the EU) and traditional institutional values, its platform generally emphasizes economic liberalization, institutional reform, and social conservatism.
+                        </li>
+      <li>
+      <b>ADPD - The Green Party:</b>
+                            Formed from the merger of Alternattiva Demokratika and Partit Demokratiku, ADPD is Malta's primary third party. It operates on a platform of environmentalism, sustainable development, and progressive social policies. While it frequently contests elections, the strict nature of the STV quota system makes it challenging for smaller parties to secure parliamentary seats.
+                        </li>
+      </ul>
+      </div>
+    custom: ''
+  - heading: The Voting Process
+    text: ''
+    html: |-
+      <div class="text-slate-600 space-y-4 leading-relaxed">
+      <p>If you are an eligible voter (such as an EU expat voting in Local Council elections), the process is formal and strictly regulated by the Electoral Commission.</p>
+      <ol class="list-decimal pl-5 space-y-2">
+      <li><b>The Electoral Register:</b> The register is updated twice a year (April and October). EU citizens must actively apply using a specific form (available from Identità or the Electoral Commission) to be placed on the register for Local and EP elections.</li>
+      <li><b>Voting Document:</b> A few weeks before an election, a physical Voting Document is delivered to your registered address by the police. <b>You cannot vote without this physical document.</b></li>
+      <li><b>Election Day:</b> Voting takes place on a Saturday. You must take your Voting Document to your assigned polling station (usually a local school).</li>
+      <li><b>Marking the Ballot:</b> Because of the Single Transferable Vote system, you do not just put an 'X'. You write '1' next to your most preferred candidate, '2' next to your second choice, '3' for your third, and so on. You can rank as many or as few candidates as you wish.</li>
+      </ol>
+      </div>
+    custom: ''
+imageAlt: ''
+cardImage: /assets/images/Voting.jpg
+seoTitle: ''
+shareImage: /assets/images/Voting.jpg
 ---
