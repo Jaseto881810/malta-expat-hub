@@ -585,3 +585,11 @@ body.site.menu-open { overflow: hidden; }
 .site .contact-consent input { margin-top: 3px; width: 18px; height: 18px; flex: none; accent-color: var(--color-accent); }
 .site .contact-form .btn { align-self: flex-start; border: 0; cursor: pointer; }
 .site .contact-form .contact-honey { display: none; }
+
+/* ---------- Blog ---------- */
+.site .post-meta { margin-top: 10px; font: 600 14px var(--font-heading); color: var(--color-accent-700); }
+.site .latest-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.site .latest-head .h-section { margin: 0; }
+.site .latest-posts .guides { padding: 0; }
+.site .post-card .photo { height: 160px; }
+

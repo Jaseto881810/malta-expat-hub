@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{# Blog overview: all posts, newest first. Posts come from content/blog/ (admin panel: Blog posts). #}
+{% block main %}
+    <section class="sec-hero" style="--tint:{{ section.colour }}">
+      <div>
+        <div class="crumbs"><a href="/index.html">Home</a> / <b>Blog</b></div>
+        <h1>Blog</h1>
+      </div>
+      <div>
+        <p>News, tips and personal stories about moving to and living in Malta.</p>
+        <span class="tag tag-light">{{ posts | length }} post{{ '' if posts | length == 1 else 's' }}</span>
+      </div>
+    </section>
+
+    <div class="guides">
+{%- for p in posts %}
+{% include "post-card.html" %}
+{%- else %}
+      <p>No posts yet. Check back soon.</p>
+{%- endfor %}
+    </div>
+{% endblock %}

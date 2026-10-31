@@ -50,6 +50,19 @@
 {%- endfor %}
       </div>
     </section>
+{% if latest_posts %}
+    <section class="block wrap latest-posts">
+      <div class="latest-head">
+        <h2 class="h-section">{{ home.blogTitle or 'Latest from the blog' }}</h2>
+        <a class="btn btn-secondary" href="/blog/">All posts →</a>
+      </div>
+      <div class="guides">
+{%- for p in latest_posts %}
+{% include "post-card.html" %}
+{%- endfor %}
+      </div>
+    </section>
+{% endif %}
 {% if home.factsText %}
     <section class="block wrap facts">
       <h2 class="h-section">{{ home.factsTitle }}</h2>

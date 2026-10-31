@@ -57,6 +57,30 @@ def load_folder(folder):
     return [read(os.path.join(path, f)) for f in sorted(os.listdir(path)) if f.endswith('.md')]
 
 
+MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+          'August', 'September', 'October', 'November', 'December']
+
+
+def load_posts():
+    """Blog posts, newest first. Drafts and posts dated in the future are left out."""
+    today = datetime.date.today()
+    posts = []
+    for post in load_folder('blog'):
+        raw = post.get('date')
+        d = raw.date() if isinstance(raw, datetime.datetime) else raw if isinstance(raw, datetime.date) \
+            else datetime.date.fromisoformat(str(raw)[:10]) if raw else today
+        if post.get('draft') or d > today:
+            continue
+        words = sum(len(str(b.get('text') or '').split()) for b in post.get('blocks', []))
+        post['date_obj'] = d
+        post['url'] = f"/blog/{post['slug']}.html"
+        post['dateLabel'] = f"{d.day} {MONTHS[d.month - 1]} {d.year}"
+        post['readTime'] = max(1, round(words / 200))
+        post['heroText'] = post.get('excerpt')
+        posts.append(post)
+    return sorted(posts, key=lambda p: p['date_obj'], reverse=True)
+
+
 def write(url, html):
     path = urllib.parse.unquote(url)
     if path.endswith('/'):
@@ -75,6 +99,7 @@ def main():
     sections = sorted(load_folder('sections'), key=lambda s: (s.get('order', 99), s['name']))
     guides = [g for g in load_folder('guides') if not g.get('draft')]
     pages_extra = [pg for pg in load_folder('pages') if not pg.get('draft')]
+    posts = load_posts()
     by_id = {s['slug']: s for s in sections}
 
     for s in sections:
@@ -132,9 +157,20 @@ def main():
               **common(s.get('seoTitle') or s['name'], s.get('description'), url, s['slug'], s.get('shareImage'))))
         pages.append(url)
 
+    # ---- blog: one page per post, plus the overview at /blog/ ----
+    blog = {'name': 'Blog', 'href': '/blog/', 'colour': '#cfe3ea'}
+    for post in posts:
+        write(post['url'], guide_tpl.render(page=post, section=blog, standalone=True, content_css=True,
+              **common(post.get('seoTitle') or post['title'], post.get('description') or post.get('excerpt'),
+                       post['url'], 'blog', post.get('shareImage') or post.get('image'))))
+        pages.append(post['url'])
+    write('/blog/', env.get_template('blog.html').render(posts=posts, section=blog,
+          **common('Blog', 'News, tips and personal stories about moving to and living in Malta.', '/blog/', 'blog')))
+    pages.append('/blog/')
+
     # ---- home and 404 ----
     home = read(os.path.join(ROOT, 'content', 'home.md'))
-    write('/', env.get_template('home.html').render(sections=sections, home=home,
+    write('/', env.get_template('home.html').render(sections=sections, home=home, latest_posts=posts[:3],
           **common(home.get('seoTitle') or 'A Comprehensive Guide to Living in Malta',
                    home.get('description'), '/', 'home', home.get('shareImage'))))
     write('/404.html', env.get_template('404.html').render(noindex=True, page_title='Page not found | Malta Expat Guide', body_section='home'))
@@ -152,7 +188,8 @@ def main():
               for pg in sorted(pages_extra, key=lambda x: (x.get('footerOrder', 99), x['menuName'])) if pg.get('inFooter')]
     script = script.replace('(function () {',
                             f'const SECTIONS = {json.dumps(nav, ensure_ascii=False)};\nconst TOP_NAV = {json.dumps(top)};\n'
-                            f'const FOOTER_LINKS = {json.dumps(footer, ensure_ascii=False)};\n\n(function () {{', 1)
+                            f'const FOOTER_LINKS = {json.dumps(footer, ensure_ascii=False)};\n'
+                            f'const EXTRA_NAV = {json.dumps([{"id": "blog", "name": "Blog", "href": "/blog/"}] if posts else [])};\n\n(function () {{', 1)
     write('/assets/site.js', script)
 
     # ---- sitemap ----

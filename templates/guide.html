@@ -8,6 +8,9 @@
         {%- if page.heroText %}
         <p>{{ page.heroText }}</p>
         {%- endif %}
+        {%- if page.dateLabel %}
+        <div class="post-meta"><time datetime="{{ page.date_obj }}">{{ page.dateLabel }}</time> · {{ page.readTime }} min read</div>
+        {%- endif %}
       </div>
     </section>
 

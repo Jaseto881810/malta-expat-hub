@@ -1,0 +1,10 @@
+      <a class="guide-card post-card" href="{{ p.url }}">
+        <div class="photo" style="--img:url('{{ p.cardImage or p.image }}')"></div>
+        <div class="guide-card-body">
+          <h6><time datetime="{{ p.date_obj }}">{{ p.dateLabel }}</time></h6>
+          <h4>{{ p.title }}</h4>
+          {%- if p.excerpt %}
+          <p>{{ p.excerpt }}</p>
+          {%- endif %}
+        </div>
+      </a>

@@ -19,6 +19,9 @@
     const links = TOP_NAV.map((id) => SECTIONS.find((s) => s.id === id)).map((s) => {
       const cur = current && current.id === s.id ? ' aria-current="page"' : '';
       return `<a class="nav-link" href="${s.href}"${cur}>${esc(s.name.replace(' in Malta', ''))}</a>`;
+    }).join('') + (typeof EXTRA_NAV !== 'undefined' ? EXTRA_NAV : []).map((l) => {
+      const cur = document.body.dataset.section === l.id ? ' aria-current="page"' : '';
+      return `<a class="nav-link" href="${l.href}"${cur}>${esc(l.name)}</a>`;
     }).join('');
 
     const menuSecs = SECTIONS.map((s) => {

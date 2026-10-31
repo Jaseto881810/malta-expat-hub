@@ -77,6 +77,33 @@ collections:
           - { label: Browser tab title, name: seoTitle, widget: string, required: false }
           - { label: Social share photo (optional), name: shareImage, widget: image, required: false }
 
+  - name: blog
+    label: Blog posts
+    label_singular: Blog post
+    description: News, tips and stories. The newest 3 posts also show on the home page.
+    folder: content/blog
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    identifier_field: title
+    slug: "{{fields.title}}"
+    summary: "{{fields.title}}  ·  {{fields.date | date('D MMM YYYY')}}"
+    sortable_fields:
+      fields: [date, title]
+      default: { field: date, direction: descending }
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Publish date, name: date, widget: datetime, time_format: false, date_format: "D MMM YYYY", format: "YYYY-MM-DD", hint: "A future date keeps the post hidden until that day (after the next save or site update)." }
+      - { label: Short summary, name: excerpt, widget: text, hint: "One or two sentences. Shown on the blog cards and under the title." }
+      - { label: Header photo, name: image, widget: image }
+      - { label: Photo description, name: imageAlt, widget: string, required: false }
+      - { label: Post text, name: body, widget: richtext, hint: "Use headings, lists, links and quotes. A quote (>) shows as a blue note box." }
+      - { label: Hide this post (draft), name: draft, widget: boolean, required: false, default: false }
+      - { label: Google description (optional), name: description, widget: text, required: false, hint: "Empty = uses the short summary" }
+      - { label: Card photo (optional), name: cardImage, widget: image, required: false }
+      - { label: Social share photo (optional), name: shareImage, widget: image, required: false }
+
   - name: guides
     label: Guides
     label_singular: Guide
