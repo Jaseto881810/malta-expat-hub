@@ -291,8 +291,7 @@ body.site.menu-open { overflow: hidden; }
 .site .tile-body p { margin: 8px 0 0; opacity: .75; }
 
 /* Quick facts */
-.site .facts { display: grid; grid-template-columns: 1fr 1.6fr; gap: 32px; align-items: start; }
-.site .facts .h-section { margin: 0; }
+/* Heading on top, text card below (same as the other home sections). */
 .site .card {
   background: var(--color-card);
   border-radius: 24px;
@@ -530,7 +529,6 @@ body.site.menu-open { overflow: hidden; }
   .site .tile-head h3 { font-size: 17px; line-height: 1.15; }
   .site .tile-head .tag, .site .tile-body p { display: none; }
 
-  .site .facts { grid-template-columns: 1fr; gap: 12px; }
   .site .card { padding: 22px 20px; }
   .site .seasons { grid-template-columns: 1fr 1fr; gap: 10px; }
   .site .season { border-radius: 20px; padding: 16px; }
