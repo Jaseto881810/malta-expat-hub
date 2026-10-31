@@ -10,11 +10,11 @@ homeImage: /assets/images/Valletta at sunset.jpg
 homeTag: Start here
 description: Your first steps for moving to Malta. Pre-arrival checklists, visa overviews, and the mandatory 2026 Skills Pass requirements.
 seoTitle: ''
-shareImage: ''
+shareImage: /assets/images/Valletta at sunset.jpg
 singlePage: true
 title: Getting Started
 heroText: Your roadmap to a successful move to Malta.
-image: https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=2000
+image: /assets/images/Valletta at sunset.jpg
 blocks:
   - heading: Useful Apps for Malta
     text: ''
