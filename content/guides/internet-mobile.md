@@ -3,7 +3,7 @@ section: services
 menuName: Internet and Mobile Services
 title: Internet and Mobile Services
 heroText: Stay connected in Malta. A complete guide to mobile networks, home fiber broadband, and the best bundle packages for expats.
-image: /assets/images/Mobile.jpg
+image: /assets/images/Internet.jpg
 order: 4
 description: A complete guide to internet and mobile providers in Malta. Discover 5G networks, fiber broadband options, and how to get a SIM card as an expat.
 cardText: ''
@@ -87,7 +87,7 @@ blocks:
     html: ''
     custom: ''
 imageAlt: ''
-cardImage: /assets/images/Mobile.jpg
+cardImage: /assets/images/Internet.jpg
 seoTitle: ''
-shareImage: /assets/images/Mobile.jpg
+shareImage: /assets/images/Internet.jpg
 ---
