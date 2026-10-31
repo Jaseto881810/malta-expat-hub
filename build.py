@@ -19,6 +19,8 @@ from markdown_it import MarkdownIt
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, '_site')
 SITE_URL = 'https://maltaexpatguide.com'
+# Google AdSense publisher ID (also in ads.txt).
+ADSENSE_CLIENT = 'ca-pub-4354867620938723'
 DEFAULT_SHARE_IMAGE = 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=2000'
 
 # Markdown: allow HTML inside text, and treat a single line break as a line break.
@@ -92,7 +94,7 @@ def main():
 
     def common(title, description, url, body_section, share_image=None):
         return dict(page_title=f'Malta Expat Guide | {title}', description=description or '', url=url,
-                    site_url=SITE_URL, body_section=body_section, share_image=share_image or DEFAULT_SHARE_IMAGE)
+                    site_url=SITE_URL, adsense_client=ADSENSE_CLIENT, body_section=body_section, share_image=share_image or DEFAULT_SHARE_IMAGE)
 
     pages = []  # (url, lastmod) for the sitemap
 
@@ -163,7 +165,7 @@ def main():
     shutil.copytree(os.path.join(ROOT, 'assets'), os.path.join(OUT, 'assets'), dirs_exist_ok=True,
                     ignore=shutil.ignore_patterns('content.src.css'))
     shutil.copytree(os.path.join(ROOT, 'admin'), os.path.join(OUT, 'admin'))
-    for f in ('CNAME', 'robots.txt'):
+    for f in ('CNAME', 'robots.txt', 'ads.txt'):
         shutil.copy(os.path.join(ROOT, f), OUT)
     open(os.path.join(OUT, '.nojekyll'), 'w').close()
 
