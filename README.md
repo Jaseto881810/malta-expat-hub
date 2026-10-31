@@ -6,7 +6,7 @@ Source for [maltaexpatguide.com](https://maltaexpatguide.com), a guide for forei
 
 1. Go to **https://maltaexpatguide.com/admin/**
 2. Click **Sign In with Token** and paste your GitHub token (see below).
-3. Choose **Guides** or **Sections**, then create, edit or delete a page.
+3. Choose **Home page**, **Guides** or **Sections**, then create, edit or delete a page.
 4. Click **Save**. The live website updates by itself after about 1–2 minutes.
 
 **Content blocks:** each block is one white card on the page. In the *Text* box you can use bold, lists, links and tables. A quote (`>`) shows as a blue note box.
@@ -26,6 +26,7 @@ Some older blocks use the *Advanced: HTML* box (for special boxes and grids). Yo
 | --- | --- |
 | `content/guides/` | One file per guide page (edited in the admin panel) |
 | `content/sections/` | One file per section, including Getting Started and Safety |
+| `content/home.md` | Home page text and photos |
 | `templates/` | Page layouts, the home page, 404 page, and the menu script |
 | `assets/` | Styles, favicon and uploaded photos (`assets/images/`) |
 | `admin/` | The admin panel ([Sveltia CMS](https://github.com/sveltia/sveltia-cms), free and open source) |

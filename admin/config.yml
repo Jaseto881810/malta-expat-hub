@@ -18,6 +18,64 @@ media_folder: assets/images
 public_folder: /assets/images
 
 collections:
+  - name: home
+    label: Home page
+    description: The text and photos on the home page.
+    files:
+      - name: home
+        label: Home page
+        file: content/home.md
+        format: frontmatter
+        fields:
+          - { label: Big photo at the top, name: heroImage, widget: image }
+          - { label: Photo description, name: heroImageAlt, widget: string, required: false }
+          - { label: Small line above the heading, name: eyebrow, widget: string, required: false }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Intro text, name: intro, widget: text, required: false }
+          - { label: "Red badge: number", name: badgeNumber, widget: string, required: false, hint: "For example 300+. Leave empty to hide the badge." }
+          - { label: "Red badge: text", name: badgeText, widget: string, required: false }
+          - { label: "'Where are you in your move?' title", name: stagesTitle, widget: string, required: false }
+          - label: Move stages
+            name: stages
+            widget: list
+            label_singular: stage
+            summary: "{{fields.label}}"
+            required: false
+            fields:
+              - { label: Small label, name: label, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Colour, name: colour, widget: color, required: false }
+              - label: Links
+                name: links
+                widget: list
+                label_singular: link
+                summary: "{{fields.text}}"
+                fields:
+                  - { label: Link text, name: text, widget: string }
+                  - { label: Link address, name: url, widget: string, hint: "For example /expat-info/healthcare.html" }
+          - { label: "'Explore the guide' title", name: exploreTitle, widget: string, required: false, hint: "The section tiles below it come from Sections." }
+          - { label: "'Quick things to know' title", name: factsTitle, widget: string, required: false }
+          - { label: "'Quick things to know' text", name: factsText, widget: richtext, required: false }
+          - { label: Weather title, name: weatherTitle, widget: string, required: false }
+          - { label: Weather intro, name: weatherIntro, widget: text, required: false }
+          - label: Seasons
+            name: seasons
+            widget: list
+            label_singular: season
+            summary: "{{fields.name}}"
+            required: false
+            fields:
+              - { label: Season, name: name, widget: string }
+              - { label: Temperature, name: temperature, widget: string, hint: "For example 30–35°C" }
+              - { label: Months, name: months, widget: string }
+              - { label: Colour, name: colour, widget: color, required: false }
+              - { label: Text, name: text, widget: text }
+          - { label: Weather notes title, name: weatherNotesTitle, widget: string, required: false }
+          - { label: Weather notes, name: weatherNotes, widget: richtext, required: false, hint: "A bullet list works best." }
+          - { label: Google description, name: description, widget: text, required: false }
+          - { label: Browser tab title, name: seoTitle, widget: string, required: false }
+          - { label: Social share photo (optional), name: shareImage, widget: image, required: false }
+
   - name: guides
     label: Guides
     label_singular: Guide

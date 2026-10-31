@@ -1,42 +1,43 @@
 {% extends "base.html" %}
+{# Home page layout. The text and photos come from content/home.md (admin panel: Home page). #}
 {% block main %}
     <section class="hero">
-      <div class="photo hero-photo" role="img" aria-label="Malta" style="--img:url('https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=2000')"></div>
+      <div class="photo hero-photo" role="img" aria-label="{{ home.heroImageAlt or 'Malta' }}" style="--img:url('{{ home.heroImage }}')"></div>
       <div class="hero-card">
-        <div class="eyebrow">For foreign nationals moving to Malta</div>
-        <h1>Welcome to Malta Expat Guide</h1>
-        <p class="lede">A comprehensive guide to living in Malta and what to expect.</p>
+        {%- if home.eyebrow %}
+        <div class="eyebrow">{{ home.eyebrow }}</div>
+        {%- endif %}
+        <h1>{{ home.heading }}</h1>
+        {%- if home.intro %}
+        <p class="lede">{{ home.intro }}</p>
+        {%- endif %}
         <div class="hero-actions">
           <a class="btn btn-primary" href="/getting-started.html">Start here →</a>
           <a class="btn btn-secondary" href="#explore">Browse sections</a>
         </div>
       </div>
-      <div class="sun-badge" aria-label="Over 300 days of sunshine a year"><b>300+</b><span>days of sunshine</span></div>
+      {%- if home.badgeNumber %}
+      <div class="sun-badge" aria-label="{{ home.badgeNumber }} {{ home.badgeText }}"><b>{{ home.badgeNumber }}</b><span>{{ home.badgeText }}</span></div>
+      {%- endif %}
     </section>
-
+{% if home.stages %}
     <section class="stages-wrap wrap">
-      <div class="eyebrow">Where are you in your move?</div>
+      <div class="eyebrow">{{ home.stagesTitle }}</div>
       <div class="stages">
-      <div class="stage" style="--tint:#cfe3ea">
-        <h6>Before you move</h6>
-        <div class="stage-title">Papers and a place</div>
-        <div class="stage-links"><a href="/expat-info/permits-ids.html">Permits and IDs</a><span class="sep">·</span><a href="/accommodation/renting.html">Renting Properties</a><span class="sep">·</span><a href="/services/moving-companies.html">Moving Companies</a></div>
+{%- for st in home.stages %}
+      <div class="stage" style="--tint:{{ st.colour or '#cfe3ea' }}">
+        <h6>{{ st.label }}</h6>
+        <div class="stage-title">{{ st.title }}</div>
+        <div class="stage-links">
+          {%- for l in st.links or [] %}{% if not loop.first %}<span class="sep">·</span>{% endif %}<a href="{{ l.url }}">{{ l.text }}</a>{% endfor -%}
+        </div>
       </div>
-      <div class="stage" style="--tint:#f2c9b0">
-        <h6>First 30 days</h6>
-        <div class="stage-title">Get set up</div>
-        <div class="stage-links"><a href="/expat-info/healthcare.html">Healthcare</a><span class="sep">·</span><a href="/services/internet-mobile.html">Internet and Mobile</a><span class="sep">·</span><a href="/expat-info/driving-license.html">Driving License</a><span class="sep">·</span><a href="/expat-info/taxation.html">Taxation</a></div>
-      </div>
-      <div class="stage" style="--tint:#ebdfca">
-        <h6>Settled in</h6>
-        <div class="stage-title">Live here</div>
-        <div class="stage-links"><a href="/lifestyle/index.html">Lifestyle</a><span class="sep">·</span><a href="/locations/index.html">Locations</a><span class="sep">·</span><a href="/education/index.html">Education</a></div>
-      </div>
+{%- endfor %}
       </div>
     </section>
-
+{% endif %}
     <section class="block wrap" id="explore">
-      <h2 class="h-section">Explore the guide</h2>
+      <h2 class="h-section">{{ home.exploreTitle or 'Explore the guide' }}</h2>
       <div class="tiles">
 {%- for s in sections %}
       <a class="tile" href="{{ s.href }}" data-n="{{ s.number }}" style="--tint:{{ s.colour }};--img:url('{{ s.homeImage or s.image }}')">
@@ -49,54 +50,37 @@
 {%- endfor %}
       </div>
     </section>
-
+{% if home.factsText %}
     <section class="block wrap facts">
-      <h2 class="h-section">Quick things to know</h2>
+      <h2 class="h-section">{{ home.factsTitle }}</h2>
       <div class="card">
-        <p>Living in Malta comes with a unique mix of Mediterranean charm and somewhat modern convenience. English is one of the official languages (alongside Maltese), which makes settling in easier for most expats. The island is very small — you can drive from one end to the other in under an hour — but it’s packed with history, beaches, and lively towns. The country has seen an inflow foreign nationals moving to Malta to work in the iGaming and Fintech sectors. This has also lead to an inflow of foreigners to Malta who work as taxi drivers, delivery drivers, bus drivers, work in supermarkets and corners, and also work in the hospitality sector. This has caused the Maltese nationals to become, in general, very upset, as they believe their culture and country's identity is being lost, and the cost of housing has become too high for them.</p>
-        <p>The cost of living can vary depending on where you settle. But regardless of where you settle, the cost of living has been drastically increasing each year.. Areas like Sliema, Swieqi and St. Julian’s are popular with expats but also more expensive, while places like Mosta, Żebbuġ, or parts of Gozo offer more budget-friendly options (by budget friendly, we mean between €1000 to €1200 a month for an apartment to rent). However, Gozo is not a practical option, as it is a separate island, only accessible by ferry. The public transport bus service is free for residences with a personalized bus card (or €2 for a single trip if you don't have a personalized card), though not always punctual, and many locals rely on scooters or cars. Malta is part of the EU and the Schengen Area, making travel around Europe easy. With over 300 days of sunshine a year, a vibrant expat community, and easy access to sea, sun, and travel, Malta is a great place to build a new chapter — if you're up for a few quirks along the way.</p>
+{{ home.factsText | markdown | safe }}
       </div>
     </section>
-
+{% endif %}
+{%- if home.seasons or home.weatherIntro %}
     <section class="block wrap">
-      <h2 class="h-section">The weather, honestly</h2>
-      <p style="max-width:760px;opacity:.8">Malta boasts a Mediterranean climate, meaning long, hot summers and mild, short winters. With over 300 days of sunshine a year, it’s one of the sunniest places in Europe. However, if you are coming to Malta during the summer, and you aren't conditioned to hot weather, you are going to be in for quite a shock.</p>
+      <h2 class="h-section">{{ home.weatherTitle }}</h2>
+      {%- if home.weatherIntro %}
+      <p style="max-width:760px;opacity:.8">{{ home.weatherIntro }}</p>
+      {%- endif %}
       <div class="seasons">
-        <div class="season" style="--tint:#f2c9b0">
-          <h6>Summer</h6>
-          <div class="season-temp">30–35°C</div>
-          <div class="season-months">June – September</div>
-          <p>Summers in Malta are hot and dry, with average daytime temperatures ranging from 30°C to 35°C. Be prepared for some humidity, especially in July and August — and air conditioning quickly becomes your best friend! The night times can be extremely uncomfortable for sleeping, with average overnight temperature being in the mid twenties.</p>
+{%- for x in home.seasons or [] %}
+        <div class="season" style="--tint:{{ x.colour or '#cfe3ea' }}">
+          <h6>{{ x.name }}</h6>
+          <div class="season-temp">{{ x.temperature }}</div>
+          <div class="season-months">{{ x.months }}</div>
+          <p>{{ x.text }}</p>
         </div>
-        <div class="season" style="--tint:#fbe6e0">
-          <h6>Autumn</h6>
-          <div class="season-temp">22–28°C</div>
-          <div class="season-months">October – November</div>
-          <p>Autumn still feels pretty summery, especially in early October. Temperatures cool slightly but remain warm and pleasant, ranging from 22°C to 28°C. Rainfall starts to increase a bit toward November, often in the form of short but heavy showers. The overnight temperature starts to come down, falling to the high teens.</p>
-        </div>
-        <div class="season" style="--tint:#cfe3ea">
-          <h6>Winter</h6>
-          <div class="season-temp">10–17°C</div>
-          <div class="season-months">December – February</div>
-          <p>Winters are mild compared to much of Europe. Temperatures typically range between 10°C and 17°C. There’s more rain during this season, and it can feel damp, especially in older buildings without central heating.</p>
-        </div>
-        <div class="season" style="--tint:#ebdfca">
-          <h6>Spring</h6>
-          <div class="season-temp">17–24°C</div>
-          <div class="season-months">March – May</div>
-          <p>Spring is one of the best times to be in Malta. The island turns green and vibrant, and the temperatures start to rise again, averaging 17°C to 24°C. There’s less rain, longer days, and the sea begins to warm up again. The overnight temperature is a bit chilly at between 11°C to 16°C.</p>
-        </div>
+{%- endfor %}
       </div>
+      {%- if home.weatherNotes %}
       <div class="card weather-notes">
-        <h6>Weather characteristics</h6>
-        <ul>
-          <li>Rainfall is most common from late autumn through winter, often in quick, heavy bursts. When it does rain, it always leads to chaos on the roads. Pedestrians should be very careful, as drainage of rain water on the roads is not a thing in Malta, leading to flooded roads. The roads and pavements are also relatively smoothing, making them extremely slippery.</li>
-          <li>Winds can be strong, especially the north-westerly “majjistral” wind in winter, or the hot and dry “sirocco” blowing in from the Sahara.</li>
-          <li>Due to Malta's latitude location, humidity is a real issue, it can be quite high year-round.</li>
-          <li>While Malta generally enjoys calm Mediterranean weather, it can occasionally be affected by Medicanes — short for Mediterranean hurricanes. These are rare, tropical-like storms that form over the Mediterranean Sea, usually in autumn when the sea is still warm. Medicanes can bring heavy rain, strong winds, rough seas, and localized flooding. Malta has experienced a few in recent years, but they remain infrequent and short-lived, often lasting only a day or two.</li>
-        </ul>
+        <h6>{{ home.weatherNotesTitle }}</h6>
+{{ home.weatherNotes | markdown | safe }}
       </div>
+      {%- endif %}
     </section>
+{%- endif %}
     <div class="page-end"></div>
-  
 {% endblock %}

@@ -113,9 +113,10 @@ def main():
         pages.append(url)
 
     # ---- home and 404 ----
-    write('/', env.get_template('home.html').render(sections=sections,
-          **common('A Comprehensive Guide to Living in Malta',
-                   'Comprehensive wiki for moving to Malta. 60+ pages of info on visas, housing, lifestyle, and more.', '/', 'home')))
+    home = read(os.path.join(ROOT, 'content', 'home.md'))
+    write('/', env.get_template('home.html').render(sections=sections, home=home,
+          **common(home.get('seoTitle') or 'A Comprehensive Guide to Living in Malta',
+                   home.get('description'), '/', 'home', home.get('shareImage'))))
     write('/404.html', env.get_template('404.html').render(noindex=True, page_title='Page not found | Malta Expat Guide', body_section='home'))
 
     # ---- menu script (header, menu, footer, sidebar, pager) ----
