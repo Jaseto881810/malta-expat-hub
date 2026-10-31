@@ -3,7 +3,7 @@ section: accommodation
 menuName: Renting Properties
 title: Renting Properties
 heroText: Find your perfect home in Malta. Explore 2026 rental costs, tenant rights, and how to navigate the local market as an expat or Third-Country National.
-image: /assets/images/Buying Property.jpg
+image: /assets/images/Rent Apartment.jpg
 order: 5
 description: Your complete guide to renting an apartment or room in Malta. Explore 2026 rental costs, popular areas, tenant rights, and specific challenges for TCNs.
 cardText: ''
@@ -125,7 +125,7 @@ blocks:
       </div>
     custom: ''
 imageAlt: ''
-cardImage: /assets/images/Buying Property.jpg
+cardImage: /assets/images/Rent Apartment.jpg
 seoTitle: ''
-shareImage: /assets/images/Buying Property.jpg
+shareImage: /assets/images/Rent Apartment.jpg
 ---
