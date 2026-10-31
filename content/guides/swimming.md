@@ -3,7 +3,7 @@ section: locations
 menuName: Swimming
 title: Swimming Spots
 heroText: Discover the best places to swim in Malta. A guide to top sandy beaches, rocky coves, urban lidos, and essential beach safety tips.
-image: /assets/images/St. Peter's Pool.jpg
+image: /assets/images/Blue Lagoon.jpg
 order: 4
 description: Discover the best places to swim in Malta. A guide to top sandy beaches, rocky coves, the Blue Lagoon, and essential beach safety tips for expats.
 cardText: ''
@@ -79,7 +79,7 @@ blocks:
       </div>
     custom: ''
 imageAlt: ''
-cardImage: /assets/images/St. Peter's Pool.jpg
+cardImage: /assets/images/Blue Lagoon.jpg
 seoTitle: Swimming Spots
-shareImage: /assets/images/St. Peter's Pool.jpg
+shareImage: /assets/images/Blue Lagoon.jpg
 ---
