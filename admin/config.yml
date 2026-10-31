@@ -50,6 +50,7 @@ collections:
                 widget: list
                 label_singular: link
                 summary: "{{fields.text}}"
+                required: false
                 fields:
                   - { label: Link text, name: text, widget: string }
                   - { label: Link address, name: url, widget: string, hint: "For example /expat-info/healthcare.html" }
@@ -116,6 +117,7 @@ collections:
         widget: list
         label_singular: block
         summary: "{{fields.heading}}"
+        required: false
         hint: Each block is one white card on the page. Drag blocks to change their order.
         fields:
           - label: Heading
