@@ -104,7 +104,7 @@ blocks:
     text: '[![Revolut Bank](/assets/images/Revolut%20New.jpg "Join the most popular bank in Malta for free!")](https://revolut.com/referral/?referral-code=jasoneat!NOV1-26-VR-NL-TRDDM-CTRL&geo-redirect)'
     html: |-
       <div class="text-slate-600 space-y-4 leading-relaxed">
-      <p>Join the most popular bank in Malta for free!</p>
+      <p>Join one of the most popular banks in Malta for free!</p>
       <p>Opening an account with a traditional Maltese bank can take weeks and needs a lot of paperwork. Revolut is a popular alternative. You can open an account on your phone in a few minutes, often before you even arrive in Malta.</p>
       <p><b>The main benefits</b></p>
       <ul class="list-disc pl-5 space-y-2">
@@ -118,29 +118,14 @@ blocks:
       <li>Your money is protected: Revolut is a licensed bank in the EU. Deposits are protected up to €100,000 by the Lithuanian deposit guarantee scheme.</li>
       </ul>
 
-      <head>
-      <style>
-      .btn {
-        background-color: #04AA6D;
-        color: white;
-        font-size: 15px;
-        padding: 12px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-       position: center;
-      }
-
-      .btn:hover {
-        background-color: #059862;
-      }
-      </style>
-      </head>
-      <body>
-
-      <button class="testbtn">Green Button</button>
-
-      </body>
+      <p style="text-align:center; margin:28px 0 8px;">
+        <a href="https://revolut.com/referral/?referral-code=jasoneat!NOV1-26-VR-NL-TRDDM-CTRL&amp;geo-redirect"
+           target="_blank" rel="sponsored noopener"
+           style="display:inline-block; background:#04AA6D; color:#fff; font-size:16px; font-weight:700; padding:14px 28px; border-radius:999px; text-decoration:none;">
+          Open a free Revolut account →
+        </a>
+      </p>
+      <p style="text-align:center; font-size:13px; margin-top:0;">We may earn a small reward if you sign up through this link, at no extra cost to you.</p>
 
       <p><b>Important to know:</b></p>
       <ul class="list-disc pl-5 space-y-2">
@@ -148,7 +133,6 @@ blocks:
       <li>The free plan has monthly limits on free cash withdrawals and currency exchange. After that, small fees apply. Check the current fees in the app.</li>
       <li>Many expats use Revolut together with a Maltese bank account, such as one at Bank of Valletta or HSBC Malta.</li>
       </ul>
-
       </div>
     custom: ''
 imageAlt: ''
