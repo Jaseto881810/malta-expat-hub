@@ -11,7 +11,7 @@ draft: false
 blocks:
   - heading: Who we are
     text: |-
-      Malta Expat Guide is written by an expat who lives and works in Malta. We know what it is like to arrive in a new country and not know where to start: which forms to fill in, which office to visit, or where to find a flat.
+      Malta Expat Guide is written by an expat who has lived and worked in Malta since 2018. We know what it is like to arrive in a new country and not know where to start: which forms to fill in, which office to visit, or where to find a flat.
 
       We started this website to put the answers in one place, in plain and simple English.
     html: ''
