@@ -165,7 +165,7 @@ def main():
     shutil.copytree(os.path.join(ROOT, 'assets'), os.path.join(OUT, 'assets'), dirs_exist_ok=True,
                     ignore=shutil.ignore_patterns('content.src.css'))
     shutil.copytree(os.path.join(ROOT, 'admin'), os.path.join(OUT, 'admin'))
-    for f in ('CNAME', 'robots.txt', 'ads.txt'):
+    for f in ('CNAME', 'robots.txt', 'ads.txt', 'favicon.ico'):
         shutil.copy(os.path.join(ROOT, f), OUT)
     open(os.path.join(OUT, '.nojekyll'), 'w').close()
 
