@@ -7,7 +7,7 @@ imageAlt: Parliament building in Valletta
 inFooter: true
 footerOrder: 2
 description: Legal notice for Malta Expat Guide (maltaexpatguide.com) - website owner details, contact information, disclaimer, affiliate links and copyright.
-draft: true
+draft: false
 blocks:
   - heading: General information only
     text: |-
