@@ -1,77 +1,93 @@
 ---
-title: Internet and Mobile Services
-menuName: Internet and Mobile Services
 section: services
-order: 4
+menuName: Internet and Mobile Services
+title: Internet and Mobile Services
 heroText: Stay connected in Malta. A complete guide to mobile networks, home fiber broadband, and the best bundle packages for expats.
-image: https://images.unsplash.com/photo-1519389953887-9e776a00c611?q=80&w=1740&auto=format&fit=crop
+image: /assets/images/Mobile.jpg
+order: 4
 description: A complete guide to internet and mobile providers in Malta. Discover 5G networks, fiber broadband options, and how to get a SIM card as an expat.
+cardText: ''
+draft: false
 blocks:
-- heading: Connectivity in Malta
-  html: |
-    <div class="text-slate-600 space-y-4 leading-relaxed">
-    <p>Despite being a small island nation, Malta boasts some of the most advanced telecommunications infrastructure in Europe. As of 2026, Malta enjoys <b>100% nationwide 5G mobile coverage</b> and near-universal access to gigabit-speed fiber-optic or advanced coaxial cable home broadband.</p>
-    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 mt-4 text-blue-900">
-    <b class="text-[#003366] block mb-2">EU Rankings: Speed vs. Cost</b>
-    <ul class="list-disc pl-5 space-y-2 text-sm">
-    <li><b>Speed (Top Tier):</b> Malta consistently ranks in the top 5 within the EU for both fixed broadband and mobile internet speeds. Its highly compact geography allowed it to become one of the first European nations to roll out nationwide 5G and gigabit networks.</li>
-    <li><b>Cost (Below Average Value):</b> Conversely, Malta is generally more expensive than the EU average for standalone mobile data and home internet packages. The lack of low-cost MVNOs (Mobile Virtual Network Operators) in the market means there are fewer budget options available.</li>
-    </ul>
-    </div>
-    <p>Because the market is highly competitive, providers frequently offer "quad-play" bundles (Home Internet, TV, Landline, and Mobile plans rolled into one monthly bill) which usually provide the best value for money for long-term residents and help bypass the high standalone costs.</p>
-    </div>
-- heading: The "Big Three" Providers
-  html: |
-    <div class="text-slate-600 space-y-4 leading-relaxed">
-    <p>The Maltese telecommunications market is dominated by three main network operators. All three offer excellent 5G mobile service and fast home internet, but they differ slightly in their primary strengths:</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-    <div class="border border-blue-200 rounded-xl p-4 bg-blue-50">
-    <h4 class="font-bold text-[#003366] text-lg mb-2">GO</h4>
-    <p class="text-sm">Historically the state telecommunications company, GO boasts a massive, true "Fiber-to-the-Home" (FTTH) network. They are highly reliable for home internet and offer extensive premium TV packages, particularly for live sports (like the English Premier League and Serie A).</p>
-    </div>
-    <div class="border border-indigo-200 rounded-xl p-4 bg-indigo-50">
-    <h4 class="font-bold text-[#003366] text-lg mb-2">Melita</h4>
-    <p class="text-sm">Melita was the pioneer of cable TV and internet in Malta. They offer Gigabit speeds across their entire network. Their mobile network is fully 5G, and they are known for aggressive pricing on home bundles and excellent customer service apps.</p>
-    </div>
-    <div class="border border-red-200 rounded-xl p-4 bg-red-50">
-    <h4 class="font-bold text-[#CF142B] text-lg mb-2">Epic</h4>
-    <p class="text-sm">Formerly known as Vodafone Malta, Epic underwent a massive network overhaul to provide extremely fast 5G speeds. They are generally considered to have the strongest mobile network on the island, though they also offer robust home broadband services.</p>
-    </div>
-    </div>
-    </div>
-- heading: Getting a Mobile Plan
-  html: |
-    <div class="text-slate-600 space-y-4 leading-relaxed">
-    <p>When you arrive in Malta, getting a local mobile number is crucial for opening a bank account, registering for services, and receiving delivery updates.</p>
-    <ul class="list-none space-y-4 mt-4">
-    <li class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
-    <b class="text-[#003366] text-lg block mb-1">1. Prepaid (Pay-As-You-Go) - Easiest for New Arrivals</b>
-    <p class="text-sm mb-2">If you have just landed, this is your best option. You can walk into any GO, Melita, or Epic store, present your passport or ID card, and walk out with an active SIM card/eSIM in 10 minutes.</p>
-    <p class="text-sm"><b>Cost:</b> Usually around €10-€15 per month for a package that includes a generous data allowance (e.g., 10GB-20GB), unlimited local calls, and SMS. You simply top up your balance via the provider's mobile app each month.</p>
-    </li>
-    <li class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
-    <b class="text-[#003366] text-lg block mb-1">2. Postpaid (Monthly Contract)</b>
-    <p class="text-sm mb-2">Contracts offer much higher or unlimited data allowances and subsidized smartphones. However, they usually require a 12 to 24-month lock-in period.</p>
-    <p class="text-sm"><b>Requirements:</b> To sign a contract, providers generally require a valid Maltese e-Residence Card and a local bank account (to set up a Direct Debit). If you are a Third-Country National (TCN) or new arrival, they may also ask for a financial deposit (often around €50) which is refunded at the end of the contract.</p>
-    </li>
-    </ul>
-    </div>
-- heading: Setting Up Home Internet
-  html: |
-    <div class="text-slate-600 space-y-4 leading-relaxed">
-    <p>If you are renting an apartment, home internet works in one of two ways:</p>
-    <ul class="list-disc pl-5 space-y-3">
-    <li><b>Included in Rent:</b> Many landlords already have a Wi-Fi connection active in the apartment. In this case, you either pay the landlord a flat fee (usually €25-€35/month) or it is included in your overall rental price.</li>
-    <li><b>Setting it up yourself:</b> If the apartment does not have active internet, you will need to sign a contract with a provider. <b>Crucial:</b> You must get written permission from your landlord before the provider drills holes or installs new cabling in the apartment. Standard home internet contracts have a 24-month lock-in period. If you break the lease and leave Malta early, you will be liable for early termination fees (which can be substantial).</li>
-    </ul>
-    <div class="bg-orange-50 p-4 rounded-xl border border-orange-100 mt-4 text-orange-900 text-sm">
-    <b>The Alternative: 5G Plug-and-Play Modems</b>
-    <p class="mt-1">If you don't want a 24-month fixed-line contract or your landlord refuses permission to drill holes, all three providers now offer 5G Home Internet routers. You simply plug the router into a power socket, and it connects to the 5G mobile network to provide Wi-Fi to your house. These often come with flexible, no-contract options.</p>
-    </div>
-    </div>
-- heading: EU Roaming Laws
-  text: |
-    Malta is part of the European Union's **"Roam Like at Home"** initiative. This means if you buy a Maltese mobile plan (prepaid or contract), you can travel to Italy, France, Germany, or any other EU/EEA country and use your calls, texts, and data exactly as you would in Malta, without paying extra roaming charges.
+  - heading: Connectivity in Malta
+    text: ''
+    html: |-
+      <div class="text-slate-600 space-y-4 leading-relaxed">
+      <p>Despite being a small island nation, Malta boasts some of the most advanced telecommunications infrastructure in Europe. As of 2026, Malta enjoys <b>100% nationwide 5G mobile coverage</b> and near-universal access to gigabit-speed fiber-optic or advanced coaxial cable home broadband.</p>
+      <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 mt-4 text-blue-900">
+      <b class="text-[#003366] block mb-2">EU Rankings: Speed vs. Cost</b>
+      <ul class="list-disc pl-5 space-y-2 text-sm">
+      <li><b>Speed (Top Tier):</b> Malta consistently ranks in the top 5 within the EU for both fixed broadband and mobile internet speeds. Its highly compact geography allowed it to become one of the first European nations to roll out nationwide 5G and gigabit networks.</li>
+      <li><b>Cost (Below Average Value):</b> Conversely, Malta is generally more expensive than the EU average for standalone mobile data and home internet packages. The lack of low-cost MVNOs (Mobile Virtual Network Operators) in the market means there are fewer budget options available.</li>
+      </ul>
+      </div>
+      <p>Because the market is highly competitive, providers frequently offer "quad-play" bundles (Home Internet, TV, Landline, and Mobile plans rolled into one monthly bill) which usually provide the best value for money for long-term residents and help bypass the high standalone costs.</p>
+      </div>
+    custom: ''
+  - heading: The "Big Three" Providers
+    text: ''
+    html: |-
+      <div class="text-slate-600 space-y-4 leading-relaxed">
+      <p>The Maltese telecommunications market is dominated by three main network operators. All three offer excellent 5G mobile service and fast home internet, but they differ slightly in their primary strengths:</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+      <div class="border border-blue-200 rounded-xl p-4 bg-blue-50">
+      <h4 class="font-bold text-[#003366] text-lg mb-2">GO</h4>
+      <p class="text-sm">Historically the state telecommunications company, GO boasts a massive, true "Fiber-to-the-Home" (FTTH) network. They are highly reliable for home internet and offer extensive premium TV packages, particularly for live sports (like the English Premier League and Serie A).</p>
+      </div>
+      <div class="border border-indigo-200 rounded-xl p-4 bg-indigo-50">
+      <h4 class="font-bold text-[#003366] text-lg mb-2">Melita</h4>
+      <p class="text-sm">Melita was the pioneer of cable TV and internet in Malta. They offer Gigabit speeds across their entire network. Their mobile network is fully 5G, and they are known for aggressive pricing on home bundles and excellent customer service apps.</p>
+      </div>
+      <div class="border border-red-200 rounded-xl p-4 bg-red-50">
+      <h4 class="font-bold text-[#CF142B] text-lg mb-2">Epic</h4>
+      <p class="text-sm">Formerly known as Vodafone Malta, Epic underwent a massive network overhaul to provide extremely fast 5G speeds. They are generally considered to have the strongest mobile network on the island, though they also offer robust home broadband services.</p>
+      </div>
+      </div>
+      </div>
+    custom: ''
+  - heading: Getting a Mobile Plan
+    text: ''
+    html: |-
+      <div class="text-slate-600 space-y-4 leading-relaxed">
+      <p>When you arrive in Malta, getting a local mobile number is crucial for opening a bank account, registering for services, and receiving delivery updates.</p>
+      <ul class="list-none space-y-4 mt-4">
+      <li class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
+      <b class="text-[#003366] text-lg block mb-1">1. Prepaid (Pay-As-You-Go) - Easiest for New Arrivals</b>
+      <p class="text-sm mb-2">If you have just landed, this is your best option. You can walk into any GO, Melita, or Epic store, present your passport or ID card, and walk out with an active SIM card/eSIM in 10 minutes.</p>
+      <p class="text-sm"><b>Cost:</b> Usually around €10-€15 per month for a package that includes a generous data allowance (e.g., 10GB-20GB), unlimited local calls, and SMS. You simply top up your balance via the provider's mobile app each month.</p>
+      </li>
+      <li class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
+      <b class="text-[#003366] text-lg block mb-1">2. Postpaid (Monthly Contract)</b>
+      <p class="text-sm mb-2">Contracts offer much higher or unlimited data allowances and subsidized smartphones. However, they usually require a 12 to 24-month lock-in period.</p>
+      <p class="text-sm"><b>Requirements:</b> To sign a contract, providers generally require a valid Maltese e-Residence Card and a local bank account (to set up a Direct Debit). If you are a Third-Country National (TCN) or new arrival, they may also ask for a financial deposit (often around €50) which is refunded at the end of the contract.</p>
+      </li>
+      </ul>
+      </div>
+    custom: ''
+  - heading: Setting Up Home Internet
+    text: ''
+    html: |-
+      <div class="text-slate-600 space-y-4 leading-relaxed">
+      <p>If you are renting an apartment, home internet works in one of two ways:</p>
+      <ul class="list-disc pl-5 space-y-3">
+      <li><b>Included in Rent:</b> Many landlords already have a Wi-Fi connection active in the apartment. In this case, you either pay the landlord a flat fee (usually €25-€35/month) or it is included in your overall rental price.</li>
+      <li><b>Setting it up yourself:</b> If the apartment does not have active internet, you will need to sign a contract with a provider. <b>Crucial:</b> You must get written permission from your landlord before the provider drills holes or installs new cabling in the apartment. Standard home internet contracts have a 24-month lock-in period. If you break the lease and leave Malta early, you will be liable for early termination fees (which can be substantial).</li>
+      </ul>
+      <div class="bg-orange-50 p-4 rounded-xl border border-orange-100 mt-4 text-orange-900 text-sm">
+      <b>The Alternative: 5G Plug-and-Play Modems</b>
+      <p class="mt-1">If you don't want a 24-month fixed-line contract or your landlord refuses permission to drill holes, all three providers now offer 5G Home Internet routers. You simply plug the router into a power socket, and it connects to the 5G mobile network to provide Wi-Fi to your house. These often come with flexible, no-contract options.</p>
+      </div>
+      </div>
+    custom: ''
+  - heading: EU Roaming Laws
+    text: |-
+      Malta is part of the European Union's **"Roam Like at Home"** initiative. This means if you buy a Maltese mobile plan (prepaid or contract), you can travel to Italy, France, Germany, or any other EU/EEA country and use your calls, texts, and data exactly as you would in Malta, without paying extra roaming charges.
 
-    *Note: The UK's inclusion in free roaming post-Brexit varies by provider, so check your specific plan's terms before traveling to London!*
+      *Note: The UK's inclusion in free roaming post-Brexit varies by provider, so check your specific plan's terms before traveling to London!*
+    html: ''
+    custom: ''
+imageAlt: ''
+cardImage: /assets/images/Mobile.jpg
+seoTitle: ''
+shareImage: /assets/images/Mobile.jpg
 ---
