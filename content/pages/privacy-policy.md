@@ -6,7 +6,7 @@ image: /assets/images/Mdina.jpg
 imageAlt: Quiet street in Mdina
 description: Privacy Policy for Malta Expat Guide (maltaexpatguide.com). What data is collected, cookies, third-party services, and your rights under the GDPR.
 inFooter: true
-footerOrder: 3
+footerOrder: 4
 draft: false
 blocks:
 - heading: In short
@@ -21,7 +21,9 @@ blocks:
   text: |
     **Data you give us**
 
-    If you email us, we receive your email address, your name (if you give it) and your message. We use this only to reply to you. We keep it only as long as needed to answer your question.
+    If you use our [contact form](/contact.html) or email us, we receive your name, your email address and your message. We use this only to reply to you. We keep it only as long as needed to answer your question.
+
+    Messages from the contact form are delivered to our email inbox by **FormSubmit** (formsubmit.co), a form delivery service.
 
     **Data collected automatically**
 
@@ -36,6 +38,8 @@ blocks:
     | Google Fonts | Shows the fonts on the website | Google Ireland Ltd. |
     | Unsplash | Shows some photos | Unsplash Inc. (USA) |
     | Google AdSense | Shows adverts and the cookie message | Google Ireland Ltd. |
+    | FormSubmit | Delivers contact form messages to our email | FormSubmit (formsubmit.co) |
+    | Gmail | Our email inbox | Google Ireland Ltd. |
 
     Some of these companies are based in the USA. They are covered by the **EU–US Data Privacy Framework** or use other safeguards approved by the EU.
 - heading: Cookies
@@ -72,7 +76,8 @@ blocks:
   text: |
     We process data on these legal grounds under the **General Data Protection Regulation (GDPR)**:
 
-    - **Legitimate interest:** to run, secure and improve the website, and to reply to your messages.
+    - **Legitimate interest:** to run, secure and improve the website.
+    - **Consent:** to reply to messages you send through the contact form.
     - **Consent:** for advertising cookies and personalised adverts. You can withdraw your consent at any time.
 - heading: Your rights
   text: |

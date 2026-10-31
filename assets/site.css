@@ -567,3 +567,21 @@ body.site.menu-open { overflow: hidden; }
   .site .pager { grid-template-columns: 1fr; padding-top: 24px; }
   .site .pager a.next { grid-column: 1; }
 }
+
+/* ---------- Contact form ---------- */
+.site .contact-form { display: flex; flex-direction: column; gap: 18px; }
+.site .contact-row { display: flex; flex-direction: column; gap: 6px; }
+.site .contact-row label { font: 600 15px var(--font-heading); color: var(--color-navy); }
+.site .contact-form input[type="text"], .site .contact-form input[type="email"],
+.site .contact-form select, .site .contact-form textarea {
+  width: 100%; box-sizing: border-box; font: 16px/1.4 var(--font-body); color: var(--color-text);
+  background: #fff; border: 1px solid #d9d2c4; border-radius: 12px; padding: 12px 14px;
+}
+.site .contact-form textarea { resize: vertical; min-height: 140px; }
+.site .contact-form input:focus, .site .contact-form select:focus, .site .contact-form textarea:focus {
+  outline: 2px solid var(--color-accent); outline-offset: 1px; border-color: transparent;
+}
+.site .contact-consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: #3e4762; }
+.site .contact-consent input { margin-top: 3px; width: 18px; height: 18px; flex: none; accent-color: var(--color-accent); }
+.site .contact-form .btn { align-self: flex-start; border: 0; cursor: pointer; }
+.site .contact-form .contact-honey { display: none; }

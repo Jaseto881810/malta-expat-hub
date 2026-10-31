@@ -5,7 +5,7 @@ heroText: Who runs this website, how to contact us, and the terms for using it.
 image: /assets/images/Parliament.jpg
 imageAlt: Parliament building in Valletta
 inFooter: true
-footerOrder: 2
+footerOrder: 3
 description: Legal notice for Malta Expat Guide (maltaexpatguide.com) - website owner details, contact information, disclaimer, affiliate links and copyright.
 draft: false
 blocks:

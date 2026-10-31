@@ -117,8 +117,10 @@ def main():
         pg['url'] = f"/{pg['slug']}.html"
         pg['menuName'] = pg.get('menuName') or pg['title']
         write(pg['url'], guide_tpl.render(page=pg, section=plain, standalone=True, content_css=True,
-              **common(pg.get('seoTitle') or pg['menuName'], pg.get('description'), pg['url'], 'page', pg.get('shareImage') or pg.get('image'))))
-        pages.append(pg['url'])
+              **{**common(pg.get('seoTitle') or pg['menuName'], pg.get('description'), pg['url'], 'page', pg.get('shareImage') or pg.get('image')),
+                 'noindex': bool(pg.get('hideFromSearch'))}))
+        if not pg.get('hideFromSearch'):
+            pages.append(pg['url'])
 
     # ---- section overview pages ----
     sec_tpl = env.get_template('section.html')
