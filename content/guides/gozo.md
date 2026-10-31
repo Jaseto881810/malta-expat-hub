@@ -3,7 +3,7 @@ section: locations
 menuName: Gozo
 title: Gozo (Għawdex)
 heroText: Discover Malta's sister island. Known for its rural charm, ancient myths, world-class diving, and its emerging status as a tranquil haven for digital nomads.
-image: /assets/images/Salt Pans Gozo.jpg
+image: /assets/images/Gozo.jpg
 order: 1
 description: Discover Gozo, Malta's sister island. Explore its ancient history, rural charm, current digital nomad boom, and the best things to do across the island.
 cardText: ''
@@ -85,7 +85,7 @@ blocks:
       </div>
     custom: ''
 imageAlt: ''
-cardImage: /assets/images/Salt Pans Gozo.jpg
+cardImage: /assets/images/Gozo.jpg
 seoTitle: ''
-shareImage: /assets/images/Salt Pans Gozo.jpg
+shareImage: /assets/images/Gozo.jpg
 ---
