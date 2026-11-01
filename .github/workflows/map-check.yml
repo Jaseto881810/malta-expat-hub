@@ -24,22 +24,20 @@ jobs:
                   logs = []
                   pg.on("console", lambda m: logs.append(m.type + ": " + m.text))
                   pg.on("pageerror", lambda e: logs.append("pageerror: " + str(e)))
-                  pg.goto("https://maltaexpatguide.com/map/?v=4#things-to-do", wait_until="networkidle", timeout=90000)
+                  pg.goto("https://maltaexpatguide.com/map/?v=5#hiking", wait_until="networkidle", timeout=90000)
                   pg.wait_for_timeout(6000)
                   pg.screenshot(path=f"{name}.png")
                   if name == "desktop":
-                      pg.click(".map-item >> nth=0"); pg.wait_for_timeout(2500); pg.screenshot(path="desktop-popup.png")
+                      pg.click(".map-item:has-text('Dingli Cliffs')"); pg.wait_for_timeout(3000); pg.screenshot(path="desktop-popup.png")
                       pg.click(".map-cat[data-cat=all]"); pg.wait_for_timeout(3000); pg.screenshot(path="desktop-all.png")
                   print(name, "fallback present:", pg.locator("#map-fallback").count(), "canvas:", pg.locator("canvas.maplibregl-canvas").count())
                   print("\n".join(logs[:20]))
               b.close()
           PY
           python shot.py
-      - name: Route trails
-        run: python tools/fetch_trails.py
       - name: Save screenshots to a branch
         run: |
-          mkdir out && mv *.png trails.json out/ && cd out
+          mkdir out && mv *.png out/ && cd out
           git init -q && git checkout -q -b map-check-shots
           git config user.name "github-actions[bot]" && git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
           git add . && git commit -qm "map screenshots"
