@@ -2,7 +2,7 @@
 name: Services
 number: '06'
 order: 6
-colour: '#f2c9b0'
+colour: '#c9a7ff'
 inTopMenu: false
 intro: Insurance, internet and mobile, moving companies, water delivery, and investments and pensions.
 homeText: Insurance, internet, movers, water delivery and pensions.

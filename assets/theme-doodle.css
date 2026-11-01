@@ -1,0 +1,213 @@
+/* Malta Expat Guide — "Doodle notebook" theme.
+   Loaded after site.css: it only changes the look (fonts, colours, borders,
+   shadows, background), never the layout. Remove the <link> to this file in
+   templates/base.html to go back to the previous look. */
+
+:root {
+  --ink: #161b33;
+  --doodle-pink: #ff5d8f;
+  --doodle-blue: #3a86ff;
+  --doodle-lime: #b8f35c;
+  --doodle-yellow: #ffd60a;
+  --doodle-orange: #ff9f1c;
+  --doodle-purple: #c77dff;
+
+  --color-bg: #fffdf5;
+  --color-surface: #fff3c4;
+  --color-card: #ffffff;
+  --color-text: var(--ink);
+  --color-navy: var(--ink);
+  --color-accent: #d81b60;          /* links and small text accents (passes contrast on white) */
+  --color-accent-100: #ffe0ea;
+  --color-accent-600: #b0124c;
+  --color-accent-700: #b0124c;
+
+  --font-heading: "Sue Ellen Francisco", "Comic Sans MS", cursive;
+  --font-body: "Atkinson Hyperlegible", system-ui, sans-serif;
+
+  /* hand-drawn shapes */
+  --wobble: 255px 18px 225px 18px / 18px 225px 18px 255px;
+  --wobble-2: 18px 225px 18px 255px / 255px 18px 225px 18px;
+  --wobble-box: 26px 10px 30px 8px / 8px 28px 10px 26px;
+  --line: 2.5px solid var(--ink);
+  --shadow-card: 5px 5px 0 var(--ink);
+  --shadow-float: 7px 7px 0 var(--ink);
+}
+
+/* ---------- Base ---------- */
+body.site {
+  background-color: var(--color-bg);
+  background-image: url("/assets/malta-doodles.svg");
+  background-size: 420px 420px;
+  font-synthesis: none;            /* the handwriting font has one weight: never fake bold */
+}
+/* Handwritten text: same x-height as the body font, so it stays readable at every size. */
+.site h1, .site h2, .site h3, .site h4, .site h5,
+.site .nav-brand, .site .btn, .site .stage-title, .site .tile-photo b, .site .season-temp,
+.site .sun-badge, .site .menu-sec-title, .site .pager b, .site .sec-hero .sec-num {
+  font-size-adjust: 0.46;
+  letter-spacing: 0;
+}
+.site h1, .site h2, .site h3, .site h4, .site h5 { font-weight: 400; }
+.site h6, .site .eyebrow { font-family: var(--font-body); font-size-adjust: none; letter-spacing: .1em; }
+.site a { color: var(--color-accent); }
+.site :focus-visible { outline: 3px solid var(--doodle-blue); outline-offset: 3px; }
+
+/* ---------- Buttons & tags ---------- */
+.site .btn {
+  font-weight: 400;
+  font-size: 19px;
+  border: var(--line);
+  border-radius: var(--wobble);
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform .1s ease, box-shadow .1s ease;
+}
+.site .btn:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--ink); }
+.site .btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.site .btn-primary { background: var(--doodle-pink); color: var(--ink); }
+.site .btn-primary:hover { background: #ff7aa3; }
+.site .btn-secondary { background: #fff; color: var(--ink); border-color: var(--ink); border-radius: var(--wobble-2); }
+.site .btn-secondary:hover { background: var(--doodle-lime); }
+.site .btn-light { background: var(--doodle-lime); color: var(--ink); }
+.site .btn-icon { border-radius: 50% 45% 52% 48% / 48% 52% 45% 50%; font-size: 18px; }
+.site .tag { border: 2px solid var(--ink); border-radius: var(--wobble-2); font-weight: 700; }
+.site .tag-neutral { background: var(--doodle-yellow); color: var(--ink); }
+.site .tag-light { background: #fff; color: var(--ink); }
+
+/* ---------- Header & menu ---------- */
+.site .site-header { background: rgba(255, 253, 245, .92); border-bottom: var(--line); }
+.site .nav-brand { font-weight: 400; font-size: 30px; color: var(--ink); }
+.site .nav-brand span { color: var(--color-accent); }
+.site .nav-link { color: var(--ink); font-weight: 700; padding: 6px 10px; border: 2px solid transparent; border-radius: var(--wobble-2); }
+.site .nav-link:hover { color: var(--ink); border-color: var(--ink); }
+.site .nav-link[aria-current="page"] { color: var(--ink); background: var(--doodle-lime); border-color: var(--ink); }
+.site .menu { background: rgba(22, 27, 51, .55); }
+.site .menu-panel { border: var(--line); border-radius: var(--wobble-box); box-shadow: var(--shadow-float); }
+.site .menu-sec { border: 2px solid var(--ink); border-radius: var(--wobble-box); color: var(--ink); }
+.site .menu-sec-title { font-weight: 400; font-size: 26px; color: var(--ink); }
+.site .menu-sec li a { color: var(--ink); opacity: 1; }
+.site .menu-sec li a:hover, .site .menu-sec li a[aria-current="page"] { color: var(--color-accent); }
+
+/* ---------- Footer ---------- */
+.site .site-footer { background: var(--ink); border-top: var(--line); }
+.site .footer-cta h2 { font-size: 40px; }
+.site .footer-cta .btn-light { border-color: var(--doodle-lime); box-shadow: 4px 4px 0 var(--doodle-pink); }
+.site .footer-meta { opacity: 1; color: #e9ebf5; }
+.site .footer-meta a { color: #fff; }
+
+/* ---------- Photos ---------- */
+.site .hero-photo, .site .g-hero .photo {
+  border: var(--line);
+  border-radius: var(--wobble-box);
+  box-shadow: var(--shadow-float);
+}
+
+/* ---------- Home ---------- */
+.site .hero-card, .site .g-hero-card {
+  background: #fff;
+  border: var(--line);
+  border-radius: var(--wobble-box);
+  box-shadow: var(--shadow-float);
+}
+.site .hero-card .lede { opacity: 1; color: #3b4263; }
+.site .sun-badge {
+  background: var(--doodle-yellow);
+  color: var(--ink);
+  border: var(--line);
+  box-shadow: 5px 5px 0 var(--ink);
+  border-radius: 50% 46% 52% 48% / 48% 52% 46% 50%;
+}
+.site .sun-badge b { font-weight: 400; }
+.site .stage, .site .season {
+  border: var(--line);
+  border-radius: var(--wobble-box);
+  box-shadow: var(--shadow-card);
+  color: var(--ink);
+}
+.site .stage:nth-child(2) { transform: rotate(.6deg); }
+.site .stage:nth-child(3) { transform: rotate(-.5deg); }
+.site .stage-title { font-weight: 400; font-size: 34px; }
+.site .stage-links a { color: var(--ink); opacity: 1; font-weight: 700; }
+.site .tile, .site .guide-card, .site .card, .site .pager a {
+  background: #fff;
+  border: var(--line);
+  border-radius: var(--wobble-box);
+  box-shadow: 6px 6px 0 var(--tint, var(--ink));
+}
+.site .tile:hover, .site .guide-card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--tint, var(--ink)); }
+.site .tile { --tint-shadow: var(--tint); }
+.site .tile-photo { border-bottom: var(--line); background-image: var(--img, none); }
+.site .tile-photo b {
+  font-weight: 400;
+  font-size: 30px;
+  opacity: 1;
+  color: var(--ink);
+  background: var(--tint, var(--doodle-yellow));
+  border: 2px solid var(--ink);
+  border-radius: var(--wobble);
+  padding: 0 12px;
+}
+.site .tile-head h3 { font-size: 30px; }
+.site .tile-body p, .site .guide-card p { opacity: 1; color: #3b4263; }
+.site .season-temp { font-weight: 400; }
+.site .season p { opacity: 1; }
+
+/* ---------- Section pages ---------- */
+.site .sec-hero {
+  border: var(--line);
+  border-radius: var(--wobble-box);
+  box-shadow: var(--shadow-float);
+  color: var(--ink);
+}
+.site .sec-hero h1 { color: var(--ink); }
+.site .sec-hero .sec-num { color: var(--ink); font-weight: 400; font-size: 26px; }
+.site .guide-card .photo { border-bottom: var(--line); }
+.site .guide-card h6 { color: var(--color-accent-700); }
+.site .guide-card h4 { font-size: 26px; font-weight: 400; }
+
+/* ---------- Guide pages ---------- */
+.site .g-hero-card h1 { color: var(--ink); }
+.site .g-hero-card p { opacity: 1; color: #3b4263; }
+.site .g-aside-card { border: var(--line); border-radius: var(--wobble-box); box-shadow: var(--shadow-card); color: var(--ink); }
+.site .g-aside-card li a { color: var(--ink); }
+.site .g-aside-card li a[aria-current="page"] { color: var(--ink); background: #fff; border: 2px solid var(--ink); border-radius: var(--wobble-2); }
+.site .pager a { box-shadow: var(--shadow-card); color: var(--ink); }
+.site .pager b { font-weight: 400; font-size: 26px; }
+.site .article .content-block,
+.site .article > div.bg-white {
+  background: #fff;
+  border: var(--line);
+  border-radius: var(--wobble-box);
+  box-shadow: var(--shadow-card);
+}
+.site .article h2, .site .article h3 { font-weight: 400; letter-spacing: 0; font-size-adjust: 0.46; }
+.site .article h4, .site .article h5, .site .article .md h3, .site .article .md h4 { font-family: var(--font-body); font-size-adjust: none; font-weight: 700; }
+.site .article .md blockquote { background: #fff8d6; border: 2px solid var(--ink); border-radius: var(--wobble-box); color: var(--ink); }
+.site .post-meta { color: var(--color-accent-700); font-family: var(--font-body); }
+
+/* ---------- Forms ---------- */
+.site .contact-form input[type="text"], .site .contact-form input[type="email"],
+.site .contact-form select, .site .contact-form textarea { border: 2px solid var(--ink); border-radius: var(--wobble-box); }
+.site .contact-row label { font-family: var(--font-body); font-weight: 700; color: var(--ink); }
+.site .contact-form .btn { border: var(--line); }
+
+/* ---------- Map page ---------- */
+.site .map-panel, .site .map-canvas { border: var(--line); border-radius: var(--wobble-box); box-shadow: var(--shadow-card); }
+.site .map-panel-head h1 { color: var(--ink); }
+.site .map-cat, .site .map-sub { border: 2px solid var(--ink); border-radius: var(--wobble-2); color: var(--ink); }
+.site .map-cat[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.site .map-sub[aria-pressed="true"] { background: var(--doodle-lime); border-style: solid; }
+.site .map-search input { border: 2px solid var(--ink); border-radius: var(--wobble); }
+.site .map-group h2 { color: var(--ink); font-size: 24px; }
+.site .maplibregl-popup-content { border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+.site .map-pop h3 { font-family: var(--font-heading); font-weight: 400; font-size-adjust: 0.46; font-size: 22px; color: var(--ink); }
+
+@media (max-width: 760px) {
+  .site .stage:nth-child(2), .site .stage:nth-child(3) { transform: none; }
+  .site .tile { background: var(--tint); border: var(--line); box-shadow: 4px 4px 0 var(--ink); }
+  .site .hero-card, .site .g-hero-card { box-shadow: 5px 5px 0 var(--ink); }
+  .site .nav-brand { font-size: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site .btn, .site .tile, .site .guide-card { transition: none; }
+}

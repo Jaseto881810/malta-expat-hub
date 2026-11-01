@@ -2,7 +2,7 @@
 name: Basic Info
 number: '03'
 order: 3
-colour: '#ebdfca'
+colour: '#b8f35c'
 inTopMenu: false
 intro: Language, etiquette, food and drink, holidays, religion and the local customs you will meet every day.
 homeText: Language, etiquette, food, holidays and local customs.

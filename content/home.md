@@ -10,7 +10,7 @@ stagesTitle: Where are you in your move?
 stages:
   - label: Before you move
     title: Papers and a place
-    colour: '#cfe3ea'
+    colour: '#ffd60a'
     links:
       - text: Permits and IDs
         url: /expat-info/permits-ids.html
@@ -20,7 +20,7 @@ stages:
         url: /services/moving-companies.html
   - label: First 30 days
     title: Get set up
-    colour: '#f2c9b0'
+    colour: '#7fb8ff'
     links:
       - text: Healthcare
         url: /expat-info/healthcare.html
@@ -32,7 +32,7 @@ stages:
         url: /expat-info/taxation.html
   - label: Settled in
     title: Live here
-    colour: '#ebdfca'
+    colour: '#b8f35c'
     links:
       - text: Lifestyle
         url: /lifestyle/index.html
@@ -52,22 +52,22 @@ seasons:
   - name: Summer
     temperature: 30–35°C
     months: June – September
-    colour: '#f2c9b0'
+    colour: '#ff8fb3'
     text: Summers in Malta are hot and dry, with average daytime temperatures ranging from 30°C to 35°C. Be prepared for some humidity, especially in July and August — and air conditioning quickly becomes your best friend! The night times can be extremely uncomfortable for sleeping, with average overnight temperature being in the mid twenties.
   - name: Autumn
     temperature: 22–28°C
     months: October – November
-    colour: '#fbe6e0'
+    colour: '#ffb347'
     text: Autumn still feels pretty summery, especially in early October. Temperatures cool slightly but remain warm and pleasant, ranging from 22°C to 28°C. Rainfall starts to increase a bit toward November, often in the form of short but heavy showers. The overnight temperature starts to come down, falling to the high teens.
   - name: Winter
     temperature: 10–17°C
     months: December – February
-    colour: '#cfe3ea'
+    colour: '#7fb8ff'
     text: Winters are mild compared to much of Europe. Temperatures typically range between 10°C and 17°C. There’s more rain during this season, and it can feel damp, especially in older buildings without central heating.
   - name: Spring
     temperature: 17–24°C
     months: March – May
-    colour: '#ebdfca'
+    colour: '#b8f35c'
     text: Spring is one of the best times to be in Malta. The island turns green and vibrant, and the temperatures start to rise again, averaging 17°C to 24°C. There’s less rain, longer days, and the sea begins to warm up again. The overnight temperature is a bit chilly at between 11°C to 16°C.
 weatherNotesTitle: Weather characteristics
 weatherNotes: |-

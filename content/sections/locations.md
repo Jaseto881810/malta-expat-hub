@@ -1,8 +1,8 @@
 ---
 name: Locations
-number: '9'
+number: '09'
 order: 9
-colour: '#fbe6e0'
+colour: '#7fb8ff'
 inTopMenu: true
 intro: Towns, Gozo, hiking, swimming, historical sites and trips to Sicily.
 homeText: Towns, Gozo, hiking, swimming and trips to Sicily.

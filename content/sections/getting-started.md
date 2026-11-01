@@ -2,7 +2,7 @@
 name: Getting Started
 number: '01'
 order: 1
-colour: '#cfe3ea'
+colour: '#ffd60a'
 inTopMenu: true
 intro: ''
 homeText: Useful apps, the cost of living and advice for third-country nationals.
