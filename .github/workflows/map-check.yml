@@ -23,7 +23,7 @@ jobs:
                   logs = []
                   pg.on("console", lambda m: logs.append(m.type + ": " + m.text))
                   pg.on("pageerror", lambda e: logs.append("pageerror: " + str(e)))
-                  pg.goto("https://maltaexpatguide.com/map/?v=3#beaches", wait_until="networkidle", timeout=90000)
+                  pg.goto("https://maltaexpatguide.com/map/?v=4#things-to-do", wait_until="networkidle", timeout=90000)
                   pg.wait_for_timeout(6000)
                   pg.screenshot(path=f"{name}.png")
                   if name == "desktop":
