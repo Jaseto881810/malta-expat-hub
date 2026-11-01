@@ -309,6 +309,7 @@ body.site.menu-open { overflow: hidden; }
 .site .season-temp { font: 800 38px var(--font-heading); letter-spacing: -.02em; }
 .site .season-months { font-size: 14px; }
 .site .season p { margin: 12px 0 0; font-size: 14px; color: var(--color-text); opacity: .8; }
+.site .weather-intro { margin-bottom: 16px; }
 .site .weather-notes { margin-top: 16px; }
 .site .weather-notes ul { margin: 0; padding-left: 20px; }
 .site .weather-notes li { margin-bottom: 8px; }

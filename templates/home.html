@@ -75,7 +75,7 @@
     <section class="block wrap">
       <h2 class="h-section">{{ home.weatherTitle }}</h2>
       {%- if home.weatherIntro %}
-      <p style="max-width:760px;opacity:.8">{{ home.weatherIntro }}</p>
+      <div class="card weather-intro"><p>{{ home.weatherIntro }}</p></div>
       {%- endif %}
       <div class="seasons">
 {%- for x in home.seasons or [] %}
