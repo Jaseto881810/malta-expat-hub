@@ -31,7 +31,10 @@
           <a class="menu-sec-title" href="${s.href}"><b>${s.n}</b>${esc(s.name)}</a>
           ${guides ? `<ul>${guides}</ul>` : ''}
         </div>`;
-    }).join('');
+    }).join('') + (typeof EXTRA_NAV !== 'undefined' ? EXTRA_NAV : []).map((l) =>
+      `<div class="menu-sec menu-sec-extra" style="--tint:#ffffff">
+          <a class="menu-sec-title" href="${l.href}"><b>→</b>${esc(l.name)}</a>
+        </div>`).join('');
 
     el.innerHTML = `
       <div class="nav">

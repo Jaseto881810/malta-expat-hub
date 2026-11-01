@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{# Interactive map of Malta. Places come from content/map/ (admin panel: Map places).
+   Map tiles: OpenFreeMap (OpenStreetMap data), drawn with MapLibre GL. #}
+{% block head_extra %}
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" defer></script>
+{% endblock %}
+{% block main %}
+    <section class="map-app" id="map-app">
+      <aside class="map-panel" aria-label="Places">
+        <div class="map-panel-head">
+          <div class="crumbs"><a href="/index.html">Home</a> / <b>Map</b></div>
+          <h1>Malta map</h1>
+          <p>Things to do, walks, dive sites, beaches, areas to live, useful services and English schools, all on one map.</p>
+          <label class="map-search" for="map-q">
+            <span class="visually-hidden">Search places</span>
+            <input id="map-q" type="search" placeholder="Search, e.g. Gozo or Sliema" autocomplete="off">
+          </label>
+          <div class="map-cats" id="map-cats" role="group" aria-label="Show on map"></div>
+        </div>
+        <p class="map-count" id="map-count" aria-live="polite"></p>
+        <ul class="map-list" id="map-list"></ul>
+        <p class="map-note">Information can change. Please check opening times, prices and conditions before you go.</p>
+      </aside>
+      <div class="map-canvas" id="map" role="region" aria-label="Map of Malta">
+        <div class="map-fallback" id="map-fallback">Loading map…</div>
+      </div>
+    </section>
+
+    <script id="map-data" type="application/json">{{ places_json | safe }}</script>
+    <script>
+    (function () {
+      const CATS = {{ categories_json | safe }};
+      const PLACES = JSON.parse(document.getElementById('map-data').textContent);
+      const byId = Object.fromEntries(CATS.map((c) => [c.id, c]));
+      const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      const norm = (s) => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[ħ]/gi, 'h').replace(/[ġ]/gi, 'g').replace(/[ż]/gi, 'z').replace(/[ċ]/gi, 'c').toLowerCase();
+      PLACES.forEach((p, i) => { p.id = i; p._q = norm([p.name, p.area, p.text, p.details].join(' ')); });
+
+      let cat = 'all', query = '', map = null, popup = null;
+      const $ = (id) => document.getElementById(id);
+
+      // ----- category buttons -----
+      const counts = {}; PLACES.forEach((p) => { counts[p.category] = (counts[p.category] || 0) + 1; });
+      $('map-cats').innerHTML = [{ id: 'all', name: 'Everything', colour: 'var(--color-navy)' }].concat(CATS).map((c) =>
+        `<button type="button" class="map-cat" data-cat="${c.id}" style="--dot:${c.colour}" aria-pressed="false">
+           <i aria-hidden="true"></i>${esc(c.name)}<small>${c.id === 'all' ? PLACES.length : counts[c.id] || 0}</small>
+         </button>`).join('');
+
+      function visible() {
+        const q = norm(query.trim());
+        return PLACES.filter((p) => (cat === 'all' || p.category === cat) && (!q || p._q.includes(q)));
+      }
+
+      function popupHtml(p) {
+        const c = byId[p.category];
+        const dir = `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
+        return `<div class="map-pop">
+          <span class="map-pop-cat" style="--dot:${c.colour}"><i></i>${esc(c.name)}</span>
+          <h3>${esc(p.name)}</h3>
+          <div class="map-pop-area">${esc(p.area)}${p.price ? ` · <b>${esc(p.price)}</b>` : ''}</div>
+          <p>${esc(p.text)}</p>
+          ${p.details ? `<div class="map-pop-details">${esc(p.details)}</div>` : ''}
+          <div class="map-pop-links">
+            ${p.guide ? `<a href="${esc(p.guide)}">Read our guide →</a>` : ''}
+            ${p.website ? `<a href="${esc(p.website)}" target="_blank" rel="noopener">Website ↗</a>` : ''}
+            <a href="${dir}" target="_blank" rel="noopener">Directions ↗</a>
+          </div>
+        </div>`;
+      }
+
+      function renderList() {
+        const list = visible();
+        $('map-count').textContent = list.length === 1 ? '1 place' : `${list.length} places`;
+        if (!list.length) { $('map-list').innerHTML = '<li class="map-empty">No places found. Try another word or category.</li>'; return; }
+        const groups = cat === 'all' ? CATS.map((c) => [c, list.filter((p) => p.category === c.id)]).filter((g) => g[1].length) : [[byId[cat], list]];
+        $('map-list').innerHTML = groups.map(([c, items]) => `
+          <li class="map-group">
+            <h2 style="--dot:${c.colour}"><i aria-hidden="true"></i>${esc(c.name)}</h2>
+            ${cat !== 'all' && c.intro ? `<p class="map-intro">${esc(c.intro)}</p>` : ''}
+            <ul>${items.map((p) => `
+              <li><button type="button" class="map-item" data-id="${p.id}">
+                <b>${esc(p.name)}</b><span>${esc(p.area)}${p.details ? ' · ' + esc(p.details) : ''}</span>
+              </button></li>`).join('')}</ul>
+          </li>`).join('');
+      }
+
+      function geojson(list) {
+        return { type: 'FeatureCollection', features: list.map((p) => ({
+          type: 'Feature', id: p.id, geometry: { type: 'Point', coordinates: [p.lng, p.lat] },
+          properties: { id: p.id, colour: byId[p.category].colour } })) };
+      }
+
+      function refresh(fit) {
+        document.querySelectorAll('.map-cat').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cat === cat)));
+        renderList();
+        if (!map || !map.getSource('places')) return;
+        const list = visible();
+        map.getSource('places').setData(geojson(list));
+        if (fit && list.length) {
+          const b = new maplibregl.LngLatBounds();
+          list.forEach((p) => b.extend([p.lng, p.lat]));
+          map.fitBounds(b, { padding: 60, maxZoom: 14, duration: 600 });
+        }
+      }
+
+      function openPlace(p, fly) {
+        if (!map) return;
+        if (popup) popup.remove();
+        popup = new maplibregl.Popup({ offset: 12, maxWidth: '300px' }).setLngLat([p.lng, p.lat]).setHTML(popupHtml(p)).addTo(map);
+        if (fly) map.flyTo({ center: [p.lng, p.lat], zoom: Math.max(map.getZoom(), 13), duration: 700 });
+      }
+
+      function setCat(c, fit) {
+        cat = byId[c] ? c : 'all';
+        try { history.replaceState(null, '', cat === 'all' ? location.pathname : '#' + cat); } catch (e) {}
+        refresh(fit);
+      }
+
+      $('map-cats').addEventListener('click', (e) => { const b = e.target.closest('.map-cat'); if (b) setCat(b.dataset.cat, true); });
+      $('map-q').addEventListener('input', (e) => { query = e.target.value; refresh(false); });
+      $('map-list').addEventListener('click', (e) => {
+        const b = e.target.closest('.map-item'); if (!b) return;
+        const p = PLACES[+b.dataset.id];
+        openPlace(p, true);
+        if (window.matchMedia('(max-width: 860px)').matches) $('map').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      window.addEventListener('hashchange', () => setCat(location.hash.slice(1), true));
+
+      setCat(location.hash.slice(1), false);
+
+      // ----- the map -----
+      function start() {
+        if (!window.maplibregl) { $('map-fallback').textContent = 'The map could not load. Please check your connection and reload the page.'; return; }
+        try {
+          map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://tiles.openfreemap.org/styles/liberty',
+            center: [14.40, 35.95], zoom: 9.8, minZoom: 8, maxZoom: 18,
+            maxBounds: [[13.6, 35.5], [15.2, 36.4]],
+            cooperativeGestures: window.matchMedia('(max-width: 860px)').matches,
+            attributionControl: { compact: true },
+          });
+        } catch (e) {
+          $('map-fallback').textContent = 'Your browser cannot show this map. You can still use the list of places.';
+          return;
+        }
+        map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+        map.addControl(new maplibregl.GeolocateControl({ positionOptions: { enableHighAccuracy: true } }), 'top-right');
+        map.addControl(new maplibregl.FullscreenControl({ container: document.getElementById('map-app') }), 'top-right');
+        map.on('load', () => {
+          $('map-fallback').remove();
+          map.addSource('places', { type: 'geojson', data: geojson(visible()) });
+          map.addLayer({ id: 'places-halo', type: 'circle', source: 'places',
+            paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 7, 14, 11], 'circle-color': '#ffffff', 'circle-opacity': 0.95 } });
+          map.addLayer({ id: 'places', type: 'circle', source: 'places',
+            paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 5, 14, 8.5], 'circle-color': ['get', 'colour'] } });
+          map.on('click', 'places', (e) => openPlace(PLACES[e.features[0].properties.id], false));
+          map.on('mouseenter', 'places', () => { map.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'places', () => { map.getCanvas().style.cursor = ''; });
+          if (cat !== 'all') refresh(true);
+        });
+      }
+      if (window.maplibregl) start(); else window.addEventListener('load', start);
+    })();
+    </script>
+{% endblock %}

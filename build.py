@@ -57,6 +57,24 @@ def load_folder(folder):
     return [read(os.path.join(path, f)) for f in sorted(os.listdir(path)) if f.endswith('.md')]
 
 
+# Map categories: id, name, colour, short intro. Places are in content/map/.
+MAP_CATEGORIES = [
+    {'id': 'things-to-do', 'name': 'Things to do', 'colour': '#cf142b',
+     'intro': 'Sights, museums and day-out ideas across Malta and Gozo.'},
+    {'id': 'hiking', 'name': 'Hiking trails', 'colour': '#2e7d32',
+     'intro': 'Start points of popular walks. Best from October to May; carry water, as there is little shade.'},
+    {'id': 'diving', 'name': 'Diving', 'colour': '#1565c0',
+     'intro': 'Popular dive sites with depth and level. Always dive with a local dive centre or a buddy.'},
+    {'id': 'beaches', 'name': 'Beaches', 'colour': '#d99a00',
+     'intro': 'Sandy bays and rocky swimming spots. Check the beach flag before you swim.'},
+    {'id': 'neighbourhoods', 'name': 'Neighbourhoods', 'colour': '#7b1fa2',
+     'intro': 'Popular areas to live. Rent level: € lower, €€ medium, €€€ higher.'},
+    {'id': 'expat-services', 'name': 'Expat services', 'colour': '#00796b',
+     'intro': 'Hospitals, transport hubs and offices you will likely need.'},
+    {'id': 'english-schools', 'name': 'English schools', 'colour': '#e65100',
+     'intro': 'Language schools by town. Pins show the area; check each school for its exact address.'},
+]
+
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
           'August', 'September', 'October', 'November', 'December']
 
@@ -168,6 +186,22 @@ def main():
           **common('Blog', 'News, tips and personal stories about moving to and living in Malta.', '/blog/', 'blog')))
     pages.append('/blog/')
 
+    # ---- interactive map ----
+    cat_ids = {c['id'] for c in MAP_CATEGORIES}
+    places = []
+    for p in load_folder('map'):
+        if p.get('draft') or p.get('category') not in cat_ids or p.get('lat') is None or p.get('lng') is None:
+            continue
+        places.append({k: p.get(k) for k in ('name', 'category', 'area', 'lat', 'lng', 'text', 'details', 'price', 'guide', 'website') if p.get(k) not in (None, '')})
+    places.sort(key=lambda p: p['name'].lower())
+    safe_json = lambda o: json.dumps(o, ensure_ascii=False).replace('</', '<\\/')
+    write('/map/', env.get_template('map.html').render(
+        places_json=safe_json(places), categories_json=safe_json(MAP_CATEGORIES),
+        **common('Malta Map: things to do, beaches, hiking, diving and more',
+                 'Interactive map of Malta and Gozo: things to do, hiking trails, dive sites, beaches, neighbourhoods, expat services and English schools.',
+                 '/map/', 'map')))
+    pages.append('/map/')
+
     # ---- home and 404 ----
     home = read(os.path.join(ROOT, 'content', 'home.md'))
     write('/', env.get_template('home.html').render(sections=sections, home=home, latest_posts=posts[:3],
@@ -189,7 +223,7 @@ def main():
     script = script.replace('(function () {',
                             f'const SECTIONS = {json.dumps(nav, ensure_ascii=False)};\nconst TOP_NAV = {json.dumps(top)};\n'
                             f'const FOOTER_LINKS = {json.dumps(footer, ensure_ascii=False)};\n'
-                            f'const EXTRA_NAV = {json.dumps([{"id": "blog", "name": "Blog", "href": "/blog/"}] if posts else [])};\n\n(function () {{', 1)
+                            f'const EXTRA_NAV = {json.dumps([{"id": "map", "name": "Map", "href": "/map/"}] + ([{"id": "blog", "name": "Blog", "href": "/blog/"}] if posts else []))};\n\n(function () {{', 1)
     write('/assets/site.js', script)
 
     # ---- sitemap ----

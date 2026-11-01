@@ -39,6 +39,8 @@ blocks:
     | Unsplash | Shows some photos | Unsplash Inc. (USA) |
     | Google AdSense | Shows adverts and the cookie message | Google Ireland Ltd. |
     | FormSubmit | Delivers contact form messages to our email | FormSubmit (formsubmit.co) |
+    | OpenFreeMap | Shows the map tiles on our [map page](/map/) | OpenFreeMap (openfreemap.org) |
+    | unpkg | Delivers the map software (MapLibre) | unpkg / Cloudflare, Inc. (USA) |
     | Gmail | Our email inbox | Google Ireland Ltd. |
 
     Some of these companies are based in the USA. They are covered by the **EU–US Data Privacy Framework** or use other safeguards approved by the EU.

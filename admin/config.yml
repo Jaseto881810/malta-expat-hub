@@ -104,6 +104,46 @@ collections:
       - { label: Card photo (optional), name: cardImage, widget: image, required: false }
       - { label: Social share photo (optional), name: shareImage, widget: image, required: false }
 
+  - name: map
+    label: Map places
+    label_singular: Map place
+    description: Pins on the interactive map at /map/. Find the latitude and longitude by right-clicking a spot on openstreetmap.org or Google Maps.
+    folder: content/map
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    identifier_field: name
+    slug: "{{fields.name}}"
+    summary: "{{fields.name}}  ·  {{fields.area}}"
+    view_groups:
+      - { label: Category, field: category }
+    sortable_fields:
+      fields: [name, category, area]
+      default: { field: name }
+    fields:
+      - { label: Name, name: name, widget: string }
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: Things to do, value: things-to-do }
+          - { label: Hiking trails, value: hiking }
+          - { label: Diving, value: diving }
+          - { label: Beaches, value: beaches }
+          - { label: Neighbourhoods, value: neighbourhoods }
+          - { label: Expat services, value: expat-services }
+          - { label: English schools, value: english-schools }
+      - { label: Town or area, name: area, widget: string }
+      - { label: Latitude, name: lat, widget: number, value_type: float, hint: "For example 35.8977 (Malta is around 35.8–36.1)" }
+      - { label: Longitude, name: lng, widget: number, value_type: float, hint: "For example 14.5124 (Malta is around 14.18–14.58)" }
+      - { label: Short description, name: text, widget: text, hint: "One or two short sentences." }
+      - { label: Key facts (optional), name: details, widget: string, required: false, hint: "For example: 7 km · Moderate · Loop, or 15–36 m · Advanced" }
+      - { label: "Rent level (neighbourhoods only)", name: price, widget: select, required: false, options: ["€", "€€", "€€€"] }
+      - { label: Link to our guide (optional), name: guide, widget: string, required: false, hint: "For example /locations/swimming.html" }
+      - { label: Website (optional), name: website, widget: string, required: false, hint: "Full address, starting with https://" }
+      - { label: Hide this place, name: draft, widget: boolean, required: false, default: false }
+
   - name: guides
     label: Guides
     label_singular: Guide
