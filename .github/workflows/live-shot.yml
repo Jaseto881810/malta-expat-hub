@@ -1,0 +1,36 @@
+# Temporary: full-page screenshot of the live home page.
+name: Live shot
+on:
+  push:
+    branches: [live-shot]
+permissions:
+  contents: write
+jobs:
+  shot:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pip install playwright==1.47.0 && python -m playwright install --with-deps chromium
+      - name: Screenshot
+        run: |
+          cat > shot.py <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              b = p.chromium.launch()
+              for w, h, dev in [(1280, 900, "desktop"), (390, 844, "mobile")]:
+                  pg = b.new_page(viewport={"width": w, "height": h}, device_scale_factor=2 if dev == "mobile" else 1)
+                  pg.goto("https://maltaexpatguide.com/index.html", wait_until="networkidle", timeout=90000)
+                  pg.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                  pg.wait_for_timeout(2000)
+                  pg.evaluate("window.scrollTo(0, 0)")
+                  pg.wait_for_timeout(1500)
+                  pg.screenshot(path=f"home-{dev}.png", full_page=True)
+              b.close()
+          PY
+          python shot.py
+      - name: Save to a branch
+        run: |
+          mkdir out && mv *.png out/ && cd out
+          git init -q && git checkout -q -b live-shot-out
+          git config user.name "github-actions[bot]" && git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
+          git add . && git commit -qm "live screenshots"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" live-shot-out
