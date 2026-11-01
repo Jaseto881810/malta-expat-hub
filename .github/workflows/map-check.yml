@@ -9,6 +9,7 @@ jobs:
   shots:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - run: pip install playwright==1.47.0 && python -m playwright install --with-deps chromium
@@ -34,9 +35,11 @@ jobs:
               b.close()
           PY
           python shot.py
+      - name: Route trails
+        run: python tools/fetch_trails.py
       - name: Save screenshots to a branch
         run: |
-          mkdir out && mv *.png out/ && cd out
+          mkdir out && mv *.png trails.json out/ && cd out
           git init -q && git checkout -q -b map-check-shots
           git config user.name "github-actions[bot]" && git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
           git add . && git commit -qm "map screenshots"
