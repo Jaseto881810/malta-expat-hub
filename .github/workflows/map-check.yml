@@ -1,0 +1,36 @@
+# Temporary: screenshots the live map page to check it renders. Safe to delete.
+name: Map check
+on:
+  push:
+    branches: [map-check]
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install playwright==1.47.0 && python -m playwright install --with-deps chromium
+      - name: Screenshot
+        run: |
+          cat > shot.py <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              b = p.chromium.launch(args=["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"])
+              for w, h, name in [(1280, 900, "desktop"), (390, 844, "mobile")]:
+                  pg = b.new_page(viewport={"width": w, "height": h})
+                  logs = []
+                  pg.on("console", lambda m: logs.append(m.type + ": " + m.text))
+                  pg.on("pageerror", lambda e: logs.append("pageerror: " + str(e)))
+                  pg.goto("https://maltaexpatguide.com/map/?v=2#beaches", wait_until="networkidle", timeout=90000)
+                  pg.wait_for_timeout(6000)
+                  pg.screenshot(path=f"{name}.png")
+                  if name == "desktop":
+                      pg.click(".map-item >> nth=0"); pg.wait_for_timeout(2500); pg.screenshot(path="desktop-popup.png")
+                      pg.click(".map-cat[data-cat=all]"); pg.wait_for_timeout(3000); pg.screenshot(path="desktop-all.png")
+                  print(name, "fallback present:", pg.locator("#map-fallback").count(), "canvas:", pg.locator("canvas.maplibregl-canvas").count())
+                  print("\n".join(logs[:20]))
+              b.close()
+          PY
+          python shot.py
+      - uses: actions/upload-artifact@v4
+        with: { name: shots, path: '*.png' }
