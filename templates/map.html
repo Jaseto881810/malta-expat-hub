@@ -43,7 +43,9 @@
       PLACES.forEach((p) => { if (p.type && TYPES[p.category] && !TYPES[p.category].includes(p.type)) TYPES[p.category].push(p.type); });
       Object.keys(TYPES).forEach((k) => { TYPES[k] = TYPES[k].filter((t) => PLACES.some((p) => p.category === k && p.type === t)); });
 
-      let cat = 'all', sub = 'all', query = '', map = null, popup = null, TRAILS = null, active = null;
+      let cat = 'all', sub = 'all', query = '', map = null, popup = null, TRAILS = null, ZONES = null, active = null;
+      const RENT = { '€': '#d4b5e8', '€€': '#a46bc9', '€€€': '#5e1788' };
+      const showZones = () => cat === 'neighbourhoods' && !!ZONES;
       const $ = (id) => document.getElementById(id);
 
       // ----- category buttons -----
@@ -84,7 +86,8 @@
         const groups = cat === 'all'
           ? CATS.map((c) => [c, c.name, list.filter((p) => p.category === c.id)])
           : (TYPES[cat] || [null]).map((t) => [byId[cat], t || byId[cat].name, list.filter((p) => !t || p.type === t)]);
-        const intro = cat !== 'all' && byId[cat].intro ? `<li class="map-intro">${esc(byId[cat].intro)}</li>` : '';
+        const legend = cat === 'neighbourhoods' ? `<li class="map-legend"><span>Rent level:</span>${Object.entries(RENT).map(([k, c]) => `<i style="--c:${c}"></i>${k === '€' ? 'Lower' : k === '€€' ? 'Medium' : 'Higher'}`).join('')}</li>` : '';
+        const intro = (cat !== 'all' && byId[cat].intro ? `<li class="map-intro">${esc(byId[cat].intro)}</li>` : '') + legend;
         $('map-list').innerHTML = intro + groups.filter((g) => g[2].length).map(([c, title, items]) => `
           <li class="map-group">
             <h2 style="--dot:${c.colour}"><i aria-hidden="true"></i>${esc(title)} <small>${items.length}</small></h2>
@@ -105,6 +108,7 @@
       }
 
       function geojson(list) {
+        if (showZones()) list = list.filter((p) => !p.zone);
         return { type: 'FeatureCollection', features: list.map((p) => ({
           type: 'Feature', id: p.id, geometry: { type: 'Point', coordinates: [p.lng, p.lat] },
           properties: { id: p.id, colour: byId[p.category].colour } })) };
@@ -118,9 +122,10 @@
         const list = visible();
         map.getSource('places').setData(geojson(list));
         drawTrails(list);
+        drawZones(list);
         if (fit && list.length) {
           const b = new maplibregl.LngLatBounds();
-          list.forEach((p) => { b.extend([p.lng, p.lat]); (p.route && TRAILS && TRAILS[p.route] || []).forEach((c) => b.extend(c)); });
+          list.forEach((p) => { b.extend([p.lng, p.lat]); (p.route && TRAILS && TRAILS[p.route] || []).forEach((c) => b.extend(c)); if (showZones() && p.zone) zoneCoords(p).forEach((c) => b.extend(c)); });
           map.fitBounds(b, { padding: 60, maxZoom: 14, duration: 600 });
         }
       }
@@ -130,8 +135,8 @@
         if (popup) popup.remove();
         popup = new maplibregl.Popup({ offset: 12, maxWidth: '300px' }).setLngLat([p.lng, p.lat]).setHTML(popupHtml(p)).addTo(map);
         setActive(p);
-        const line = p.route && TRAILS && TRAILS[p.route];
-        if (fly && line) {
+        const line = p.route && TRAILS && TRAILS[p.route] || (p.zone && ZONES && zoneCoords(p));
+        if (fly && line && line.length) {
           const b = new maplibregl.LngLatBounds();
           line.forEach((c) => b.extend(c));
           map.fitBounds(b, { padding: { top: 90, bottom: 40, left: 40, right: 40 }, maxZoom: 15, duration: 700 });
@@ -149,8 +154,23 @@
         map.getSource('trails').setData({ type: 'FeatureCollection', features: trailFeatures(list) });
       }
       function setActive(p) {
-        active = p && p.route ? p.id : null;
-        if (map && map.getLayer('trails-active')) map.setFilter('trails-active', ['==', ['get', 'id'], active === null ? -1 : active]);
+        active = p && (p.route || p.zone) ? p.id : null;
+        const f = ['==', ['get', 'id'], active === null ? -1 : active];
+        if (map && map.getLayer('trails-active')) map.setFilter('trails-active', f);
+        if (map && map.getLayer('zones-active')) map.setFilter('zones-active', f);
+      }
+
+      // ----- neighbourhood zones (real council boundaries) -----
+      function zoneCoords(p) {
+        const g = ZONES && ZONES[p.zone]; if (!g) return [];
+        const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+        return polys.flatMap((poly) => poly[0]);
+      }
+      function drawZones(list) {
+        if (!map || !map.getSource('zones')) return;
+        const feats = showZones() ? list.filter((p) => p.zone && ZONES[p.zone]).map((p) => ({
+          type: 'Feature', geometry: ZONES[p.zone], properties: { id: p.id, name: p.name.replace(/, Gozo$/, ''), fill: RENT[p.price] || RENT['€€'] } })) : [];
+        map.getSource('zones').setData({ type: 'FeatureCollection', features: feats });
       }
 
       function setCat(c, fit) {
@@ -199,6 +219,20 @@
             paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 7, 14, 11], 'circle-color': '#ffffff', 'circle-opacity': 0.95 } });
           map.addLayer({ id: 'places', type: 'circle', source: 'places',
             paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 5, 14, 8.5], 'circle-color': ['get', 'colour'] } });
+          // Neighbourhood zones go under trails and pins.
+          map.addSource('zones', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+          map.addLayer({ id: 'zones-fill', type: 'fill', source: 'zones', paint: { 'fill-color': ['get', 'fill'], 'fill-opacity': 0.5 } }, 'places-halo');
+          map.addLayer({ id: 'zones-line', type: 'line', source: 'zones', paint: { 'line-color': '#4a1070', 'line-width': 1.2, 'line-opacity': 0.8 } }, 'places-halo');
+          map.addLayer({ id: 'zones-active', type: 'line', source: 'zones', filter: ['==', ['get', 'id'], -1], paint: { 'line-color': '#ff6f00', 'line-width': 3.5 } }, 'places-halo');
+          map.addLayer({ id: 'zones-label', type: 'symbol', source: 'zones', minzoom: 10.5,
+            layout: { 'text-field': ['get', 'name'], 'text-font': ['Noto Sans Bold'], 'text-size': ['interpolate', ['linear'], ['zoom'], 10.5, 10, 14, 14], 'text-max-width': 7 },
+            paint: { 'text-color': '#2b0a40', 'text-halo-color': '#ffffff', 'text-halo-width': 1.6 } });
+          fetch('/map/areas.json').then((r) => r.json()).then((z) => { ZONES = z; refresh(cat === 'neighbourhoods'); }).catch(() => {});
+          map.on('click', 'zones-fill', (e) => { const p = PLACES[e.features[0].properties.id]; popup && popup.remove();
+            popup = new maplibregl.Popup({ offset: 6, maxWidth: '300px' }).setLngLat(e.lngLat).setHTML(popupHtml(p)).addTo(map); setActive(p); });
+          map.on('mouseenter', 'zones-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'zones-fill', () => { map.getCanvas().style.cursor = ''; });
+
           // Trail lines go under the pins.
           map.addSource('trails', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
           map.addLayer({ id: 'trails-casing', type: 'line', source: 'trails', layout: { 'line-join': 'round', 'line-cap': 'round' },

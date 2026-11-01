@@ -218,9 +218,18 @@ def main():
                f'<trk><name>{html.escape(name)}</name><trkseg>{pts}</trkseg></trk></gpx>\n')
         write(f'/map/trails/{slug}.gpx', gpx)
     write('/map/trails.json', json.dumps(trails, separators=(',', ':')))
+    # neighbourhood zones: content/areas/<place file name>.json (real council boundaries from OpenStreetMap)
+    zones = {}
+    adir = os.path.join(ROOT, 'content', 'areas')
+    for f in sorted(os.listdir(adir)) if os.path.isdir(adir) else []:
+        if f.endswith('.json') and f[:-5] in by_slug:
+            zones[f[:-5]] = json.load(open(os.path.join(adir, f), encoding='utf-8'))['geometry']
+    write('/map/areas.json', json.dumps(zones, separators=(',', ':')))
     for p in places:
         if p.get('slug') in trails:
             p['route'] = p['slug']
+        if p.get('slug') in zones:
+            p['zone'] = p['slug']
     for p in places:
         p.pop('slug', None)
     places.sort(key=lambda p: p['name'].lower())
