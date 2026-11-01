@@ -1,6 +1,7 @@
 ---
 name: Sliema
 category: neighbourhoods
+type: Central coast
 area: Sliema
 lat: 35.912
 lng: 14.504

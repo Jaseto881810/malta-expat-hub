@@ -1,6 +1,7 @@
 ---
 name: Marsaskala
 category: neighbourhoods
+type: South
 area: Marsaskala
 lat: 35.862
 lng: 14.567

@@ -1,6 +1,7 @@
 ---
 name: ESE – European School of English
 category: english-schools
+type: Malta
 area: St Julian's
 lat: 35.9215
 lng: 14.4865

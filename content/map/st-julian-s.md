@@ -1,6 +1,7 @@
 ---
 name: St Julian's
 category: neighbourhoods
+type: Central coast
 area: St Julian's
 lat: 35.918
 lng: 14.488

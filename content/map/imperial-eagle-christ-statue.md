@@ -1,6 +1,7 @@
 ---
 name: Imperial Eagle & Christ statue
 category: diving
+type: Wrecks
 area: Qawra
 lat: 35.963
 lng: 14.424

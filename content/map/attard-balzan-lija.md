@@ -1,6 +1,7 @@
 ---
 name: Attard, Balzan & Lija
 category: neighbourhoods
+type: Central
 area: Attard
 lat: 35.893
 lng: 14.442

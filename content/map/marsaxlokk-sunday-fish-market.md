@@ -1,6 +1,7 @@
 ---
 name: Marsaxlokk & Sunday fish market
 category: things-to-do
+type: Food, markets & shopping
 area: Marsaxlokk
 lat: 35.842
 lng: 14.544

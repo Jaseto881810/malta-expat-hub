@@ -1,6 +1,7 @@
 ---
 name: Msida
 category: neighbourhoods
+type: Harbour
 area: Msida
 lat: 35.896
 lng: 14.489

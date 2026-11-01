@@ -1,6 +1,7 @@
 ---
 name: Gżira
 category: neighbourhoods
+type: Central coast
 area: Gżira
 lat: 35.9055
 lng: 14.489

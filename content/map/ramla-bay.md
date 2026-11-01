@@ -1,6 +1,7 @@
 ---
 name: Ramla Bay
 category: beaches
+type: Sandy
 area: Nadur, Gozo
 lat: 36.0625
 lng: 14.284

@@ -1,6 +1,7 @@
 ---
 name: Armier Bay
 category: beaches
+type: Sandy
 area: Mellieħa
 lat: 35.9897
 lng: 14.36

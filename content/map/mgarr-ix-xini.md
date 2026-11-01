@@ -1,6 +1,7 @@
 ---
 name: Mġarr ix-Xini
 category: diving
+type: Reefs & caves
 area: Sannat, Gozo
 lat: 36.025
 lng: 14.273

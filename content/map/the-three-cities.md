@@ -1,6 +1,7 @@
 ---
 name: The Three Cities
 category: neighbourhoods
+type: Harbour
 area: The Three Cities
 lat: 35.887
 lng: 14.521

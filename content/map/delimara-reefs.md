@@ -1,6 +1,7 @@
 ---
 name: Delimara reefs
 category: diving
+type: Reefs & caves
 area: Delimara
 lat: 35.8285
 lng: 14.563

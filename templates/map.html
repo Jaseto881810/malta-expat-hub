@@ -17,6 +17,7 @@
             <input id="map-q" type="search" placeholder="Search, e.g. Gozo or Sliema" autocomplete="off">
           </label>
           <div class="map-cats" id="map-cats" role="group" aria-label="Show on map"></div>
+          <div class="map-subs" id="map-subs" role="group" aria-label="Filter this category" hidden></div>
         </div>
         <p class="map-count" id="map-count" aria-live="polite"></p>
         <ul class="map-list" id="map-list"></ul>
@@ -35,9 +36,14 @@
       const byId = Object.fromEntries(CATS.map((c) => [c.id, c]));
       const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
       const norm = (s) => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[ħ]/gi, 'h').replace(/[ġ]/gi, 'g').replace(/[ż]/gi, 'z').replace(/[ċ]/gi, 'c').toLowerCase();
-      PLACES.forEach((p, i) => { p.id = i; p._q = norm([p.name, p.area, p.text, p.details].join(' ')); });
+      PLACES.forEach((p, i) => { p.id = i; p._q = norm([p.name, p.area, p.type, p.text, p.details].join(' ')); });
+      // sub-types per category, in the order they first appear
+      const TYPES = {};
+      CATS.forEach((c) => { TYPES[c.id] = (c.types || []).slice(); });
+      PLACES.forEach((p) => { if (p.type && TYPES[p.category] && !TYPES[p.category].includes(p.type)) TYPES[p.category].push(p.type); });
+      Object.keys(TYPES).forEach((k) => { TYPES[k] = TYPES[k].filter((t) => PLACES.some((p) => p.category === k && p.type === t)); });
 
-      let cat = 'all', query = '', map = null, popup = null;
+      let cat = 'all', sub = 'all', query = '', map = null, popup = null;
       const $ = (id) => document.getElementById(id);
 
       // ----- category buttons -----
@@ -49,14 +55,14 @@
 
       function visible() {
         const q = norm(query.trim());
-        return PLACES.filter((p) => (cat === 'all' || p.category === cat) && (!q || p._q.includes(q)));
+        return PLACES.filter((p) => (cat === 'all' || p.category === cat) && (sub === 'all' || p.type === sub) && (!q || p._q.includes(q)));
       }
 
       function popupHtml(p) {
         const c = byId[p.category];
         const dir = `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
         return `<div class="map-pop">
-          <span class="map-pop-cat" style="--dot:${c.colour}"><i></i>${esc(c.name)}</span>
+          <span class="map-pop-cat" style="--dot:${c.colour}"><i></i>${esc(c.name)}${p.type ? ' · ' + esc(p.type) : ''}</span>
           <h3>${esc(p.name)}</h3>
           <div class="map-pop-area">${esc(p.area)}${p.price ? ` · <b>${esc(p.price)}</b>` : ''}</div>
           <p>${esc(p.text)}</p>
@@ -73,16 +79,27 @@
         const list = visible();
         $('map-count').textContent = list.length === 1 ? '1 place' : `${list.length} places`;
         if (!list.length) { $('map-list').innerHTML = '<li class="map-empty">No places found. Try another word or category.</li>'; return; }
-        const groups = cat === 'all' ? CATS.map((c) => [c, list.filter((p) => p.category === c.id)]).filter((g) => g[1].length) : [[byId[cat], list]];
-        $('map-list').innerHTML = groups.map(([c, items]) => `
+        const groups = cat === 'all'
+          ? CATS.map((c) => [c, c.name, list.filter((p) => p.category === c.id)])
+          : (TYPES[cat] || [null]).map((t) => [byId[cat], t || byId[cat].name, list.filter((p) => !t || p.type === t)]);
+        const intro = cat !== 'all' && byId[cat].intro ? `<li class="map-intro">${esc(byId[cat].intro)}</li>` : '';
+        $('map-list').innerHTML = intro + groups.filter((g) => g[2].length).map(([c, title, items]) => `
           <li class="map-group">
-            <h2 style="--dot:${c.colour}"><i aria-hidden="true"></i>${esc(c.name)}</h2>
-            ${cat !== 'all' && c.intro ? `<p class="map-intro">${esc(c.intro)}</p>` : ''}
+            <h2 style="--dot:${c.colour}"><i aria-hidden="true"></i>${esc(title)} <small>${items.length}</small></h2>
             <ul>${items.map((p) => `
               <li><button type="button" class="map-item" data-id="${p.id}">
                 <b>${esc(p.name)}</b><span>${esc(p.area)}${p.details ? ' · ' + esc(p.details) : ''}</span>
               </button></li>`).join('')}</ul>
           </li>`).join('');
+      }
+
+      function renderSubs() {
+        const types = cat === 'all' ? [] : (TYPES[cat] || []);
+        $('map-subs').hidden = types.length < 2;
+        if (types.length < 2) { $('map-subs').innerHTML = ''; return; }
+        const n = (t) => PLACES.filter((p) => p.category === cat && (t === 'all' || p.type === t)).length;
+        $('map-subs').innerHTML = ['all'].concat(types).map((t) =>
+          `<button type="button" class="map-sub" data-sub="${esc(t)}" aria-pressed="${sub === t}">${t === 'all' ? 'All' : esc(t)} <small>${n(t)}</small></button>`).join('');
       }
 
       function geojson(list) {
@@ -93,6 +110,7 @@
 
       function refresh(fit) {
         document.querySelectorAll('.map-cat').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cat === cat)));
+        renderSubs();
         renderList();
         if (!map || !map.getSource('places')) return;
         const list = visible();
@@ -113,11 +131,13 @@
 
       function setCat(c, fit) {
         cat = byId[c] ? c : 'all';
+        sub = 'all';
         try { history.replaceState(null, '', cat === 'all' ? location.pathname : '#' + cat); } catch (e) {}
         refresh(fit);
       }
 
       $('map-cats').addEventListener('click', (e) => { const b = e.target.closest('.map-cat'); if (b) setCat(b.dataset.cat, true); });
+      $('map-subs').addEventListener('click', (e) => { const b = e.target.closest('.map-sub'); if (b) { sub = b.dataset.sub; refresh(true); } });
       $('map-q').addEventListener('input', (e) => { query = e.target.value; refresh(false); });
       $('map-list').addEventListener('click', (e) => {
         const b = e.target.closest('.map-item'); if (!b) return;

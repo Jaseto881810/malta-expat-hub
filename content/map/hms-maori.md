@@ -1,6 +1,7 @@
 ---
 name: HMS Maori
 category: diving
+type: Wrecks
 area: Valletta
 lat: 35.9035
 lng: 14.516

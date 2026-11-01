@@ -1,6 +1,7 @@
 ---
 name: Ħal Saflieni Hypogeum
 category: things-to-do
+type: History & culture
 area: Paola
 lat: 35.8697
 lng: 14.5076

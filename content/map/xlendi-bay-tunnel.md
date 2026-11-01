@@ -1,6 +1,7 @@
 ---
 name: Xlendi Bay & tunnel
 category: diving
+type: Reefs & caves
 area: Xlendi, Gozo
 lat: 36.0285
 lng: 14.2135

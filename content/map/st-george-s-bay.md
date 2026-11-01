@@ -1,6 +1,7 @@
 ---
 name: St George's Bay
 category: beaches
+type: Sandy
 area: St Julian's
 lat: 35.9267
 lng: 14.4893

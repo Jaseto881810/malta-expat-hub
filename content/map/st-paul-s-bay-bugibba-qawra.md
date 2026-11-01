@@ -1,6 +1,7 @@
 ---
 name: St Paul's Bay, Buġibba & Qawra
 category: neighbourhoods
+type: North
 area: St Paul's Bay
 lat: 35.951
 lng: 14.414

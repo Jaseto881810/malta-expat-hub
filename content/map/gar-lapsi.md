@@ -1,6 +1,7 @@
 ---
 name: Għar Lapsi
 category: beaches
+type: Rocky
 area: Siġġiewi
 lat: 35.827
 lng: 14.424

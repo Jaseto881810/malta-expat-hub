@@ -1,6 +1,7 @@
 ---
 name: Valletta
 category: neighbourhoods
+type: Harbour
 area: Valletta
 lat: 35.8989
 lng: 14.5146

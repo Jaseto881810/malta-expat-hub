@@ -1,6 +1,7 @@
 ---
 name: Golden Bay
 category: beaches
+type: Sandy
 area: Mġarr
 lat: 35.9333
 lng: 14.3442

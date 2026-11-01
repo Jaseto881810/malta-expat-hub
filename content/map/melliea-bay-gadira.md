@@ -1,6 +1,7 @@
 ---
 name: Mellieħa Bay (Għadira)
 category: beaches
+type: Sandy
 area: Mellieħa
 lat: 35.9615
 lng: 14.356

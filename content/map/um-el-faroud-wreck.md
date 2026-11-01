@@ -1,6 +1,7 @@
 ---
 name: Um El Faroud wreck
 category: diving
+type: Wrecks
 area: Wied iż-Żurrieq
 lat: 35.818
 lng: 14.452

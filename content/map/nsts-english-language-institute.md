@@ -1,6 +1,7 @@
 ---
 name: NSTS English Language Institute
 category: english-schools
+type: Malta
 area: Gżira
 lat: 35.906
 lng: 14.493

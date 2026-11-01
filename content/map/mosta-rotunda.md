@@ -1,10 +1,11 @@
 ---
 name: Mosta Rotunda
 category: things-to-do
+type: History & culture
 area: Mosta
 lat: 35.9097
 lng: 14.4257
-text: Church with one of the largest domes in Europe. A WWII bomb fell inside and did not explode.
+text: Church with one of Europe's largest domes. A WWII bomb fell inside and did not explode.
 details: Small entry fee
 guide: /locations/historical.html
 ---

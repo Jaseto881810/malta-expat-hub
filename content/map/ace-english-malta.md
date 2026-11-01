@@ -1,6 +1,7 @@
 ---
 name: ACE English Malta
 category: english-schools
+type: Malta
 area: St Julian's
 lat: 35.9233
 lng: 14.4895

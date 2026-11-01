@@ -1,6 +1,7 @@
 ---
 name: Ta' Xbiex
 category: neighbourhoods
+type: Central coast
 area: Ta' Xbiex
 lat: 35.899
 lng: 14.496

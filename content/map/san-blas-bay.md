@@ -1,6 +1,7 @@
 ---
 name: San Blas Bay
 category: beaches
+type: Sandy
 area: Nadur, Gozo
 lat: 36.06
 lng: 14.296

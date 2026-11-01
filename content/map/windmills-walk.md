@@ -1,6 +1,7 @@
 ---
 name: Windmills Walk
 category: hiking
+type: Malta
 area: Żurrieq
 lat: 35.831
 lng: 14.4745

@@ -1,6 +1,7 @@
 ---
 name: Transport Malta (licensing)
 category: expat-services
+type: Government & official
 area: Paola
 lat: 35.8725
 lng: 14.505

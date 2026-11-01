@@ -1,6 +1,7 @@
 ---
 name: Naxxar
 category: neighbourhoods
+type: Central
 area: Naxxar
 lat: 35.914
 lng: 14.444

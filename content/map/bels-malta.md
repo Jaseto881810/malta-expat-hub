@@ -1,6 +1,7 @@
 ---
 name: BELS Malta
 category: english-schools
+type: Malta
 area: St Paul's Bay
 lat: 35.948
 lng: 14.401

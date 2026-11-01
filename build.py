@@ -60,19 +60,26 @@ def load_folder(folder):
 # Map categories: id, name, colour, short intro. Places are in content/map/.
 MAP_CATEGORIES = [
     {'id': 'things-to-do', 'name': 'Things to do', 'colour': '#cf142b',
-     'intro': 'Sights, museums and day-out ideas across Malta and Gozo.'},
+     'intro': 'Sights, museums and day-out ideas across Malta and Gozo.',
+     'types': ['History & culture', 'Viewpoints', 'Nature & gardens', 'Food, markets & shopping', 'Nightlife', 'Family & activities']},
     {'id': 'hiking', 'name': 'Hiking trails', 'colour': '#2e7d32',
-     'intro': 'Start points of popular walks. Best from October to May; carry water, as there is little shade.'},
+     'intro': 'Start points of popular walks. Best from October to May; carry water, as there is little shade.',
+     'types': ['Malta', 'Gozo', 'Comino']},
     {'id': 'diving', 'name': 'Diving', 'colour': '#1565c0',
-     'intro': 'Popular dive sites with depth and level. Always dive with a local dive centre or a buddy.'},
+     'intro': 'Popular dive sites with depth and level. Always dive with a local dive centre or a buddy.',
+     'types': ['Wrecks', 'Reefs & caves']},
     {'id': 'beaches', 'name': 'Beaches', 'colour': '#d99a00',
-     'intro': 'Sandy bays and rocky swimming spots. Check the beach flag before you swim.'},
+     'intro': 'Sandy bays and rocky swimming spots. Check the beach flag before you swim.',
+     'types': ['Sandy', 'Rocky']},
     {'id': 'neighbourhoods', 'name': 'Neighbourhoods', 'colour': '#7b1fa2',
-     'intro': 'Popular areas to live. Rent level: € lower, €€ medium, €€€ higher.'},
+     'intro': 'Popular areas to live. Rent level: € lower, €€ medium, €€€ higher.',
+     'types': ['Central coast', 'Harbour', 'Central', 'West', 'North', 'South', 'Gozo']},
     {'id': 'expat-services', 'name': 'Expat services', 'colour': '#00796b',
-     'intro': 'Hospitals, transport hubs and offices you will likely need.'},
+     'intro': 'Hospitals, health centres, transport, offices, coworking and gyms.',
+     'types': ['Hospitals & clinics', 'Public health centres', 'Transport', 'Government & official', 'Coworking', 'Gyms']},
     {'id': 'english-schools', 'name': 'English schools', 'colour': '#e65100',
-     'intro': 'Language schools by town. Pins show the area; check each school for its exact address.'},
+     'intro': 'Language schools by town. Pins show the area; check each school for its exact address.',
+     'types': ['Malta', 'Gozo']},
 ]
 
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
@@ -192,7 +199,7 @@ def main():
     for p in load_folder('map'):
         if p.get('draft') or p.get('category') not in cat_ids or p.get('lat') is None or p.get('lng') is None:
             continue
-        places.append({k: p.get(k) for k in ('name', 'category', 'area', 'lat', 'lng', 'text', 'details', 'price', 'guide', 'website') if p.get(k) not in (None, '')})
+        places.append({k: p.get(k) for k in ('name', 'category', 'type', 'area', 'lat', 'lng', 'text', 'details', 'price', 'guide', 'website') if p.get(k) not in (None, '')})
     places.sort(key=lambda p: p['name'].lower())
     safe_json = lambda o: json.dumps(o, ensure_ascii=False).replace('</', '<\\/')
     write('/map/', env.get_template('map.html').render(

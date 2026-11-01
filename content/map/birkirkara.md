@@ -1,6 +1,7 @@
 ---
 name: Birkirkara
 category: neighbourhoods
+type: Central
 area: Birkirkara
 lat: 35.897
 lng: 14.462

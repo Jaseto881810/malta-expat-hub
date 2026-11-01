@@ -1,6 +1,7 @@
 ---
 name: Majjistral Nature Park
 category: hiking
+type: Malta
 area: Għajn Tuffieħa
 lat: 35.94
 lng: 14.351

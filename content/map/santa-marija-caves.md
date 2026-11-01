@@ -1,6 +1,7 @@
 ---
 name: Santa Marija Caves
 category: diving
+type: Reefs & caves
 area: Comino
 lat: 36.02
 lng: 14.341

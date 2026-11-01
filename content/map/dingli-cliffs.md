@@ -1,6 +1,7 @@
 ---
 name: Dingli Cliffs
 category: things-to-do
+type: Viewpoints
 area: Dingli
 lat: 35.858
 lng: 14.381

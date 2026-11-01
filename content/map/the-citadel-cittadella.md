@@ -1,6 +1,7 @@
 ---
 name: The Citadel (Ċittadella)
 category: things-to-do
+type: History & culture
 area: Victoria, Gozo
 lat: 36.0463
 lng: 14.2394

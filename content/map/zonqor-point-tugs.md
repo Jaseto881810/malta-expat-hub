@@ -1,6 +1,7 @@
 ---
 name: Żonqor Point tugs
 category: diving
+type: Wrecks
 area: Marsaskala
 lat: 35.869
 lng: 14.5765

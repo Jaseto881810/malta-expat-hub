@@ -1,6 +1,7 @@
 ---
 name: Sliema rocky shore
 category: beaches
+type: Rocky
 area: Sliema
 lat: 35.9128
 lng: 14.5075

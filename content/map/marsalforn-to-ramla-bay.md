@@ -1,6 +1,7 @@
 ---
 name: Marsalforn to Ramla Bay
 category: hiking
+type: Gozo
 area: Marsalforn, Gozo
 lat: 36.0715
 lng: 14.262

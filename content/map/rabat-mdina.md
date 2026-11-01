@@ -1,6 +1,7 @@
 ---
 name: Rabat & Mdina
 category: neighbourhoods
+type: West
 area: Rabat & Mdina
 lat: 35.88
 lng: 14.395

@@ -1,6 +1,7 @@
 ---
 name: Mellieħa
 category: neighbourhoods
+type: North
 area: Mellieħa
 lat: 35.957
 lng: 14.362

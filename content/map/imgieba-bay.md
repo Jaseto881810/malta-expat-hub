@@ -1,6 +1,7 @@
 ---
 name: Imġiebaħ Bay
 category: beaches
+type: Sandy
 area: Selmun
 lat: 35.9615
 lng: 14.383

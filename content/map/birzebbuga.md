@@ -1,6 +1,7 @@
 ---
 name: Birżebbuġa
 category: neighbourhoods
+type: South
 area: Birżebbuġa
 lat: 35.825
 lng: 14.524

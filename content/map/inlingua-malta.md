@@ -1,6 +1,7 @@
 ---
 name: inlingua Malta
 category: english-schools
+type: Malta
 area: Sliema
 lat: 35.91
 lng: 14.501

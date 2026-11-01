@@ -1,6 +1,7 @@
 ---
 name: Mdina, the Silent City
 category: things-to-do
+type: History & culture
 area: Mdina
 lat: 35.886
 lng: 14.4032

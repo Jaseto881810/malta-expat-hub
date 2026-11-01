@@ -1,6 +1,7 @@
 ---
 name: Victoria Lines Trail
 category: hiking
+type: Malta
 area: Binġemma
 lat: 35.9085
 lng: 14.38

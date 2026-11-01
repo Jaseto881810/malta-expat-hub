@@ -1,6 +1,7 @@
 ---
 name: EC English
 category: english-schools
+type: Malta
 area: St Julian's
 lat: 35.9185
 lng: 14.4885

@@ -1,6 +1,7 @@
 ---
 name: Comino Walk
 category: hiking
+type: Comino
 area: Comino
 lat: 36.0145
 lng: 14.3275

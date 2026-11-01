@@ -1,6 +1,7 @@
 ---
 name: EF Education First
 category: english-schools
+type: Malta
 area: St Julian's
 lat: 35.9238
 lng: 14.4875

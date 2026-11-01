@@ -1,6 +1,7 @@
 ---
 name: Pembroke
 category: neighbourhoods
+type: Central coast
 area: Pembroke
 lat: 35.93
 lng: 14.478

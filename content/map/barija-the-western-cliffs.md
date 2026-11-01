@@ -1,6 +1,7 @@
 ---
 name: Baħrija & the western cliffs
 category: hiking
+type: Malta
 area: Il-Fiddien
 lat: 35.8855
 lng: 14.3775

@@ -1,6 +1,7 @@
 ---
 name: Dwejra & the Inland Sea
 category: things-to-do
+type: Viewpoints
 area: San Lawrenz, Gozo
 lat: 36.0525
 lng: 14.1925

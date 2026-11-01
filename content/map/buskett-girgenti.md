@@ -1,6 +1,7 @@
 ---
 name: Buskett & Girgenti
 category: hiking
+type: Malta
 area: Buskett
 lat: 35.86
 lng: 14.3985

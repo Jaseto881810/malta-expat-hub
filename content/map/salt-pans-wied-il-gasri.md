@@ -1,6 +1,7 @@
 ---
 name: Salt Pans & Wied il-Għasri
 category: hiking
+type: Gozo
 area: Żebbuġ, Gozo
 lat: 36.08
 lng: 14.249

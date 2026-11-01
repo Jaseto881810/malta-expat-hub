@@ -1,6 +1,7 @@
 ---
 name: Swieqi
 category: neighbourhoods
+type: Central coast
 area: Swieqi
 lat: 35.922
 lng: 14.48

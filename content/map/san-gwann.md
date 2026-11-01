@@ -1,6 +1,7 @@
 ---
 name: San Ġwann
 category: neighbourhoods
+type: Central
 area: San Ġwann
 lat: 35.907
 lng: 14.477

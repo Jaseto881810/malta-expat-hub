@@ -1,6 +1,7 @@
 ---
 name: BELS Gozo
 category: english-schools
+type: Gozo
 area: Kerċem, Gozo
 lat: 36.0425
 lng: 14.2265

@@ -1,6 +1,7 @@
 ---
 name: Clubclass
 category: english-schools
+type: Malta
 area: Swieqi
 lat: 35.9225
 lng: 14.4815

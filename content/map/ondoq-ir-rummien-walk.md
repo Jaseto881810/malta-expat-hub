@@ -1,6 +1,7 @@
 ---
 name: Ħondoq ir-Rummien walk
 category: hiking
+type: Gozo
 area: Mġarr, Gozo
 lat: 36.025
 lng: 14.298

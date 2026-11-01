@@ -1,6 +1,7 @@
 ---
 name: Mosta
 category: neighbourhoods
+type: Central
 area: Mosta
 lat: 35.911
 lng: 14.423

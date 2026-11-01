@@ -118,8 +118,9 @@ collections:
     summary: "{{fields.name}}  ·  {{fields.area}}"
     view_groups:
       - { label: Category, field: category }
+      - { label: Type, field: type }
     sortable_fields:
-      fields: [name, category, area]
+      fields: [name, category, type, area]
       default: { field: name }
     fields:
       - { label: Name, name: name, widget: string }
@@ -134,6 +135,7 @@ collections:
           - { label: Neighbourhoods, value: neighbourhoods }
           - { label: Expat services, value: expat-services }
           - { label: English schools, value: english-schools }
+      - { label: Type, name: type, widget: string, required: false, hint: "Sub-group within the category, e.g. History & culture, Viewpoints, Nightlife, Wrecks, Sandy, Rocky, Gozo. Use the same spelling as other places." }
       - { label: Town or area, name: area, widget: string }
       - { label: Latitude, name: lat, widget: number, value_type: float, hint: "For example 35.8977 (Malta is around 35.8–36.1)" }
       - { label: Longitude, name: lng, widget: number, value_type: float, hint: "For example 14.5124 (Malta is around 14.18–14.58)" }

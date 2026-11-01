@@ -1,6 +1,7 @@
 ---
 name: Xwejni Salt Pans
 category: things-to-do
+type: Viewpoints
 area: Marsalforn, Gozo
 lat: 36.0785
 lng: 14.2555

@@ -1,6 +1,7 @@
 ---
 name: Reqqa Point
 category: diving
+type: Reefs & caves
 area: Żebbuġ, Gozo
 lat: 36.0845
 lng: 14.234

@@ -1,6 +1,7 @@
 ---
 name: Anchor Bay
 category: diving
+type: Reefs & caves
 area: Mellieħa
 lat: 35.9608
 lng: 14.3418

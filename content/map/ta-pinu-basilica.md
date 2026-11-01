@@ -1,6 +1,7 @@
 ---
 name: Ta' Pinu Basilica
 category: things-to-do
+type: History & culture
 area: Għarb, Gozo
 lat: 36.0616
 lng: 14.2128

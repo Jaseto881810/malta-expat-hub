@@ -1,6 +1,7 @@
 ---
 name: Paradise Bay
 category: beaches
+type: Sandy
 area: Ċirkewwa
 lat: 35.9827
 lng: 14.3343

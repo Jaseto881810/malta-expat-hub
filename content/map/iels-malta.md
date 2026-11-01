@@ -1,6 +1,7 @@
 ---
 name: IELS Malta
 category: english-schools
+type: Malta
 area: Sliema
 lat: 35.912
 lng: 14.5045

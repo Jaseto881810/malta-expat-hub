@@ -1,6 +1,7 @@
 ---
 name: Pretty Bay
 category: beaches
+type: Sandy
 area: Birżebbuġa
 lat: 35.8255
 lng: 14.53

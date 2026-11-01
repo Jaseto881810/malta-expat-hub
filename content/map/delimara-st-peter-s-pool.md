@@ -1,6 +1,7 @@
 ---
 name: Delimara & St Peter's Pool
 category: hiking
+type: Malta
 area: Marsaskala
 lat: 35.858
 lng: 14.566

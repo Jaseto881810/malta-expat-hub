@@ -1,6 +1,7 @@
 ---
 name: Xemxija Heritage Trail
 category: hiking
+type: Malta
 area: Xemxija
 lat: 35.953
 lng: 14.383
