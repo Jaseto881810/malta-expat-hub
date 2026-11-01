@@ -1,6 +1,6 @@
 ---
 name: Lifestyle
-number: '8'
+number: '08'
 order: 8
 colour: '#7fdcc9'
 inTopMenu: true
