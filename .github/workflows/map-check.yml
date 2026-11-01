@@ -35,9 +35,13 @@ jobs:
               b.close()
           PY
           python shot.py
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Fetch council boundaries
+        run: pip install shapely==2.0.6 && python tools/fetch_areas.py
       - name: Save screenshots to a branch
         run: |
-          mkdir out && mv *.png out/ && cd out
+          mkdir out && mv *.png areas_all.geojson out/ && cd out
           git init -q && git checkout -q -b map-check-shots
           git config user.name "github-actions[bot]" && git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
           git add . && git commit -qm "map screenshots"
