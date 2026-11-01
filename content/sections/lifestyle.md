@@ -2,7 +2,7 @@
 name: Lifestyle
 number: '8'
 order: 8
-colour: '#cfe3ea'
+colour: '#7fdcc9'
 inTopMenu: true
 intro: Restaurants, beach clubs, gyms, festivals, nightlife and more.
 homeText: Restaurants, beach clubs, gyms, festivals and nightlife.

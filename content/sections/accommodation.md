@@ -2,7 +2,7 @@
 name: Accommodation
 number: '04'
 order: 4
-colour: '#fbe6e0'
+colour: '#ff8fb3'
 inTopMenu: true
 intro: Renting, buying, Solidarjetà, mortgages and the Housing Authority.
 homeText: Renting, buying, Solidarjetà, mortgages and the Housing Authority.

@@ -2,7 +2,7 @@
 name: Safety in Malta
 number: '07'
 order: 7
-colour: '#ebdfca'
+colour: '#ffd60a'
 inTopMenu: false
 intro: ''
 homeText: Nightlife, petty crime, scams and emergency protocols.

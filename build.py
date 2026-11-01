@@ -163,7 +163,7 @@ def main():
         pages.append(g['url'])
 
     # ---- standalone pages (About, Contact, Privacy Policy, ...) ----
-    plain = {'colour': '#cfe3ea', 'singlePage': True}
+    plain = {'colour': '#ffd60a', 'singlePage': True}
     for pg in pages_extra:
         pg['url'] = f"/{pg['slug']}.html"
         pg['menuName'] = pg.get('menuName') or pg['title']
@@ -184,7 +184,7 @@ def main():
         pages.append(url)
 
     # ---- blog: one page per post, plus the overview at /blog/ ----
-    blog = {'name': 'Blog', 'href': '/blog/', 'colour': '#cfe3ea'}
+    blog = {'name': 'Blog', 'href': '/blog/', 'colour': '#ff8fb3'}
     for post in posts:
         write(post['url'], guide_tpl.render(page=post, section=blog, standalone=True, content_css=True,
               **common(post.get('seoTitle') or post['title'], post.get('description') or post.get('excerpt'),

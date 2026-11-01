@@ -1,0 +1,42 @@
+# Temporary: builds this branch and screenshots key pages for review. Not merged to main.
+name: Preview shots
+on:
+  push:
+    branches: [doodle-theme]
+permissions:
+  contents: write
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -r requirements.txt playwright==1.47.0 && python -m playwright install --with-deps chromium
+      - run: python build.py && npx --yes tailwindcss@3.4 -c tailwind.config.js -i assets/content.src.css -o _site/assets/content.css --minify
+      - name: Screenshot
+        run: |
+          (cd _site && python -m http.server 8000 >/dev/null 2>&1 &)
+          sleep 2
+          cat > shot.py <<'PY'
+          from playwright.sync_api import sync_playwright
+          pages = [("home", "/"), ("section", "/expat-info/"), ("guide", "/expat-info/healthcare.html"), ("map", "/map/#beaches"), ("about", "/about.html")]
+          with sync_playwright() as p:
+              b = p.chromium.launch(args=["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"])
+              for w, h, dev in [(1280, 900, "d"), (390, 844, "m")]:
+                  pg = b.new_page(viewport={"width": w, "height": h})
+                  for name, url in pages:
+                      pg.goto("http://localhost:8000" + url, wait_until="networkidle", timeout=90000)
+                      pg.wait_for_timeout(2500)
+                      pg.screenshot(path=f"{name}-{dev}.png", full_page=(name != "map"))
+                      print(name, dev, pg.evaluate("document.documentElement.scrollWidth"))
+              b.close()
+          PY
+          python shot.py
+      - name: Save screenshots to a branch
+        run: |
+          mkdir out && mv *.png out/ && cd out
+          git init -q && git checkout -q -b preview-shots
+          git config user.name "github-actions[bot]" && git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
+          git add . && git commit -qm "preview screenshots"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" preview-shots
