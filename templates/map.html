@@ -43,7 +43,7 @@
       PLACES.forEach((p) => { if (p.type && TYPES[p.category] && !TYPES[p.category].includes(p.type)) TYPES[p.category].push(p.type); });
       Object.keys(TYPES).forEach((k) => { TYPES[k] = TYPES[k].filter((t) => PLACES.some((p) => p.category === k && p.type === t)); });
 
-      let cat = 'all', sub = 'all', query = '', map = null, popup = null;
+      let cat = 'all', sub = 'all', query = '', map = null, popup = null, TRAILS = null, active = null;
       const $ = (id) => document.getElementById(id);
 
       // ----- category buttons -----
@@ -70,8 +70,10 @@
           <div class="map-pop-links">
             ${p.guide ? `<a href="${esc(p.guide)}">Read our guide →</a>` : ''}
             ${p.website ? `<a href="${esc(p.website)}" target="_blank" rel="noopener">Website ↗</a>` : ''}
-            <a href="${dir}" target="_blank" rel="noopener">Directions ↗</a>
+            <a href="${dir}" target="_blank" rel="noopener">${p.route ? 'Directions to start ↗' : 'Directions ↗'}</a>
+            ${p.route ? `<a href="/map/trails/${esc(p.route)}.gpx" download>Download GPX</a>` : ''}
           </div>
+          ${p.route ? '<div class="map-pop-note">Route line is approximate. Follow local signs and check the path on the day.</div>' : ''}
         </div>`;
       }
 
@@ -115,9 +117,10 @@
         if (!map || !map.getSource('places')) return;
         const list = visible();
         map.getSource('places').setData(geojson(list));
+        drawTrails(list);
         if (fit && list.length) {
           const b = new maplibregl.LngLatBounds();
-          list.forEach((p) => b.extend([p.lng, p.lat]));
+          list.forEach((p) => { b.extend([p.lng, p.lat]); (p.route && TRAILS && TRAILS[p.route] || []).forEach((c) => b.extend(c)); });
           map.fitBounds(b, { padding: 60, maxZoom: 14, duration: 600 });
         }
       }
@@ -126,7 +129,28 @@
         if (!map) return;
         if (popup) popup.remove();
         popup = new maplibregl.Popup({ offset: 12, maxWidth: '300px' }).setLngLat([p.lng, p.lat]).setHTML(popupHtml(p)).addTo(map);
-        if (fly) map.flyTo({ center: [p.lng, p.lat], zoom: Math.max(map.getZoom(), 13), duration: 700 });
+        setActive(p);
+        const line = p.route && TRAILS && TRAILS[p.route];
+        if (fly && line) {
+          const b = new maplibregl.LngLatBounds();
+          line.forEach((c) => b.extend(c));
+          map.fitBounds(b, { padding: { top: 90, bottom: 40, left: 40, right: 40 }, maxZoom: 15, duration: 700 });
+        } else if (fly) map.flyTo({ center: [p.lng, p.lat], zoom: Math.max(map.getZoom(), 13), duration: 700 });
+      }
+
+      // ----- hiking trail lines -----
+      function trailFeatures(list) {
+        if (!TRAILS) return [];
+        return list.filter((p) => p.route && TRAILS[p.route]).map((p) => ({
+          type: 'Feature', geometry: { type: 'LineString', coordinates: TRAILS[p.route] }, properties: { id: p.id } }));
+      }
+      function drawTrails(list) {
+        if (!map || !map.getSource('trails')) return;
+        map.getSource('trails').setData({ type: 'FeatureCollection', features: trailFeatures(list) });
+      }
+      function setActive(p) {
+        active = p && p.route ? p.id : null;
+        if (map && map.getLayer('trails-active')) map.setFilter('trails-active', ['==', ['get', 'id'], active === null ? -1 : active]);
       }
 
       function setCat(c, fit) {
@@ -175,6 +199,19 @@
             paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 7, 14, 11], 'circle-color': '#ffffff', 'circle-opacity': 0.95 } });
           map.addLayer({ id: 'places', type: 'circle', source: 'places',
             paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 5, 14, 8.5], 'circle-color': ['get', 'colour'] } });
+          // Trail lines go under the pins.
+          map.addSource('trails', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+          map.addLayer({ id: 'trails-casing', type: 'line', source: 'trails', layout: { 'line-join': 'round', 'line-cap': 'round' },
+            paint: { 'line-color': '#ffffff', 'line-width': ['interpolate', ['linear'], ['zoom'], 9, 3, 15, 7], 'line-opacity': 0.9 } }, 'places-halo');
+          map.addLayer({ id: 'trails', type: 'line', source: 'trails', layout: { 'line-join': 'round', 'line-cap': 'round' },
+            paint: { 'line-color': byId.hiking.colour, 'line-width': ['interpolate', ['linear'], ['zoom'], 9, 1.5, 15, 4], 'line-dasharray': [2, 1.2] } }, 'places-halo');
+          map.addLayer({ id: 'trails-active', type: 'line', source: 'trails', filter: ['==', ['get', 'id'], -1], layout: { 'line-join': 'round', 'line-cap': 'round' },
+            paint: { 'line-color': '#ff6f00', 'line-width': ['interpolate', ['linear'], ['zoom'], 9, 3, 15, 6] } }, 'places-halo');
+          fetch('/map/trails.json').then((r) => r.json()).then((t) => { TRAILS = t; drawTrails(visible()); setActive(active === null ? null : PLACES[active]); }).catch(() => {});
+          map.on('click', 'trails', (e) => { const p = PLACES[e.features[0].properties.id]; popup && popup.remove();
+            popup = new maplibregl.Popup({ offset: 6, maxWidth: '300px' }).setLngLat(e.lngLat).setHTML(popupHtml(p)).addTo(map); setActive(p); });
+          map.on('mouseenter', 'trails', () => { map.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'trails', () => { map.getCanvas().style.cursor = ''; });
           map.on('click', 'places', (e) => openPlace(PLACES[e.features[0].properties.id], false));
           map.on('mouseenter', 'places', () => { map.getCanvas().style.cursor = 'pointer'; });
           map.on('mouseleave', 'places', () => { map.getCanvas().style.cursor = ''; });

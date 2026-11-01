@@ -7,6 +7,7 @@ website to _site/. GitHub runs this automatically on every change.
 Run it yourself with:  python3 build.py
 """
 import datetime
+import html
 import json
 import os
 import shutil
@@ -199,7 +200,29 @@ def main():
     for p in load_folder('map'):
         if p.get('draft') or p.get('category') not in cat_ids or p.get('lat') is None or p.get('lng') is None:
             continue
-        places.append({k: p.get(k) for k in ('name', 'category', 'type', 'area', 'lat', 'lng', 'text', 'details', 'price', 'guide', 'website') if p.get(k) not in (None, '')})
+        places.append({k: p.get(k) for k in ('slug', 'name', 'category', 'type', 'area', 'lat', 'lng', 'text', 'details', 'price', 'guide', 'website') if p.get(k) not in (None, '')})
+    # hiking routes: content/trails/<place file name>.json -> /map/trails.json and a GPX file per trail
+    trails = {}
+    tdir = os.path.join(ROOT, 'content', 'trails')
+    by_slug = {p['slug']: p for p in load_folder('map')}
+    for f in sorted(os.listdir(tdir)) if os.path.isdir(tdir) else []:
+        slug = f[:-5]
+        if not f.endswith('.json') or slug not in by_slug:
+            continue
+        coords = json.load(open(os.path.join(tdir, f), encoding='utf-8'))['coords']
+        trails[slug] = coords
+        name = by_slug[slug]['name']
+        pts = ''.join(f'<trkpt lat="{la}" lon="{lo}"/>' for lo, la in coords)
+        gpx = ('<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="maltaexpatguide.com" xmlns="http://www.topografix.com/GPX/1/1">'
+               f'<metadata><name>{html.escape(name)}</name><desc>Approximate route from maltaexpatguide.com. Route data © OpenStreetMap contributors.</desc></metadata>'
+               f'<trk><name>{html.escape(name)}</name><trkseg>{pts}</trkseg></trk></gpx>\n')
+        write(f'/map/trails/{slug}.gpx', gpx)
+    write('/map/trails.json', json.dumps(trails, separators=(',', ':')))
+    for p in places:
+        if p.get('slug') in trails:
+            p['route'] = p['slug']
+    for p in places:
+        p.pop('slug', None)
     places.sort(key=lambda p: p['name'].lower())
     safe_json = lambda o: json.dumps(o, ensure_ascii=False).replace('</', '<\\/')
     write('/map/', env.get_template('map.html').render(
