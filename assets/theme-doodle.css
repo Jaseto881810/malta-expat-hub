@@ -81,6 +81,28 @@ body.site {
 .site .nav-link { color: var(--ink); font-weight: 700; padding: 6px 10px; border: 2px solid transparent; border-radius: var(--wobble-2); }
 .site .nav-link:hover { color: var(--ink); border-color: var(--ink); }
 .site .nav-link[aria-current="page"] { color: var(--ink); background: var(--doodle-lime); border-color: var(--ink); }
+/* Map button: lime highlighter with a shine that sweeps across 4 times, then stops */
+.site .nav-link--highlight {
+  position: relative;
+  overflow: hidden;
+  background: var(--doodle-lime);
+  border-color: var(--ink);
+  border-radius: var(--wobble);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.site .nav-link--highlight:hover { border-color: var(--ink); transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.site .nav-link--highlight::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: rgba(255, 255, 255, .75);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: nav-shine 3.5s ease-in-out 1s 4;
+}
+.site .nav-link--highlight[aria-current="page"]::after { animation: none; }
+@keyframes nav-shine { 0%, 60% { left: -60%; } 85%, 100% { left: 130%; } }
 .site .menu { background: rgba(22, 27, 51, .55); }
 .site .menu-panel { border: var(--line); border-radius: var(--wobble-box); box-shadow: var(--shadow-float); }
 .site .menu-sec { border: 2px solid var(--ink); border-radius: var(--wobble-box); color: var(--ink); }
@@ -210,4 +232,5 @@ body.site {
 }
 @media (prefers-reduced-motion: reduce) {
   .site .btn, .site .tile, .site .guide-card { transition: none; }
+  .site .nav-link--highlight::after { animation: none; }
 }

@@ -21,7 +21,8 @@
       return `<a class="nav-link" href="${s.href}"${cur}>${esc(s.name.replace(' in Malta', ''))}</a>`;
     }).join('') + (typeof EXTRA_NAV !== 'undefined' ? EXTRA_NAV : []).map((l) => {
       const cur = document.body.dataset.section === l.id ? ' aria-current="page"' : '';
-      return `<a class="nav-link" href="${l.href}"${cur}>${esc(l.name)}</a>`;
+      const hl = l.id === 'map' ? ' nav-link--highlight' : '';
+      return `<a class="nav-link${hl}" href="${l.href}"${cur}>${esc(l.name)}</a>`;
     }).join('');
 
     const menuSecs = SECTIONS.map((s) => {
