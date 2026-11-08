@@ -3,10 +3,10 @@ section: work-business
 menuName: Business Income Tax
 title: Income Tax for Self-Employed, Contractors and Small Businesses
 heroText: The different tax categories for people who work for themselves in Malta, and how to register a business.
-image: /assets/images/Tax.jpg
-imageAlt: Tax forms and calculator
+image: /assets/images/Business Income.jpg
 order: 5
 description: Malta income tax for self-employed people, contractors, partnerships and small companies in 2026, plus how to register a sole trader, partnership or limited company.
+cardText: ''
 draft: false
 blocks:
   - heading: The main categories
@@ -71,8 +71,11 @@ blocks:
     html: ''
     custom: ''
   - heading: Good to know
-    text: |-
-      > This guide is general information, not tax advice. Rules and rates change each year. For your own situation, talk to a warranted accountant or tax adviser.
+    text: '> This guide is general information, not tax advice. Rules and rates change each year. For your own situation, talk to a warranted accountant or tax adviser.'
     html: ''
     custom: ''
+imageAlt: Tax forms and calculator
+cardImage: /assets/images/Business Income.jpg
+seoTitle: ''
+shareImage: /assets/images/Business Income.jpg
 ---
