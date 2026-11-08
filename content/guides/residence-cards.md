@@ -3,10 +3,10 @@ section: work-business
 menuName: Residence Cards
 title: Residence Cards in Malta
 heroText: How to get your e-Residence card, what to bring, and how long it lasts, for EU and non-EU citizens.
-image: /assets/images/Permits.jpg
-imageAlt: Residence permit documents
+image: /assets/images/Residency.jpg
 order: 2
 description: How to get a Malta e-Residence card in 2026. Steps, documents and validity for EU and non-EU citizens, changing your address and replacing a lost card.
+cardText: ''
 draft: false
 blocks:
   - heading: What is the e-Residence card?
@@ -63,4 +63,8 @@ blocks:
       For work permits and visas, see [Permits and IDs](/expat-info/permits-ids.html). For other ways to live in Malta, see [Residence Programmes](/work-business/residence-programmes.html).
     html: ''
     custom: ''
+imageAlt: Residence permit documents
+cardImage: /assets/images/Residency.jpg
+seoTitle: ''
+shareImage: /assets/images/Residency.jpg
 ---
