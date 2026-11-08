@@ -3,10 +3,10 @@ section: work-business
 menuName: Social Security (Self-Employed)
 title: Social Security for Self-Employed, Contractors and Small Business Owners
 heroText: How much social security (Class 2) you pay when you work for yourself in Malta, and when.
-image: /assets/images/Taxation.jpg
-imageAlt: Paperwork and calculator
+image: /assets/images/Social Security.jpg
 order: 6
 description: Malta Class 2 social security for self-employed people in 2026 - rates, who pays, the €36.18 minimum, payment dates and what it means for your pension.
+cardText: ''
 draft: false
 blocks:
   - heading: What is Class 2?
@@ -64,4 +64,8 @@ blocks:
       > Rates change every January. This page shows the 2026 rates. For your own case, ask the MTCA Contributions section or an accountant.
     html: ''
     custom: ''
+imageAlt: Paperwork and calculator
+cardImage: /assets/images/Social Security.jpg
+seoTitle: ''
+shareImage: /assets/images/Social Security.jpg
 ---
