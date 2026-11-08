@@ -21,7 +21,7 @@
       return `<a class="nav-link" href="${s.href}"${cur}>${esc(s.name.replace(' in Malta', ''))}</a>`;
     }).join('') + (typeof EXTRA_NAV !== 'undefined' ? EXTRA_NAV : []).map((l) => {
       const cur = document.body.dataset.section === l.id ? ' aria-current="page"' : '';
-      const hl = l.id === 'map' ? ' nav-link--highlight' : '';
+      const hl = l.id === 'map' || l.id === 'tools' ? ` nav-link--highlight nav-link--${l.id}` : '';
       return `<a class="nav-link${hl}" href="${l.href}"${cur}>${esc(l.name)}</a>`;
     }).join('');
 

@@ -85,11 +85,13 @@ body.site {
 .site .nav-link--highlight {
   position: relative;
   overflow: hidden;
-  background: var(--doodle-lime);
+  background: var(--hl, var(--doodle-lime));
   border-color: var(--ink);
   border-radius: var(--wobble);
   box-shadow: 3px 3px 0 var(--ink);
 }
+.site .nav-link--tools { --hl: #ff8fb3; }
+.site .nav-link--highlight[aria-current="page"] { background: var(--hl, var(--doodle-lime)); }
 .site .nav-link--highlight:hover { border-color: var(--ink); transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
 .site .nav-link--highlight::after {
   content: "";
