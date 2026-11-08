@@ -3,10 +3,10 @@ section: work-business
 menuName: Residence Programmes
 title: Residence Programmes in Malta
 heroText: The main ways to get the right to live in Malta, who each programme is for, and what it costs.
-image: /assets/images/Valletta at sunset.jpg
-imageAlt: Valletta at sunset
+image: /assets/images/Residency Program.jpg
 order: 1
 description: Malta residence programmes in 2026 explained simply - the Permanent Residence Programme (MPRP), Global Residence Programme, Residence Programme, Retirement Programme and Nomad permit.
+cardText: ''
 draft: false
 blocks:
   - heading: Which route is right for you?
@@ -59,8 +59,7 @@ blocks:
     html: ''
     custom: ''
   - heading: Malta Retirement Programme
-    text: |-
-      This programme is for **pensioners** from any country. Your pension brought into Malta is taxed at **15%**, with a minimum tax of **€7,500 a year** (plus €500 for each dependant). You need a home that meets the same property amounts as the GRP, and your pension must be at least 75% of your income.
+    text: This programme is for **pensioners** from any country. Your pension brought into Malta is taxed at **15%**, with a minimum tax of **€7,500 a year** (plus €500 for each dependant). You need a home that meets the same property amounts as the GRP, and your pension must be at least 75% of your income.
     html: ''
     custom: ''
   - heading: Good to know
@@ -70,4 +69,8 @@ blocks:
       - **Residence is not the same as tax.** Having a residence card does not always make you a tax resident. Read our [Taxation](/expat-info/taxation.html) guide.
     html: ''
     custom: ''
+imageAlt: Valletta at sunset
+cardImage: /assets/images/Residency Program.jpg
+seoTitle: ''
+shareImage: /assets/images/Residency Program.jpg
 ---
