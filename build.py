@@ -283,12 +283,12 @@ def main():
               for pg in sorted(pages_extra, key=lambda x: (x.get('footerOrder', 99), x['menuName'])) if pg.get('inFooter')]
     if tools:
         footer.insert(0, {'name': 'Tools', 'href': '/tools/'})
-    extra_nav = [{'id': 'map', 'name': 'Map', 'href': '/map/'}]
+    extra_nav = [{'id': 'map', 'name': 'Map', 'href': '/map/', 'colour': '#b8f35c'}]
     if tools:
-        extra_nav.append({'id': 'tools', 'name': 'Tools', 'href': '/tools/',
+        extra_nav.append({'id': 'tools', 'name': 'Tools', 'href': '/tools/', 'colour': '#ff8fb3',
                           'guides': [{'name': t['menuName'], 'href': t['url']} for t in tools]})
     if posts:
-        extra_nav.append({'id': 'blog', 'name': 'Blog', 'href': '/blog/'})
+        extra_nav.append({'id': 'blog', 'name': 'Blog', 'href': '/blog/', 'colour': '#ffd60a'})
     script = script.replace('(function () {',
                             f'const SECTIONS = {json.dumps(nav, ensure_ascii=False)};\nconst TOP_NAV = {json.dumps(top)};\n'
                             f'const FOOTER_LINKS = {json.dumps(footer, ensure_ascii=False)};\n'
