@@ -3,10 +3,10 @@ section: work-business
 menuName: Digital Nomads
 title: Digital Nomads in Malta
 heroText: How remote workers from outside the EU can live in Malta with the Nomad Residence Permit.
-image: /assets/images/Office Working.jpg
-imageAlt: Working on a laptop
+image: /assets/images/Digital Nomad.jpg
 order: 3
 description: Malta Nomad Residence Permit 2026 explained - who can apply, the €42,000 income rule, fees, documents, renewals and tax for digital nomads.
+cardText: ''
 draft: false
 blocks:
   - heading: What is the Nomad Residence Permit?
@@ -69,4 +69,8 @@ blocks:
       - Malta has good co-working spaces in Sliema, St Julian's, Gżira and Valletta.
     html: ''
     custom: ''
+imageAlt: Working on a laptop
+cardImage: /assets/images/Digital Nomad.jpg
+seoTitle: ''
+shareImage: /assets/images/Digital Nomad.jpg
 ---
