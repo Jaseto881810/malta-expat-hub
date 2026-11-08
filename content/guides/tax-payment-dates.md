@@ -3,10 +3,10 @@ section: work-business
 menuName: Payment Dates
 title: Payment Dates for VAT, Income Tax and Social Security
 heroText: The key dates in the year for self-employed people and small businesses in Malta, in one simple calendar.
-image: /assets/images/Mortgage.jpg
-imageAlt: Calendar and documents
+image: /assets/images/Calendar.jpg
 order: 7
 description: Malta tax calendar 2026 for self-employed people and small businesses - provisional tax, Class 2 social security, VAT returns, tax return and company tax due dates.
+cardText: ''
 draft: false
 blocks:
   - heading: The year at a glance (self-employed)
@@ -43,8 +43,7 @@ blocks:
     html: ''
     custom: ''
   - heading: Social security (Class 2)
-    text: |-
-      Class 2 is paid with provisional tax, in three parts: **30 April, 31 August and 21 December**. See the rates in [Social Security for the Self-Employed](/work-business/self-employed-social-security.html).
+    text: 'Class 2 is paid with provisional tax, in three parts: **30 April, 31 August and 21 December**. See the rates in [Social Security for the Self-Employed](/work-business/self-employed-social-security.html).'
     html: ''
     custom: ''
   - heading: Companies and employers
@@ -63,4 +62,8 @@ blocks:
       > Put these dates in your calendar now. Many self-employed people set aside **25–30%** of every payment they receive for tax and social security.
     html: ''
     custom: ''
+imageAlt: Calendar and documents
+cardImage: /assets/images/Calendar.jpg
+seoTitle: ''
+shareImage: /assets/images/Calendar.jpg
 ---
