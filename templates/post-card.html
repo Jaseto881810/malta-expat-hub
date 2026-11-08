@@ -1,5 +1,5 @@
       <a class="guide-card post-card" href="{{ p.url }}">
-        <div class="photo" style="--img:url('{{ p.cardImage or p.image }}')"></div>
+        <div class="photo" data-img="{{ (p.cardImage or p.image) | img('small') }}"></div>
         <div class="guide-card-body">
           <h6><time datetime="{{ p.date_obj }}">{{ p.dateLabel }}</time></h6>
           <h4>{{ p.title }}</h4>

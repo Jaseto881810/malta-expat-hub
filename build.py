@@ -10,6 +10,7 @@ import datetime
 import html
 import json
 import os
+import re
 import shutil
 import urllib.parse
 
@@ -37,6 +38,55 @@ def render_markdown(text):
 
 
 env.filters['markdown'] = render_markdown
+
+
+# ---- smaller photos ----
+# Photos uploaded to assets/images/ stay as they are. When the site is built, each one
+# also gets a smaller WebP copy: 'large' (1600px wide) for page headers and 'small'
+# (640px wide) for cards and tiles. Templates use them with  {{ url | img('small') }}.
+IMG_SIZES = {'large': 1600, 'small': 640}
+IMG_CACHE = os.path.join(ROOT, '.cache', 'img')   # kept between builds so only new photos are resized
+_img_done = {}
+
+
+def img(url, size='large'):
+    url = str(url or '')
+    if not url:
+        return url
+    if 'images.unsplash.com' in url:          # Unsplash: ask for the right width
+        return re.sub(r'([?&])w=\d+', rf'\g<1>w={IMG_SIZES[size]}', url)
+    if not url.startswith('/assets/images/'):
+        return url
+    src = os.path.join(ROOT, urllib.parse.unquote(url).lstrip('/'))
+    name, ext = os.path.splitext(os.path.basename(src))
+    if ext.lower() not in ('.jpg', '.jpeg', '.png', '.webp') or not os.path.exists(src):
+        return url
+    slug = re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
+    out_url = f'/assets/img/{size}/{slug}.webp'
+    key = (src, size)
+    if key in _img_done:
+        return _img_done[key]
+    st = os.stat(src)
+    cached = os.path.join(IMG_CACHE, size, f'{slug}-{int(st.st_mtime)}-{st.st_size}.webp')
+    try:
+        if not os.path.exists(cached):
+            from PIL import Image, ImageOps
+            os.makedirs(os.path.dirname(cached), exist_ok=True)
+            with Image.open(src) as im:
+                im = ImageOps.exif_transpose(im).convert('RGB')
+                im.thumbnail((IMG_SIZES[size], IMG_SIZES[size] * 3))
+                im.save(cached, 'WEBP', quality=78, method=6)
+        dest = os.path.join(OUT, out_url.lstrip('/'))
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        shutil.copy(cached, dest)
+    except Exception as e:                    # never break the build over one photo
+        print(f'  ! could not resize {url}: {e}')
+        out_url = url
+    _img_done[key] = out_url
+    return out_url
+
+
+env.filters['img'] = img
 
 
 def read(path):

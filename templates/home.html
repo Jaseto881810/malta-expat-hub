@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {# Home page layout. The text and photos come from content/home.md (admin panel: Home page). #}
+{% block head_extra %}
+  <link rel="preload" as="image" href="{{ home.heroImage | img('large') }}" fetchpriority="high">
+{% endblock %}
 {% block main %}
     <section class="hero">
-      <div class="photo hero-photo" role="img" aria-label="{{ home.heroImageAlt or 'Malta' }}" style="--img:url('{{ home.heroImage }}')"></div>
+      <div class="photo hero-photo" role="img" aria-label="{{ home.heroImageAlt or 'Malta' }}" style="--img:url('{{ home.heroImage | img('large') }}')"></div>
       <div class="hero-card">
         {%- if home.eyebrow %}
         <div class="eyebrow">{{ home.eyebrow }}</div>
@@ -40,7 +43,7 @@
       <h2 class="h-section">{{ home.exploreTitle or 'Explore the guide' }}</h2>
       <div class="tiles">
 {%- for s in sections %}
-      <a class="tile" href="{{ s.href }}" data-n="{{ s.number }}" style="--tint:{{ s.colour }};--img:url('{{ s.homeImage or s.image }}')">
+      <a class="tile" href="{{ s.href }}" data-n="{{ s.number }}" style="--tint:{{ s.colour }}" data-img="{{ (s.homeImage or s.image) | img('small') }}">
         <div class="tile-photo"><b>{{ s.number }}</b></div>
         <div class="tile-body">
           <div class="tile-head"><h3>{{ s.name }}</h3><span class="tag tag-neutral">{{ s.tag }}</span></div>

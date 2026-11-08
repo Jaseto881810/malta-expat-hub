@@ -132,3 +132,17 @@
     renderGuideNav();
   });
 })();
+
+// Card and tile photos load only when they come near the screen (saves data on long pages).
+(function () {
+  const show = (el) => { el.style.setProperty('--img', `url("${el.dataset.img}")`); el.removeAttribute('data-img'); };
+  const start = () => {
+    const els = document.querySelectorAll('[data-img]');
+    if (!('IntersectionObserver' in window)) { els.forEach(show); return; }
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { io.unobserve(e.target); show(e.target); }
+    }), { rootMargin: '400px 0px' });
+    els.forEach((el) => (el.dataset.img ? io.observe(el) : el.removeAttribute('data-img')));
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();

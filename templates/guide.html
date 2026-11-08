@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% block head_extra %}
+  {%- if page.image %}
+  <link rel="preload" as="image" href="{{ page.image | img('large') }}" fetchpriority="high">
+  {%- endif %}
+{% endblock %}
 {% block main %}
     <section class="g-hero">
-      <div class="photo" role="img" aria-label="{{ page.imageAlt or page.title }}" style="--img:url('{{ page.image }}')"></div>
+      <div class="photo" role="img" aria-label="{{ page.imageAlt or page.title }}" style="--img:url('{{ page.image | img('large') }}')"></div>
       <div class="g-hero-card">
         <div class="crumbs"><a href="/index.html">Home</a> / {% if section and not section.singlePage %}<a href="{{ section.href }}">{{ section.name }}</a> / {% endif %}<b>{{ page.title }}</b></div>
         <h1>{{ page.title }}</h1>

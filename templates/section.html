@@ -14,7 +14,7 @@
     <div class="guides">
 {%- for g in guides %}
       <a class="guide-card" href="{{ g.url }}">
-        <div class="photo" style="--img:url('{{ g.cardImage or g.image }}')"></div>
+        <div class="photo" data-img="{{ (g.cardImage or g.image) | img('small') }}"></div>
         <div class="guide-card-body">
           <h6>{{ section.number }}.{{ '%02d' % loop.index }}</h6>
           <h4>{{ g.menuName }}</h4>
