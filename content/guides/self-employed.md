@@ -3,10 +3,10 @@ section: work-business
 menuName: Being Self-Employed
 title: Being Self-Employed in Malta
 heroText: How to start working for yourself in Malta, step by step - registration, VAT, tax and social security.
-image: /assets/images/Investment.jpg
-imageAlt: Planning a small business
+image: /assets/images/Self-Employed.jpg
 order: 4
 description: How to become self-employed in Malta in 2026. Register with Jobsplus, choose VAT Article 10 or 11, pay tax and Class 2 social security, and keep records.
+cardText: ''
 draft: false
 blocks:
   - heading: Can I be self-employed in Malta?
@@ -57,4 +57,8 @@ blocks:
       A local accountant usually costs a few hundred euro a year for a simple sole trader. It is often worth it in your first year.
     html: ''
     custom: ''
+imageAlt: Planning a small business
+cardImage: /assets/images/Self-Employed.jpg
+seoTitle: ''
+shareImage: /assets/images/Self-Employed.jpg
 ---
