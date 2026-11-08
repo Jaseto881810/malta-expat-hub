@@ -35,6 +35,7 @@
     }).join('') + (typeof EXTRA_NAV !== 'undefined' ? EXTRA_NAV : []).map((l) =>
       `<div class="menu-sec menu-sec-extra" style="--tint:#ffffff">
           <a class="menu-sec-title" href="${l.href}"><b>→</b>${esc(l.name)}</a>
+          ${l.guides ? `<ul>${l.guides.map((g) => `<li><a href="${g.href}"${isHere(g.href) ? ' aria-current="page"' : ''}>${esc(g.name)}</a></li>`).join('')}</ul>` : ''}
         </div>`).join('');
 
     el.innerHTML = `

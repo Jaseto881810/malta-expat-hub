@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{# One calculator page. Text and FAQs come from content/tools/ (admin panel: Tools).
+   The calculator form is in templates/tools/<file name>.html; the maths is in assets/tools.js. #}
+{% block body_attrs %} data-tool="{{ tool.slug }}"{% endblock %}
+{% block head_extra %}
+  <link rel="stylesheet" href="/assets/tools.css">
+  <script type="application/ld+json">{{ faq_schema | safe }}</script>
+{% endblock %}
+{% block main %}
+    <section class="tool-hero" style="--tint:{{ tool.colour }}">
+      <div class="crumbs"><a href="/index.html">Home</a> / <a href="/tools/">Tools</a> / <b>{{ tool.menuName }}</b></div>
+      <h1>{{ tool.title }}</h1>
+      <p>{{ tool.heroText }}</p>
+    </section>
+
+    <div class="tool-wrap" style="--tint:{{ tool.colour }}">
+      <section class="card tool-card" aria-label="Calculator">
+{% include "tools/" ~ tool.slug ~ ".html" %}
+      </section>
+      <p class="tool-note">{{ hub.note }}</p>
+
+      {%- if tool.howItWorks %}
+      <section class="card tool-text">
+        <h2>How it works</h2>
+        <div class="md">{{ tool.howItWorks | markdown | safe }}</div>
+      </section>
+      {%- endif %}
+
+      {%- if tool.faqs %}
+      <section class="card tool-text">
+        <h2>Frequently asked questions</h2>
+        <div class="faq">
+{%- for f in tool.faqs %}
+          <details{% if loop.first %} open{% endif %}>
+            <summary>{{ f.question }}</summary>
+            <div class="md">{{ f.answer | markdown | safe }}</div>
+          </details>
+{%- endfor %}
+        </div>
+      </section>
+      {%- endif %}
+
+      <section class="tool-more">
+        <h2 class="h-section">More free tools</h2>
+        <div class="tool-grid tool-grid--small">
+{%- for t in tools if t.slug != tool.slug %}
+{% include "tool-card.html" %}
+{%- endfor %}
+        </div>
+      </section>
+    </div>
+    <script type="application/json" id="tool-data">{{ tool_data | safe }}</script>
+    <script src="/assets/tools.js" defer></script>
+    <div class="page-end"></div>
+{% endblock %}

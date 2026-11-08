@@ -1,0 +1,41 @@
+        <form id="col-form" class="tool-form" novalidate>
+          <div class="field">
+            <label for="col-adults">Adults</label>
+            <input id="col-adults" type="number" min="1" max="6" step="1" value="1" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="col-kids">Children</label>
+            <input id="col-kids" type="number" min="0" max="8" step="1" value="0" inputmode="numeric">
+          </div>
+          <div class="field field--wide">
+            <label for="col-area">Area</label>
+            <select id="col-area"></select>
+          </div>
+          <div class="field">
+            <label for="col-size">Home size</label>
+            <select id="col-size"><option value="studio">Studio</option><option value="one" selected>1 bedroom</option><option value="two">2 bedrooms</option><option value="three">3 bedrooms</option></select>
+          </div>
+          <div class="field">
+            <label for="col-level">Lifestyle</label>
+            <select id="col-level"><option value="basic">Basic</option><option value="moderate" selected>Moderate</option><option value="comfortable">Comfortable</option></select>
+          </div>
+          <div class="field field--wide" id="col-school-field">
+            <label for="col-school">School for children</label>
+            <select id="col-school"><option value="state">State school or free childcare</option><option value="church">Church school</option><option value="private">Private or international school</option><option value="none">No school costs</option></select>
+          </div>
+          <label class="check"><input id="col-car" type="checkbox"> I will have a car</label>
+          <label class="check"><input id="col-health" type="checkbox"> Private health insurance</label>
+        </form>
+        <div class="tool-result" aria-live="polite">
+          <div class="big-result">
+            <span>Your estimated costs</span>
+            <b id="col-total">€0</b>
+            <small>per month · <span id="col-year">€0</span> per year · rent for a <span id="col-rent-note"></span></small>
+          </div>
+          <div class="split-bar" id="col-bar" aria-hidden="true"></div>
+          <div class="table-wrap"><table class="result-table"><tbody id="col-table"></tbody></table></div>
+          <div class="mini-stats mini-stats--one">
+            <div><span>Gross salary you need per year, <span id="col-salary-who"></span></span><b id="col-salary">€0</b></div>
+          </div>
+          <p class="field-note">See your take-home pay with the <a href="/tools/salary-calculator.html">Salary Calculator</a>, or compare areas in the <a href="/tools/rent-prices.html">Rent Price Checker</a>.</p>
+        </div>

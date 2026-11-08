@@ -1,0 +1,25 @@
+        <form id="rent-form" class="tool-form" novalidate>
+          <div class="field field--wide">
+            <label for="rent-area">Area</label>
+            <select id="rent-area"></select>
+          </div>
+          <div class="field">
+            <label for="rent-size">Size</label>
+            <select id="rent-size"><option value="studio">Studio</option><option value="one" selected>1 bedroom</option><option value="two">2 bedrooms</option><option value="three">3 bedrooms</option></select>
+          </div>
+          <div class="field">
+            <label for="rent-level">Kind of home</label>
+            <select id="rent-level"><option value="basic">Basic (older flat)</option><option value="standard" selected>Standard</option><option value="high">High-end (new, view or pool)</option></select>
+          </div>
+        </form>
+        <div class="tool-result" aria-live="polite">
+          <div class="big-result">
+            <span id="rent-what">Typical rent</span>
+            <b id="rent-typ">€0</b>
+            <small>per month · usual range <span id="rent-range">€0</span> · <span id="rent-year">€0</span> per year</small>
+          </div>
+          <h3 class="tool-sub">Money you need to move in</h3>
+          <div class="table-wrap"><table class="result-table"><tbody id="rent-move"></tbody></table></div>
+          <h3 class="tool-sub">Compare all areas</h3>
+          <ol class="compare" id="rent-compare"></ol>
+        </div>

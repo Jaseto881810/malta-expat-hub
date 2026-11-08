@@ -38,7 +38,7 @@
 {%- endif %}
 {% block head_extra %}{% endblock %}
 </head>
-<body class="site" data-section="{{ body_section }}">
+<body class="site" data-section="{{ body_section }}"{% block body_attrs %}{% endblock %}>
   <header id="site-header" class="site-header"></header>
 
   <main>

@@ -241,6 +241,28 @@ def main():
                  '/map/', 'map')))
     pages.append('/map/')
 
+    # ---- tools (calculators): overview at /tools/ plus one page per tool ----
+    tools = sorted([t for t in load_folder('tools') if not t.get('draft')], key=lambda t: (t.get('order', 99), t['title']))
+    hub = read(os.path.join(ROOT, 'content', 'tools-page.md'))
+    rent_doc = next((t for t in tools if t['slug'] == 'rent-prices'), {})
+    rent_data = {k: rent_doc.get(k) for k in ('areas', 'studioFactor', 'threeBedFactor')}
+    for t in tools:
+        t['url'] = f"/tools/{t['slug']}.html"
+        t['menuName'] = t.get('menuName') or t['title']
+    for t in tools:
+        faq_schema = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
+            {'@type': 'Question', 'name': f['question'], 'acceptedAnswer': {'@type': 'Answer', 'text': f['answer']}}
+            for f in t.get('faqs') or []]}
+        write(t['url'], env.get_template('tool.html').render(
+            tool=t, tools=tools, hub=hub, faq_schema=safe_json(faq_schema),
+            tool_data=safe_json({'rent': rent_data, 'costs': t.get('costs') or {}}),
+            **common(t.get('seoTitle') or t['title'], t.get('description'), t['url'], 'tools')))
+        pages.append(t['url'])
+    write('/tools/', env.get_template('tools.html').render(tools=tools, hub=hub,
+          **common(hub.get('seoTitle') or 'Free Malta calculators: cost of living, salary, tax and rent',
+                   hub.get('description'), '/tools/', 'tools')))
+    pages.append('/tools/')
+
     # ---- home and 404 ----
     home = read(os.path.join(ROOT, 'content', 'home.md'))
     write('/', env.get_template('home.html').render(sections=sections, home=home, latest_posts=posts[:3],
@@ -259,10 +281,18 @@ def main():
     script = open(os.path.join(ROOT, 'templates', 'site-script.js'), encoding='utf-8').read()
     footer = [{'name': pg['menuName'], 'href': pg['url']}
               for pg in sorted(pages_extra, key=lambda x: (x.get('footerOrder', 99), x['menuName'])) if pg.get('inFooter')]
+    if tools:
+        footer.insert(0, {'name': 'Tools', 'href': '/tools/'})
+    extra_nav = [{'id': 'map', 'name': 'Map', 'href': '/map/'}]
+    if tools:
+        extra_nav.append({'id': 'tools', 'name': 'Tools', 'href': '/tools/',
+                          'guides': [{'name': t['menuName'], 'href': t['url']} for t in tools]})
+    if posts:
+        extra_nav.append({'id': 'blog', 'name': 'Blog', 'href': '/blog/'})
     script = script.replace('(function () {',
                             f'const SECTIONS = {json.dumps(nav, ensure_ascii=False)};\nconst TOP_NAV = {json.dumps(top)};\n'
                             f'const FOOTER_LINKS = {json.dumps(footer, ensure_ascii=False)};\n'
-                            f'const EXTRA_NAV = {json.dumps([{"id": "map", "name": "Map", "href": "/map/"}] + ([{"id": "blog", "name": "Blog", "href": "/blog/"}] if posts else []))};\n\n(function () {{', 1)
+                            f'const EXTRA_NAV = {json.dumps(extra_nav)};\n\n(function () {{', 1)
     write('/assets/site.js', script)
 
     # ---- sitemap ----

@@ -272,3 +272,89 @@ collections:
       - *blocks
       - { label: Browser tab title (optional), name: seoTitle, widget: string, required: false }
       - { label: Social share photo (optional), name: shareImage, widget: image, required: false }
+
+  - name: tools-page
+    label: Tools page
+    description: The text on the Tools overview page (/tools/).
+    files:
+      - name: tools-page
+        label: Tools page
+        file: content/tools-page.md
+        format: frontmatter
+        fields:
+          - { label: Heading, name: title, widget: string }
+          - { label: Intro text, name: heroText, widget: text }
+          - { label: Note under the tools, name: note, widget: string, hint: "Shown on every tool page too." }
+          - { label: Text for search engines, name: description, widget: text, required: false }
+
+  - name: tools
+    label: Tools
+    label_singular: tool
+    description: "The calculators. You can edit the text, FAQs, rent prices and costs. Tax rates are in assets/tools.js (ask a developer to update them each year)."
+    folder: content/tools
+    format: frontmatter
+    create: false
+    delete: false
+    summary: "{{fields.menuName}}"
+    sortable_fields: [order, menuName]
+    fields:
+      - { label: Page heading, name: title, widget: string }
+      - { label: Short name (cards and menu), name: menuName, widget: string }
+      - { label: Order, name: order, widget: number, value_type: int }
+      - { label: Colour, name: colour, widget: color }
+      - { label: Symbol on the card, name: symbol, widget: string, hint: "One character, for example € or %" }
+      - { label: Card text, name: summary, widget: text }
+      - { label: Intro text, name: heroText, widget: text }
+      - { label: Text for search engines, name: description, widget: text, required: false }
+      - { label: "How it works", name: howItWorks, widget: markdown }
+      - label: FAQs
+        name: faqs
+        widget: list
+        label_singular: question
+        summary: "{{fields.question}}"
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - label: "Rent prices (Rent Price Checker only)"
+        name: areas
+        widget: list
+        required: false
+        label_singular: area
+        summary: "{{fields.name}}: 1-bed €{{fields.oneBedLow}}–{{fields.oneBedHigh}}"
+        hint: "Monthly rent in euro. Studio and 3-bedroom prices are worked out from these."
+        fields:
+          - { label: Area, name: name, widget: string }
+          - { label: "1 bedroom: from", name: oneBedLow, widget: number, value_type: int }
+          - { label: "1 bedroom: to", name: oneBedHigh, widget: number, value_type: int }
+          - { label: "2 bedrooms: from", name: twoBedLow, widget: number, value_type: int }
+          - { label: "2 bedrooms: to", name: twoBedHigh, widget: number, value_type: int }
+      - { label: "Studio price (part of 1-bed price)", name: studioFactor, widget: number, value_type: float, required: false, hint: "Rent Price Checker only. 0.75 = 75%." }
+      - { label: "3-bed price (times 2-bed price)", name: threeBedFactor, widget: number, value_type: float, required: false, hint: "Rent Price Checker only. 1.35 = 135%." }
+      - label: "Monthly costs (Cost of Living Calculator only)"
+        name: costs
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - label: Electricity and water, by home size
+            name: utilities
+            widget: object
+            fields:
+              - { label: Studio, name: studio, widget: number }
+              - { label: 1 bedroom, name: one, widget: number }
+              - { label: 2 bedrooms, name: two, widget: number }
+              - { label: 3 bedrooms, name: three, widget: number }
+          - { label: Internet (per home), name: internet, widget: number }
+          - { label: Mobile (per adult), name: mobilePerAdult, widget: number }
+          - { label: Car (per month), name: car, widget: number }
+          - { label: Health insurance per adult, name: healthAdult, widget: number }
+          - { label: Health insurance per child, name: healthChild, widget: number }
+          - { label: State school extras per child, name: schoolState, widget: number }
+          - { label: Church school per child, name: schoolChurch, widget: number }
+          - { label: Private school per child, name: schoolPrivate, widget: number }
+          - { label: Groceries per adult, name: groceriesAdult, widget: object, fields: [{ label: Basic, name: basic, widget: number }, { label: Moderate, name: moderate, widget: number }, { label: Comfortable, name: comfortable, widget: number }] }
+          - { label: Groceries per child, name: groceriesChild, widget: object, fields: [{ label: Basic, name: basic, widget: number }, { label: Moderate, name: moderate, widget: number }, { label: Comfortable, name: comfortable, widget: number }] }
+          - { label: Transport per adult, name: transportAdult, widget: object, fields: [{ label: Basic, name: basic, widget: number }, { label: Moderate, name: moderate, widget: number }, { label: Comfortable, name: comfortable, widget: number }] }
+          - { label: Eating out and free time per adult, name: leisureAdult, widget: object, fields: [{ label: Basic, name: basic, widget: number }, { label: Moderate, name: moderate, widget: number }, { label: Comfortable, name: comfortable, widget: number }] }
+          - { label: Personal care and gym per adult, name: personalAdult, widget: object, fields: [{ label: Basic, name: basic, widget: number }, { label: Moderate, name: moderate, widget: number }, { label: Comfortable, name: comfortable, widget: number }] }
+          - { label: Clothes and household (per home), name: householdOther, widget: object, fields: [{ label: Basic, name: basic, widget: number }, { label: Moderate, name: moderate, widget: number }, { label: Comfortable, name: comfortable, widget: number }] }

@@ -1,0 +1,31 @@
+        <form id="sal-form" class="tool-form" novalidate>
+          <div class="field field--wide">
+            <label for="sal-gross">Gross salary (before tax)</label>
+            <div class="money"><span>€</span><input id="sal-gross" type="text" inputmode="decimal" value="35000" autocomplete="off"></div>
+          </div>
+          <div class="field">
+            <label for="sal-period">Amount is per</label>
+            <select id="sal-period"><option value="year">Year</option><option value="month">Month</option></select>
+          </div>
+          <div class="field">
+            <label for="sal-status">Tax status</label>
+{% include "tools/status-options.html" %}
+          </div>
+          <label class="check"><input id="sal-old" type="checkbox"> I was born before 1962</label>
+        </form>
+        <div class="tool-result" aria-live="polite">
+          <div class="big-result">
+            <span>Your take-home pay</span>
+            <b id="sal-net-month">€0</b>
+            <small>per month · <span id="sal-net-year">€0</span> per year · <span id="sal-net-week">€0</span> per week</small>
+          </div>
+          <div class="split-bar" id="sal-bar" aria-hidden="true"></div>
+          <div class="table-wrap"><table class="result-table">
+            <thead><tr><th></th><th>Per month</th><th>Per year</th></tr></thead>
+            <tbody id="sal-table"></tbody>
+          </table></div>
+          <div class="mini-stats">
+            <div><span>Tax and NI together</span><b id="sal-rate">0%</b></div>
+            <div><span>Cost to your employer per year</span><b id="sal-employer">€0</b></div>
+          </div>
+        </div>

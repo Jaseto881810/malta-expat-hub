@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{# Tools overview. Text comes from content/tools-page.md, the cards from content/tools/ (admin panel: Tools). #}
+{% block head_extra %}
+  <link rel="stylesheet" href="/assets/tools.css">
+{% endblock %}
+{% block main %}
+    <section class="tool-hero" style="--tint:#b8f35c">
+      <div class="crumbs"><a href="/index.html">Home</a> / <b>Tools</b></div>
+      <h1>{{ hub.title }}</h1>
+      <p>{{ hub.heroText }}</p>
+    </section>
+    <div class="tool-wrap">
+      <div class="tool-grid">
+{%- for t in tools %}
+{% include "tool-card.html" %}
+{%- endfor %}
+      </div>
+      <p class="tool-note">{{ hub.note }}</p>
+    </div>
+    <div class="page-end"></div>
+{% endblock %}

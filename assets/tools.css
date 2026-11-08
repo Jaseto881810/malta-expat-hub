@@ -1,0 +1,125 @@
+/* Tools pages (calculators). Loaded only on /tools/ pages. */
+.site .tool-hero {
+  max-width: 1100px; margin: 28px auto 0; padding: 32px 36px;
+  background: var(--tint, #b8f35c);
+  border: var(--line, 2px solid #161b33); border-radius: var(--wobble-box, 20px);
+  box-shadow: var(--shadow-float, 6px 6px 0 #161b33); color: var(--ink, #161b33);
+}
+.site .tool-hero h1 { font-size: 64px; line-height: 1; margin: 6px 0 12px; color: var(--ink, #161b33); }
+.site .tool-hero p { max-width: 720px; margin: 0; font-size: 18px; line-height: 1.5; }
+.site .tool-hero .crumbs a { color: var(--ink, #161b33); }
+.site .tool-wrap { max-width: 1100px; margin: 0 auto; padding: 28px 24px 0; display: flex; flex-direction: column; gap: 24px; }
+.site .tool-note { margin: -8px 4px 0; font-size: 14px; color: #3b4263; }
+
+/* overview cards */
+.site .tool-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.site .tool-grid--small { grid-template-columns: repeat(3, 1fr); }
+.site .tool-tile {
+  display: flex; gap: 18px; align-items: flex-start; padding: 22px;
+  background: #fff; color: var(--ink, #161b33); text-decoration: none;
+  border: var(--line, 2px solid #161b33); border-radius: var(--wobble-box, 20px);
+  box-shadow: 6px 6px 0 var(--tint); transition: transform .1s ease, box-shadow .1s ease;
+}
+.site .tool-tile:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--tint); }
+.site .tool-sym {
+  flex: none; width: 64px; height: 64px; display: grid; place-items: center;
+  font-size: 34px; font-weight: 700; background: var(--tint); color: var(--ink, #161b33);
+  border: 2.5px solid var(--ink, #161b33); border-radius: 50% 45% 52% 48% / 48% 52% 45% 50%;
+}
+.site .tool-tile h3 { margin: 2px 0 6px; font-size: 30px; line-height: 1.1; }
+.site .tool-tile p { margin: 0 0 10px; color: #3b4263; line-height: 1.5; }
+.site .tool-go { font-weight: 700; color: var(--color-accent, #d81b60); }
+.site .tool-grid--small .tool-tile { padding: 16px; gap: 12px; }
+.site .tool-grid--small .tool-sym { width: 46px; height: 46px; font-size: 24px; }
+.site .tool-grid--small .tool-tile h3 { font-size: 24px; }
+.site .tool-grid--small .tool-tile p { font-size: 14px; }
+
+/* calculator card */
+.site .card.tool-card { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 32px; padding: 28px; }
+.site .tool-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 16px; align-content: start; }
+.site .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.site .tool-form input, .site .tool-form select { box-sizing: border-box; max-width: 100%; }
+.site .tool-result .table-wrap { overflow-x: auto; }
+.site .field--wide { grid-column: 1 / -1; }
+.site .field label { font-weight: 700; font-size: 15px; color: var(--ink, #161b33); }
+.site .field label small { font-weight: 400; color: #5b6280; }
+.site .tool-form input[type="text"], .site .tool-form input[type="number"], .site .tool-form select {
+  width: 100%; min-height: 48px; padding: 10px 12px; font: 400 17px var(--font-body, sans-serif);
+  color: var(--ink, #161b33); background: #fff;
+  border: 2px solid var(--ink, #161b33); border-radius: var(--wobble-box, 12px);
+}
+.site .tool-form select:disabled { opacity: .45; }
+.site .tool-form :focus-visible { outline: 3px solid var(--doodle-blue, #3a86ff); outline-offset: 2px; }
+.site .money { position: relative; }
+.site .money span { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-weight: 700; pointer-events: none; }
+.site .money input[type="text"] { padding-left: 32px; font-size: 22px; font-weight: 700; }
+.site .check { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; font-weight: 700; cursor: pointer; }
+.site .check input { width: 22px; height: 22px; accent-color: var(--ink, #161b33); }
+.site .field-note { grid-column: 1 / -1; margin: 0; font-size: 14px; color: #3b4263; line-height: 1.5; }
+
+.site .tool-result { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.site .big-result {
+  padding: 18px 20px; background: var(--tint); color: var(--ink, #161b33);
+  border: 2.5px solid var(--ink, #161b33); border-radius: var(--wobble-box, 16px);
+}
+.site .big-result > span { display: block; font-weight: 700; }
+.site .big-result b { display: block; font: 400 64px/1.05 var(--font-heading); font-size-adjust: 0.46; margin: 4px 0; }
+.site .big-result small { font-size: 14px; line-height: 1.5; display: block; }
+.site .split-bar { display: flex; height: 18px; border: 2px solid var(--ink, #161b33); border-radius: 999px; overflow: hidden; }
+.site .split-bar span + span { border-left: 2px solid var(--ink, #161b33); }
+.site .result-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.site .result-table th, .site .result-table td { padding: 9px 6px; border-bottom: 1.5px dashed #c9ccd9; text-align: right; white-space: nowrap; }
+.site .result-table th[scope="row"], .site .result-table thead th:first-child { text-align: left; font-weight: 400; white-space: normal; }
+.site .result-table thead th { font-size: 13px; color: #5b6280; font-weight: 700; }
+.site .result-table small { color: #5b6280; }
+.site .result-table tr.total th, .site .result-table tr.total td { font-weight: 700; border-bottom: 0; border-top: 2px solid var(--ink, #161b33); }
+.site .result-table .dot { display: inline-block; width: 12px; height: 12px; margin-right: 8px; border: 1.5px solid var(--ink, #161b33); border-radius: 50%; vertical-align: -1px; }
+.site .mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.site .mini-stats--one { grid-template-columns: 1fr; }
+.site .mini-stats div { padding: 12px 14px; background: #fff8d6; border: 2px solid var(--ink, #161b33); border-radius: var(--wobble-box, 12px); }
+.site .mini-stats span { display: block; font-size: 13px; color: #3b4263; }
+.site .mini-stats b { font-size: 22px; }
+.site .tool-sub { margin: 4px 0 -6px; font-size: 26px; }
+.site .compare { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.site .compare li { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) 64px; gap: 10px; align-items: center; padding: 2px 4px; border-radius: 8px; }
+.site .compare li.on { background: #fff8d6; font-weight: 700; }
+.site .cmp-bar { height: 12px; background: #eef0f6; border-radius: 999px; overflow: hidden; }
+.site .cmp-bar span { display: block; height: 100%; background: var(--tint); border-right: 2px solid var(--ink, #161b33); }
+.site .compare b { text-align: right; }
+
+/* how it works and FAQs */
+.site .card.tool-text { padding: 28px 32px; }
+.site .tool-text h2 { margin: 0 0 14px; font-size: 40px; }
+.site .tool-text .md { line-height: 1.65; }
+.site .tool-text .md ol { padding-left: 22px; }
+.site .tool-text .md li { margin-bottom: 8px; }
+.site .faq details { border-bottom: 1.5px dashed #c9ccd9; padding: 4px 0; }
+.site .faq details:last-child { border-bottom: 0; }
+.site .faq summary { cursor: pointer; padding: 12px 0; font-weight: 700; font-size: 17px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.site .faq summary::-webkit-details-marker { display: none; }
+.site .faq summary::after { content: "+"; font-size: 24px; line-height: 1; }
+.site .faq details[open] summary::after { content: "−"; }
+.site .faq .md p { margin: 0 0 12px; }
+.site .tool-more .h-section { margin-bottom: 14px; }
+
+@media (max-width: 900px) {
+  .site .card.tool-card { grid-template-columns: 1fr; }
+  .site .tool-grid--small { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .site .tool-hero { margin: 16px 16px 0; padding: 22px 20px; }
+  .site .tool-hero h1 { font-size: 44px; }
+  .site .tool-hero p { font-size: 16px; }
+  .site .tool-wrap { padding: 20px 16px 0; }
+  .site .tool-grid { grid-template-columns: 1fr; }
+  .site .card.tool-card { padding: 18px; gap: 22px; }
+  .site .tool-form { grid-template-columns: 1fr; }
+  .site .big-result b { font-size: 52px; }
+  .site .mini-stats { grid-template-columns: 1fr; }
+  .site .card.tool-text { padding: 20px; }
+  .site .tool-text h2 { font-size: 32px; }
+  .site .tool-tile h3 { font-size: 26px; }
+  .site .compare li { grid-template-columns: minmax(0, 1fr) 70px 58px; }
+}
+@media (prefers-reduced-motion: reduce) { .site .tool-tile { transition: none; } }
+.site .field[hidden], .site .tool-form [hidden] { display: none; }

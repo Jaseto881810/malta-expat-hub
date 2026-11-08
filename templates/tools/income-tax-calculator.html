@@ -1,0 +1,39 @@
+        <form id="tax-form" class="tool-form" novalidate>
+          <div class="field field--wide">
+            <label for="tax-income">Yearly income from your main job</label>
+            <div class="money"><span>€</span><input id="tax-income" type="text" inputmode="decimal" value="35000" autocomplete="off"></div>
+          </div>
+          <div class="field">
+            <label for="tax-resident">Do you live in Malta?</label>
+            <select id="tax-resident"><option value="yes">Yes, tax resident</option><option value="no">No, non-resident</option></select>
+          </div>
+          <div class="field">
+            <label for="tax-status">Tax status</label>
+{% with status_id = 'tax-status' %}{% include "tools/status-options.html" %}{% endwith %}
+          </div>
+          <div class="field">
+            <label for="tax-parttime">Part-time income per year <small>(optional)</small></label>
+            <div class="money"><span>€</span><input id="tax-parttime" type="text" inputmode="decimal" value="" placeholder="0" autocomplete="off"></div>
+          </div>
+          <div class="field">
+            <label for="tax-rent">Rental income per year <small>(optional)</small></label>
+            <div class="money"><span>€</span><input id="tax-rent" type="text" inputmode="decimal" value="" placeholder="0" autocomplete="off"></div>
+          </div>
+          <p class="field-note" id="tax-pt-note" hidden>Only the first €10,000 of part-time income can use the 10% rate, and only for residents. The rest is added to your main income.</p>
+        </form>
+        <div class="tool-result" aria-live="polite">
+          <div class="big-result">
+            <span>Your income tax for 2026</span>
+            <b id="tax-total">€0</b>
+            <small>about <span id="tax-month">€0</span> per month</small>
+          </div>
+          <div class="table-wrap"><table class="result-table">
+            <thead><tr><th>Tax band</th><th>Income in band</th><th>Tax</th></tr></thead>
+            <tbody id="tax-table"></tbody>
+          </table></div>
+          <div class="mini-stats">
+            <div><span>Average tax rate</span><b id="tax-eff">0%</b></div>
+            <div><span>Tax on your next €1</span><b id="tax-marg">0%</b></div>
+          </div>
+          <p class="field-note">Social security is not included here. To see your take-home pay, use the <a href="/tools/salary-calculator.html">Salary Calculator</a>.</p>
+        </div>
