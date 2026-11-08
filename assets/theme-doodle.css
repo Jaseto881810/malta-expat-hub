@@ -238,3 +238,15 @@ body.site {
   .site .btn, .site .tile, .site .guide-card { transition: none; }
   .site .nav-link--highlight::after { animation: none; }
 }
+
+/* ---------- Heading spacing ----------
+   The handwriting font has long tails on letters like g, y, p and j.
+   Extra line height and a little space underneath stop them touching the text below.
+   ("body.site" makes these rules win over the older, tighter ones.) */
+body.site h1, body.site h2, body.site h3, body.site h4 { line-height: 1.2; }
+body.site .hero-card h1, body.site .g-hero-card h1, body.site .sec-hero h1,
+body.site .tool-hero h1, body.site .map-panel-head h1 { line-height: 1.12; padding-bottom: .12em; }
+body.site .tile-head h3, body.site .guide-card h4, body.site .tool-tile h3 { line-height: 1.15; padding-bottom: .06em; }
+/* Keep the site name on one line in the header */
+body.site .nav-brand { white-space: nowrap; flex: none; line-height: 1.1; }
+body.site .nav { gap: 18px; }
