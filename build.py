@@ -98,6 +98,7 @@ def read(path):
     body = body.split('\n', 1)[1] if '\n' in body else ''
     data = yaml.safe_load(front) or {}
     data['slug'] = os.path.splitext(os.path.basename(path))[0]
+    data['_path'] = os.path.relpath(path, ROOT).replace(os.sep, '/')
     if body.strip():
         data.setdefault('blocks', []).append({'text': body.strip()})
     return data
@@ -164,6 +165,42 @@ def write(url, html):
     dest = os.path.join(OUT, path.lstrip('/'))
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     open(dest, 'w', encoding='utf-8').write(html)
+
+
+def git_dates():
+    """Date each content file was last changed, from the git history ({'content/x.md': '2026-11-08'})."""
+    import subprocess
+    try:
+        log = subprocess.run(['git', '-c', 'core.quotepath=off', 'log', '--format=@%cs', '--name-only', '--', 'content'],
+                             cwd=ROOT, capture_output=True, text=True, check=True).stdout
+    except Exception:
+        return {}
+    dates, current = {}, None
+    for line in log.splitlines():
+        if line.startswith('@'):
+            current = line[1:]
+        elif line.strip() and current:
+            dates.setdefault(line.strip(), current)   # newest commit comes first
+    return dates
+
+
+safe_json = lambda o: json.dumps(o, ensure_ascii=False).replace('</', '<\\/')
+
+
+def canon(url):
+    """The one official address of a page: /x/index.html -> /x/"""
+    u = urllib.parse.unquote(str(url or '/'))
+    return re.sub(r'/index\.html$', '/', u)
+
+
+def abs_url(url):
+    if str(url).startswith('http'):
+        return str(url)
+    return SITE_URL + urllib.parse.quote(canon(url))
+
+
+ORG = {'@type': 'Organization', '@id': f'{SITE_URL}/#org', 'name': 'Malta Expat Guide', 'url': f'{SITE_URL}/',
+       'logo': {'@type': 'ImageObject', 'url': f'{SITE_URL}/assets/icon-192.png', 'width': 192, 'height': 192}}
 
 
 def main():
@@ -245,9 +282,41 @@ def main():
                        same_page=lambda a, b: norm(a) == norm(b), guide_nav=guide_nav,
                        BUILD_YEAR=datetime.date.today().year)
 
-    def common(title, description, url, body_section, share_image=None):
+    # ---- dates, canonical address and structured data (schema.org) for search engines ----
+    file_dates = git_dates()
+    today = datetime.date.today().isoformat()
+    newest = max(file_dates.values(), default=today)
+    lastmod = {}   # page address -> date it last changed (for the sitemap)
+
+    def changed(*docs):
+        """Newest change date of the content files behind a page."""
+        ds = [file_dates.get(d.get('_path')) for d in docs if d and d.get('_path')]
+        return max([x for x in ds if x], default=newest)
+
+    def common(title, description, url, body_section, share_image=None, crumbs=None, article=None, modified=None, extra=None):
+        share = share_image or DEFAULT_SHARE_IMAGE
+        page_url = abs_url(url)
+        graph = []
+        if crumbs:
+            trail = [('Home', '/')] + list(crumbs)
+            graph.append({'@type': 'BreadcrumbList', 'itemListElement': [
+                {'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': abs_url(u)} for i, (n, u) in enumerate(trail)]})
+        if article:
+            a = {'@type': article.get('type', 'Article'), 'headline': article['headline'][:110],
+                 'description': description or '', 'image': abs_url(share), 'inLanguage': 'en',
+                 'mainEntityOfPage': page_url, 'author': {'@id': ORG['@id']}, 'publisher': {'@id': ORG['@id']},
+                 'dateModified': modified or newest}
+            if article.get('published'):
+                a['datePublished'] = article['published']
+            graph.append(a)
+        graph += extra or []
+        if graph:
+            graph.append(ORG)
+        lastmod[canon(url)] = modified or newest
         return dict(page_title=f'Malta Expat Guide | {title}', description=description or '', url=url,
-                    site_url=SITE_URL, adsense_client=ADSENSE_CLIENT, body_section=body_section, share_image=share_image or DEFAULT_SHARE_IMAGE)
+                    canonical=page_url, modified=modified,
+                    schema_json=safe_json({'@context': 'https://schema.org', '@graph': graph}) if graph else '',
+                    site_url=SITE_URL, adsense_client=ADSENSE_CLIENT, body_section=body_section, share_image=share)
 
     pages = []  # (url, lastmod) for the sitemap
 
@@ -256,12 +325,15 @@ def main():
     for s in sections:
         if s.get('singlePage'):
             write(s['href'], guide_tpl.render(page=s, section=s, content_css=True,
-                  **common(s.get('seoTitle') or s['name'], s.get('description'), s['href'], s['slug'], s.get('shareImage') or s.get('image'))))
+                  **common(s.get('seoTitle') or s['name'], s.get('description'), s['href'], s['slug'], s.get('shareImage') or s.get('image'),
+                         crumbs=[(s['name'], s['href'])], article={'headline': s.get('title') or s['name']}, modified=changed(s))))
             pages.append(s['href'])
     for g in guides:
         s = by_id[g['section']]
         write(g['url'], guide_tpl.render(page=g, section=s, content_css=True,
-              **common(g.get('seoTitle') or g['menuName'], g.get('description'), g['url'], s['slug'], g.get('shareImage') or g.get('image'))))
+              **common(g.get('seoTitle') or g['menuName'], g.get('description'), g['url'], s['slug'], g.get('shareImage') or g.get('image'),
+                     crumbs=[(s['name'], s['href']), (g['menuName'], g['url'])], article={'headline': g.get('title') or g['menuName']},
+                     modified=changed(g))))
         pages.append(g['url'])
 
     # ---- standalone pages (About, Contact, Privacy Policy, ...) ----
@@ -270,7 +342,8 @@ def main():
         pg['url'] = f"/{pg['slug']}.html"
         pg['menuName'] = pg.get('menuName') or pg['title']
         write(pg['url'], guide_tpl.render(page=pg, section=plain, standalone=True, content_css=True,
-              **{**common(pg.get('seoTitle') or pg['menuName'], pg.get('description'), pg['url'], 'page', pg.get('shareImage') or pg.get('image')),
+              **{**common(pg.get('seoTitle') or pg['menuName'], pg.get('description'), pg['url'], 'page', pg.get('shareImage') or pg.get('image'),
+                          crumbs=[(pg['menuName'], pg['url'])], modified=changed(pg)),
                  'noindex': bool(pg.get('hideFromSearch'))}))
         if not pg.get('hideFromSearch'):
             pages.append(pg['url'])
@@ -282,7 +355,11 @@ def main():
             continue
         url = f"/{s['slug']}/"
         write(url, sec_tpl.render(section=s, guides=s['guides'],
-              **common(s.get('seoTitle') or s['name'], s.get('description'), url, s['slug'], s.get('shareImage'))))
+              **common(s.get('seoTitle') or s['name'], s.get('description'), url, s['slug'], s.get('shareImage'),
+                     crumbs=[(s['name'], url)], modified=changed(s, *s['guides']),
+                     extra=[{'@type': 'ItemList', 'name': s['name'], 'itemListElement': [
+                         {'@type': 'ListItem', 'position': i + 1, 'name': g['menuName'], 'url': abs_url(g['url'])}
+                         for i, g in enumerate(s['guides'])]}])))
         pages.append(url)
 
     # ---- blog: one page per post, plus the overview at /blog/ ----
@@ -290,10 +367,13 @@ def main():
     for post in posts:
         write(post['url'], guide_tpl.render(page=post, section=blog, standalone=True, content_css=True,
               **common(post.get('seoTitle') or post['title'], post.get('description') or post.get('excerpt'),
-                       post['url'], 'blog', post.get('shareImage') or post.get('image'))))
+                       post['url'], 'blog', post.get('shareImage') or post.get('image'),
+                       crumbs=[('Blog', '/blog/'), (post['title'], post['url'])], modified=changed(post),
+                       article={'type': 'BlogPosting', 'headline': post['title'], 'published': post['date_obj'].isoformat()})))
         pages.append(post['url'])
     write('/blog/', env.get_template('blog.html').render(posts=posts, section=blog,
-          **common('Blog', 'News, tips and personal stories about moving to and living in Malta.', '/blog/', 'blog')))
+          **common('Blog', 'News, tips and personal stories about moving to and living in Malta.', '/blog/', 'blog',
+                  crumbs=[('Blog', '/blog/')], modified=changed(*posts))))
     pages.append('/blog/')
 
     # ---- interactive map ----
@@ -335,12 +415,11 @@ def main():
     for p in places:
         p.pop('slug', None)
     places.sort(key=lambda p: p['name'].lower())
-    safe_json = lambda o: json.dumps(o, ensure_ascii=False).replace('</', '<\\/')
     write('/map/', env.get_template('map.html').render(
         places_json=safe_json(places), categories_json=safe_json(MAP_CATEGORIES),
         **common('Malta Map: things to do, beaches, hiking, diving and more',
                  'Interactive map of Malta and Gozo: things to do, hiking trails, dive sites, beaches, neighbourhoods, expat services and English schools.',
-                 '/map/', 'map')))
+                 '/map/', 'map', crumbs=[('Map', '/map/')])))
     pages.append('/map/')
 
     # ---- tools (calculators): overview at /tools/ plus one page per tool ----
@@ -354,18 +433,25 @@ def main():
         write(t['url'], env.get_template('tool.html').render(
             tool=t, tools=tools, hub=hub, faq_schema=safe_json(faq_schema),
             tool_data=safe_json({'rent': rent_data, 'costs': t.get('costs') or {}}),
-            **common(t.get('seoTitle') or t['title'], t.get('description'), t['url'], 'tools')))
+            **common(t.get('seoTitle') or t['title'], t.get('description'), t['url'], 'tools',
+                     crumbs=[('Tools', '/tools/'), (t['menuName'], t['url'])], modified=changed(t, rent_doc),
+                     extra=[{'@type': 'WebApplication', 'name': t['title'], 'url': abs_url(t['url']),
+                             'description': t.get('description') or '', 'applicationCategory': 'FinanceApplication',
+                             'operatingSystem': 'Any', 'isAccessibleForFree': True,
+                             'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'EUR'}}])))
         pages.append(t['url'])
     write('/tools/', env.get_template('tools.html').render(tools=tools, hub=hub,
           **common(hub.get('seoTitle') or 'Free Malta calculators: cost of living, salary, tax and rent',
-                   hub.get('description'), '/tools/', 'tools')))
+                   hub.get('description'), '/tools/', 'tools', crumbs=[('Tools', '/tools/')], modified=changed(hub, *tools))))
     pages.append('/tools/')
 
     # ---- home and 404 ----
     home = read(os.path.join(ROOT, 'content', 'home.md'))
     write('/', env.get_template('home.html').render(sections=sections, home=home, latest_posts=posts[:3],
           **common(home.get('seoTitle') or 'A Comprehensive Guide to Living in Malta',
-                   home.get('description'), '/', 'home', home.get('shareImage'))))
+                   home.get('description'), '/', 'home', home.get('shareImage'), modified=changed(home, *sections),
+                   extra=[{'@type': 'WebSite', '@id': f'{SITE_URL}/#website', 'name': 'Malta Expat Guide', 'url': f'{SITE_URL}/',
+                           'inLanguage': 'en', 'publisher': {'@id': ORG['@id']}}])))
     write('/404.html', env.get_template('404.html').render(noindex=True, page_title='Page not found | Malta Expat Guide', body_section='home'))
 
     # ---- site script (menu button, lazy photos) ----
@@ -373,10 +459,9 @@ def main():
     write('/assets/site.js', script)
 
     # ---- sitemap ----
-    today = datetime.date.today().isoformat()
     urls = ['/'] + pages
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    sitemap += ''.join(f'  <url><loc>{SITE_URL}{urllib.parse.unquote(u)}</loc><lastmod>{today}</lastmod></url>\n' for u in urls)
+    sitemap += ''.join(f'  <url><loc>{abs_url(u)}</loc><lastmod>{lastmod.get(canon(u), newest)}</lastmod></url>\n' for u in urls)
     sitemap += '</urlset>\n'
     write('/sitemap.xml', sitemap)
 

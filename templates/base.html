@@ -14,12 +14,15 @@
   <link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
   <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+{%- if canonical and not noindex %}
+  <link rel="canonical" href="{{ canonical }}">
+{%- endif %}
 {%- if not noindex %}
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Malta Expat Guide">
   <meta property="og:title" content="{{ page_title }}">
   <meta property="og:description" content="{{ description }}">
-  <meta property="og:url" content="{{ site_url }}{{ url }}">
+  <meta property="og:url" content="{{ canonical or (site_url ~ url) }}">
   <meta property="og:image" content="{{ share_image }}">
   <meta name="twitter:card" content="summary_large_image">
 {%- endif %}
@@ -35,6 +38,9 @@
 {%- if adsense_client and not noindex %}
   <meta name="google-adsense-account" content="{{ adsense_client }}">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ adsense_client }}" crossorigin="anonymous"></script>
+{%- endif %}
+{%- if schema_json and not noindex %}
+  <script type="application/ld+json">{{ schema_json | safe }}</script>
 {%- endif %}
 {% block head_extra %}{% endblock %}
 </head>
