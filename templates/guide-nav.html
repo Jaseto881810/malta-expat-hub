@@ -1,0 +1,19 @@
+{#- Guide pages: "In this section" list (aside) or previous / next links (pager). -#}
+{%- set gn = guide_nav(body_section, url) %}
+{%- if gn and part == 'aside' %}
+        <div class="g-aside-card" style="--tint:{{ gn.section.tint }}">
+          <h6>{% if gn.has_guides %}<a href="{{ gn.section.href }}">{{ gn.section.n }} · {{ gn.section.name }}</a>{% else %}All sections{% endif %}</h6>
+          <ul>
+            {%- for g in gn['items'] %}
+            <li><a href="{{ g.href }}"{% if same_page(g.href, url) %} aria-current="page"{% endif %}>{{ g.name }}</a></li>
+            {%- endfor %}
+          </ul>
+        </div>
+{%- elif gn and part == 'pager' %}
+      {%- if gn.prev %}
+      <a class="prev" href="{{ gn.prev.href }}"><h6>{{ gn.prev.label }}</h6><b>← {{ gn.prev.name }}</b></a>
+      {%- endif %}
+      {%- if gn.next %}
+      <a class="next" href="{{ gn.next.href }}"><h6>{{ gn.next.label }}</h6><b>{{ gn.next.name }} →</b></a>
+      {%- endif %}
+{%- endif %}

@@ -193,6 +193,58 @@ def main():
         n = len(s['guides'])
         s['tag'] = s.get('homeTag') or (f"{n} guide{'' if n == 1 else 's'}" if not s.get('singlePage') else '1 guide')
 
+    tools = sorted([t for t in load_folder('tools') if not t.get('draft')], key=lambda t: (t.get('order', 99), t['title']))
+    for t in tools:
+        t['url'] = f"/tools/{t['slug']}.html"
+        t['menuName'] = t.get('menuName') or t['title']
+
+    # ---- header, menu, footer and guide navigation ----
+    # These are written straight into every page (not added later by JavaScript),
+    # so search engines and AI tools can follow all the links.
+    nav = []
+    for s in sections:
+        item = {'id': s['slug'], 'n': s['number'], 'name': s['name'], 'tint': s['colour'], 'href': s['href']}
+        if not s.get('singlePage'):
+            item['guides'] = [{'name': g['menuName'], 'href': urllib.parse.unquote(g['url'])} for g in s['guides']]
+        nav.append(item)
+    top = [n for n in nav if by_id[n['id']].get('inTopMenu')]
+    footer = [{'name': pg['menuName'], 'href': f"/{pg['slug']}.html"}
+              for pg in sorted(pages_extra, key=lambda x: (x.get('footerOrder', 99), x['menuName'])) if pg.get('inFooter')]
+    if tools:
+        footer.insert(0, {'name': 'Tools', 'href': '/tools/'})
+    extra_nav = [{'id': 'map', 'name': 'Map', 'href': '/map/', 'colour': '#b8f35c', 'highlight': True}]
+    if tools:
+        extra_nav.append({'id': 'tools', 'name': 'Tools', 'href': '/tools/', 'colour': '#ff8fb3', 'highlight': True,
+                          'guides': [{'name': t['menuName'], 'href': t['url']} for t in tools]})
+    if posts:
+        extra_nav.append({'id': 'blog', 'name': 'Blog', 'href': '/blog/', 'colour': '#ffd60a'})
+
+    def norm(u):
+        u = urllib.parse.unquote(str(u or ''))
+        return re.sub(r'\.html$', '', re.sub(r'/index\.html$', '/', u))
+
+    def guide_nav(section_id, url):
+        """The 'In this section' list and the previous / next links on a guide page."""
+        cur = next((n for n in nav if n['id'] == section_id), None)
+        if not cur:
+            return None
+        i = nav.index(cur)
+        prev_sec, next_sec = (nav[i - 1] if i > 0 else None), (nav[i + 1] if i + 1 < len(nav) else None)
+        guides = cur.get('guides') or []
+        gi = next((k for k, g in enumerate(guides) if norm(g['href']) == norm(url)), -1)
+        sec_link = lambda n, label: n and {'label': f"{label} · {n['n']}", 'name': n['name'], 'href': n['href']}
+        if guides and gi >= 0:
+            prev = ({'label': 'Previous guide', **guides[gi - 1]} if gi > 0
+                    else {'label': 'Section overview', 'name': cur['name'], 'href': cur['href']})
+            nxt = {'label': 'Next guide', **guides[gi + 1]} if gi + 1 < len(guides) else sec_link(next_sec, 'Next section')
+        else:
+            prev, nxt = sec_link(prev_sec, 'Previous section'), sec_link(next_sec, 'Next section')
+        return {'section': cur, 'items': guides or nav, 'has_guides': bool(guides), 'prev': prev, 'next': nxt}
+
+    env.globals.update(NAV=nav, TOP_NAV=top, EXTRA_NAV=extra_nav, FOOTER_LINKS=footer,
+                       same_page=lambda a, b: norm(a) == norm(b), guide_nav=guide_nav,
+                       BUILD_YEAR=datetime.date.today().year)
+
     def common(title, description, url, body_section, share_image=None):
         return dict(page_title=f'Malta Expat Guide | {title}', description=description or '', url=url,
                     site_url=SITE_URL, adsense_client=ADSENSE_CLIENT, body_section=body_section, share_image=share_image or DEFAULT_SHARE_IMAGE)
@@ -292,13 +344,9 @@ def main():
     pages.append('/map/')
 
     # ---- tools (calculators): overview at /tools/ plus one page per tool ----
-    tools = sorted([t for t in load_folder('tools') if not t.get('draft')], key=lambda t: (t.get('order', 99), t['title']))
     hub = read(os.path.join(ROOT, 'content', 'tools-page.md'))
     rent_doc = next((t for t in tools if t['slug'] == 'rent-prices'), {})
     rent_data = {k: rent_doc.get(k) for k in ('areas', 'studioFactor', 'threeBedFactor')}
-    for t in tools:
-        t['url'] = f"/tools/{t['slug']}.html"
-        t['menuName'] = t.get('menuName') or t['title']
     for t in tools:
         faq_schema = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
             {'@type': 'Question', 'name': f['question'], 'acceptedAnswer': {'@type': 'Answer', 'text': f['answer']}}
@@ -320,29 +368,8 @@ def main():
                    home.get('description'), '/', 'home', home.get('shareImage'))))
     write('/404.html', env.get_template('404.html').render(noindex=True, page_title='Page not found | Malta Expat Guide', body_section='home'))
 
-    # ---- menu script (header, menu, footer, sidebar, pager) ----
-    nav = []
-    for s in sections:
-        item = {'id': s['slug'], 'n': s['number'], 'name': s['name'], 'tint': s['colour'], 'href': s['href']}
-        if not s.get('singlePage'):
-            item['guides'] = [{'name': g['menuName'], 'href': urllib.parse.unquote(g['url'])} for g in s['guides']]
-        nav.append(item)
-    top = [s['slug'] for s in sections if s.get('inTopMenu')]
+    # ---- site script (menu button, lazy photos) ----
     script = open(os.path.join(ROOT, 'templates', 'site-script.js'), encoding='utf-8').read()
-    footer = [{'name': pg['menuName'], 'href': pg['url']}
-              for pg in sorted(pages_extra, key=lambda x: (x.get('footerOrder', 99), x['menuName'])) if pg.get('inFooter')]
-    if tools:
-        footer.insert(0, {'name': 'Tools', 'href': '/tools/'})
-    extra_nav = [{'id': 'map', 'name': 'Map', 'href': '/map/', 'colour': '#b8f35c'}]
-    if tools:
-        extra_nav.append({'id': 'tools', 'name': 'Tools', 'href': '/tools/', 'colour': '#ff8fb3',
-                          'guides': [{'name': t['menuName'], 'href': t['url']} for t in tools]})
-    if posts:
-        extra_nav.append({'id': 'blog', 'name': 'Blog', 'href': '/blog/', 'colour': '#ffd60a'})
-    script = script.replace('(function () {',
-                            f'const SECTIONS = {json.dumps(nav, ensure_ascii=False)};\nconst TOP_NAV = {json.dumps(top)};\n'
-                            f'const FOOTER_LINKS = {json.dumps(footer, ensure_ascii=False)};\n'
-                            f'const EXTRA_NAV = {json.dumps(extra_nav)};\n\n(function () {{', 1)
     write('/assets/site.js', script)
 
     # ---- sitemap ----

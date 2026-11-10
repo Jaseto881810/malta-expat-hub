@@ -42,11 +42,15 @@
 {%- endfor %}
       </article>
       {%- if not standalone %}
-      <aside class="g-aside" id="guide-aside"></aside>
+      <aside class="g-aside" id="guide-aside">
+{% with part = 'aside' %}{% include "guide-nav.html" %}{% endwith %}
+      </aside>
       {%- endif %}
     </div>
     {%- if not standalone %}
-    <nav class="pager" id="guide-pager" aria-label="More guides"></nav>
+    <nav class="pager" id="guide-pager" aria-label="More guides">
+{% with part = 'pager' %}{% include "guide-nav.html" %}{% endwith %}
+    </nav>
     {%- else %}
     <div class="page-end"></div>
     {%- endif %}

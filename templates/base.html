@@ -39,12 +39,16 @@
 {% block head_extra %}{% endblock %}
 </head>
 <body class="site" data-section="{{ body_section }}"{% block body_attrs %}{% endblock %}>
-  <header id="site-header" class="site-header"></header>
+  <header id="site-header" class="site-header">
+{% include "header.html" %}
+  </header>
 
   <main>
 {% block main %}{% endblock %}
   </main>
 
-  <footer id="site-footer" class="site-footer"></footer>
+  <footer id="site-footer" class="site-footer">
+{% include "footer.html" %}
+  </footer>
 </body>
 </html>

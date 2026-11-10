@@ -1,0 +1,18 @@
+{#- Site footer. The links come from the sections and the pages marked "show in footer". -#}
+      <div class="footer-cta">
+        {%- if body_section == 'getting-started' %}
+        <h2>Ready for the details?</h2>
+        <a class="btn btn-light" href="/index.html#explore">Browse all sections →</a>
+        {%- else %}
+        <h2>Not sure where to begin?</h2>
+        <a class="btn btn-light" href="/getting-started.html">Read Getting Started →</a>
+        {%- endif %}
+      </div>
+      <div class="footer-meta">
+        <span class="footer-site">© {{ BUILD_YEAR }} Malta Expat Guide
+          {%- for l in FOOTER_LINKS %}<span class="sep">·</span><a href="{{ l.href }}">{{ l.name }}</a>{% endfor -%}
+        </span>
+        <nav aria-label="Sections">
+          {%- for s in NAV %}<a href="{{ s.href }}">{{ s.name }}</a>{% endfor -%}
+        </nav>
+      </div>

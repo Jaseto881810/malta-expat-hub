@@ -1,0 +1,49 @@
+{#- Site header and the "All sections" menu. Built from the sections and guides in content/. -#}
+{%- set here = url or '' %}
+      <div class="nav">
+        <a class="nav-brand" href="/index.html"><span>Malta</span> Expat Guide</a>
+        <nav class="nav-links" aria-label="Main">
+          {%- for s in TOP_NAV %}
+          <a class="nav-link" href="{{ s.href }}"{% if body_section == s.id %} aria-current="page"{% endif %}>{{ s.name | replace(' in Malta', '') }}</a>
+          {%- endfor %}
+          {%- for l in EXTRA_NAV %}
+          <a class="nav-link{% if l.highlight %} nav-link--highlight nav-link--{{ l.id }}{% endif %}" href="{{ l.href }}"{% if body_section == l.id %} aria-current="page"{% endif %}>{{ l.name }}</a>
+          {%- endfor %}
+        </nav>
+        <button class="btn btn-secondary menu-all" type="button" data-menu-open aria-haspopup="dialog" aria-controls="site-menu">All sections</button>
+        <button class="btn btn-icon btn-secondary menu-icon" type="button" data-menu-open aria-haspopup="dialog" aria-controls="site-menu" aria-label="Open menu">≡</button>
+      </div>
+      <div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="All sections">
+        <div class="menu-panel">
+          <div class="menu-head">
+            <a class="nav-brand" href="/index.html"><span>Malta</span> Expat Guide</a>
+            <button class="btn btn-icon btn-secondary" type="button" data-menu-close aria-label="Close menu">✕</button>
+          </div>
+          <nav class="menu-grid" aria-label="All sections">
+            {%- for s in NAV %}
+            <div class="menu-sec" style="--tint:{{ s.tint }}">
+              <a class="menu-sec-title" href="{{ s.href }}"><b>{{ s.n }}</b>{{ s.name }}</a>
+              {%- if s.guides %}
+              <ul>
+                {%- for g in s.guides %}
+                <li><a href="{{ g.href }}"{% if same_page(g.href, here) %} aria-current="page"{% endif %}>{{ g.name }}</a></li>
+                {%- endfor %}
+              </ul>
+              {%- endif %}
+            </div>
+            {%- endfor %}
+            {%- for l in EXTRA_NAV %}
+            <div class="menu-sec menu-sec-extra" style="--tint:{{ l.colour or '#ffffff' }}">
+              <a class="menu-sec-title" href="{{ l.href }}"><b>→</b>{{ l.name }}</a>
+              {%- if l.guides %}
+              <ul>
+                {%- for g in l.guides %}
+                <li><a href="{{ g.href }}"{% if same_page(g.href, here) %} aria-current="page"{% endif %}>{{ g.name }}</a></li>
+                {%- endfor %}
+              </ul>
+              {%- endif %}
+            </div>
+            {%- endfor %}
+          </nav>
+        </div>
+      </div>
