@@ -9,7 +9,7 @@ homeText: Towns, Gozo, hiking, swimming and trips to Sicily.
 homeImage: /assets/images/Comino.jpg
 homeTag: ''
 description: 'Locations: Towns, Gozo, hiking, swimming, historical sites and trips to Sicily.'
-seoTitle: ''
+seoTitle: Places to Live and Visit in Malta
 shareImage: /assets/images/Comino.jpg
 singlePage: false
 title: ''

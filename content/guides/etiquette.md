@@ -56,6 +56,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/People Valetta.jpg
-seoTitle: ''
+seoTitle: Maltese Etiquette for Expats
 shareImage: /assets/images/People Valetta.jpg
 ---

@@ -39,6 +39,6 @@ blocks:
     text: '> This website gives general information only. It is not legal, tax or financial advice. Always check important details with the official source, such as Identità, the Commissioner for Revenue or your employer, before you make a decision.'
     html: ''
     custom: ''
-seoTitle: ''
+seoTitle: About Us
 shareImage: /assets/images/Balluta Parish Church.jpg
 ---

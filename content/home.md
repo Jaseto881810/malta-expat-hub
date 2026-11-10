@@ -76,6 +76,6 @@ weatherNotes: |-
   - Due to Malta's latitude location, humidity is a real issue, it can be quite high year-round.
   - While Malta generally enjoys calm Mediterranean weather, it can occasionally be affected by Medicanes — short for Mediterranean hurricanes. These are rare, tropical-like storms that form over the Mediterranean Sea, usually in autumn when the sea is still warm. Medicanes can bring heavy rain, strong winds, rough seas, and localized flooding. Malta has experienced a few in recent years, but they remain infrequent and short-lived, often lasting only a day or two.
 description: Comprehensive wiki for moving to Malta. 60+ pages of info on visas, housing, lifestyle, and more.
-seoTitle: A Comprehensive Guide to Living in Malta
+seoTitle: 'Living in Malta: Guide for Expats'
 shareImage: /assets/images/Marsaxlokk.jpg
 ---

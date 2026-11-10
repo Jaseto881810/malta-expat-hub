@@ -80,6 +80,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Blue Lagoon.jpg
-seoTitle: Swimming Spots
+seoTitle: Best Swimming Spots in Malta
 shareImage: /assets/images/Blue Lagoon.jpg
 ---

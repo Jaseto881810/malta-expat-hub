@@ -9,7 +9,7 @@ homeText: Nightlife, petty crime, scams and emergency protocols.
 homeImage: /assets/images/Malta Police.webp
 homeTag: ''
 description: A complete guide to safety in Malta. Learn about crime rates, nightlife precautions in Paceville, common scams, and emergency protocols.
-seoTitle: ''
+seoTitle: Is Malta Safe? Safety Guide
 shareImage: /assets/images/Malta Police.webp
 singlePage: true
 title: Safety in Malta

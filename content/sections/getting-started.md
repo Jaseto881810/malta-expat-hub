@@ -9,7 +9,7 @@ homeText: Useful apps, the cost of living and advice for third-country nationals
 homeImage: /assets/images/Valletta at sunset.jpg
 homeTag: Start here
 description: Your first steps for moving to Malta. Pre-arrival checklists, visa overviews, and the mandatory 2026 Skills Pass requirements.
-seoTitle: ''
+seoTitle: 'Moving to Malta: Getting Started'
 shareImage: /assets/images/Valletta at sunset.jpg
 singlePage: true
 title: Getting Started

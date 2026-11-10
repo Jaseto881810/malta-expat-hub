@@ -78,6 +78,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Rabat Hiking.jpg
-seoTitle: ''
+seoTitle: 'Hiking in Malta: Best Trails'
 shareImage: /assets/images/Rabat Hiking.jpg
 ---

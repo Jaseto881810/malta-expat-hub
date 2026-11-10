@@ -65,6 +65,6 @@ blocks:
     custom: ''
 imageAlt: Residence permit documents
 cardImage: /assets/images/Residency.jpg
-seoTitle: ''
+seoTitle: 'Malta e-Residence Card: How to Apply'
 shareImage: /assets/images/Residency.jpg
 ---

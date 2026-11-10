@@ -71,6 +71,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Waterpolo.jpg
-seoTitle: Professional Sports
+seoTitle: Professional Sports in Malta
 shareImage: /assets/images/Waterpolo.jpg
 ---

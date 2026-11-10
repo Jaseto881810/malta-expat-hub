@@ -88,6 +88,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Internet.jpg
-seoTitle: ''
+seoTitle: Internet and Mobile Providers in Malta
 shareImage: /assets/images/Internet.jpg
 ---

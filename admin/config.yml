@@ -210,7 +210,7 @@ collections:
             hint: Replaces the whole card. Only for calculators and special layouts.
       - { label: Photo description (optional), name: imageAlt, widget: string, required: false }
       - { label: Card photo (optional), name: cardImage, widget: image, required: false, hint: "Empty = uses the header photo" }
-      - { label: Browser tab title (optional), name: seoTitle, widget: string, required: false, hint: "Empty = uses the name in menu" }
+      - { label: Browser tab title (optional), name: seoTitle, widget: string, required: false, hint: "Shown in Google results. Keep it under 40 characters. Empty = uses the page heading." }
       - { label: Social share photo (optional), name: shareImage, widget: image, required: false }
 
   - name: sections

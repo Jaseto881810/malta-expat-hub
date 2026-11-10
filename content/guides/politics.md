@@ -104,6 +104,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Parliament.jpg
-seoTitle: Political Landscape
+seoTitle: 'Politics in Malta: A Simple Guide'
 shareImage: /assets/images/Parliament.jpg
 ---

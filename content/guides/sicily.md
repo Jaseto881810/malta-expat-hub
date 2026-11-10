@@ -117,6 +117,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Air Malta.jpg
-seoTitle: ''
+seoTitle: Trips to Sicily from Malta
 shareImage: /assets/images/Air Malta.jpg
 ---

@@ -88,6 +88,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Investment.jpg
-seoTitle: ''
+seoTitle: Investments and Pensions in Malta
 shareImage: /assets/images/Investment.jpg
 ---

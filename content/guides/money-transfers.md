@@ -137,6 +137,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Revolut.jpg
-seoTitle: ''
+seoTitle: Sending Money to and from Malta
 shareImage: /assets/images/Revolut.jpg
 ---

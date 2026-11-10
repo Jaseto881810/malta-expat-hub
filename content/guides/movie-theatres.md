@@ -75,6 +75,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Movie Theatre.jpg
-seoTitle: ''
+seoTitle: Cinemas in Malta
 shareImage: /assets/images/Movie Theatre.jpg
 ---

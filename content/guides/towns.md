@@ -94,6 +94,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/San Giljan.jpg
-seoTitle: Popular Towns
+seoTitle: Best Towns to Live in Malta
 shareImage: /assets/images/San Giljan.jpg
 ---

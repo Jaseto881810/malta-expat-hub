@@ -95,6 +95,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Nursery School.jpg
-seoTitle: Nursery & Early Years
+seoTitle: Nursery Schools and Childcare in Malta
 shareImage: /assets/images/Nursery School.jpg
 ---

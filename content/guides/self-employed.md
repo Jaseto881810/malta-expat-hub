@@ -59,6 +59,6 @@ blocks:
     custom: ''
 imageAlt: Planning a small business
 cardImage: /assets/images/Self-Employed.jpg
-seoTitle: ''
+seoTitle: 'Self-Employed in Malta: How to Start'
 shareImage: /assets/images/Self-Employed.jpg
 ---

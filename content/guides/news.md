@@ -78,6 +78,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/News.jpg
-seoTitle: ''
+seoTitle: Malta News Sources in English
 shareImage: /assets/images/News.jpg
 ---

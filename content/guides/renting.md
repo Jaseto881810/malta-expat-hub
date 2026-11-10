@@ -126,6 +126,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Rent Apartment.jpg
-seoTitle: ''
+seoTitle: 'Renting in Malta: Guide for Expats'
 shareImage: /assets/images/Rent Apartment.jpg
 ---

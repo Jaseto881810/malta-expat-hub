@@ -162,6 +162,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Luzzu.jpg
-seoTitle: ''
+seoTitle: Benefits and Allowances in Malta (2026)
 shareImage: /assets/images/Luzzu.jpg
 ---

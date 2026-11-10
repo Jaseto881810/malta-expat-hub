@@ -78,6 +78,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Annual Festival.jpg
-seoTitle: ''
+seoTitle: 'Festivals in Malta: Yearly Calendar'
 shareImage: /assets/images/Annual Festival.jpg
 ---

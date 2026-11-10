@@ -76,6 +76,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Shopping.jpg
-seoTitle: ''
+seoTitle: Shopping Malls in Malta
 shareImage: /assets/images/Shopping.jpg
 ---

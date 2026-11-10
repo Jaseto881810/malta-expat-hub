@@ -138,6 +138,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Office Working.jpg
-seoTitle: ''
+seoTitle: 'Working in Malta: Jobs, Salaries, Rights'
 shareImage: /assets/images/Office Working.jpg
 ---

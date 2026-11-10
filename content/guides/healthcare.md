@@ -74,6 +74,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Hospital.jpg
-seoTitle: ''
+seoTitle: Healthcare in Malta for Expats
 shareImage: /assets/images/Hospital.jpg
 ---

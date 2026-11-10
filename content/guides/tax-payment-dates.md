@@ -64,6 +64,6 @@ blocks:
     custom: ''
 imageAlt: Calendar and documents
 cardImage: /assets/images/Calendar.jpg
-seoTitle: ''
+seoTitle: Malta Tax Calendar and Deadlines (2026)
 shareImage: /assets/images/Calendar.jpg
 ---

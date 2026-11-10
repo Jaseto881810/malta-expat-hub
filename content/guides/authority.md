@@ -75,6 +75,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Rent.jpg
-seoTitle: ''
+seoTitle: 'Malta Housing Authority: Tenant Guide'
 shareImage: /assets/images/Rent.jpg
 ---

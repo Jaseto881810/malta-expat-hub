@@ -104,6 +104,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Malta Police.webp
-seoTitle: ''
+seoTitle: Malta Police and Emergency Numbers
 shareImage: /assets/images/Malta Police.webp
 ---

@@ -104,6 +104,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Language School.jpg
-seoTitle: ''
+seoTitle: English Language Schools in Malta
 shareImage: /assets/images/Language School.jpg
 ---

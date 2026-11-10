@@ -313,7 +313,12 @@ def main():
         if graph:
             graph.append(ORG)
         lastmod[canon(url)] = modified or newest
-        return dict(page_title=f'Malta Expat Guide | {title}', description=description or '', url=url,
+        # Topic first, then the site name. Google shows about 60 characters, so long titles drop the site name.
+        title = str(title)
+        if 'malt' not in title.lower() and 'gozo' not in title.lower() and body_section not in ('page', 'blog'):
+            title += ' in Malta'
+        page_title = f'{title} | Malta Expat Guide' if len(title) <= 40 else title
+        return dict(page_title=page_title, description=description or '', url=url,
                     canonical=page_url, modified=modified,
                     schema_json=safe_json({'@context': 'https://schema.org', '@graph': graph}) if graph else '',
                     site_url=SITE_URL, adsense_client=ADSENSE_CLIENT, body_section=body_section, share_image=share)
@@ -331,7 +336,7 @@ def main():
     for g in guides:
         s = by_id[g['section']]
         write(g['url'], guide_tpl.render(page=g, section=s, content_css=True,
-              **common(g.get('seoTitle') or g['menuName'], g.get('description'), g['url'], s['slug'], g.get('shareImage') or g.get('image'),
+              **common(g.get('seoTitle') or g.get('title') or g['menuName'], g.get('description'), g['url'], s['slug'], g.get('shareImage') or g.get('image'),
                      crumbs=[(s['name'], s['href']), (g['menuName'], g['url'])], article={'headline': g.get('title') or g['menuName']},
                      modified=changed(g))))
         pages.append(g['url'])

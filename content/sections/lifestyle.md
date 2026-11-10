@@ -9,7 +9,7 @@ homeText: Restaurants, beach clubs, gyms, festivals and nightlife.
 homeImage: /assets/images/Malta International Fireworks.jpg
 homeTag: ''
 description: 'Lifestyle: Restaurants, beach clubs, gyms, festivals, nightlife and more.'
-seoTitle: ''
+seoTitle: 'Lifestyle in Malta: Food, Fun, Sport'
 shareImage: /assets/images/Malta International Fireworks.jpg
 singlePage: false
 title: ''

@@ -110,6 +110,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Permits.jpg
-seoTitle: ''
+seoTitle: Malta Work Permits and ID Cards
 shareImage: /assets/images/Permits.jpg
 ---

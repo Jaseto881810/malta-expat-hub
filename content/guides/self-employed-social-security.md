@@ -66,6 +66,6 @@ blocks:
     custom: ''
 imageAlt: Paperwork and calculator
 cardImage: /assets/images/Social Security.jpg
-seoTitle: ''
+seoTitle: Malta Class 2 Social Security (2026)
 shareImage: /assets/images/Social Security.jpg
 ---

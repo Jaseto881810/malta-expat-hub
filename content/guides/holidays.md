@@ -98,6 +98,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Malta Beach.jpg
-seoTitle: ''
+seoTitle: Public Holidays in Malta (2026)
 shareImage: /assets/images/Malta Beach.jpg
 ---

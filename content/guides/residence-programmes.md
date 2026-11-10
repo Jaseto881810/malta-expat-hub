@@ -71,6 +71,6 @@ blocks:
     custom: ''
 imageAlt: Valletta at sunset
 cardImage: /assets/images/Residency Program.jpg
-seoTitle: ''
+seoTitle: Malta Residence Programmes (2026)
 shareImage: /assets/images/Residency Program.jpg
 ---

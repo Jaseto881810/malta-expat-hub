@@ -74,6 +74,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Paceville.jpg
-seoTitle: ''
+seoTitle: 'Paceville: Malta''s Nightlife District'
 shareImage: /assets/images/Paceville.jpg
 ---

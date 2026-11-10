@@ -60,6 +60,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Kinnie.jpg
-seoTitle: ''
+seoTitle: Maltese Drinks to Try
 shareImage: /assets/images/Kinnie.jpg
 ---

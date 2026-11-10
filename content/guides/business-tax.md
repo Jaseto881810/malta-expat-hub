@@ -76,6 +76,6 @@ blocks:
     custom: ''
 imageAlt: Tax forms and calculator
 cardImage: /assets/images/Business Income.jpg
-seoTitle: ''
+seoTitle: Malta Tax for Self-Employed (2026)
 shareImage: /assets/images/Business Income.jpg
 ---

@@ -194,6 +194,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Taxation.jpg
-seoTitle: Taxation in Malta
+seoTitle: Taxation in Malta (2026)
 shareImage: /assets/images/Taxation.jpg
 ---

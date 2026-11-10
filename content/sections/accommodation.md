@@ -9,7 +9,7 @@ homeText: Renting, buying, Solidarjetà, mortgages and the Housing Authority.
 homeImage: /assets/images/Mellieha Heights.jpg
 homeTag: ''
 description: 'Accommodation: Renting, buying, Solidarjetà, mortgages and the Housing Authority.'
-seoTitle: ''
+seoTitle: 'Accommodation in Malta: Rent and Buy'
 shareImage: /assets/images/Mellieha Heights.jpg
 singlePage: false
 title: ''

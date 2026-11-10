@@ -9,7 +9,7 @@ homeText: Nursery to university, plus international and language schools.
 homeImage: /assets/images/Education.jpg
 homeTag: ''
 description: 'Education: From nursery to university, plus international and language schools.'
-seoTitle: ''
+seoTitle: Schools and Education in Malta
 shareImage: /assets/images/Education.jpg
 singlePage: false
 title: ''

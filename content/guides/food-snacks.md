@@ -76,6 +76,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Pastizzi.webp
-seoTitle: ''
+seoTitle: Maltese Food and Snacks to Try
 shareImage: /assets/images/Pastizzi.webp
 ---

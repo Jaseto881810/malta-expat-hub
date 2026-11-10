@@ -33,6 +33,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Legal Support.jpg
-seoTitle: Housing Authority
+seoTitle: 'Solidarjetà: Help With Landlord Disputes'
 shareImage: /assets/images/Legal Support.jpg
 ---

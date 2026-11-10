@@ -9,7 +9,7 @@ homeText: Language, etiquette, food, holidays and local customs.
 homeImage: /assets/images/Maltese Lunch.jpg
 homeTag: ''
 description: 'Basic Info: Language, etiquette, food and drink, holidays, religion and the local customs you will meet every day.'
-seoTitle: ''
+seoTitle: Malta Basic Info for Expats
 shareImage: /assets/images/Maltese Lunch.jpg
 singlePage: false
 title: ''

@@ -95,6 +95,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Triton Fountain.jpg
-seoTitle: ''
+seoTitle: Historical Sites in Malta
 shareImage: /assets/images/Triton Fountain.jpg
 ---

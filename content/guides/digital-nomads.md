@@ -71,6 +71,6 @@ blocks:
     custom: ''
 imageAlt: Working on a laptop
 cardImage: /assets/images/Digital Nomad.jpg
-seoTitle: ''
+seoTitle: Malta Digital Nomad Visa (2026)
 shareImage: /assets/images/Digital Nomad.jpg
 ---

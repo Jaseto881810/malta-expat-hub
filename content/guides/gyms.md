@@ -95,6 +95,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Gym.jpg
-seoTitle: ''
+seoTitle: Gyms and Fitness Clubs in Malta
 shareImage: /assets/images/Gym.jpg
 ---

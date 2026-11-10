@@ -79,6 +79,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Boat Rentals.jpg
-seoTitle: ''
+seoTitle: Boat Rentals in Malta and Gozo
 shareImage: /assets/images/Boat Rentals.jpg
 ---

@@ -226,6 +226,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Driving License.jpg
-seoTitle: ''
+seoTitle: Exchange Your Driving Licence in Malta
 shareImage: /assets/images/Driving License.jpg
 ---

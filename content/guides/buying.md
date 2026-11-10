@@ -82,6 +82,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Buying Property.jpg
-seoTitle: ''
+seoTitle: Buying Property in Malta as a Foreigner
 shareImage: /assets/images/Buying Property.jpg
 ---

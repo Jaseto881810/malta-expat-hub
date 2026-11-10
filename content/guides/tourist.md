@@ -87,6 +87,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Cannons.jpg
-seoTitle: ''
+seoTitle: Top Tourist Spots in Malta
 shareImage: /assets/images/Cannons.jpg
 ---

@@ -83,6 +83,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Kannoli.webp
-seoTitle: ''
+seoTitle: Maltese Customs and Traditions
 shareImage: /assets/images/Kannoli.webp
 ---

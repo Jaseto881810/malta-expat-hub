@@ -86,6 +86,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Gozo.jpg
-seoTitle: ''
+seoTitle: Living in and Visiting Gozo
 shareImage: /assets/images/Gozo.jpg
 ---

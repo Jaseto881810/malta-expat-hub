@@ -9,7 +9,7 @@ homeText: Permits, tax, healthcare, work and the rules that apply to you.
 homeImage: /assets/images/Tax.jpg
 homeTag: ''
 description: 'Expat Info: The rules, paperwork and practicalities that apply to you as a foreign national living and working in Malta.'
-seoTitle: ''
+seoTitle: 'Expat Info: Permits, Tax and Healthcare'
 shareImage: /assets/images/Tax.jpg
 singlePage: false
 title: ''

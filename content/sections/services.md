@@ -9,7 +9,7 @@ homeText: Insurance, internet, movers, water delivery and pensions.
 homeImage: /assets/images/Water Delivery.jpg
 homeTag: ''
 description: 'Services: Insurance, internet and mobile, moving companies, water delivery, and investments and pensions.'
-seoTitle: ''
+seoTitle: Insurance and Services in Malta
 shareImage: /assets/images/Water Delivery.jpg
 singlePage: false
 title: ''

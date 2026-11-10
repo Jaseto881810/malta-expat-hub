@@ -67,6 +67,6 @@ blocks:
     custom: ''
 imageAlt: ''
 cardImage: /assets/images/Beach Club.jpg
-seoTitle: ''
+seoTitle: Best Beach Clubs in Malta
 shareImage: /assets/images/Beach Club.jpg
 ---
