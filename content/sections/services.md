@@ -1,21 +1,10 @@
 ---
 name: Services
-number: '06'
-order: 6
+number: '07'
+order: 7
 colour: '#c9a7ff'
 inTopMenu: false
 intro: Insurance, internet and mobile, moving companies, water delivery, and investments and pensions.
-homeText: Insurance, internet, movers, water delivery and pensions.
-homeImage: /assets/images/Water Delivery.jpg
-homeTag: ''
-description: 'Services: Insurance, internet and mobile, moving companies, water delivery, and investments and pensions.'
-seoTitle: Insurance and Services in Malta
-shareImage: /assets/images/Water Delivery.jpg
-singlePage: false
-title: ''
-heroText: ''
-image: /assets/images/Water Delivery.jpg
-blocks: []
 overview: |-
   Once you have a home, you need to set up the services of everyday life. This section helps you compare the main options and avoid common mistakes.
 
@@ -27,4 +16,15 @@ overview: |-
   - **Moving your things:** [Moving Companies](/services/moving-companies.html) explains shipping to and from Malta.
 
   For saving and pensions, see [Investment and Pensions](/services/investment-pensions.html). To plan your monthly costs, try the free [Cost of Living Calculator](/tools/cost-of-living.html).
+homeText: Insurance, internet, movers, water delivery and pensions.
+homeImage: /assets/images/Water Delivery.jpg
+homeTag: ''
+description: 'Services: Insurance, internet and mobile, moving companies, water delivery, and investments and pensions.'
+seoTitle: Insurance and Services in Malta
+shareImage: /assets/images/Water Delivery.jpg
+singlePage: false
+title: ''
+heroText: ''
+image: /assets/images/Water Delivery.jpg
+blocks: []
 ---
