@@ -27,6 +27,12 @@
         <div class="map-fallback" id="map-fallback">Loading map…</div>
       </div>
     </section>
+    {%- if map_page.overview %}
+    <section class="card overview-card map-about" style="--tint:#b8f35c">
+      <h2>About this map</h2>
+      <div class="md">{{ map_page.overview | markdown | safe }}</div>
+    </section>
+    {%- endif %}
 
     <script id="map-data" type="application/json">{{ places_json | safe }}</script>
     <script>

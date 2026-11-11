@@ -398,9 +398,10 @@ def main():
                        crumbs=[('Blog', '/blog/'), (post['title'], post['url'])], modified=changed(post),
                        article={'type': 'BlogPosting', 'headline': post['title'], 'published': post['date_obj'].isoformat()})))
         pages.append(post['url'])
-    write('/blog/', env.get_template('blog.html').render(posts=posts, section=blog,
-          **common('Blog', 'News, tips and personal stories about moving to and living in Malta.', '/blog/', 'blog',
-                  crumbs=[('Blog', '/blog/')], modified=changed(*posts))))
+    blog_page = read(os.path.join(ROOT, 'content', 'blog-page.md'))
+    write('/blog/', env.get_template('blog.html').render(posts=posts, section=blog, blog_page=blog_page,
+          **common('Blog', blog_page.get('description') or 'News, tips and personal stories about moving to and living in Malta.', '/blog/', 'blog',
+                  crumbs=[('Blog', '/blog/')], modified=changed(blog_page, *posts))))
     pages.append('/blog/')
 
     # ---- interactive map ----
@@ -442,11 +443,12 @@ def main():
     for p in places:
         p.pop('slug', None)
     places.sort(key=lambda p: p['name'].lower())
+    map_page = read(os.path.join(ROOT, 'content', 'map-page.md'))
     write('/map/', env.get_template('map.html').render(
-        places_json=safe_json(places), categories_json=safe_json(MAP_CATEGORIES),
+        places_json=safe_json(places), categories_json=safe_json(MAP_CATEGORIES), map_page=map_page,
         **common('Malta Map: things to do, beaches, hiking, diving and more',
-                 'Interactive map of Malta and Gozo: things to do, hiking trails, dive sites, beaches, neighbourhoods, expat services and English schools.',
-                 '/map/', 'map', crumbs=[('Map', '/map/')])))
+                 map_page.get('description') or 'Interactive map of Malta and Gozo.',
+                 '/map/', 'map', crumbs=[('Map', '/map/')], modified=changed(map_page))))
     pages.append('/map/')
 
     # ---- tools (calculators): overview at /tools/ plus one page per tool ----

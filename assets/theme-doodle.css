@@ -250,3 +250,12 @@ body.site .tile-head h3, body.site .guide-card h4, body.site .tool-tile h3 { lin
 /* Keep the site name on one line in the header */
 body.site .nav-brand { white-space: nowrap; flex: none; line-height: 1.1; }
 body.site .nav { gap: 18px; }
+
+/* "About this section" text under the cards on overview pages */
+.site .overview-card { max-width: 1100px; margin: 36px auto 0; padding: 28px 32px; box-shadow: 6px 6px 0 var(--tint, var(--ink)); }
+.site .overview-card h2 { margin: 0 0 12px; font-size: 38px; }
+.site .overview-card .md { line-height: 1.65; max-width: 820px; }
+.site .overview-card .md li { margin-bottom: 6px; }
+.site .map-about { margin: 28px 24px 0; }
+@media (min-width: 1148px) { .site .map-about { margin: 28px auto 0; } }
+@media (max-width: 760px) { .site .overview-card { margin: 24px 16px 0; padding: 20px; } .site .overview-card h2 { font-size: 30px; } }

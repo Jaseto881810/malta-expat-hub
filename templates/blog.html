@@ -7,7 +7,7 @@
         <h1>Blog</h1>
       </div>
       <div>
-        <p>News, tips and personal stories about moving to and living in Malta.</p>
+        <p>{{ blog_page.heroText or "News, tips and personal stories about moving to and living in Malta." }}</p>
         <span class="tag tag-light">{{ posts | length }} post{{ '' if posts | length == 1 else 's' }}</span>
       </div>
     </section>
@@ -19,4 +19,11 @@
       <p>No posts yet. Check back soon.</p>
 {%- endfor %}
     </div>
+    {%- if blog_page.overview %}
+    <section class="card overview-card" style="--tint:{{ section.colour }}">
+      <h2>About our blog</h2>
+      <div class="md">{{ blog_page.overview | markdown | safe }}</div>
+    </section>
+    {%- endif %}
+    <div class="page-end"></div>
 {% endblock %}

@@ -16,4 +16,15 @@ title: ''
 heroText: ''
 image: /assets/images/Malta International Fireworks.jpg
 blocks: []
+overview: |-
+  Malta has sunshine for most of the year, so life happens outside: at the sea, at village feasts and in restaurants late into the evening. This section helps you make the most of your free time.
+
+  **Where to start:**
+
+  - **Summer:** relax at [Beach Clubs](/lifestyle/beach-clubs.html) or rent a boat with our [Boat Rentals](/lifestyle/boat-rentals.html) guide.
+  - **Going out:** see [Nightlife](/lifestyle/nightlife.html), [Paceville](/lifestyle/paceville.html) and [Popular Restaurants](/lifestyle/restaurants.html).
+  - **Staying active:** compare [Gyms and Fitness Clubs](/lifestyle/gyms.html) and [Sports Clubs](/lifestyle/sports-clubs.html). Joining a club is a great way to meet people.
+  - **Events:** [Annual Festivals](/lifestyle/festivals.html) lists the big events of the year, from Carnival to the village festas.
+
+  For rainy days there are [Shopping Malls](/lifestyle/shopping-malls.html) and [Movie Theatres](/lifestyle/movie-theatres.html). See everything on our [interactive map](/map/).
 ---

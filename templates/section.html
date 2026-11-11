@@ -23,4 +23,11 @@
       </a>
 {%- endfor %}
     </div>
+    {%- if section.overview %}
+    <section class="card overview-card" style="--tint:{{ section.colour }}">
+      <h2>About {{ section.name }}</h2>
+      <div class="md">{{ section.overview | markdown | safe }}</div>
+    </section>
+    {%- endif %}
+    <div class="page-end"></div>
 {% endblock %}

@@ -235,6 +235,7 @@ collections:
       - { label: Colour, name: colour, widget: color, hint: "Soft background colour for this section" }
       - { label: Show in top menu, name: inTopMenu, widget: boolean, required: false, default: false }
       - { label: Intro text, name: intro, widget: text, required: false, hint: "Text at the top of the section page" }
+      - { label: "About this section (under the guide cards)", name: overview, widget: markdown, required: false, hint: "A short helpful paragraph for readers and Google. Links to the most useful guides work well." }
       - { label: Home page text, name: homeText, widget: text, required: false }
       - { label: Home page photo, name: homeImage, widget: image, required: false }
       - { label: Home page label (optional), name: homeTag, widget: string, required: false, hint: "Empty = shows the number of guides" }
@@ -274,8 +275,8 @@ collections:
       - { label: Social share photo (optional), name: shareImage, widget: image, required: false }
 
   - name: tools-page
-    label: Tools page
-    description: The text on the Tools overview page (/tools/).
+    label: Overview pages
+    description: The text on the Tools, Blog and Map pages.
     files:
       - name: tools-page
         label: Tools page
@@ -286,6 +287,22 @@ collections:
           - { label: Intro text, name: heroText, widget: text }
           - { label: Note under the tools, name: note, widget: string, hint: "Shown on every tool page too." }
           - { label: Text for search engines, name: description, widget: text, required: false }
+          - { label: "About these calculators (bottom of the page)", name: overview, widget: markdown, required: false }
+      - name: blog-page
+        label: Blog page
+        file: content/blog-page.md
+        format: frontmatter
+        fields:
+          - { label: Intro text, name: heroText, widget: text }
+          - { label: Text for search engines, name: description, widget: text, required: false }
+          - { label: "About our blog (bottom of the page)", name: overview, widget: markdown, required: false }
+      - name: map-page
+        label: Map page
+        file: content/map-page.md
+        format: frontmatter
+        fields:
+          - { label: Text for search engines, name: description, widget: text, required: false }
+          - { label: "About this map (under the map)", name: overview, widget: markdown, required: false }
 
   - name: tools
     label: Tools

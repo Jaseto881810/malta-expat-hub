@@ -16,6 +16,12 @@
 {%- endfor %}
       </div>
       <p class="tool-note">{{ hub.note }}</p>
+      {%- if hub.overview %}
+      <section class="card tool-text">
+        <h2>About these calculators</h2>
+        <div class="md">{{ hub.overview | markdown | safe }}</div>
+      </section>
+      {%- endif %}
     </div>
     <div class="page-end"></div>
 {% endblock %}
