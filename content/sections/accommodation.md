@@ -1,21 +1,10 @@
 ---
 name: Accommodation
-number: '04'
-order: 4
+number: '05'
+order: 5
 colour: '#ff8fb3'
 inTopMenu: true
 intro: Renting, buying, Solidarjetà, mortgages and the Housing Authority.
-homeText: Renting, buying, Solidarjetà, mortgages and the Housing Authority.
-homeImage: /assets/images/Mellieha Heights.jpg
-homeTag: ''
-description: 'Accommodation: Renting, buying, Solidarjetà, mortgages and the Housing Authority.'
-seoTitle: 'Accommodation in Malta: Rent and Buy'
-shareImage: /assets/images/Mellieha Heights.jpg
-singlePage: false
-title: ''
-heroText: ''
-image: /assets/images/Mellieha Heights.jpg
-blocks: []
 overview: |-
   Finding a home is often the hardest part of moving to Malta. Rent is high in popular areas, and the rules for tenants are different from many other countries.
 
@@ -27,4 +16,15 @@ overview: |-
   - **Thinking of buying?** Read [Buying Properties](/accommodation/buying.html) and [Mortgages](/accommodation/mortgages.html). Foreigners can buy in Malta, but some rules apply.
 
   Every long-let contract in Malta must be registered with the Housing Authority. You also need a registered contract for your residence card.
+homeText: Renting, buying, Solidarjetà, mortgages and the Housing Authority.
+homeImage: /assets/images/Mellieha Heights.jpg
+homeTag: ''
+description: 'Accommodation: Renting, buying, Solidarjetà, mortgages and the Housing Authority.'
+seoTitle: 'Accommodation in Malta: Rent and Buy'
+shareImage: /assets/images/Mellieha Heights.jpg
+singlePage: false
+title: ''
+heroText: ''
+image: /assets/images/Mellieha Heights.jpg
+blocks: []
 ---
