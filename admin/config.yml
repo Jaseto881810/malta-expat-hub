@@ -224,7 +224,7 @@ collections:
     delete: false
     identifier_field: name
     slug: "{{fields.name}}"
-    summary: "{{fields.number}} · {{fields.name}}"
+    summary: "{{fields.order}} · {{fields.name}}"
     sortable_fields:
       fields: [order, name]
       default: { field: order }
