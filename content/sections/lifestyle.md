@@ -1,21 +1,10 @@
 ---
 name: Lifestyle
-number: '08'
-order: 8
+number: '09'
+order: 9
 colour: '#7fdcc9'
 inTopMenu: true
 intro: Restaurants, beach clubs, gyms, festivals, nightlife and more.
-homeText: Restaurants, beach clubs, gyms, festivals and nightlife.
-homeImage: /assets/images/Malta International Fireworks.jpg
-homeTag: ''
-description: 'Lifestyle: Restaurants, beach clubs, gyms, festivals, nightlife and more.'
-seoTitle: 'Lifestyle in Malta: Food, Fun, Sport'
-shareImage: /assets/images/Malta International Fireworks.jpg
-singlePage: false
-title: ''
-heroText: ''
-image: /assets/images/Malta International Fireworks.jpg
-blocks: []
 overview: |-
   Malta has sunshine for most of the year, so life happens outside: at the sea, at village feasts and in restaurants late into the evening. This section helps you make the most of your free time.
 
@@ -27,4 +16,15 @@ overview: |-
   - **Events:** [Annual Festivals](/lifestyle/festivals.html) lists the big events of the year, from Carnival to the village festas.
 
   For rainy days there are [Shopping Malls](/lifestyle/shopping-malls.html) and [Movie Theatres](/lifestyle/movie-theatres.html). See everything on our [interactive map](/map/).
+homeText: Restaurants, beach clubs, gyms, festivals and nightlife.
+homeImage: /assets/images/Malta International Fireworks.jpg
+homeTag: ''
+description: 'Lifestyle: Restaurants, beach clubs, gyms, festivals, nightlife and more.'
+seoTitle: 'Lifestyle in Malta: Food, Fun, Sport'
+shareImage: /assets/images/Malta International Fireworks.jpg
+singlePage: false
+title: ''
+heroText: ''
+image: /assets/images/Malta International Fireworks.jpg
+blocks: []
 ---
