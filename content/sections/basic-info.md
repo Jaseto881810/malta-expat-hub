@@ -1,21 +1,10 @@
 ---
 name: Basic Info
-number: '03'
-order: 3
+number: '04'
+order: 4
 colour: '#b8f35c'
 inTopMenu: false
 intro: Language, etiquette, food and drink, holidays, religion and the local customs you will meet every day.
-homeText: Language, etiquette, food, holidays and local customs.
-homeImage: /assets/images/Maltese Lunch.jpg
-homeTag: ''
-description: 'Basic Info: Language, etiquette, food and drink, holidays, religion and the local customs you will meet every day.'
-seoTitle: Malta Basic Info for Expats
-shareImage: /assets/images/Maltese Lunch.jpg
-singlePage: false
-title: ''
-heroText: ''
-image: /assets/images/Maltese Lunch.jpg
-blocks: []
 overview: |-
   Malta is small, but it has its own language, food, traditions and way of life. This section helps you understand everyday Malta and feel at home faster.
 
@@ -27,4 +16,15 @@ overview: |-
   - **Plan your year:** Malta has 14 [Public Holidays](/basic-info/holidays.html), more than most countries in Europe.
 
   You will also find simple guides to religion, politics, sport and the local news, so you can follow what is happening around you.
+homeText: Language, etiquette, food, holidays and local customs.
+homeImage: /assets/images/Maltese Lunch.jpg
+homeTag: ''
+description: 'Basic Info: Language, etiquette, food and drink, holidays, religion and the local customs you will meet every day.'
+seoTitle: Malta Basic Info for Expats
+shareImage: /assets/images/Maltese Lunch.jpg
+singlePage: false
+title: ''
+heroText: ''
+image: /assets/images/Maltese Lunch.jpg
+blocks: []
 ---
