@@ -1,10 +1,11 @@
 ---
 name: Safety in Malta
-number: '07'
-order: 7
+number: '08'
+order: 8
 colour: '#ffd60a'
 inTopMenu: false
 intro: ''
+overview: ''
 homeText: Nightlife, petty crime, scams and emergency protocols.
 homeImage: /assets/images/Malta Police.webp
 homeTag: ''
