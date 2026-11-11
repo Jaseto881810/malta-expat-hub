@@ -23,7 +23,7 @@ blocks:
 
       **Dogs only:** Malta is free of a dangerous tapeworm, so every dog needs a **tapeworm treatment** given by a vet **1 to 5 days (24 to 120 hours) before arriving** in Malta. The vet writes the date and time in the passport or certificate.
 
-      > If any document is missing or wrong, your pet can be sent back or put in quarantine at your cost. Check everything with your vet before you travel.
+      > If any document is missing or wrong, your pet can be **sent back or put in quarantine at your cost**, and fines can reach **€3,700**. Check everything with your vet before you travel.
     html: ''
     custom: ''
   - heading: Rules by country
@@ -41,9 +41,9 @@ blocks:
     custom: ''
   - heading: Travelling to Malta
     text: |-
-      - **Tell the VRD before you arrive.** Malta asks for **advance notice** of pets arriving, usually at least **48 hours** before. Find the form and contact details on the VRD website.
+      - **Send the Pets Arrival Notification before you travel. This is required.** Fill in the free online form on **servizz.gov.mt** (search for "Pets Arrival Notification"). Send it a few days before you travel, because it is checked and approved step by step. **Print the approval** and carry it with your pet's documents. Without this form, your pet can be **refused entry**.
       - **By air:** pets from outside the EU must arrive at **Malta International Airport**. Airlines have their own rules: small pets can sometimes travel in the cabin, bigger pets go in the hold or as cargo, in an approved crate. Book early, because places for pets are limited.
-      - **By ferry from Sicily:** check the ferry company's pet rules. Pets usually stay in your car or in a special area.
+      - **By ferry from Sicily** (Pozzallo to Valletta): book your pet's place in advance. Pets stay in your car, a carrier or a special area, and staff can refuse boarding if documents are missing.
       - **Hot weather:** many airlines do not carry pets in the hold in the hottest summer months. Plan your move for spring or autumn if you can.
     html: ''
     custom: ''
