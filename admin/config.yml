@@ -230,8 +230,7 @@ collections:
       default: { field: order }
     fields:
       - { label: Name, name: name, widget: string }
-      - { label: Number, name: number, widget: string, hint: "Shown on the page, for example 02" }
-      - { label: Position, name: order, widget: number, value_type: int }
+      - { label: Position, name: order, widget: number, value_type: int, hint: "Where this section goes (1 = first). Numbers like 02 are added automatically. To put a new section in a taken spot, give it the same Position: it goes before the existing one and the others move down." }
       - { label: Colour, name: colour, widget: color, hint: "Soft background colour for this section" }
       - { label: Show in top menu, name: inTopMenu, widget: boolean, required: false, default: false }
       - { label: Intro text, name: intro, widget: text, required: false, hint: "Text at the top of the section page" }

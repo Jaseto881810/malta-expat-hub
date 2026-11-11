@@ -206,6 +206,23 @@ def git_dates():
     return dates
 
 
+def git_created(folder):
+    """When each file in a folder was first added (seconds since 1970), from the git history."""
+    import subprocess
+    try:
+        log = subprocess.run(['git', '-c', 'core.quotepath=off', 'log', '--diff-filter=A', '--format=@%ct', '--name-only', '--', folder],
+                             cwd=ROOT, capture_output=True, text=True, check=True).stdout
+    except Exception:
+        return {}
+    out, current = {}, None
+    for line in log.splitlines():
+        if line.startswith('@'):
+            current = int(line[1:])
+        elif line.strip() and current:
+            out.setdefault(line.strip(), current)
+    return out
+
+
 safe_json = lambda o: json.dumps(o, ensure_ascii=False).replace('</', '<\\/')
 
 
@@ -231,7 +248,14 @@ def main():
     os.makedirs(OUT)
 
     # ---- content ----
-    sections = sorted(load_folder('sections'), key=lambda s: (s.get('order', 99), s['name']))
+    # Section order and numbers are automatic: sorted by Position; if two sections share a
+    # Position, the newest one goes first. Numbers (01, 02, ...) then follow that order,
+    # so adding a section never means renumbering the others by hand.
+    created = git_created('content/sections')
+    sections = sorted(load_folder('sections'),
+                      key=lambda s: (float(s.get('order') or 99), -created.get(s['_path'], 9e12), s['name']))
+    for i, s in enumerate(sections):
+        s['number'] = f'{i + 1:02d}'
     guides = [g for g in load_folder('guides') if not g.get('draft')]
     pages_extra = [pg for pg in load_folder('pages') if not pg.get('draft')]
     posts = load_posts()
