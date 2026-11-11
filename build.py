@@ -463,6 +463,68 @@ def main():
     script = open(os.path.join(ROOT, 'templates', 'site-script.js'), encoding='utf-8').read()
     write('/assets/site.js', script)
 
+    # ---- llms.txt: a plain-text map of the site for AI tools (see llmstxt.org) ----
+    # llms.txt lists every page with a one-line description; llms-full.txt holds the full text of all guides.
+    def md_line(name, url, desc):
+        desc = ' '.join(str(desc or '').split())
+        desc = re.sub(r'^' + re.escape(name.replace(' (overview)', '')) + r':\s*', '', desc)
+        return f"- [{name}]({abs_url(url)})" + (f": {desc}" if desc else '')
+
+    def page_text(doc):
+        out = []
+        for b in doc.get('blocks') or []:
+            if b.get('heading'):
+                out.append('### ' + html.unescape(re.sub(r'<[^>]+>', '', str(b['heading']))))
+            for part in (b.get('text'), b.get('html')):
+                if part:
+                    t = str(part)
+                    if part is b.get('html'):   # HTML boxes: keep the words, drop the tags
+                        t = re.sub(r'<(script|style)[^>]*>.*?</\1>', ' ', t, flags=re.S)
+                        t = re.sub(r'<(br|/p|/li|/h\d|/div|/tr)[^>]*>', '\n', t)
+                        t = html.unescape(re.sub(r'<[^>]+>', ' ', t))
+                        t = '\n'.join(' '.join(l.split()) for l in t.splitlines() if l.strip())
+                    out.append(t.strip())
+        return '\n\n'.join(x for x in out if x)
+
+    llms = ['# Malta Expat Guide', '',
+            f"> {home.get('description') or 'A free, independent guide for foreign nationals moving to or living in Malta.'}", '',
+            'Malta Expat Guide (maltaexpatguide.com) is a free, independent English-language guide for people moving to or living in Malta and Gozo. '
+            'It is written by an expat living in Malta since 2018, in simple English for readers who may not be native speakers. '
+            'Pages cover residence permits, tax, social security, housing, healthcare, schools, daily life and things to do. '
+            'Figures (tax rates, fees, prices) are for the current year and are reviewed regularly; always check important details with the official source.', '']
+    for s in sections:
+        llms.append(f"## {s['name']}")
+        llms.append('')
+        if s.get('singlePage'):
+            llms.append(md_line(s.get('title') or s['name'], s['href'], s.get('description')))
+        else:
+            llms.append(md_line(f"{s['name']} (overview)", f"/{s['slug']}/", s.get('description') or s.get('intro')))
+            llms += [md_line(g.get('title') or g['menuName'], g['url'], g.get('description') or g.get('heroText')) for g in s['guides']]
+        llms.append('')
+    llms += ['## Free calculators', '', md_line('All calculators', '/tools/', hub.get('description'))]
+    llms += [md_line(t['title'], t['url'], t.get('description')) for t in tools]
+    llms += ['', '## Map and blog', '',
+             md_line('Interactive map of Malta', '/map/', 'Things to do, hiking trails, dive sites, beaches, neighbourhoods with rent levels, expat services and English schools.')]
+    llms += [md_line(p['title'], p['url'], p.get('description') or p.get('excerpt')) for p in posts]
+    llms += ['', '## Optional', '']
+    llms += [md_line(pg['menuName'], pg['url'], pg.get('description')) for pg in pages_extra if not pg.get('hideFromSearch')]
+    llms.append(md_line('Full text of all guides', '/llms-full.txt', 'Every guide on the site as plain text, in one file.'))
+    write('/llms.txt', '\n'.join(llms) + '\n')
+
+    full = ['# Malta Expat Guide: full text of all guides', '',
+            f"> Source: {SITE_URL}/ . Free, independent guide for expats in Malta. Each page below shows its address and the date it last changed.", '']
+    for s in sections:
+        docs = [s] if s.get('singlePage') else s['guides']
+        for d in docs:
+            url = s['href'] if d is s else d['url']
+            full += ['---', '', f"## {d.get('title') or d.get('name') or d.get('menuName')}", '',
+                     f"URL: {abs_url(url)}  ", f"Section: {s['name']}  ", f"Last updated: {changed(d)}", '']
+            if d.get('heroText'):
+                full += [str(d['heroText']).strip(), '']
+            full += [page_text(d), '']
+    full_text = re.sub(r'\]\((/[^)]*)\)', lambda m: '](' + abs_url(m.group(1)) + ')', '\n'.join(full))
+    write('/llms-full.txt', full_text + '\n')
+
     # ---- sitemap ----
     urls = ['/'] + pages
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
