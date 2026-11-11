@@ -7,7 +7,7 @@ image: /assets/images/Banking.jpg
 imageAlt: Bank cards and online banking
 order: 1
 seoTitle: Open a Bank Account in Malta as an Expat
-description: How to open a bank account in Malta as an expat in 2026. Compare BOV, HSBC, BNF and MeDirect, the documents you need, common problems, and online banks like Revolut.
+description: How to open a bank account in Malta as an expat in 2026. Compare BOV, HSBC (now being sold to CrediaBank), BNF and MeDirect, documents, tips for non-EU citizens and online banks.
 cardText: Local banks, documents you need, and online banks you can use from day one.
 draft: false
 blocks:
@@ -17,7 +17,7 @@ blocks:
 
       There is also a "chicken and egg" problem: a bank may ask for your **residence card**, but some offices ask for **local bank details** before they give you one.
 
-      > **Tip:** Open an **online bank account** before you arrive (see below). You can then receive your salary, pay rent and use a card from day one, while you wait for a local bank.
+      > **Tip for EU citizens:** open an **online bank account** before you arrive (see below). You can then receive your salary, pay rent and use a card from day one, while you wait for a local bank.
     html: ''
     custom: ''
   - heading: Documents you usually need
@@ -40,7 +40,7 @@ blocks:
       | Bank | Good to know |
       | --- | --- |
       | **Bank of Valletta (BOV)** | The biggest bank, with the most branches and cash machines. Many employers use it. It may ask for a bank or employer reference letter. |
-      | **HSBC Malta** | Good if you already bank with HSBC abroad. Often the strictest checks for newcomers. |
+      | **HSBC Malta** | **Being sold to CrediaBank**, a Greek bank (see below). Often the strictest checks for newcomers. |
       | **BNF Bank** | Fewer branches, but often easier for newcomers. Usually no reference letter needed for a normal personal account. |
       | **MeDirect** | Fully online, no branch visit. You get a Maltese IBAN (starting with **MT**) quickly. Personal accounts only. |
       | **APS Bank** | Maltese bank with branches across the islands. Popular for savings and home loans. |
@@ -48,9 +48,24 @@ blocks:
       **Do you need a Maltese bank?** Not always. Within the EU, any euro account (an IBAN starting with LT, BE, DE and so on) must be accepted for salaries and bills. In practice, a Maltese IBAN still helps for **home loans**, some **government payments** and some employers.
     html: ''
     custom: ''
+  - heading: HSBC Malta is changing owner
+    text: |-
+      In September 2025, HSBC agreed to sell its **70% share of HSBC Bank Malta** to **CrediaBank**, a Greek bank (formerly Attica Bank), for about €200 million. The sale needs approval from the European Central Bank and the Malta Financial Services Authority. It is expected to **complete by the end of 2026**.
+
+      **What this means for you:**
+
+      - **Your money stays safe.** HSBC Bank Malta stays a Maltese bank, so deposits are still protected up to **€100,000** by Malta's Depositor Compensation Scheme.
+      - **Expect a new name and brand** after the sale. Watch for letters or emails about new cards, a new app or new terms.
+      - **The link to HSBC worldwide may end.** Many expats chose HSBC Malta for global benefits, such as easy transfers between HSBC accounts in different countries or HSBC Premier. These may change or stop after the sale.
+      - **Fees and products may change.** Read any new terms and compare them with other banks.
+      - **Opening a new account?** Do not choose HSBC Malta only because you bank with HSBC in another country.
+
+      CrediaBank says it plans to keep the staff and management team and invest in the bank. Until the sale is complete, nothing changes for customers.
+    html: ''
+    custom: ''
   - heading: Online banks - use them from day one
     text: |-
-      Online banks let you open an account on your phone in a few minutes, often **before you arrive in Malta**. They are very popular with expats.
+      Online banks let you open an account on your phone in a few minutes. They are very popular with expats.
 
       - **Revolut:** a full bank with a European banking licence. Your money is protected up to **€100,000** by the deposit guarantee scheme. Free account, card and app.
       - **Wise:** great for sending and receiving money in other currencies at a fair rate. It is a payment company, not a bank, so deposits are not covered by a deposit guarantee.
@@ -58,6 +73,20 @@ blocks:
       Many expats use an online bank for daily spending and transfers, and a local bank for a home loan or bigger savings.
     html: ''
     custom: ''
+  - heading: Not from the EU? Read this first
+    text: |-
+      Online banks are **not always a quick fix** for third-country nationals (people from outside the EU, EEA and Switzerland).
+
+      - To open a European account, online banks must check that you **live legally in Europe**. A tourist visa or a visa-free stay is usually **not enough**.
+      - They may also ask for **proof of address**, such as a signed long-term rental contract.
+      - So if you are **still waiting for your work or residence permit**, or you only have a short-term let, your application may be refused or put on hold until you have these documents.
+
+      **What you can do while you wait:**
+
+      - **Keep your home bank account and card** open. Tell your bank you are moving, so your card is not blocked abroad.
+      - Check if Revolut or Wise is available **in your home country**. You may be able to open an account there and use it in Malta.
+      - Ask your employer if they can pay your **first salaries to your home account** until your Maltese account is ready.
+      - Once you have your **residence card and registered lease**, apply again to an online bank or a local bank.
   - heading: Open a free Revolut account
     text: |-
       Revolut is the most popular online bank among expats in Malta. With a free account you get:
@@ -75,7 +104,7 @@ blocks:
     custom: ''
   - heading: Step by step
     text: |-
-      1. **Before you move:** open an online bank account and ask your home bank for a **reference letter** and recent statements.
+      1. **Before you move:** ask your home bank for a **reference letter** and recent statements. EU citizens can also open an online bank account now.
       2. **Find a home** and register the lease. See [Renting Properties](/accommodation/renting.html).
       3. **Apply for your e-Residence card** and get your tax number.
       4. **Book an appointment** at a local bank, or apply online with MeDirect. Bring all your documents.
