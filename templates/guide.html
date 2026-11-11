@@ -14,7 +14,10 @@
         <p>{{ page.heroText }}</p>
         {%- endif %}
         {%- if page.dateLabel %}
-        <div class="post-meta"><time datetime="{{ page.date_obj }}">{{ page.dateLabel }}</time> · {{ page.readTime }} min read</div>
+        <div class="post-meta"><time datetime="{{ page.date_obj }}">{{ page.dateLabel }}</time> · {{ page.readTime }} min read
+          {%- if modified and modified > (page.date_obj | string) %} · Updated <time datetime="{{ modified }}">{{ modified | nicedate }}</time>{% endif %}</div>
+        {%- elif modified %}
+        <div class="post-meta">Last updated <time datetime="{{ modified }}">{{ modified | nicedate }}</time>{% if not standalone %} · {{ page | readtime }} min read{% endif %}</div>
         {%- endif %}
       </div>
     </section>

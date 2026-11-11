@@ -123,3 +123,4 @@
 }
 @media (prefers-reduced-motion: reduce) { .site .tool-tile { transition: none; } }
 .site .field[hidden], .site .tool-form [hidden] { display: none; }
+.site .tool-hero .post-meta { color: var(--ink, #161b33); margin-top: 12px; }

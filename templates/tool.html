@@ -11,6 +11,9 @@
       <div class="crumbs"><a href="/index.html">Home</a> / <a href="/tools/">Tools</a> / <b>{{ tool.menuName }}</b></div>
       <h1>{{ tool.title }}</h1>
       <p>{{ tool.heroText }}</p>
+      {%- if modified %}
+      <div class="post-meta">Last updated <time datetime="{{ modified }}">{{ modified | nicedate }}</time></div>
+      {%- endif %}
     </section>
 
     <div class="tool-wrap" style="--tint:{{ tool.colour }}">

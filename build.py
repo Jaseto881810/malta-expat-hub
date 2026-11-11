@@ -89,6 +89,28 @@ def img(url, size='large'):
 env.filters['img'] = img
 
 
+def nicedate(value):
+    """'2026-11-08' -> '8 November 2026'"""
+    try:
+        d = datetime.date.fromisoformat(str(value)[:10])
+    except ValueError:
+        return str(value)
+    return f"{d.day} {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][d.month - 1]} {d.year}"
+
+
+def read_time(doc):
+    """Minutes to read a page (about 200 words a minute), counting text and HTML boxes."""
+    words = 0
+    for b in doc.get('blocks') or []:
+        for part in (b.get('text'), b.get('html')):
+            words += len(re.sub(r'<[^>]+>', ' ', str(part or '')).split())
+    return max(1, round(words / 200))
+
+
+env.filters['nicedate'] = nicedate
+env.filters['readtime'] = read_time
+
+
 def read(path):
     """Read a content file: the part between the --- lines is the page data."""
     text = open(path, encoding='utf-8').read()
