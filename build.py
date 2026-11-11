@@ -560,6 +560,13 @@ def main():
     shutil.copytree(os.path.join(ROOT, 'assets'), os.path.join(OUT, 'assets'), dirs_exist_ok=True,
                     ignore=shutil.ignore_patterns('content.src.css'))
     shutil.copytree(os.path.join(ROOT, 'admin'), os.path.join(OUT, 'admin'))
+    # Tell the admin panel which version of its settings to load, so browsers never use an old cached copy
+    import hashlib
+    cfg_hash = hashlib.md5(open(os.path.join(ROOT, 'admin', 'config.yml'), 'rb').read()).hexdigest()[:10]
+    admin_index = os.path.join(OUT, 'admin', 'index.html')
+    page = open(admin_index, encoding='utf-8').read()
+    page = page.replace('</head>', f'  <link href="/admin/config.yml?v={cfg_hash}" type="application/yaml" rel="cms-config-url">\n</head>', 1)
+    open(admin_index, 'w', encoding='utf-8').write(page)
     for f in ('CNAME', 'robots.txt', 'ads.txt', 'favicon.ico'):
         shutil.copy(os.path.join(ROOT, f), OUT)
     open(os.path.join(OUT, '.nojekyll'), 'w').close()
