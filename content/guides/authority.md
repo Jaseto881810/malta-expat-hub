@@ -15,7 +15,7 @@ blocks:
 
       Today, the Housing Authority regulates the entire private rental market. Their primary goal is to ensure transparency, prevent tax evasion, and protect both landlords and tenants from abusive practices. **By law, every single private rental contract in Malta must be registered with the Housing Authority online.** An unregistered rental contract is considered null, void, and entirely illegal.
 
-      Visit the [Malta Housign Authority](https://housingauthority.gov.mt/) website.
+      Visit the [Malta Housing Authority](https://housingauthority.gov.mt/) website.
     html: ''
     custom: ''
   - heading: What is Rent Registration?
