@@ -186,6 +186,10 @@ def write(url, html):
         path += 'index.html'
     dest = os.path.join(OUT, path.lstrip('/'))
     os.makedirs(os.path.dirname(dest), exist_ok=True)
+    if dest.endswith('.html'):
+        # Always link to a page's official address: /expat-info/index.html -> /expat-info/
+        # (otherwise Google reports the index.html version as a duplicate page)
+        html = re.sub(r'href="(/[^"#]*?)index\.html(#[^"]*)?"', lambda m: f'href="{m.group(1)}{m.group(2) or ""}"', html)
     open(dest, 'w', encoding='utf-8').write(html)
 
 
@@ -262,7 +266,7 @@ def main():
     by_id = {s['slug']: s for s in sections}
 
     for s in sections:
-        s['href'] = f"/{s['slug']}.html" if s.get('singlePage') else f"/{s['slug']}/index.html"
+        s['href'] = f"/{s['slug']}.html" if s.get('singlePage') else f"/{s['slug']}/"
         s['guides'] = []
     for g in guides:
         sec = by_id.get(g.get('section'))

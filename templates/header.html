@@ -1,7 +1,7 @@
 {#- Site header and the "All sections" menu. Built from the sections and guides in content/. -#}
 {%- set here = url or '' %}
       <div class="nav">
-        <a class="nav-brand" href="/index.html"><span>Malta</span> Expat Guide</a>
+        <a class="nav-brand" href="/"><span>Malta</span> Expat Guide</a>
         <nav class="nav-links" aria-label="Main">
           {%- for s in TOP_NAV %}
           <a class="nav-link" href="{{ s.href }}"{% if body_section == s.id %} aria-current="page"{% endif %}>{{ s.name | replace(' in Malta', '') }}</a>
@@ -16,7 +16,7 @@
       <div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="All sections">
         <div class="menu-panel">
           <div class="menu-head">
-            <a class="nav-brand" href="/index.html"><span>Malta</span> Expat Guide</a>
+            <a class="nav-brand" href="/"><span>Malta</span> Expat Guide</a>
             <button class="btn btn-icon btn-secondary" type="button" data-menu-close aria-label="Close menu">✕</button>
           </div>
           <nav class="menu-grid" aria-label="All sections">

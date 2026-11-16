@@ -8,7 +8,7 @@
     <section class="g-hero">
       <div class="photo" role="img" aria-label="{{ page.imageAlt or page.title }}" style="--img:url('{{ page.image | img('large') }}')"></div>
       <div class="g-hero-card">
-        <div class="crumbs"><a href="/index.html">Home</a> / {% if section and not section.singlePage %}<a href="{{ section.href }}">{{ section.name }}</a> / {% endif %}<b>{{ page.title }}</b></div>
+        <div class="crumbs"><a href="/">Home</a> / {% if section and not section.singlePage %}<a href="{{ section.href }}">{{ section.name }}</a> / {% endif %}<b>{{ page.title }}</b></div>
         <h1>{{ page.title }}</h1>
         {%- if page.heroText %}
         <p>{{ page.heroText }}</p>
